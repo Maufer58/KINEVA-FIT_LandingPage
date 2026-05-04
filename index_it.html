@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVE Fitness PRO | Il Gestionale Definitivo per Personal Trainer e Gym Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0c',
+                            card: '#161618',
+                            accent: '#3B82F6',
+                            orange: '#F97316',
+                            amber: '#ffbf00',
+                            cyan: '#00e5ff',
+                            indigo: '#6366f1',
+                            teal: '#14b8a6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #0a0a0c; overflow-x: hidden; }
+        .device-shadow { box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.9); }
+        .iphone-mock { border-radius: 40px; border: 6px solid #2d2d2d; overflow: hidden; background-color: #000; position: relative; }
+        .watch-mock { border-radius: 40px; border: 4px solid #333; overflow: hidden; background-color: #000; }
+        .ipad-mock { border-radius: 24px; border: 12px solid #2d2d2d; overflow: hidden; background-color: #000; aspect-ratio: 4/3; object-fit: cover; }
+        
+        .gradient-text { background: linear-gradient(90deg, #3B82F6, #00e5ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-text-amber { background: linear-gradient(90deg, #ffbf00, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-text-indigo { background: linear-gradient(90deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; }
+        .snap-item { scroll-snap-align: center; }
+
+        .glow-blob { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.15; pointer-events: none; z-index: 0; }
+    </style>
+</head>
+<body class="text-gray-200 font-sans antialiased selection:bg-brand-accent selection:text-white relative">
+
+    <header class="fixed w-full top-0 z-50 bg-brand-dark/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
+            <div class="text-2xl font-bold text-white flex items-center gap-2">
+                <i class="fas fa-dumbbell text-brand-amber text-xl"></i>
+                <span class="text-xl font-bold tracking-wider">M.O.V.E.<span class="text-brand-amber">PRO</span></span>
+            </div>
+            <nav class="hidden lg:flex gap-8 text-sm font-semibold text-gray-400">
+                <a href="#pro" class="hover:text-white transition">Dashboard PT & Gym</a>
+                <a href="#assegnazione" class="hover:text-white transition">Gestione Clienti</a>
+                <a href="#editor" class="hover:text-white transition">Editor & Circuiti</a>
+                <a href="#app" class="hover:text-white transition">App Atleta</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <div class="hidden sm:flex items-center gap-3 bg-brand-card rounded-full px-3 py-1.5 border border-gray-700">
+                    <span class="text-white flex items-center gap-1.5 font-bold cursor-default" title="Italiano">
+                        <span class="text-lg">🇮🇹</span> <span class="text-sm">IT</span>
+                    </span>
+                    <span class="text-gray-600">|</span>
+                    <a href="index_en.html" class="text-gray-400 hover:text-white transition flex items-center gap-1.5 font-bold group" title="English">
+                        <span class="text-lg opacity-50 group-hover:opacity-100 transition">🇬🇧</span> <span class="text-sm">EN</span>
+                    </a>
+                </div>
+                <a href="#prezzi" class="bg-brand-amber hover:bg-yellow-500 text-black px-5 py-2 rounded-full text-sm font-bold transition shadow-lg shadow-yellow-500/20"> Inizia Gratis </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-32 pb-24 px-6 overflow-hidden relative">
+        <div class="glow-blob w-[600px] h-[600px] bg-brand-amber top-[-200px] right-[-100px] opacity-20"></div>
+        
+        <div class="container mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
+            <div class="lg:w-1/2 space-y-8">
+                <div class="inline-block bg-brand-amber/20 text-brand-amber font-bold px-4 py-1 rounded-full text-xs tracking-widest mb-2 border border-brand-amber/30">
+                    IL SOFTWARE GESTIONALE PER L'ELITE DEL FITNESS
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-black tracking-tight text-white leading-tight">
+                    Smetti di inviare PDF. <br><span class="gradient-text-amber">Scala il tuo Business.</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-lg">
+                    Il centro di comando definitivo per Personal Trainer e Gym Center. Gestisci il CRM, progetta schede iper-personalizzate su iPad e offri ai tuoi clienti un'App premium (iOS/Watch/Android) per fidelizzarli come mai prima d'ora.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#prezzi" class="bg-brand-amber text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition flex items-center justify-center shadow-[0_10px_30px_rgba(255,191,0,0.2)]">
+                        <i class="fas fa-rocket text-xl mr-3"></i> Provalo Subito (7 Giorni)
+                    </a>
+                    <a href="#app" class="bg-brand-card border border-gray-700 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-800 transition flex items-center justify-center">
+                        Esplora l'App Atleta
+                    </a>
+                </div>
+                
+                <div class="mt-8 flex items-center gap-6">
+                    <div class="flex -space-x-4">
+                        <img class="w-10 h-10 rounded-full border-2 border-brand-dark" src="https://i.pravatar.cc/100?img=11" alt="Trainer">
+                        <img class="w-10 h-10 rounded-full border-2 border-brand-dark" src="https://i.pravatar.cc/100?img=33" alt="Trainer">
+                        <img class="w-10 h-10 rounded-full border-2 border-brand-dark" src="https://i.pravatar.cc/100?img=15" alt="Trainer">
+                    </div>
+                    <p class="text-sm text-gray-400 font-medium">Scelto da oltre <strong class="text-white">500+ Professionisti</strong></p>
+                </div>
+            </div>
+            
+            <div class="lg:w-1/2 w-full relative flex justify-center items-center h-[500px] lg:h-[600px] mt-12 lg:mt-0">
+                <img data-img="hero-ipad" alt="MOVE Dashboard iPad" class="w-full max-w-2xl ipad-mock device-shadow relative z-20 transform -rotate-2 hover:rotate-0 transition duration-700">
+                <img data-img="hero-iphone" alt="MOVE App Mobile" class="absolute w-40 md:w-56 iphone-mock device-shadow z-30 -right-4 md:right-0 bottom-[-20px] transform rotate-6 hover:rotate-0 transition duration-700">
+                <img data-img="hero-watch" alt="MOVE Apple Watch App" class="absolute watch-mock device-shadow z-40 left-[-20px] md:left-[20px] top-[150px] lg:top-[200px] w-32 md:w-40 transform -rotate-8 hover:rotate-0 transition duration-700">
+            </div>
+        </div>
+    </section>
+
+    <section id="pro" class="bg-brand-card py-24 relative overflow-hidden border-y border-gray-800">
+        <div class="glow-blob w-[800px] h-[400px] bg-brand-cyan top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10"></div>
+        
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+            <div class="lg:w-1/2 space-y-6">
+                <div class="inline-block bg-cyan-900/50 text-brand-cyan font-semibold px-4 py-1 rounded-full text-sm border border-brand-cyan/30"><i class="fas fa-tablet-alt mr-2"></i> Potenza Pro su iPad & Tablet</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white">Il centro di comando per la tua palestra.</h2>
+                <p class="text-lg text-gray-400">
+                    Dimentica i fogli di calcolo sparsi. MOVE trasforma il tuo iPad in una postazione CRM completa per la sala pesi. 
+                </p>
+                <ul class="space-y-4 text-gray-300 mt-6 text-sm">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-brand-cyan mt-1 mr-3"></i>
+                        <div><strong>Monitoraggio a 360°:</strong> Visualizza su un grande schermo i progressi biometrici, i massimali (1RM) e lo storico allenamenti di ogni cliente in tempo reale.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-brand-cyan mt-1 mr-3"></i>
+                        <div><strong>Consulenza Premium:</strong> Usa l'app per mostrare ai clienti i loro grafici di miglioramento durante i check-in mensili, aumentando il tasso di rinnovo.</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="lg:w-1/2 w-full flex justify-center relative">
+                <img data-img="pro-ipad" class="w-full max-w-3xl ipad-mock device-shadow transform rotate-[2deg]" alt="Enciclopedia Esercizi su iPad">
+                <div class="glow-blob w-[400px] h-[400px] bg-brand-cyan top-10 left-10 opacity-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="assegnazione" class="bg-brand-dark py-24 border-b border-gray-800 relative">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row-reverse items-center gap-16 relative z-10">
+            <div class="lg:w-1/2 space-y-6">
+                <div class="inline-block bg-brand-amber/20 text-brand-amber font-semibold px-4 py-1 rounded-full text-sm border border-brand-amber/30">
+                    <i class="fas fa-paper-plane mr-2"></i> Workflow Istantaneo
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-white">Dal tuo dispositivo,<br>direttamente al loro.</h2>
+                <p class="text-lg text-gray-400">
+                    Creare e condividere schede non è mai stato così veloce. Costruisci un programma iper-personalizzato ed esportalo all'istante nel formato perfetto per il tuo atleta.
+                </p>
+                
+                <div class="bg-brand-card p-6 rounded-2xl border border-gray-800 mt-6 relative overflow-hidden group hover:border-brand-amber/50 transition">
+                    <div class="absolute right-0 top-0 w-24 h-24 bg-brand-amber opacity-5 rounded-full blur-2xl group-hover:opacity-20 transition"></div>
+                    <h4 class="text-white font-bold mb-2 flex items-center"><i class="fas fa-share-nodes text-brand-amber mr-2"></i> Condivisione Universale (WhatsApp, Email, PDF)</h4>
+                    <p class="text-sm text-gray-400">Esporta la scheda in formato PDF brandizzato con il tuo logo o in immagini ad alta risoluzione. Invia tutto con un tap tramite WhatsApp, Email o stampalo direttamente in palestra.</p>
+                </div>
+                
+                <div class="bg-brand-card p-6 rounded-2xl border border-gray-800 relative overflow-hidden group hover:border-brand-amber/50 transition">
+                    <div class="absolute right-0 top-0 w-24 h-24 bg-brand-amber opacity-5 rounded-full blur-2xl group-hover:opacity-20 transition"></div>
+                    <h4 class="text-white font-bold mb-2 flex items-center"><i class="fas fa-download text-brand-amber mr-2"></i> Importazione Digitale Intelligente</h4>
+                    <p class="text-sm text-gray-400">Invia il programma in formato dati crittografato. Al tuo cliente basterà un clic per importare l'intera scheda direttamente nella sua app MOVE, con tutti i carichi, i recuperi e le tue note tecniche intatti.</p>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 w-full flex justify-center relative h-[450px] md:h-[550px]">
+                <div class="glow-blob w-[400px] h-[400px] bg-brand-amber bottom-10 right-10 opacity-10"></div>
+                <img data-img="share-pdf" class="absolute left-0 top-12 w-2/3 ipad-mock device-shadow opacity-50 transform -rotate-6 scale-90 transition duration-700 hover:opacity-100 hover:z-30 hover:scale-100 hover:rotate-0" alt="Esportazione PDF">
+                <img data-img="share-wa" class="absolute right-0 bottom-12 w-2/3 ipad-mock device-shadow opacity-60 transform rotate-6 scale-90 transition duration-700 hover:opacity-100 hover:z-30 hover:scale-100 hover:rotate-0" alt="Condivisione WhatsApp">
+                <img data-img="share-menu" class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 ipad-mock device-shadow border border-brand-amber/50 z-20 hover:scale-105 transition duration-500" alt="Menu di Esportazione MOVE">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 border-b border-gray-800 bg-brand-card relative overflow-hidden">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+            <div class="lg:w-1/2 space-y-6">
+                <div class="inline-block bg-gray-800 text-white font-semibold px-4 py-1 rounded-full text-sm border border-gray-700"><i class="fas fa-copyright mr-2"></i> Il tuo Marchio. Le tue regole.</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white">Data Ownership & <br>Branding Totale.</h2>
+                <p class="text-lg text-gray-400">
+                    Non ti obblighiamo a rimanere chiuso nell'ecosistema. Puoi esportare l'intero database atleti quando vuoi. E se un cliente preferisce la carta?
+                </p>
+                <div class="flex items-center p-4 bg-brand-dark rounded-xl border border-gray-800 mt-4">
+                    <div class="bg-gray-800 p-3 rounded-full mr-4"><i class="fas fa-file-pdf text-red-400 text-xl"></i></div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Esportazione PDF Professionale</h4>
+                        <p class="text-xs text-gray-400">Genera schede stampabili ad alta risoluzione applicando automaticamente <strong>il logo del tuo Studio o Centro Fitness</strong> nell'intestazione.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:w-1/2 flex justify-center pb-4 relative">
+                <img data-img="brand-pdf" alt="Esportazione PDF e Branding" class="w-[512px] md:w-[576px] transform rotate-6 hover:rotate-2 transition-transform duration-500 ease-out iphone-mock device-shadow border-white/20 relative z-20">
+                <div class="glow-blob w-[800px] h-[800px] bg-white bottom-1/2 left-1/2 transform translate-x-1/2 translate-y-1/2 opacity-5 z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-50 my-10"></div>
+    <div class="text-center px-6">
+        <p class="text-brand-accent font-bold tracking-[0.2em] text-sm uppercase">Il Motore per i tuoi Atleti</p>
+        <h2 class="text-3xl font-black text-white mt-2">Cosa c'è sotto il cofano di MOVE</h2>
+    </div>
+
+    <section id="editor" class="bg-brand-dark py-24 border-b border-gray-800 relative mt-10">
+        <div class="glow-blob w-[600px] h-[600px] bg-brand-accent bottom-[-100px] right-[-200px] opacity-10"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-brand-accent/20 text-brand-accent font-semibold px-4 py-1 rounded-full text-sm mb-4"><i class="fas fa-dumbbell mr-2"></i> Editor Chirurgico</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">Scolpisci la loro Routine.</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Database con +300 esercizi e impostazione chirurgica di Super-Serie, Drop Set e Rest Pause.</p>
+            </div>
+            
+            <!-- CAROSELLO EDITOR GENERATO DINAMICAMENTE DA JS -->
+            <div id="carousel-editor" class="flex overflow-x-auto hide-scrollbar gap-8 pb-12 px-4 snap-x snap-mandatory justify-start lg:justify-center">
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-brand-card py-24 border-b border-gray-800 relative">
+        <div class="glow-blob w-[600px] h-[600px] bg-brand-indigo top-1/2 left-0 transform -translate-y-1/2 opacity-10"></div>
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row-reverse items-center gap-16 relative z-10">
+            <div class="lg:w-1/2 space-y-6">
+                <div class="inline-block bg-brand-indigo/20 text-brand-indigo font-semibold px-4 py-1 rounded-full text-sm"><i class="fas fa-sync-alt mr-2"></i> Circuit Training & HIIT</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white">Macro-Blocchi e Circuiti.<br><span class="gradient-text-indigo">Senza interruzioni.</span></h2>
+                <p class="text-lg text-gray-400">
+                    Progetta allenamenti ad alta intensità raggruppando più esercizi in un singolo <strong>Macro-Blocco</strong>. Imposta il numero di giri, le transizioni e i macro-recuperi.
+                </p>
+                <ul class="space-y-4 text-gray-300 mt-6 text-sm">
+                    <li class="flex items-start">
+                        <i class="fas fa-stopwatch text-brand-indigo mt-1 mr-3"></i>
+                        <div><strong>Hands-Free su Apple Watch:</strong> L'orologio avanza in automatico tra gli esercizi del circuito e detta i tempi di recupero senza toccare lo schermo. L'ideale per non far spezzare il ritmo ai tuoi atleti.</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="lg:w-1/2 w-full flex justify-center pb-4 relative">
+                <img data-img="circuit-iphone" class="w-64 md:w-72 iphone-mock device-shadow border-brand-indigo/50" alt="Gestione Circuiti">
+            </div>
+        </div>
+    </section>
+
+    <section id="app" class="py-24 relative bg-brand-dark border-b border-gray-800">
+        <div class="glow-blob w-[500px] h-[500px] bg-brand-orange bottom-[-100px] left-[-200px] opacity-10"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-brand-orange/20 text-brand-orange font-semibold px-4 py-1 rounded-full text-sm mb-4"><i class="fab fa-apple mr-2"></i> Ecosistema Wearable</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">La palestra, <span class="gradient-text-amber">senza distrazioni.</span></h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Offri ai tuoi clienti un'interfaccia di allenamento fluida su Smartphone o direttamente dal polso con l'App Watch integrata.</p>
+            </div>
+            
+            <!-- CAROSELLO APPLE WATCH GENERATO DINAMICAMENTE DA JS -->
+            <div id="carousel-watch" class="flex overflow-x-auto hide-scrollbar gap-8 pb-10 justify-start lg:justify-center items-center px-4 snap-x">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-card border-b border-gray-800 relative overflow-hidden">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+            <div class="lg:w-1/2 flex flex-col items-center relative h-[400px] w-full max-w-lg mx-auto lg:mx-0">
+                <img data-img="lang-iphone" class="w-56 iphone-mock device-shadow absolute top-0 left-1/2 transform -translate-x-1/2 z-20 border-white/20" alt="Selezione Lingua">
+                <img data-img="lang-bg" class="w-48 iphone-mock device-shadow absolute top-20 right-0 transform rotate-6 z-10 opacity-70" alt="Esempio Localizzazione">
+            </div>
+
+            <div class="lg:w-1/2 space-y-6 text-center lg:text-left">
+                <div class="inline-block bg-gray-800 text-gray-300 font-semibold px-4 py-1 rounded-full text-sm mx-auto lg:mx-0"><i class="fas fa-globe mr-2"></i> Clientela Internazionale?</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white">MOVE parla<br>5 lingue native.</h2>
+                <p class="text-lg text-gray-400 mb-6">
+                    Seleziona la lingua dell'app. L'intera interfaccia, il vocabolario biomeccanico e persino la **voce guida (TTS) durante i recuperi** si adatteranno automaticamente.
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                    <span class="bg-gray-800 text-white px-3 py-1 rounded-md text-sm font-semibold border border-gray-700">🇮🇹 IT</span>
+                    <span class="bg-gray-800 text-gray-400 px-3 py-1 rounded-md text-sm font-semibold border border-gray-800">🇬🇧 EN</span>
+                    <span class="bg-gray-800 text-gray-400 px-3 py-1 rounded-md text-sm font-semibold border border-gray-800">🇪🇸 ES</span>
+                    <span class="bg-gray-800 text-gray-400 px-3 py-1 rounded-md text-sm font-semibold border border-gray-800">🇫🇷 FR</span>
+                    <span class="bg-gray-800 text-gray-400 px-3 py-1 rounded-md text-sm font-semibold border border-gray-800">🇩🇪 DE</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prezzi" class="bg-brand-dark py-24 relative border-t border-gray-800">
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-black mb-4">Scegli il piano perfetto per te o il tuo business.</h2>
+            <p class="text-gray-400 max-w-xl mx-auto">Inizia con 7 giorni di prova gratuita. Nessun vincolo, disdici quando vuoi da App Store o Google Play.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch">
+            
+            <div class="bg-brand-card p-6 rounded-3xl border border-gray-800 relative hover:border-gray-600 transition flex flex-col h-full">
+                <h3 class="text-gray-300 font-bold text-lg tracking-widest mb-1">BEGINNER</h3>
+                <p class="text-gray-500 text-xs mb-6">L'essenziale per iniziare.</p>
+                <div class="text-3xl font-black mb-6 text-white">0€ <span class="text-sm text-gray-500 font-normal">/ mese</span></div>
+                <ul class="space-y-3 mb-8 text-sm text-gray-400 flex-grow">
+                    <li><i class="fas fa-check text-gray-500 mr-2"></i> 1 Scheda Personalizzata</li>
+                    <li><i class="fas fa-check text-gray-500 mr-2"></i> 20 Esercizi Base</li>
+                    <li><i class="fas fa-check text-gray-500 mr-2"></i> Workout Runner (No Watch)</li>
+                    <li><i class="fas fa-check text-gray-500 mr-2"></i> Diario e Biometria base</li>
+                </ul>
+                <a href="#download" class="block text-center w-full py-3 rounded-lg border border-gray-700 hover:bg-gray-800 transition font-bold text-gray-300 mt-auto">Scarica Gratis</a>
+            </div>
+
+            <div class="group bg-brand-card p-6 rounded-3xl border border-brand-accent relative shadow-[0_0_20px_rgba(59,130,246,0.1)] hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition flex flex-col h-full">
+                <div class="mb-5 rounded-2xl overflow-hidden h-48 relative border border-brand-accent/20">
+                    <img data-img="price-ath-a" alt="Athlete Pro" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100 group-hover:opacity-0">
+                    <img data-img="price-ath-b" alt="Athlete Pro Details" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 transform scale-105 group-hover:scale-100">
+                </div>
+                <h3 class="text-brand-accent font-bold text-lg tracking-widest mb-1">ATHLETE PRO</h3>
+                <p class="text-gray-500 text-xs mb-6">Per chi si allena seriamente.</p>
+                <div class="text-3xl font-black mb-6 text-white">4.99€ <span class="text-sm text-gray-500 font-normal">/ mese</span></div>
+                <ul class="space-y-3 mb-8 text-sm text-gray-300 flex-grow">
+                    <li class="font-bold text-white"><i class="fas fa-check text-brand-accent mr-2"></i> Apple Watch e Circuiti</li>
+                    <li><i class="fas fa-bolt text-brand-accent mr-2"></i> Scansione AI (3 crediti)</li>
+                    <li><i class="fas fa-check text-brand-accent mr-2"></i> Schede Illimitate</li>
+                    <li><i class="fas fa-dumbbell text-brand-accent mr-2"></i> Database Completo (+300)</li>
+                </ul>
+                <a href="#download" class="block text-center w-full py-3 rounded-lg bg-brand-accent text-white hover:bg-blue-600 transition font-bold mt-auto">Prova 7 Giorni</a>
+            </div>
+
+            <div class="group bg-brand-card p-6 rounded-3xl border-2 border-brand-amber relative shadow-[0_0_30px_rgba(255,191,0,0.15)] flex flex-col h-full">
+                <div class="glow-blob w-[300px] h-[300px] bg-brand-amber top-[-150px] right-[-150px] opacity-20"></div>
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-amber text-black px-3 py-1 rounded-full text-[10px] font-bold tracking-widest whitespace-nowrap z-10">PIÙ POPOLARE</div>
+                <div class="mb-5 rounded-2xl overflow-hidden h-48 relative z-10 border border-brand-amber/20">
+                    <img data-img="price-pro-a" alt="Trainer Pro" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100 group-hover:opacity-0">
+                    <img data-img="price-pro-b" alt="Trainer Pro Details" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 transform scale-105 group-hover:scale-100">
+                </div>
+                <h3 class="text-brand-amber font-bold text-lg tracking-widest mb-1 mt-2">TRAINER PRO</h3>
+                <p class="text-gray-400 text-xs mb-6">Il gestionale completo PT.</p>
+                <div class="text-3xl font-black mb-6 text-white">19.99€ <span class="text-sm text-gray-500 font-normal">/ mese</span></div>
+                <ul class="space-y-3 mb-8 text-sm text-gray-200 relative z-10 flex-grow">
+                    <li class="font-bold"><i class="fas fa-users text-brand-amber mr-2"></i> Clienti ILLIMITATI</li>
+                    <li><i class="fas fa-desktop text-brand-amber mr-2"></i> Dashboard CRM iPad</li>
+                    <li><i class="fas fa-bolt text-brand-amber mr-2"></i> 50 Crediti AI / Mese</li>
+                    <li><i class="fas fa-file-pdf text-brand-amber mr-2"></i> PDF con Logo Custom</li>
+                </ul>
+                <a href="#download" class="block text-center w-full py-3 rounded-lg bg-brand-amber text-black hover:bg-yellow-500 transition font-bold relative z-10 mt-auto">Prova 7 Giorni</a>
+            </div>
+
+            <div class="group bg-brand-card p-6 rounded-3xl border border-brand-teal relative hover:border-teal-400 transition shadow-[0_0_20px_rgba(20,184,166,0.1)] flex flex-col h-full">
+                <div class="mb-5 rounded-2xl overflow-hidden h-48 relative z-10 border border-brand-teal/20">
+                    <img data-img="price-gym-a" alt="Studio Gym" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100 group-hover:opacity-0">
+                    <img data-img="price-gym-b" alt="Studio Gym Details" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 transform scale-105 group-hover:scale-100">
+                </div>
+                <h3 class="text-brand-teal font-bold text-lg tracking-widest mb-1">STUDIO & GYM</h3>
+                <p class="text-gray-500 text-xs mb-6">Soluzione Enterprise.</p>
+                <div class="text-3xl font-black mb-6 text-white">49.99€ <span class="text-sm text-gray-500 font-normal">/ mese</span></div>
+                <ul class="space-y-3 mb-8 text-sm text-gray-300 flex-grow">
+                    <li class="font-bold text-white"><i class="fas fa-network-wired text-brand-teal mr-2"></i>Condivisione Schede Completa</li>
+                    <li><i class="fas fa-running text-brand-teal mr-2"></i> Modulo Mobilità Completo</li>
+                    <li><i class="fas fa-user-shield text-brand-teal mr-2"></i> Filtri di Sicurezza Biomeccanica</li>
+                    <li><i class="fas fa-headset text-brand-teal mr-2"></i> Supporto Prioritario</li>
+                </ul>
+                <a href="#download" class="block text-center w-full py-3 rounded-lg border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-black transition font-bold mt-auto">Prova 7 Giorni</a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <footer id="faq" class="bg-black py-24 border-t border-gray-800">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div id="download" class="text-center mb-16 space-y-8 pt-8">
+                <h2 class="text-3xl font-black text-white">Porta la tua palestra nel futuro.</h2>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
+                    <a href="#" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition flex items-center justify-center grow shadow-lg shadow-white/10">
+                        <i class="fab fa-apple text-xl mr-3"></i> Scarica su App Store
+                    </a>
+                    <a href="#" class="bg-brand-card border border-gray-700 text-white px-8 py-3 rounded-full font-bold hover:bg-gray-800 transition flex items-center justify-center grow">
+                        <i class="fab fa-google-play text-brand-cyan text-xl mr-3"></i> Scarica su Google Play
+                    </a>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-900 text-xs text-gray-600 mt-16">
+                <div class="mb-4 md:mb-0 font-medium">
+                    M.O.V.E. Studio © 2026 Mauro Ferrari. Tutti i diritti riservati.
+                </div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="https://maufer58.github.io/MOVE-Privacy/" class="hover:text-white transition">Privacy Policy & Termini di Utilizzo (EULA)</a>
+                    <a href="mailto:info.formove.fitness@gmail.com" class="hover:text-white transition"><i class="fas fa-envelope mr-1"></i> Contattaci</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================================================
+         MOTORE JAVASCRIPT E DATABASE IMMAGINI
+         La singola fonte di verità per tutte le grafiche della Landing Page.
+    ========================================================================== -->
+    <script>
+        // ---------------------------------------------------------
+        // 1. IMPOSTA LA LINGUA QUI (Usa 'it' per Italiano, 'en' per Inglese)
+        // ---------------------------------------------------------
+        const currentLang = 'it'; 
+
+        // ---------------------------------------------------------
+        // 2. DATABASE IMMAGINI CENTRALE (Singole)
+        // ---------------------------------------------------------
+        const IMAGE_DB = {
+            "hero-ipad": {
+                it: "img/it/IMG_6003.PNG",
+                en: "img/en/IMG_6003.PNG"
+            },
+            "hero-iphone": {
+                it: "img/it/IMG_3682.PNG",
+                en: "img/en/IMG_3682.PNG"
+            },
+            "hero-watch": {
+                it: "img/it/watch_workout_superset_dropset.png",
+                en: "img/en/watch_workout_superset_dropset.png"
+            },
+            "pro-ipad": {
+                it: "img/it/IMG_5005.PNG",
+                en: "img/en/IMG_5005.PNG"
+            },
+            "share-pdf": {
+                it: "img/it/IMG_SHARE_3.PNG",
+                en: "img/en/IMG_SHARE_3.PNG"
+            },
+            "share-wa": {
+                it: "img/it/IMG_SHARE_2.PNG",
+                en: "img/en/IMG_SHARE_2.PNG"
+            },
+            "share-menu": {
+                it: "img/it/IMG_SHARE_1.PNG",
+                en: "img/en/IMG_SHARE_1.PNG"
+            },
+            "brand-pdf": {
+                it: "img/it/IMG_5001.PNG",
+                en: "img/en/IMG_5001.PNG"
+            },
+            "circuit-iphone": {
+                it: "img/it/IMG_4001.PNG",
+                en: "img/en/IMG_4001.PNG"
+            },
+            "lang-iphone": {
+                it: "img/it/IMG_3705.PNG",
+                en: "img/en/IMG_3705.PNG"
+            },
+            "lang-bg": {
+                it: "img/it/IMG_4000.jpg",
+                en: "img/en/IMG_4000.jpg"
+            },
+            "price-ath-a": {
+                it: "img/it/IMG_900a.PNG",
+                en: "img/en/IMG_900a.PNG"
+            },
+            "price-ath-b": {
+                it: "img/it/IMG_900b.PNG",
+                en: "img/en/IMG_900b.PNG"
+            },
+            "price-pro-a": {
+                it: "img/it/IMG_901a.PNG",
+                en: "img/en/IMG_901a.PNG"
+            },
+            "price-pro-b": {
+                it: "img/it/IMG_901b.PNG",
+                en: "img/en/IMG_901b.PNG"
+            },
+            "price-gym-a": {
+                it: "img/it/IMG_902a.PNG",
+                en: "img/en/IMG_902a.PNG"
+            },
+            "price-gym-b": {
+                it: "img/it/IMG_902b.PNG",
+                en: "img/en/IMG_902b.PNG"
+            }
+        };
+
+        // ---------------------------------------------------------
+        // 3. DATABASE CAROSELLI (Gallerie multiple)
+        // ---------------------------------------------------------
+        const CAROUSEL_DB = {
+            "carousel-editor": {
+                classes: "w-64 md:w-72 iphone-mock device-shadow flex-shrink-0 snap-item border-brand-accent/30",
+                images: [
+                    { alt: "Database Esercizi", it: "img/it/iphone_exercise_detail.png", en: "img/en/iphone_exercise_detail.png" },
+                    { alt: "Editor Schede",     it: "img/it/IMG_3685.PNG",              en: "img/en/IMG_3685.PNG" },
+                    { alt: "Editor Schede 2",   it: "img/it/IMG_3686.PNG",              en: "img/en/IMG_3686.PNG" },
+                    { alt: "Setup Esercizio 1", it: "img/it/IMG_3687.PNG",              en: "img/en/IMG_3687.PNG" },
+                    { alt: "Setup Esercizio 2", it: "img/it/IMG_3688.PNG",              en: "img/en/IMG_3688.PNG" }
+                ]
+            },
+            "carousel-watch": {
+                classes: "w-40 watch-mock device-shadow flex-shrink-0 snap-item transform hover:scale-105 transition",
+                images: [
+                    { alt: "Watch Pre-Start",   it: "img/it/watch_pre_start.png",       en: "img/en/watch_pre_start.png" },
+                    { alt: "Watch Intro",       it: "img/it/watch_routine_intro.png",   en: "img/en/watch_routine_intro.png" },
+                    { alt: "Watch Player",      it: "img/it/watch_workout_player.png",  en: "img/en/watch_workout_player.png" },
+                    { alt: "Watch Options",     it: "img/it/watch_workout_options.png", en: "img/en/watch_workout_options.png" },
+                    { alt: "Watch Rest",        it: "img/it/watch_rest_timer.png",      en: "img/en/watch_rest_timer.png" }
+                ]
+            }
+        };
+
+        // ---------------------------------------------------------
+        // 4. MOTORE DI INIEZIONE (Non toccare sotto questa riga)
+        // ---------------------------------------------------------
+        window.addEventListener('DOMContentLoaded', () => {
+            
+            // Popola le immagini singole
+            const imageTags = document.querySelectorAll('img[data-img]');
+            imageTags.forEach(img => {
+                const key = img.getAttribute('data-img');
+                if (IMAGE_DB[key] && IMAGE_DB[key][currentLang]) {
+                    img.src = IMAGE_DB[key][currentLang];
+                }
+            });
+
+            // Popola i caroselli
+            for (const [carouselId, data] of Object.entries(CAROUSEL_DB)) {
+                const container = document.getElementById(carouselId);
+                if (container) {
+                    data.images.forEach(imgData => {
+                        const imgSrc = imgData[currentLang];
+                        if (imgSrc) {
+                            const imgEl = document.createElement('img');
+                            imgEl.src = imgSrc;
+                            imgEl.alt = imgData.alt;
+                            imgEl.className = data.classes;
+                            container.appendChild(imgEl);
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
