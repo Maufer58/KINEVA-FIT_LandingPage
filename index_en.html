@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOVE Fitness PRO | The Ultimate Management Software for Personal Trainers and Gym Centers</title>
+    <meta name="description" content="MOVE Fitness PRO — management app for personal trainers and gyms: routines, CRM, Apple Watch, AI, distance goals and branding. iPhone, iPad, Watch, Android.">
+    <title>MOVE Fitness PRO | Management Software for Personal Trainers & Gyms</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
@@ -29,150 +30,184 @@
     <style>
         html { scroll-behavior: smooth; }
         body { background-color: #0a0a0c; overflow-x: hidden; }
+        body.nav-open { overflow: hidden; }
         .device-shadow { box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.9); }
         .iphone-mock { border-radius: 40px; border: 6px solid #2d2d2d; overflow: hidden; background-color: #000; position: relative; }
         .watch-mock { border-radius: 40px; border: 4px solid #333; overflow: hidden; background-color: #000; }
         .ipad-mock { border-radius: 24px; border: 12px solid #2d2d2d; overflow: hidden; background-color: #000; aspect-ratio: 4/3; object-fit: cover; }
-        
         .gradient-text { background: linear-gradient(90deg, #3B82F6, #00e5ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .gradient-text-amber { background: linear-gradient(90deg, #ffbf00, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .gradient-text-indigo { background: linear-gradient(90deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; }
         .snap-item { scroll-snap-align: center; }
-
         .glow-blob { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.15; pointer-events: none; z-index: 0; }
+        .nav-toggle { width: 42px; height: 42px; border-radius: 10px; border: 1px solid #333; background: #161618; display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+        .nav-toggle span { display: block; width: 18px; height: 2px; background: #e5e7eb; border-radius: 2px; }
+        .nav-mobile { border-top: 1px solid #1f2937; background: rgba(10,10,12,0.98); }
+        .nav-mobile a { display: block; padding: 14px 24px; color: #9ca3af; font-weight: 600; border-bottom: 1px solid #1f2937; }
+        .nav-mobile a:hover { color: #fff; background: #161618; }
+        .carousel-wrap { position: relative; }
+        .carousel-btn { position: absolute; top: 42%; transform: translateY(-50%); z-index: 20; width: 42px; height: 42px; border-radius: 999px; border: 1px solid #374151; background: rgba(22,22,24,0.92); color: #fff; display: inline-flex; align-items: center; justify-content: center; }
+        .carousel-btn:hover { background: #1f2937; }
+        .carousel-btn.prev { left: 4px; }
+        .carousel-btn.next { right: 4px; }
+        .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+        .carousel-dot { width: 8px; height: 8px; border-radius: 999px; background: #374151; border: 0; padding: 0; }
+        .carousel-dot.is-active { background: #ffbf00; width: 22px; }
+        .store-disabled { opacity: 0.7; cursor: not-allowed; pointer-events: none; }
+        .faq-item { border: 1px solid #1f2937; border-radius: 16px; background: #161618; overflow: hidden; }
+        .faq-item button { width: 100%; text-align: left; padding: 18px 20px; display: flex; justify-content: space-between; gap: 16px; align-items: center; color: #fff; font-weight: 700; }
+        .faq-item [data-faq-panel] { padding: 0 20px 18px; color: #9ca3af; line-height: 1.6; }
+        .faq-item.is-open button i { transform: rotate(180deg); }
+        .audience-chip { border: 1px solid #374151; background: #161618; color: #d1d5db; border-radius: 999px; padding: 8px 14px; font-size: 0.85rem; font-weight: 600; }
+        .audience-chip:hover { border-color: #ffbf00; color: #fff; }
+        .section-kicker { letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; }
     </style>
 </head>
 <body class="text-gray-200 font-sans antialiased selection:bg-brand-accent selection:text-white relative">
 
     <header class="fixed w-full top-0 z-50 bg-brand-dark/80 backdrop-blur-lg border-b border-gray-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
-            <div class="text-2xl font-bold text-white flex items-center gap-2">
+            <a href="#top" class="text-2xl font-bold text-white flex items-center gap-2">
                 <i class="fas fa-dumbbell text-brand-amber text-xl"></i>
                 <span class="text-xl font-bold tracking-wider">M.O.V.E.<span class="text-brand-amber">PRO</span></span>
-            </div>
-            <nav class="hidden lg:flex gap-8 text-sm font-semibold text-gray-400">
-                <a href="#pro" class="hover:text-white transition">PT & Gym Dashboard</a>
-                <a href="#assegnazione" class="hover:text-white transition">Client Management</a>
-                <a href="#editor" class="hover:text-white transition">Editor & Circuits</a>
-                <a href="#app" class="hover:text-white transition">Athlete App</a>
+            </a>
+            <nav class="hidden lg:flex gap-6 text-sm font-semibold text-gray-400">
+                <a href="#pro" class="hover:text-white transition">Dashboard</a>
+                <a href="#assegnazione" class="hover:text-white transition">Clients</a>
+                <a href="#ai" class="hover:text-white transition">AI</a>
+                <a href="#circuiti" class="hover:text-white transition">Circuits</a>
+                <a href="#app" class="hover:text-white transition">Watch</a>
+                <a href="#distanza" class="hover:text-white transition">Distance</a>
+                <a href="#calendario" class="hover:text-white transition">Calendar</a>
+                <a href="#prezzi" class="hover:text-white transition">Pricing</a>
             </nav>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
                 <div class="hidden sm:flex items-center gap-3 bg-brand-card rounded-full px-3 py-1.5 border border-gray-700">
-                    <a href="index.html" class="text-gray-400 hover:text-white transition flex items-center gap-1.5 font-bold group" title="Italiano">
-                        <span class="text-lg opacity-50 group-hover:opacity-100 transition">🇮🇹</span> <span class="text-sm">IT</span>
+                    <a href="index_it.html" class="text-gray-400 hover:text-white transition flex items-center gap-1.5 font-bold group" title="Italiano">
+                        <span class="text-lg opacity-50 group-hover:opacity-100 transition">🇮🇹</span><span class="text-sm">IT</span>
                     </a>
                     <span class="text-gray-600">|</span>
-                    <span class="text-white flex items-center gap-1.5 font-bold cursor-default" title="English">
-                        <span class="text-lg">🇬🇧</span> <span class="text-sm">EN</span>
-                    </span>
+                    <span class="text-white flex items-center gap-1.5 font-bold" title="English"><span class="text-lg">🇬🇧</span><span class="text-sm">EN</span></span>
                 </div>
-                <a href="#prezzi" class="bg-brand-amber hover:bg-yellow-500 text-black px-5 py-2 rounded-full text-sm font-bold transition shadow-lg shadow-yellow-500/20"> Start for Free </a>
+                <a href="#download" class="hidden sm:inline-flex bg-brand-amber hover:bg-yellow-500 text-black px-5 py-2 rounded-full text-sm font-bold transition shadow-lg shadow-yellow-500/20">Download</a>
+                <button type="button" id="navToggle" class="nav-toggle lg:hidden" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
+        <nav class="nav-mobile lg:hidden" id="navMobile" hidden>
+            <a href="#pro">PT & Gym Dashboard</a>
+            <a href="#assegnazione">Client Management</a>
+            <a href="#ai">AI, Import & Catalog</a>
+            <a href="#editor">Editor</a>
+            <a href="#circuiti">Circuits & Methods</a>
+            <a href="#app">Watch App</a>
+            <a href="#distanza">Distance & Outdoor</a>
+            <a href="#calendario">Calendar & Alerts</a>
+            <a href="#runner">iPhone Runner</a>
+            <a href="#sicurezza">Mobility & Safety</a>
+            <a href="#prezzi">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <a href="#download">Download</a>
+            <a href="index_it.html">Versione italiana</a>
+        </nav>
     </header>
 
-    <section class="pt-32 pb-24 px-6 overflow-hidden relative">
+    <main id="top">
+    <section class="pt-32 pb-20 px-6 overflow-hidden relative">
         <div class="glow-blob w-[600px] h-[600px] bg-brand-amber top-[-200px] right-[-100px] opacity-20"></div>
         <div class="container mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
-            <div class="lg:w-1/2 space-y-8">
-                <div class="inline-block bg-brand-amber/20 text-brand-amber font-bold px-4 py-1 rounded-full text-xs tracking-widest mb-2 border border-brand-amber/30">
-                    THE MANAGEMENT SOFTWARE FOR THE FITNESS ELITE
+            <div class="lg:w-[48%] space-y-7">
+                <div class="inline-block bg-brand-amber/20 text-brand-amber font-bold px-4 py-1 rounded-full text-xs tracking-widest border border-brand-amber/30">
+                    MANAGEMENT + ATHLETE APP · iPhone · iPad · Watch · Android
                 </div>
-                <h1 class="text-5xl lg:text-7xl font-black tracking-tight text-white leading-tight">
-                    Stop sending PDFs. <br><span class="gradient-text-amber">Scale your Business.</span>
+                <h1 class="text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+                    Stop sending PDFs.<br><span class="gradient-text-amber">Scale your business.</span>
                 </h1>
                 <p class="text-xl text-gray-400 max-w-lg">
-                    The ultimate command center for Personal Trainers and Gym Centers. Manage your CRM, design hyper-personalized routines on iPad, and offer your clients a premium App (iOS/Watch/Android) to build loyalty like never before.
+                    Command center for personal trainers and gyms: CRM, surgical programming, AI, Apple Watch with alerts and voice guidance, outdoor distance, and full branding.
                 </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <div class="flex flex-col sm:flex-row gap-4 pt-2">
                     <a href="#prezzi" class="bg-brand-amber text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition flex items-center justify-center shadow-[0_10px_30px_rgba(255,191,0,0.2)]">
-                        <i class="fas fa-rocket text-xl mr-3"></i> Try it Now (7 Days)
+                        <i class="fas fa-rocket text-xl mr-3"></i> Try it (7 days)
                     </a>
                     <a href="#app" class="bg-brand-card border border-gray-700 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-800 transition flex items-center justify-center">
-                        Explore the Athlete App
+                        Watch & Voice updates
                     </a>
                 </div>
-                
-                <div class="mt-8 flex items-center gap-6">
-                    <div class="flex -space-x-4">
-                        <img class="w-10 h-10 rounded-full border-2 border-brand-dark" src="https://i.pravatar.cc/100?img=11" alt="Trainer">
-                        <img class="w-10 h-10 rounded-full border-2 border-brand-dark" src="https://i.pravatar.cc/100?img=33" alt="Trainer">
-                        <img class="w-10 h-10 rounded-full border-2 border-brand-dark" src="https://i.pravatar.cc/100?img=15" alt="Trainer">
-                    </div>
-                    <p class="text-sm text-gray-400 font-medium">Trusted by over <strong class="text-white">500+ Professionals</strong></p>
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <span class="audience-chip"><i class="fas fa-dumbbell text-brand-amber mr-2"></i>500+ exercises</span>
+                    <span class="audience-chip"><i class="fab fa-apple text-brand-orange mr-2"></i>Apple Watch</span>
+                    <span class="audience-chip"><i class="fas fa-globe text-brand-cyan mr-2"></i>5 languages + TTS</span>
+                    <span class="audience-chip"><i class="fas fa-route text-brand-teal mr-2"></i>Distance / Run</span>
+                </div>
+                <div class="flex flex-wrap gap-3 pt-1">
+                    <a href="#pro" class="audience-chip">For Trainers →</a>
+                    <a href="#app" class="audience-chip">For Athletes →</a>
+                    <a href="#prezzi" class="audience-chip">See pricing →</a>
                 </div>
             </div>
-            
-            <div class="lg:w-1/2 w-full relative flex justify-center items-center h-[500px] lg:h-[600px] mt-12 lg:mt-0">
-                <img data-img="hero-ipad" alt="MOVE Dashboard iPad" class="w-full max-w-2xl ipad-mock device-shadow relative z-20 transform -rotate-2 hover:rotate-0 transition duration-700">
-                <img data-img="hero-iphone" alt="MOVE App Mobile" class="absolute w-40 md:w-56 iphone-mock device-shadow z-30 -right-4 md:right-0 bottom-[-20px] transform rotate-6 hover:rotate-0 transition duration-700">
-                <img data-img="hero-watch" alt="MOVE Apple Watch App" class="absolute watch-mock device-shadow z-40 left-[-20px] md:left-[20px] top-[150px] lg:top-[200px] w-32 md:w-40 transform -rotate-8 hover:rotate-0 transition duration-700">
+
+            <div class="lg:w-[52%] w-full relative flex flex-col items-center mt-8 lg:mt-0">
+                <img data-img="hero-ipad" alt="MOVE Dashboard iPad" class="w-full max-w-2xl ipad-mock device-shadow relative z-20">
+                <div class="mt-[-48px] md:mt-[-64px] relative z-30 flex items-end justify-center gap-4 md:gap-8 px-4">
+                    <img data-img="hero-iphone" alt="MOVE Mobile App" class="w-28 md:w-40 iphone-mock device-shadow">
+                    <img data-img="hero-watch" alt="MOVE Apple Watch App" class="w-24 md:w-32 watch-mock device-shadow mb-6 md:mb-10">
+                </div>
             </div>
         </div>
     </section>
 
     <section id="pro" class="bg-brand-card py-24 relative overflow-hidden border-y border-gray-800">
         <div class="glow-blob w-[800px] h-[400px] bg-brand-cyan top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10"></div>
-        
         <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
             <div class="lg:w-1/2 space-y-6">
-                <div class="inline-block bg-cyan-900/50 text-brand-cyan font-semibold px-4 py-1 rounded-full text-sm border border-brand-cyan/30"><i class="fas fa-tablet-alt mr-2"></i> Pro Power on iPad & Tablet</div>
-                <h2 class="text-4xl md:text-5xl font-black text-white">The command center for your gym.</h2>
-                <p class="text-lg text-gray-400">
-                    Forget scattered spreadsheets. MOVE turns your iPad into a complete CRM station for the weight room. 
-                </p>
+                <div class="inline-block bg-cyan-900/50 text-brand-cyan font-semibold px-4 py-1 rounded-full text-sm border border-brand-cyan/30"><i class="fas fa-tablet-alt mr-2"></i> Pro power on iPad & tablet</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white">The command center for your gym floor.</h2>
+                <p class="text-lg text-gray-400">Forget scattered spreadsheets. MOVE turns your iPad into a full CRM station for the weight room.</p>
                 <ul class="space-y-4 text-gray-300 mt-6 text-sm">
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-brand-cyan mt-1 mr-3"></i>
-                        <div><strong>360° Tracking:</strong> View biometric progress, max loads (1RM), and workout history for each client in real time on a large screen.</div>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-brand-cyan mt-1 mr-3"></i>
-                        <div><strong>Premium Consultation:</strong> Use the app to show clients their improvement charts during monthly check-ins, boosting renewal rates.</div>
-                    </li>
+                    <li class="flex items-start"><i class="fas fa-check-circle text-brand-cyan mt-1 mr-3"></i><div><strong>360° monitoring:</strong> progress, maxes, history and volume analytics per athlete.</div></li>
+                    <li class="flex items-start"><i class="fas fa-check-circle text-brand-cyan mt-1 mr-3"></i><div><strong>Premium check-ins:</strong> show charts during monthly reviews and improve renewals.</div></li>
+                    <li class="flex items-start"><i class="fas fa-check-circle text-brand-cyan mt-1 mr-3"></i><div><strong>Bulk routine ops:</strong> multi-select, archive and assign to multiple clients in one tap.</div></li>
                 </ul>
             </div>
-            
             <div class="lg:w-1/2 w-full flex justify-center relative">
-                <img data-img="pro-ipad" class="w-full max-w-3xl ipad-mock device-shadow transform rotate-[2deg]" alt="Exercise Encyclopedia on iPad">
-                <div class="glow-blob w-[400px] h-[400px] bg-brand-cyan top-10 left-10 opacity-10"></div>
+                <img data-img="pro-ipad" class="w-full max-w-3xl ipad-mock device-shadow" alt="Exercise encyclopedia on iPad">
             </div>
         </div>
     </section>
 
     <section id="assegnazione" class="bg-brand-dark py-24 border-b border-gray-800 relative">
-        <div class="container mx-auto px-6 flex flex-col lg:flex-row-reverse items-center gap-16 relative z-10">
-            <div class="lg:w-1/2 space-y-6">
-                <div class="inline-block bg-brand-amber/20 text-brand-amber font-semibold px-4 py-1 rounded-full text-sm border border-brand-amber/30">
-                    <i class="fas fa-paper-plane mr-2"></i> Instant Workflow
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-14 max-w-3xl mx-auto">
+                <div class="inline-block bg-brand-amber/20 text-brand-amber font-semibold px-4 py-1 rounded-full text-sm border border-brand-amber/30 mb-4">
+                    <i class="fas fa-paper-plane mr-2"></i> Instant workflow
                 </div>
-                <h2 class="text-4xl md:text-5xl font-black text-white">From your device,<br>straight to theirs.</h2>
-                <p class="text-lg text-gray-400">
-                    Creating and sharing routines has never been so fast. Build a hyper-personalized program and export it instantly in the perfect format for your athlete.
-                </p>
-                
-                <div class="bg-brand-card p-6 rounded-2xl border border-gray-800 mt-6 relative overflow-hidden group hover:border-brand-amber/50 transition">
-                    <div class="absolute right-0 top-0 w-24 h-24 bg-brand-amber opacity-5 rounded-full blur-2xl group-hover:opacity-20 transition"></div>
-                    <h4 class="text-white font-bold mb-2 flex items-center"><i class="fas fa-share-nodes text-brand-amber mr-2"></i> Universal Sharing (WhatsApp, Email, PDF)</h4>
-                    <p class="text-sm text-gray-400">Export the routine as a branded PDF with your logo or as high-resolution images. Send everything with a tap via WhatsApp, Email, or print it directly at the gym.</p>
-                </div>
-                
-                <div class="bg-brand-card p-6 rounded-2xl border border-gray-800 relative overflow-hidden group hover:border-brand-amber/50 transition">
-                    <div class="absolute right-0 top-0 w-24 h-24 bg-brand-amber opacity-5 rounded-full blur-2xl group-hover:opacity-20 transition"></div>
-                    <h4 class="text-white font-bold mb-2 flex items-center"><i class="fas fa-download text-brand-amber mr-2"></i> Smart Digital Import</h4>
-                    <p class="text-sm text-gray-400">Send the program in an encrypted data format. With just one click, your client can import the entire routine directly into their MOVE app, keeping all loads, rest times, and your technical notes intact.</p>
-                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">From your device, straight to theirs.</h2>
+                <p class="text-lg text-gray-400">Build, bulk-assign, export branded PDFs, or send encrypted packages into the athlete app.</p>
             </div>
-
-            <div class="lg:w-1/2 w-full flex justify-center relative h-[450px] md:h-[550px]">
-                <div class="glow-blob w-[400px] h-[400px] bg-brand-amber bottom-10 right-10 opacity-10"></div>
-                <img data-img="share-pdf" class="absolute left-0 top-12 w-2/3 ipad-mock device-shadow opacity-50 transform -rotate-6 scale-90 transition duration-700 hover:opacity-100 hover:z-30 hover:scale-100 hover:rotate-0" alt="PDF Export">
-                <img data-img="share-wa" class="absolute right-0 bottom-12 w-2/3 ipad-mock device-shadow opacity-60 transform rotate-6 scale-90 transition duration-700 hover:opacity-100 hover:z-30 hover:scale-100 hover:rotate-0" alt="WhatsApp Share">
-                <img data-img="share-menu" class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 ipad-mock device-shadow border border-brand-amber/50 z-20 hover:scale-105 transition duration-500" alt="MOVE Export Menu">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div class="space-y-5">
+                    <div class="bg-brand-card p-6 rounded-2xl border border-gray-800 hover:border-brand-amber/50 transition">
+                        <h4 class="text-white font-bold mb-2 flex items-center"><i class="fas fa-share-nodes text-brand-amber mr-2"></i> Universal sharing</h4>
+                        <p class="text-sm text-gray-400">Logo PDF, HD images, WhatsApp, email or print on the floor.</p>
+                    </div>
+                    <div class="bg-brand-card p-6 rounded-2xl border border-gray-800 hover:border-brand-amber/50 transition">
+                        <h4 class="text-white font-bold mb-2 flex items-center"><i class="fas fa-download text-brand-amber mr-2"></i> Secure digital import</h4>
+                        <p class="text-sm text-gray-400">Clients import loads, rest times and coaching notes with one tap.</p>
+                    </div>
+                    <div class="bg-brand-card p-6 rounded-2xl border border-gray-800 hover:border-brand-amber/50 transition">
+                        <h4 class="text-white font-bold mb-2 flex items-center"><i class="fas fa-layer-group text-brand-amber mr-2"></i> Multi-select & template library</h4>
+                        <p class="text-sm text-gray-400">Select many routines, assign to many athletes, archive or delete in bulk.</p>
+                    </div>
+                </div>
+                <div class="relative h-[420px] md:h-[520px]">
+                    <img data-img="share-menu" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 ipad-mock device-shadow border border-brand-amber/40 z-20" alt="MOVE export menu">
+                    <img data-img="assign-bulk" class="absolute right-0 bottom-0 w-44 md:w-56 iphone-mock device-shadow z-30" alt="Bulk assignment">
+                    <img data-img="templates-bulk" class="absolute left-0 top-4 w-40 md:w-52 iphone-mock device-shadow opacity-80 z-10" alt="Routine management">
+                </div>
             </div>
         </div>
     </section>
@@ -180,100 +215,263 @@
     <section class="py-24 border-b border-gray-800 bg-brand-card relative overflow-hidden">
         <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
             <div class="lg:w-1/2 space-y-6">
-                <div class="inline-block bg-gray-800 text-white font-semibold px-4 py-1 rounded-full text-sm border border-gray-700"><i class="fas fa-copyright mr-2"></i> Your Brand. Your rules.</div>
-                <h2 class="text-4xl md:text-5xl font-black text-white">Data Ownership & <br>Total Branding.</h2>
-                <p class="text-lg text-gray-400">
-                    We don't force you to stay locked in our ecosystem. You can export the entire athlete database whenever you want. And what if a client prefers paper?
-                </p>
+                <div class="inline-block bg-gray-800 text-white font-semibold px-4 py-1 rounded-full text-sm border border-gray-700"><i class="fas fa-copyright mr-2"></i> Your brand. Your rules.</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white">Data ownership &amp;<br>full branding.</h2>
+                <p class="text-lg text-gray-400">Export your database whenever you want. Professional PDFs with studio logo. No forced lock-in.</p>
                 <div class="flex items-center p-4 bg-brand-dark rounded-xl border border-gray-800 mt-4">
                     <div class="bg-gray-800 p-3 rounded-full mr-4"><i class="fas fa-file-pdf text-red-400 text-xl"></i></div>
                     <div>
-                        <h4 class="font-bold text-white text-sm">Professional PDF Export</h4>
-                        <p class="text-xs text-gray-400">Generate high-resolution printable routines by automatically applying <strong>your Studio or Fitness Center's logo</strong> to the header.</p>
+                        <h4 class="font-bold text-white text-sm">Professional PDF export</h4>
+                        <p class="text-xs text-gray-400">Printable routines with your studio or gym logo in the header.</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="lg:w-1/2 flex justify-center pb-4 relative">
-                <img data-img="brand-pdf" alt="PDF Export and Branding" class="w-[512px] md:w-[576px] transform rotate-6 hover:rotate-2 transition-transform duration-500 ease-out iphone-mock device-shadow border-white/20 relative z-20">
-                <div class="glow-blob w-[800px] h-[800px] bg-white bottom-1/2 left-1/2 transform translate-x-1/2 translate-y-1/2 opacity-5 z-10"></div>
+            <div class="lg:w-1/2 flex justify-center relative">
+                <img data-img="brand-pdf" alt="PDF export and branding" class="w-[420px] md:w-[520px] iphone-mock device-shadow border-white/20 relative z-20">
             </div>
         </div>
     </section>
 
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-50 my-10"></div>
-    <div class="text-center px-6">
-        <p class="text-brand-accent font-bold tracking-[0.2em] text-sm uppercase">The Engine for your Athletes</p>
-        <h2 class="text-3xl font-black text-white mt-2">What's under the hood of MOVE</h2>
+    <section id="ai" class="bg-brand-dark py-24 border-b border-gray-800 relative">
+        <div class="glow-blob w-[500px] h-[500px] bg-brand-accent top-0 right-0 opacity-10"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6 order-2 lg:order-1">
+                    <div class="inline-block bg-brand-accent/20 text-brand-accent font-semibold px-4 py-1 rounded-full text-sm"><i class="fas fa-bolt mr-2"></i> AI Wizard & Import</div>
+                    <h2 class="text-4xl md:text-5xl font-black text-white">Build routines in seconds.<br><span class="gradient-text">Not hours.</span></h2>
+                    <p class="text-lg text-gray-400">AI Wizard, photo import for paper sheets, and a filterable catalog with 500+ multilingual exercises.</p>
+                    <ul class="space-y-4 text-gray-300 text-sm">
+                        <li class="flex items-start"><i class="fas fa-magic text-brand-accent mt-1 mr-3"></i><div><strong>AI Wizard:</strong> monthly credits to generate goal- and level-based routines.</div></li>
+                        <li class="flex items-start"><i class="fas fa-camera text-brand-accent mt-1 mr-3"></i><div><strong>Photo import:</strong> digitize existing sheets without retyping everything.</div></li>
+                        <li class="flex items-start"><i class="fas fa-filter text-brand-accent mt-1 mr-3"></i><div><strong>Advanced catalog:</strong> muscle, equipment, mobility, women, senior filters.</div></li>
+                        <li class="flex items-start"><i class="fas fa-layer-group text-brand-accent mt-1 mr-3"></i><div><strong>Groups & free workout:</strong> organize routines and start without a rigid template.</div></li>
+                    </ul>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 order-1 lg:order-2">
+                    <img data-img="ai-catalog" class="w-44 md:w-52 iphone-mock device-shadow border-brand-accent/40" alt="MOVE exercise catalog">
+                    <img data-img="ai-wizard" class="w-44 md:w-52 iphone-mock device-shadow border-brand-accent/20 opacity-95" alt="AI Wizard — screenshot TBD">
+                    <img data-img="ai-photo-import" class="w-44 md:w-52 iphone-mock device-shadow border-brand-accent/20 opacity-95" alt="Photo import — screenshot TBD">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-50 my-6"></div>
+    <div class="text-center px-6 mb-4">
+        <p class="section-kicker text-brand-accent">The engine for your athletes</p>
+        <h2 class="text-3xl font-black text-white mt-2">Editor, Watch, distance and progress</h2>
     </div>
 
-    <section id="editor" class="bg-brand-dark py-24 border-b border-gray-800 relative mt-10">
-        <div class="glow-blob w-[600px] h-[600px] bg-brand-accent bottom-[-100px] right-[-200px] opacity-10"></div>
-
+    <section id="editor" class="bg-brand-dark py-20 border-b border-gray-800 relative">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <div class="inline-block bg-brand-accent/20 text-brand-accent font-semibold px-4 py-1 rounded-full text-sm mb-4"><i class="fas fa-dumbbell mr-2"></i> Surgical Editor</div>
-                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">Sculpt their Routine.</h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Database with 300+ exercises and surgical setup of Super Sets, Drop Sets, and Rest Pauses.</p>
+            <div class="text-center mb-12">
+                <div class="inline-block bg-brand-accent/20 text-brand-accent font-semibold px-4 py-1 rounded-full text-sm mb-4"><i class="fas fa-dumbbell mr-2"></i> Surgical editor</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">Craft their routine.</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">500+ exercise database, supersets, drop sets, rest-pause, coaching notes and per-set setup.</p>
             </div>
-            
-            <!-- DYNAMIC EDITOR CAROUSEL -->
-            <div id="carousel-editor" class="flex overflow-x-auto hide-scrollbar gap-8 pb-12 px-4 snap-x snap-mandatory justify-start lg:justify-center">
+            <div class="carousel-wrap" data-carousel-wrap>
+                <button type="button" class="carousel-btn prev" data-carousel-prev aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div id="carousel-editor" class="flex overflow-x-auto hide-scrollbar gap-8 pb-8 px-10 snap-x snap-mandatory justify-start lg:justify-center"></div>
+                <button type="button" class="carousel-btn next" data-carousel-next aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots" data-carousel-dots></div>
             </div>
         </div>
     </section>
 
-    <section class="bg-brand-card py-24 border-b border-gray-800 relative">
+    <section id="circuiti" class="bg-brand-card py-24 border-b border-gray-800 relative">
         <div class="glow-blob w-[600px] h-[600px] bg-brand-indigo top-1/2 left-0 transform -translate-y-1/2 opacity-10"></div>
-        <div class="container mx-auto px-6 flex flex-col lg:flex-row-reverse items-center gap-16 relative z-10">
-            <div class="lg:w-1/2 space-y-6">
-                <div class="inline-block bg-brand-indigo/20 text-brand-indigo font-semibold px-4 py-1 rounded-full text-sm"><i class="fas fa-sync-alt mr-2"></i> Circuit Training & HIIT</div>
-                <h2 class="text-4xl md:text-5xl font-black text-white">Macro-Blocks and Circuits.<br><span class="gradient-text-indigo">Without interruptions.</span></h2>
-                <p class="text-lg text-gray-400">
-                    Design high-intensity workouts by grouping multiple exercises into a single <strong>Macro-Block</strong>. Set the number of rounds, transitions, and macro-rests.
-                </p>
-                <ul class="space-y-4 text-gray-300 mt-6 text-sm">
-                    <li class="flex items-start">
-                        <i class="fas fa-stopwatch text-brand-indigo mt-1 mr-3"></i>
-                        <div><strong>Hands-Free on Apple Watch:</strong> The watch automatically advances through the circuit exercises and dictates rest times without touching the screen. Ideal for not breaking your athletes' rhythm.</div>
-                    </li>
-                </ul>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-start mb-14">
+                <div class="space-y-6">
+                    <div class="inline-block bg-brand-indigo/20 text-brand-indigo font-semibold px-4 py-1 rounded-full text-sm"><i class="fas fa-sync-alt mr-2"></i> Circuits, HIIT & methods</div>
+                    <h2 class="text-4xl md:text-5xl font-black text-white">Macro-blocks without stopping.<br><span class="gradient-text-indigo">Even hands-free.</span></h2>
+                    <p class="text-lg text-gray-400">Group exercises into circuits, set rounds and rest. Per-exercise auto-advance, TTS for the next movement, supersets, drop sets, pyramid and rest-pause.</p>
+                    <ul class="space-y-4 text-gray-300 text-sm">
+                        <li class="flex items-start"><i class="fas fa-stopwatch text-brand-indigo mt-1 mr-3"></i><div><strong>Auto-advance:</strong> end work → rest → next exercise.</div></li>
+                        <li class="flex items-start"><i class="fas fa-volume-up text-brand-indigo mt-1 mr-3"></i><div><strong>TTS on rest:</strong> announce the next movement on iPhone and Watch.</div></li>
+                        <li class="flex items-start"><i class="fas fa-fire text-brand-indigo mt-1 mr-3"></i><div><strong>Advanced methods:</strong> Pyramid, Drop Set, Rest Pause, Superset / T21.</div></li>
+                    </ul>
+                </div>
+                <div class="flex justify-center items-end gap-4 flex-wrap">
+                    <img data-img="circuit-iphone" class="w-52 md:w-60 iphone-mock device-shadow border-brand-indigo/50" alt="Circuit management">
+                    <img data-img="circuit-watch-active" class="w-28 md:w-36 watch-mock device-shadow border-brand-indigo/40 mb-4" alt="Apple Watch circuit — TBD">
+                    <img data-img="circuit-watch-rest" class="w-28 md:w-36 watch-mock device-shadow border-brand-indigo/30 mb-4" alt="Apple Watch circuit rest — TBD">
+                </div>
             </div>
-            <div class="lg:w-1/2 w-full flex justify-center pb-4 relative">
-                <img data-img="circuit-iphone" class="w-64 md:w-72 iphone-mock device-shadow border-brand-indigo/50" alt="Circuit Management">
+            <p class="text-sm font-semibold text-gray-400 mb-3 flex items-center gap-2"><i class="fas fa-mobile-alt text-brand-indigo"></i> iPhone — editor & methods</p>
+            <div class="carousel-wrap mb-10" data-carousel-wrap>
+                <button type="button" class="carousel-btn prev" data-carousel-prev aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div id="carousel-circuit" class="flex overflow-x-auto hide-scrollbar gap-8 pb-8 px-10 snap-x snap-mandatory justify-start lg:justify-center"></div>
+                <button type="button" class="carousel-btn next" data-carousel-next aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots" data-carousel-dots></div>
             </div>
+            <p class="text-sm font-semibold text-gray-400 mb-3 flex items-center gap-2"><i class="fab fa-apple text-brand-indigo"></i> Apple Watch — hands-free circuit</p>
+            <div class="carousel-wrap" data-carousel-wrap>
+                <button type="button" class="carousel-btn prev" data-carousel-prev aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div id="carousel-circuit-watch" class="flex overflow-x-auto hide-scrollbar gap-8 pb-8 px-10 snap-x snap-mandatory justify-start lg:justify-center items-center"></div>
+                <button type="button" class="carousel-btn next" data-carousel-next aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots" data-carousel-dots></div>
+            </div>
+            <p class="text-center text-xs text-gray-500 mt-2">Watch screenshots TBD: <code class="text-gray-400">TODO_circuit_watch_*.png</code> in <code class="text-gray-400">images.csv</code>.</p>
         </div>
     </section>
 
     <section id="app" class="py-24 relative bg-brand-dark border-b border-gray-800">
         <div class="glow-blob w-[500px] h-[500px] bg-brand-orange bottom-[-100px] left-[-200px] opacity-10"></div>
-
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <div class="inline-block bg-brand-orange/20 text-brand-orange font-semibold px-4 py-1 rounded-full text-sm mb-4"><i class="fab fa-apple mr-2"></i> Wearable Ecosystem</div>
-                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">The gym, <span class="gradient-text-amber">without distractions.</span></h2>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Offer your clients a fluid workout interface on their Smartphone or right from their wrist with the integrated Watch App.</p>
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-14">
+                <div>
+                    <div class="inline-block bg-brand-orange/20 text-brand-orange font-semibold px-4 py-1 rounded-full text-sm mb-4"><i class="fab fa-apple mr-2"></i> Wearable ecosystem</div>
+                    <h2 class="text-4xl md:text-5xl font-black text-white mb-4">The gym floor, <span class="gradient-text-amber">without distractions.</span></h2>
+                    <p class="text-lg text-gray-400 mb-6">Smooth training on iPhone or wrist. Planned workouts on Watch, timed alerts even with the screen off, voice cues and rest timers.</p>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-start"><i class="fas fa-bell text-brand-orange mt-1 mr-3"></i><div><strong>Scheduled alerts:</strong> start-time reminders on phone and Watch.</div></li>
+                        <li class="flex items-start"><i class="fas fa-calendar-check text-brand-orange mt-1 mr-3"></i><div><strong>Upcoming workouts:</strong> see what’s planned directly from the wrist.</div></li>
+                        <li class="flex items-start"><i class="fas fa-microphone text-brand-orange mt-1 mr-3"></i><div><strong>Voice guidance:</strong> rest announcements and proximity cues outdoors too.</div></li>
+                    </ul>
+                </div>
+                <div class="flex justify-center">
+                    <img data-img="watch-start" class="w-40 md:w-48 watch-mock device-shadow" alt="Apple Watch workout start">
+                </div>
             </div>
-            
-            <!-- DYNAMIC WATCH CAROUSEL -->
-            <div id="carousel-watch" class="flex overflow-x-auto hide-scrollbar gap-8 pb-10 justify-start lg:justify-center items-center px-4 snap-x">
+            <div class="carousel-wrap" data-carousel-wrap>
+                <button type="button" class="carousel-btn prev" data-carousel-prev aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div id="carousel-watch" class="flex overflow-x-auto hide-scrollbar gap-8 pb-8 px-10 justify-start lg:justify-center items-center snap-x"></div>
+                <button type="button" class="carousel-btn next" data-carousel-next aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots" data-carousel-dots></div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-brand-card border-b border-gray-800 relative overflow-hidden">
+    <section id="distanza" class="py-24 bg-brand-card border-b border-gray-800 relative overflow-hidden">
+        <div class="glow-blob w-[480px] h-[480px] bg-brand-teal top-10 right-10 opacity-10"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-start mb-12">
+                <div class="space-y-6">
+                    <div class="inline-block bg-brand-teal/20 text-brand-teal font-semibold px-4 py-1 rounded-full text-sm"><i class="fas fa-route mr-2"></i> Distance & Outdoor</div>
+                    <h2 class="text-4xl md:text-5xl font-black text-white">Not just the weight room.<br><span class="text-brand-teal">Meters and kilometers too.</span></h2>
+                    <p class="text-lg text-gray-400">Full distance management: editor targets, per-set distance/rest, free-distance, proximity voice cues on iPhone and Watch. Built for outdoor runs and bodyweight work.</p>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-start"><i class="fas fa-check text-brand-teal mt-1 mr-3"></i><div><strong>Distance editor:</strong> meter/km targets and per-set setup</div></li>
+                        <li class="flex items-start"><i class="fas fa-check text-brand-teal mt-1 mr-3"></i><div><strong>Free-distance:</strong> train without a fixed target</div></li>
+                        <li class="flex items-start"><i class="fas fa-check text-brand-teal mt-1 mr-3"></i><div><strong>Proximity voice:</strong> cues as you approach the target</div></li>
+                        <li class="flex items-start"><i class="fas fa-check text-brand-teal mt-1 mr-3"></i><div><strong>Outdoor catalog:</strong> e.g. bodyweight Run</div></li>
+                    </ul>
+                </div>
+                <div class="flex justify-center items-end gap-4 flex-wrap">
+                    <img data-img="distance-run" class="w-52 md:w-60 iphone-mock device-shadow border-brand-teal/40" alt="MOVE distance workout">
+                    <img data-img="distance-watch-active" class="w-28 md:w-36 watch-mock device-shadow border-brand-teal/40 mb-4" alt="Apple Watch distance — TBD">
+                    <img data-img="distance-watch-cue" class="w-28 md:w-36 watch-mock device-shadow border-brand-teal/30 mb-4" alt="Apple Watch distance cue — TBD">
+                </div>
+            </div>
+            <p class="text-sm font-semibold text-gray-400 mb-3 flex items-center gap-2"><i class="fas fa-mobile-alt text-brand-teal"></i> iPhone — distance editor & runner</p>
+            <div class="carousel-wrap mb-10" data-carousel-wrap>
+                <button type="button" class="carousel-btn prev" data-carousel-prev aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div id="carousel-distance" class="flex overflow-x-auto hide-scrollbar gap-8 pb-8 px-10 snap-x snap-mandatory justify-start lg:justify-center"></div>
+                <button type="button" class="carousel-btn next" data-carousel-next aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots" data-carousel-dots></div>
+            </div>
+            <p class="text-sm font-semibold text-gray-400 mb-3 flex items-center gap-2"><i class="fab fa-apple text-brand-teal"></i> Apple Watch — distance & cues</p>
+            <div class="carousel-wrap" data-carousel-wrap>
+                <button type="button" class="carousel-btn prev" data-carousel-prev aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div id="carousel-distance-watch" class="flex overflow-x-auto hide-scrollbar gap-8 pb-8 px-10 snap-x snap-mandatory justify-start lg:justify-center items-center"></div>
+                <button type="button" class="carousel-btn next" data-carousel-next aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots" data-carousel-dots></div>
+            </div>
+            <p class="text-center text-xs text-gray-500 mt-2">Watch screenshots TBD: <code class="text-gray-400">TODO_distance_watch_*.png</code> in <code class="text-gray-400">images.csv</code>.</p>
+        </div>
+    </section>
+
+    <section id="calendario" class="py-24 bg-brand-dark border-b border-gray-800 relative">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+            <div class="lg:w-1/2 space-y-6">
+                <div class="inline-block bg-brand-amber/20 text-brand-amber font-semibold px-4 py-1 rounded-full text-sm"><i class="fas fa-calendar-alt mr-2"></i> Calendar & Alerts</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white">Plan. Remind.<br><span class="gradient-text-amber">Start on time.</span></h2>
+                <p class="text-lg text-gray-400">Recurring sessions, start times and alerts on iPhone and Apple Watch even with the screen off. Planned workouts also appear on the wrist.</p>
+                <ul class="space-y-3 text-sm text-gray-300">
+                    <li class="flex items-start"><i class="fas fa-check text-brand-amber mt-1 mr-3"></i><div>Scheduling from the routine menu</div></li>
+                    <li class="flex items-start"><i class="fas fa-check text-brand-amber mt-1 mr-3"></i><div>Timed alerts on phone and Watch</div></li>
+                    <li class="flex items-start"><i class="fas fa-check text-brand-amber mt-1 mr-3"></i><div>“Upcoming” list on Watch</div></li>
+                </ul>
+            </div>
+            <div class="lg:w-1/2 flex justify-center gap-4 flex-wrap">
+                <img data-img="calendar-phone" class="w-52 md:w-60 iphone-mock device-shadow border-brand-amber/40" alt="Calendar — TBD">
+                <img data-img="calendar-alert" class="w-52 md:w-60 iphone-mock device-shadow border-brand-amber/30" alt="Alert — TBD">
+            </div>
+        </div>
+    </section>
+
+    <section id="runner" class="py-24 bg-brand-card border-b border-gray-800 relative">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row-reverse items-center gap-16 relative z-10">
+            <div class="lg:w-1/2 space-y-6">
+                <div class="inline-block bg-brand-cyan/20 text-brand-cyan font-semibold px-4 py-1 rounded-full text-sm"><i class="fas fa-play mr-2"></i> iPhone Runner</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white">Guided training,<br>no paper sheets.</h2>
+                <p class="text-lg text-gray-400">Timers, rest, skip, exercise list, attention-area cues and end-of-session summary. Same mental flow as Watch, on the phone.</p>
+                <ul class="space-y-3 text-sm text-gray-300">
+                    <li class="flex items-start"><i class="fas fa-check text-brand-cyan mt-1 mr-3"></i><div>Active session with clear controls</div></li>
+                    <li class="flex items-start"><i class="fas fa-check text-brand-cyan mt-1 mr-3"></i><div>Summary of volume / sets / kcal</div></li>
+                    <li class="flex items-start"><i class="fas fa-check text-brand-cyan mt-1 mr-3"></i><div>Auto-save to history</div></li>
+                </ul>
+            </div>
+            <div class="lg:w-1/2 flex justify-center gap-4 flex-wrap">
+                <img data-img="runner-phone" class="w-52 md:w-60 iphone-mock device-shadow border-brand-cyan/40" alt="iPhone runner — TBD">
+                <img data-img="runner-summary" class="w-52 md:w-60 iphone-mock device-shadow border-brand-cyan/30" alt="Session summary — TBD">
+            </div>
+        </div>
+    </section>
+
+    <section id="sicurezza" class="py-24 bg-brand-dark border-b border-gray-800 relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12 max-w-3xl mx-auto">
+                <div class="inline-block bg-gray-800 text-gray-300 font-semibold px-4 py-1 rounded-full text-sm mb-4"><i class="fas fa-shield-alt mr-2"></i> Safety & Mobility</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">Attention areas, Smart Swap, protocols.</h2>
+                <p class="text-lg text-gray-400">Not a medical device: attention areas are training preferences. The app flags less suitable exercises, suggests alternatives (Smart Swap) and unlocks mobility modules on Studio plans.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="bg-brand-card rounded-2xl border border-gray-800 p-5 text-center">
+                    <img data-img="safety-areas" class="w-40 mx-auto iphone-mock device-shadow mb-4" alt="Attention areas — TBD">
+                    <h3 class="font-bold text-white mb-1">Attention areas</h3>
+                    <p class="text-sm text-gray-400">Athlete profile + flags in routine/runner</p>
+                </div>
+                <div class="bg-brand-card rounded-2xl border border-gray-800 p-5 text-center">
+                    <img data-img="smart-swap" class="w-40 mx-auto iphone-mock device-shadow mb-4" alt="Smart Swap — TBD">
+                    <h3 class="font-bold text-white mb-1">Smart Swap</h3>
+                    <p class="text-sm text-gray-400">Substitutions by muscle/equipment affinity</p>
+                </div>
+                <div class="bg-brand-card rounded-2xl border border-gray-800 p-5 text-center">
+                    <img data-img="mobility-protocol" class="w-40 mx-auto iphone-mock device-shadow mb-4" alt="Mobility — TBD">
+                    <h3 class="font-bold text-white mb-1">Mobility / Rehab</h3>
+                    <p class="text-sm text-gray-400">Protocols on Studio & Gym plans</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="analisi" class="py-24 bg-brand-card border-b border-gray-800 relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12 max-w-3xl mx-auto">
+                <div class="inline-block bg-gray-800 text-gray-300 font-semibold px-4 py-1 rounded-full text-sm mb-4"><i class="fas fa-chart-line mr-2"></i> Progress</div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">History and analytics — not just vibes.</h2>
+                <p class="text-lg text-gray-400">Volume, kcal, distance, scheduled workouts and session history — ready for client check-ins. Backup/export on Pro plans.</p>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-10 flex-wrap">
+                <img data-img="analytics" class="w-52 md:w-60 iphone-mock device-shadow" alt="Analyze data">
+                <img data-img="history" class="w-52 md:w-60 iphone-mock device-shadow" alt="Workout history">
+                <img data-img="backup-export" class="w-52 md:w-60 iphone-mock device-shadow" alt="Backup export — TBD">
+            </div>
+        </div>
+    </section>
+
+    <section id="lingue" class="py-24 bg-brand-card border-b border-gray-800 relative overflow-hidden">
         <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
             <div class="lg:w-1/2 flex flex-col items-center relative h-[400px] w-full max-w-lg mx-auto lg:mx-0">
-                <img data-img="lang-iphone" class="w-56 iphone-mock device-shadow absolute top-0 left-1/2 transform -translate-x-1/2 z-20 border-white/20" alt="Language Selection">
-                <img data-img="lang-bg" class="w-48 iphone-mock device-shadow absolute top-20 right-0 transform rotate-6 z-10 opacity-70" alt="Localization Example">
+                <img data-img="lang-picker" class="w-56 iphone-mock device-shadow absolute top-0 left-1/2 transform -translate-x-1/2 z-20 border-white/20" alt="Language picker — TBD">
+                <img data-img="lang-iphone" class="w-48 iphone-mock device-shadow absolute top-20 right-0 transform rotate-6 z-10 opacity-80" alt="Audio and voice settings">
             </div>
-
             <div class="lg:w-1/2 space-y-6 text-center lg:text-left">
-                <div class="inline-block bg-gray-800 text-gray-300 font-semibold px-4 py-1 rounded-full text-sm mx-auto lg:mx-0"><i class="fas fa-globe mr-2"></i> International Clientele?</div>
+                <div class="inline-block bg-gray-800 text-gray-300 font-semibold px-4 py-1 rounded-full text-sm mx-auto lg:mx-0"><i class="fas fa-globe mr-2"></i> International clients?</div>
                 <h2 class="text-4xl md:text-5xl font-black text-white">MOVE speaks<br>5 native languages.</h2>
-                <p class="text-lg text-gray-400 mb-6">
-                    Select the app language. The entire interface, biomechanical vocabulary, and even the **guiding voice (TTS) during rest periods** will automatically adapt.
-                </p>
+                <p class="text-lg text-gray-400 mb-6">UI, biomechanics vocabulary and rest TTS adapt to the selected language. Audio guide, vibration and voice preferences stay under Settings control.</p>
                 <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
                     <span class="bg-gray-800 text-white px-3 py-1 rounded-md text-sm font-semibold border border-gray-700">🇮🇹 IT</span>
                     <span class="bg-gray-800 text-gray-400 px-3 py-1 rounded-md text-sm font-semibold border border-gray-800">🇬🇧 EN</span>
@@ -286,251 +484,148 @@
     </section>
 
     <section id="prezzi" class="bg-brand-dark py-24 relative border-t border-gray-800">
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-black mb-4">Choose the perfect plan for you or your business.</h2>
-            <p class="text-gray-400 max-w-xl mx-auto">Start with a 7-day free trial. No commitments, cancel anytime from the App Store or Google Play.</p>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">Pick the plan that fits you or your business.</h2>
+                <p class="text-gray-400 max-w-xl mx-auto">Start with a 7-day trial. No lock-in — cancel anytime from the App Store or Google Play.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch">
+                <div class="bg-brand-card p-6 rounded-3xl border border-gray-800 relative hover:border-gray-600 transition flex flex-col h-full">
+                    <h3 class="text-gray-300 font-bold text-lg tracking-widest mb-1">BEGINNER</h3>
+                    <p class="text-gray-500 text-xs mb-6">The essentials to start.</p>
+                    <div class="text-3xl font-black mb-6 text-white">€0 <span class="text-sm text-gray-500 font-normal">/ month</span></div>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-400 flex-grow">
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i> 1 custom routine</li>
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i> Core exercises</li>
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i> Workout Runner (no Watch)</li>
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i> Journal & basic biometrics</li>
+                    </ul>
+                    <a href="#download" class="block text-center w-full py-3 rounded-lg border border-gray-700 hover:bg-gray-800 transition font-bold text-gray-300 mt-auto">Download free</a>
+                </div>
+
+                <div class="group bg-brand-card p-6 rounded-3xl border border-brand-accent relative shadow-[0_0_20px_rgba(59,130,246,0.1)] hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition flex flex-col h-full">
+                    <div class="mb-5 rounded-2xl overflow-hidden h-48 relative border border-brand-accent/20">
+                        <img data-img="price-ath-a" alt="Athlete Pro" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100 group-hover:opacity-0">
+                        <img data-img="price-ath-b" alt="Athlete Pro details" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 transform scale-105 group-hover:scale-100">
+                    </div>
+                    <h3 class="text-brand-accent font-bold text-lg tracking-widest mb-1">ATHLETE PRO</h3>
+                    <p class="text-gray-500 text-xs mb-6">For serious training.</p>
+                    <div class="text-3xl font-black mb-6 text-white">€4.99 <span class="text-sm text-gray-500 font-normal">/ month</span></div>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-300 flex-grow">
+                        <li class="font-bold text-white"><i class="fas fa-check text-brand-accent mr-2"></i> Apple Watch, circuits & alerts</li>
+                        <li><i class="fas fa-bolt text-brand-accent mr-2"></i> AI / import (credits)</li>
+                        <li><i class="fas fa-check text-brand-accent mr-2"></i> Unlimited routines</li>
+                        <li><i class="fas fa-dumbbell text-brand-accent mr-2"></i> Full 500+ database</li>
+                        <li><i class="fas fa-route text-brand-accent mr-2"></i> Distance & outdoor</li>
+                    </ul>
+                    <a href="#download" class="block text-center w-full py-3 rounded-lg bg-brand-accent text-white hover:bg-blue-600 transition font-bold mt-auto">7-day trial</a>
+                </div>
+
+                <div class="group bg-brand-card p-6 rounded-3xl border-2 border-brand-amber relative shadow-[0_0_30px_rgba(255,191,0,0.15)] flex flex-col h-full">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-amber text-black px-3 py-1 rounded-full text-[10px] font-bold tracking-widest whitespace-nowrap z-10">MOST POPULAR</div>
+                    <div class="mb-5 rounded-2xl overflow-hidden h-48 relative z-10 border border-brand-amber/20">
+                        <img data-img="price-pro-a" alt="Trainer Pro" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100 group-hover:opacity-0">
+                        <img data-img="price-pro-b" alt="Trainer Pro details" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 transform scale-105 group-hover:scale-100">
+                    </div>
+                    <h3 class="text-brand-amber font-bold text-lg tracking-widest mb-1 mt-2">TRAINER PRO</h3>
+                    <p class="text-gray-400 text-xs mb-6">Full PT management suite.</p>
+                    <div class="text-3xl font-black mb-6 text-white">€19.99 <span class="text-sm text-gray-500 font-normal">/ month</span></div>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-200 relative z-10 flex-grow">
+                        <li class="font-bold"><i class="fas fa-users text-brand-amber mr-2"></i> Unlimited clients</li>
+                        <li><i class="fas fa-desktop text-brand-amber mr-2"></i> iPad CRM dashboard</li>
+                        <li><i class="fas fa-bolt text-brand-amber mr-2"></i> Monthly AI credits</li>
+                        <li><i class="fas fa-layer-group text-brand-amber mr-2"></i> Multi-select & assignment</li>
+                        <li><i class="fas fa-file-pdf text-brand-amber mr-2"></i> Custom logo PDFs</li>
+                    </ul>
+                    <a href="#download" class="block text-center w-full py-3 rounded-lg bg-brand-amber text-black hover:bg-yellow-500 transition font-bold relative z-10 mt-auto">7-day trial</a>
+                </div>
+
+                <div class="group bg-brand-card p-6 rounded-3xl border border-brand-teal relative hover:border-teal-400 transition shadow-[0_0_20px_rgba(20,184,166,0.1)] flex flex-col h-full">
+                    <div class="mb-5 rounded-2xl overflow-hidden h-48 relative z-10 border border-brand-teal/20">
+                        <img data-img="price-gym-a" alt="Studio Gym" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100 group-hover:opacity-0">
+                        <img data-img="price-gym-b" alt="Studio Gym details" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 transform scale-105 group-hover:scale-100">
+                    </div>
+                    <h3 class="text-brand-teal font-bold text-lg tracking-widest mb-1">STUDIO & GYM</h3>
+                    <p class="text-gray-500 text-xs mb-6">Team / facility solution.</p>
+                    <div class="text-3xl font-black mb-6 text-white">€49.99 <span class="text-sm text-gray-500 font-normal">/ month</span></div>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-300 flex-grow">
+                        <li class="font-bold text-white"><i class="fas fa-network-wired text-brand-teal mr-2"></i> Full routine sharing</li>
+                        <li><i class="fas fa-running text-brand-teal mr-2"></i> Complete mobility module</li>
+                        <li><i class="fas fa-user-shield text-brand-teal mr-2"></i> Biomechanical safety filters</li>
+                        <li><i class="fas fa-headset text-brand-teal mr-2"></i> Priority support</li>
+                    </ul>
+                    <a href="#download" class="block text-center w-full py-3 rounded-lg border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-black transition font-bold mt-auto">7-day trial</a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch">
-            
-            <div class="bg-brand-card p-6 rounded-3xl border border-gray-800 relative hover:border-gray-600 transition flex flex-col h-full">
-                <h3 class="text-gray-300 font-bold text-lg tracking-widest mb-1">BEGINNER</h3>
-                <p class="text-gray-500 text-xs mb-6">The essentials to get started.</p>
-                <div class="text-3xl font-black mb-6 text-white">€0 <span class="text-sm text-gray-500 font-normal">/ month</span></div>
-                <ul class="space-y-3 mb-8 text-sm text-gray-400 flex-grow">
-                    <li><i class="fas fa-check text-gray-500 mr-2"></i> 1 Custom Routine</li>
-                    <li><i class="fas fa-check text-gray-500 mr-2"></i> 20 Basic Exercises</li>
-                    <li><i class="fas fa-check text-gray-500 mr-2"></i> Workout Runner (No Watch)</li>
-                    <li><i class="fas fa-check text-gray-500 mr-2"></i> Basic Diary & Biometrics</li>
-                </ul>
-                <a href="#download" class="block text-center w-full py-3 rounded-lg border border-gray-700 hover:bg-gray-800 transition font-bold text-gray-300 mt-auto">Download for Free</a>
+    <section id="faq" class="bg-black py-24 border-t border-gray-800">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-black text-white mb-3">FAQ</h2>
+                <p class="text-gray-400">Quick answers on Watch, plans, AI and data ownership.</p>
             </div>
-
-            <div class="group bg-brand-card p-6 rounded-3xl border border-brand-accent relative shadow-[0_0_20px_rgba(59,130,246,0.1)] hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition flex flex-col h-full">
-                <div class="mb-5 rounded-2xl overflow-hidden h-48 relative border border-brand-accent/20">
-                    <img data-img="price-ath-a" alt="Athlete Pro" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100 group-hover:opacity-0">
-                    <img data-img="price-ath-b" alt="Athlete Pro Details" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 transform scale-105 group-hover:scale-100">
+            <div class="space-y-4">
+                <div class="faq-item" data-faq-item>
+                    <button type="button" data-faq-btn aria-expanded="false">Do I need an Apple Watch?<i class="fas fa-chevron-down text-gray-500 transition"></i></button>
+                    <div data-faq-panel hidden>No. You can train from iPhone. Watch unlocks hands-free flow, timed alerts, planned workouts and wrist timers (Pro plans).</div>
                 </div>
-                <h3 class="text-brand-accent font-bold text-lg tracking-widest mb-1">ATHLETE PRO</h3>
-                <p class="text-gray-500 text-xs mb-6">For those who train seriously.</p>
-                <div class="text-3xl font-black mb-6 text-white">€4.99 <span class="text-sm text-gray-500 font-normal">/ month</span></div>
-                <ul class="space-y-3 mb-8 text-sm text-gray-300 flex-grow">
-                    <li class="font-bold text-white"><i class="fas fa-check text-brand-accent mr-2"></i> Apple Watch & Circuits</li>
-                    <li><i class="fas fa-bolt text-brand-accent mr-2"></i> AI Scan (3 credits)</li>
-                    <li><i class="fas fa-check text-brand-accent mr-2"></i> Unlimited Routines</li>
-                    <li><i class="fas fa-dumbbell text-brand-accent mr-2"></i> Full Database (+300)</li>
-                </ul>
-                <a href="#download" class="block text-center w-full py-3 rounded-lg bg-brand-accent text-white hover:bg-blue-600 transition font-bold mt-auto">Try Free for 7&nbsp;Days</a>
-            </div>
-
-            <div class="group bg-brand-card p-6 rounded-3xl border-2 border-brand-amber relative shadow-[0_0_30px_rgba(255,191,0,0.15)] flex flex-col h-full">
-                <div class="glow-blob w-[300px] h-[300px] bg-brand-amber top-[-150px] right-[-150px] opacity-20"></div>
-                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-amber text-black px-3 py-1 rounded-full text-[10px] font-bold tracking-widest whitespace-nowrap z-10">MOST POPULAR</div>
-                <div class="mb-5 rounded-2xl overflow-hidden h-48 relative z-10 border border-brand-amber/20">
-                    <img data-img="price-pro-a" alt="Trainer Pro" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100 group-hover:opacity-0">
-                    <img data-img="price-pro-b" alt="Trainer Pro Details" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 transform scale-105 group-hover:scale-100">
+                <div class="faq-item" data-faq-item>
+                    <button type="button" data-faq-btn aria-expanded="false">What’s included with AI?<i class="fas fa-chevron-down text-gray-500 transition"></i></button>
+                    <div data-faq-panel hidden>AI Wizard to generate routines and photo import. Credits depend on the plan (Athlete / Trainer). Consumables deplete as shown in-app.</div>
                 </div>
-                <h3 class="text-brand-amber font-bold text-lg tracking-widest mb-1 mt-2">TRAINER PRO</h3>
-                <p class="text-gray-400 text-xs mb-6">The complete PT management tool.</p>
-                <div class="text-3xl font-black mb-6 text-white">€19.99 <span class="text-sm text-gray-500 font-normal">/ month</span></div>
-                <ul class="space-y-3 mb-8 text-sm text-gray-200 relative z-10 flex-grow">
-                    <li class="font-bold"><i class="fas fa-users text-brand-amber mr-2"></i> UNLIMITED Clients</li>
-                    <li><i class="fas fa-desktop text-brand-amber mr-2"></i> iPad CRM Dashboard</li>
-                    <li><i class="fas fa-bolt text-brand-amber mr-2"></i> 50 AI Credits / Month</li>
-                    <li><i class="fas fa-file-pdf text-brand-amber mr-2"></i> PDF with Custom Logo</li>
-                </ul>
-                <a href="#download" class="block text-center w-full py-3 rounded-lg bg-brand-amber text-black hover:bg-yellow-500 transition font-bold relative z-10 mt-auto">Try Free for 7&nbsp;Days</a>
-            </div>
-
-            <div class="group bg-brand-card p-6 rounded-3xl border border-brand-teal relative hover:border-teal-400 transition shadow-[0_0_20px_rgba(20,184,166,0.1)] flex flex-col h-full">
-                <div class="mb-5 rounded-2xl overflow-hidden h-48 relative z-10 border border-brand-teal/20">
-                    <img data-img="price-gym-a" alt="Studio Gym" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100 group-hover:opacity-0">
-                    <img data-img="price-gym-b" alt="Studio Gym Details" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 transform scale-105 group-hover:scale-100">
+                <div class="faq-item" data-faq-item>
+                    <button type="button" data-faq-btn aria-expanded="false">Do I keep ownership of my data?<i class="fas fa-chevron-down text-gray-500 transition"></i></button>
+                    <div data-faq-panel hidden>Yes. Export routines and, on Pro plans, backups/exports. Branded PDFs with studio logo. No forced lock-in.</div>
                 </div>
-                <h3 class="text-brand-teal font-bold text-lg tracking-widest mb-1">STUDIO & GYM</h3>
-                <p class="text-gray-500 text-xs mb-6">Enterprise solution.</p>
-                <div class="text-3xl font-black mb-6 text-white">€49.99 <span class="text-sm text-gray-500 font-normal">/ month</span></div>
-                <ul class="space-y-3 mb-8 text-sm text-gray-300 flex-grow">
-                    <li class="font-bold text-white"><i class="fas fa-network-wired text-brand-teal mr-2"></i> Complete Workout Sharing</li>
-                    <li><i class="fas fa-running text-brand-teal mr-2"></i> Full Mobility Module</li>
-                    <li><i class="fas fa-user-shield text-brand-teal mr-2"></i> Biomechanical Safety Filters</li>
-                    <li><i class="fas fa-headset text-brand-teal mr-2"></i> Priority Support</li>
-                </ul>
-                <a href="#download" class="block text-center w-full py-3 rounded-lg border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-black transition font-bold mt-auto">Try Free for 7&nbsp;Days</a>
+                <div class="faq-item" data-faq-item>
+                    <button type="button" data-faq-btn aria-expanded="false">Do you support distance and outdoor running?<i class="fas fa-chevron-down text-gray-500 transition"></i></button>
+                    <div data-faq-panel hidden>Yes: distance targets, free-distance, per-set distance/rest, and proximity voice cues on phone and Watch.</div>
+                </div>
+                <div class="faq-item" data-faq-item>
+                    <button type="button" data-faq-btn aria-expanded="false">How do calendar and alerts work?<i class="fas fa-chevron-down text-gray-500 transition"></i></button>
+                    <div data-faq-panel hidden>You can schedule sessions with a start time. Alerts ring on iPhone and Watch even with the screen off; Watch also shows upcoming workouts.</div>
+                </div>
+                <div class="faq-item" data-faq-item>
+                    <button type="button" data-faq-btn aria-expanded="false">How do trials and subscriptions work?<i class="fas fa-chevron-down text-gray-500 transition"></i></button>
+                    <div data-faq-panel hidden>7-day trial on paid plans. Billing and cancellation go through App Store / Google Play. No yearly lock forced by MOVE.</div>
+                </div>
             </div>
-            
         </div>
-    </div>
-</section>
+    </section>
+    </main>
 
-    <footer id="faq" class="bg-black py-24 border-t border-gray-800">
+    <footer class="bg-black pb-16 border-t border-gray-900">
         <div class="container mx-auto px-6 max-w-4xl">
-            <div id="download" class="text-center mb-16 space-y-8 pt-8">
-                <h2 class="text-3xl font-black text-white">Bring your gym into the future.</h2>
+            <div id="download" class="text-center mb-16 space-y-6 pt-16">
+                <h2 class="text-3xl font-black text-white">Take your gym into the future.</h2>
+                <p class="text-gray-400 max-w-xl mx-auto">MOVE is rolling out on Apple and Android. Store links coming soon — email us for beta access or business info.</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
-                    <a href="#" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition flex items-center justify-center grow shadow-lg shadow-white/10">
-                        <i class="fab fa-apple text-xl mr-3"></i> Download on the App Store
-                    </a>
-                    <a href="#" class="bg-brand-card border border-gray-700 text-white px-8 py-3 rounded-full font-bold hover:bg-gray-800 transition flex items-center justify-center grow">
-                        <i class="fab fa-google-play text-brand-cyan text-xl mr-3"></i> Download on Google Play
-                    </a>
+                    <span class="store-disabled bg-white text-black px-8 py-3 rounded-full font-bold flex items-center justify-center grow shadow-lg shadow-white/10">
+                        <i class="fab fa-apple text-xl mr-3"></i> App Store — soon
+                    </span>
+                    <span class="store-disabled bg-brand-card border border-gray-700 text-white px-8 py-3 rounded-full font-bold flex items-center justify-center grow">
+                        <i class="fab fa-google-play text-brand-cyan text-xl mr-3"></i> Google Play — soon
+                    </span>
                 </div>
+                <a href="mailto:info.formove.fitness@gmail.com" class="inline-flex items-center text-brand-amber font-semibold hover:text-yellow-400 transition">
+                    <i class="fas fa-envelope mr-2"></i> info.formove.fitness@gmail.com
+                </a>
             </div>
-            
-            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-900 text-xs text-gray-600 mt-16">
-                <div class="mb-4 md:mb-0 font-medium">
-                    M.O.V.E. Studio © 2026 Mauro Ferrari. All rights reserved.
-                </div>
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-900 text-xs text-gray-600">
+                <div class="mb-4 md:mb-0 font-medium">M.O.V.E. Studio © 2026 Mauro Ferrari. All rights reserved.</div>
                 <div class="flex flex-wrap justify-center gap-6">
-                    <a href="https://maufer58.github.io/MOVE-Privacy/" class="hover:text-white transition">Privacy Policy & Terms of Use (EULA)</a>
-                    <a href="mailto:info.formove.fitness@gmail.com" class="hover:text-white transition"><i class="fas fa-envelope mr-1"></i> Contact Us</a>
+                    <a href="https://maufer58.github.io/MOVE-Privacy/" class="hover:text-white transition">Privacy Policy &amp; EULA</a>
+                    <a href="mailto:info.formove.fitness@gmail.com" class="hover:text-white transition">Contact</a>
+                    <a href="catalogo-immagini.html" class="hover:text-white transition">Image catalog</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- =========================================================================
-         MOTORE JAVASCRIPT E DATABASE IMMAGINI
-         La singola fonte di verità per tutte le grafiche della Landing Page.
-    ========================================================================== -->
-    <script>
-        // ---------------------------------------------------------
-        // 1. IMPOSTA LA LINGUA QUI (Usa 'it' per Italiano, 'en' per Inglese)
-        // ---------------------------------------------------------
-        const currentLang = 'en'; 
-
-        // ---------------------------------------------------------
-        // 2. DATABASE IMMAGINI CENTRALE (Singole)
-        // ---------------------------------------------------------
-        const IMAGE_DB = {
-            "hero-ipad": {
-                it: "img/it/IMG_6003.PNG",
-                en: "img/en/IMG_6003.PNG"
-            },
-            "hero-iphone": {
-                it: "img/it/IMG_3682.PNG",
-                en: "img/en/IMG_3682.PNG"
-            },
-            "hero-watch": {
-                it: "img/it/watch_workout_superset_dropset.png",
-                en: "img/en/watch_workout_superset_dropset.png"
-            },
-            "pro-ipad": {
-                it: "img/it/IMG_5005.PNG",
-                en: "img/en/IMG_5005.PNG"
-            },
-            "share-pdf": {
-                it: "img/it/IMG_SHARE_3.PNG",
-                en: "img/en/IMG_SHARE_3.PNG"
-            },
-            "share-wa": {
-                it: "img/it/IMG_SHARE_2.PNG",
-                en: "img/en/IMG_SHARE_2.PNG"
-            },
-            "share-menu": {
-                it: "img/it/IMG_SHARE_1.PNG",
-                en: "img/en/IMG_SHARE_1.PNG"
-            },
-            "brand-pdf": {
-                it: "img/it/IMG_5001.PNG",
-                en: "img/en/IMG_5001.PNG"
-            },
-            "circuit-iphone": {
-                it: "img/it/IMG_4001.PNG",
-                en: "img/en/IMG_4001.PNG"
-            },
-            "lang-iphone": {
-                it: "img/it/IMG_3705.PNG",
-                en: "img/en/IMG_3705.PNG"
-            },
-            "lang-bg": {
-                it: "img/it/IMG_4000.jpg",
-                en: "img/en/IMG_4000.jpg"
-            },
-            "price-ath-a": {
-                it: "img/it/IMG_900a.PNG",
-                en: "img/en/IMG_900a.PNG"
-            },
-            "price-ath-b": {
-                it: "img/it/IMG_900b.PNG",
-                en: "img/en/IMG_900b.PNG"
-            },
-            "price-pro-a": {
-                it: "img/it/IMG_901a.PNG",
-                en: "img/en/IMG_901a.PNG"
-            },
-            "price-pro-b": {
-                it: "img/it/IMG_901b.PNG",
-                en: "img/en/IMG_901b.PNG"
-            },
-            "price-gym-a": {
-                it: "img/it/IMG_902a.PNG",
-                en: "img/en/IMG_902a.PNG"
-            },
-            "price-gym-b": {
-                it: "img/it/IMG_902b.PNG",
-                en: "img/en/IMG_902b.PNG"
-            }
-        };
-
-        // ---------------------------------------------------------
-        // 3. DATABASE CAROSELLI (Gallerie multiple)
-        // ---------------------------------------------------------
-        const CAROUSEL_DB = {
-            "carousel-editor": {
-                classes: "w-64 md:w-72 iphone-mock device-shadow flex-shrink-0 snap-item border-brand-accent/30",
-                images: [
-                    { alt: "Database Esercizi", it: "img/it/iphone_exercise_detail.png", en: "img/en/IMG_3685.png" },
-                    { alt: "Editor Schede",     it: "img/it/IMG_3685.PNG",              en: "img/en/IMG_4026.PNG" },
-                    { alt: "Editor Schede 2",   it: "img/it/IMG_3686.PNG",              en: "img/en/IMG_4027.PNG" },
-                    { alt: "Setup Esercizio 1", it: "img/it/IMG_3687.PNG",              en: "img/en/IMG_4028.PNG" },
-                    { alt: "Setup Esercizio 2", it: "img/it/IMG_3688.PNG",              en: "img/en/IMG_4030.PNG" }
-                ]
-            },
-            "carousel-watch": {
-                classes: "w-40 watch-mock device-shadow flex-shrink-0 snap-item transform hover:scale-105 transition",
-                images: [
-                    { alt: "Watch Pre-Start",   it: "img/it/watch_pre_start.png",       en: "img/en/watch_pre_start.png" },
-                    { alt: "Watch Intro",       it: "img/it/watch_routine_intro.png",   en: "img/en/watch_routine_intro.png" },
-                    { alt: "Watch Player",      it: "img/it/watch_workout_player.png",  en: "img/en/watch_workout_player.png" },
-                    { alt: "Watch Options",     it: "img/it/watch_workout_options.png", en: "img/en/watch_workout_options.png" },
-                    { alt: "Watch Rest",        it: "img/it/watch_rest_timer.png",      en: "img/en/watch_rest_timer.png" }
-                ]
-            }
-        };
-
-        // ---------------------------------------------------------
-        // 4. MOTORE DI INIEZIONE (Non toccare sotto questa riga)
-        // ---------------------------------------------------------
-        window.addEventListener('DOMContentLoaded', () => {
-            
-            // Popola le immagini singole
-            const imageTags = document.querySelectorAll('img[data-img]');
-            imageTags.forEach(img => {
-                const key = img.getAttribute('data-img');
-                if (IMAGE_DB[key] && IMAGE_DB[key][currentLang]) {
-                    img.src = IMAGE_DB[key][currentLang];
-                }
-            });
-
-            // Popola i caroselli
-            for (const [carouselId, data] of Object.entries(CAROUSEL_DB)) {
-                const container = document.getElementById(carouselId);
-                if (container) {
-                    data.images.forEach(imgData => {
-                        const imgSrc = imgData[currentLang];
-                        if (imgSrc) {
-                            const imgEl = document.createElement('img');
-                            imgEl.src = imgSrc;
-                            imgEl.alt = imgData.alt;
-                            imgEl.className = data.classes;
-                            container.appendChild(imgEl);
-                        }
-                    });
-                }
-            }
-        });
-    </script>
+    <script>window.MOVE_LANG = 'en';</script>
+    <script src="js/images.js"></script>
+    <script src="js/ui.js"></script>
 </body>
 </html>
