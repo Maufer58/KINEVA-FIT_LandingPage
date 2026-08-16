@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stride — corsa, palestra e allenamento Apple Watch. Schede, GPS, storico e progressi su Android, iPhone, iPad e Watch.">
+  <title>Stride — Corsa, palestra e allenamento Watch</title>
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <img src="assets/icon.png" alt="Stride" width="36" height="36">
+        <span><strong>Stride</strong></span>
+      </a>
+      <nav class="nav-desktop" aria-label="Principale">
+        <a href="#features" data-i18n="nav.features">Funzionalità</a>
+        <a href="#screens" data-i18n="nav.screens">App</a>
+        <a href="#platforms" data-i18n="nav.platforms">Dispositivi</a>
+        <a href="#plans" data-i18n="nav.plans">Piani</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="lang-toggle" id="langToggle" aria-label="Cambia lingua">EN</button>
+        <a class="btn btn-primary btn-sm" href="#download" data-i18n="nav.download">Scarica</a>
+      </div>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile" id="navMobile" hidden>
+      <a href="#features" data-i18n="nav.features">Funzionalità</a>
+      <a href="#screens" data-i18n="nav.screens">App</a>
+      <a href="#platforms" data-i18n="nav.platforms">Dispositivi</a>
+      <a href="#plans" data-i18n="nav.plans">Piani</a>
+      <a href="#download" data-i18n="nav.download">Scarica</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Android · iPhone · iPad · Apple Watch</p>
+          <h1 data-i18n="hero.title">Stride</h1>
+          <p class="lead" data-i18n="hero.lead">Corsa, palestra e allenamento Apple Watch: schede, sessioni guidate, GPS e progressi — per atleti e trainer.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#download" data-i18n="hero.ctaPrimary">Inizia con Stride</a>
+            <a class="btn btn-ghost" href="#screens" data-i18n="hero.ctaSecondary">Guarda l'app</a>
+          </div>
+          <ul class="hero-badges">
+            <li data-i18n="hero.badge1">5 lingue: IT, EN, DE, FR, ES</li>
+            <li data-i18n="hero.badge2">Sync Apple Watch</li>
+            <li data-i18n="hero.badge3">Area Trainer Pro con PIN</li>
+          </ul>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="device-stack">
+            <div class="device device-phone device-hero">
+              <div class="device-bezel">
+                <div class="screen screen-home">
+                  <div class="status-bar"><span>09:41</span><span>●●●</span></div>
+                  <div class="app-header">Stride</div>
+                  <div class="chip-row"><span class="chip active">Schede</span><span class="chip">Calendario</span></div>
+                  <div class="card-list">
+                    <div class="ui-card"><span class="dot purple"></span><div><strong>Push Day A</strong><small>4 esercizi · pianificata</small></div></div>
+                    <div class="ui-card"><span class="dot blue"></span><div><strong>Full Body</strong><small>Gruppo settimana 12</small></div></div>
+                    <div class="ui-card"><span class="dot teal"></span><div><strong>Mobilità schiena</strong><small>Protocollo mobilità</small></div></div>
+                  </div>
+                  <div class="fab">▶ Allenati</div>
+                </div>
+              </div>
+            </div>
+            <div class="device device-watch">
+              <div class="watch-bezel">
+                <div class="screen screen-watch">
+                  <strong>03:45</strong>
+                  <span>REST</span>
+                  <small>Squat · set 2/4</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="platforms-strip" id="platforms">
+      <div class="container platforms-inner reveal">
+        <p data-i18n="platforms.title">Un'unica esperienza su tutti i tuoi dispositivi</p>
+        <div class="platform-icons">
+          <div class="platform-item">
+            <span class="platform-icon" aria-hidden="true">🤖</span>
+            <strong>Android</strong>
+            <span data-i18n="platforms.android">Smartphone e tablet</span>
+          </div>
+          <div class="platform-item">
+            <span class="platform-icon" aria-hidden="true">📱</span>
+            <strong>iPhone</strong>
+            <span data-i18n="platforms.iphone">App nativa iOS</span>
+          </div>
+          <div class="platform-item">
+            <span class="platform-icon" aria-hidden="true">📲</span>
+            <strong>iPad</strong>
+            <span data-i18n="platforms.ipad">Editor e gestione ampliata</span>
+          </div>
+          <div class="platform-item">
+            <span class="platform-icon" aria-hidden="true">⌚</span>
+            <strong>Apple Watch</strong>
+            <span data-i18n="platforms.watch">Sessioni e tempi reali</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features section" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 data-i18n="features.title">Tutto ciò che serve, in un'unica app</h2>
+          <p data-i18n="features.subtitle">Dalla creazione della scheda al resoconto post-allenamento, con strumenti professionali per chi segue clienti.</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon">📋</div>
+            <h3 data-i18n="features.routines.title">Routine e schede</h3>
+            <p data-i18n="features.routines.body">Organizza esercizi per gruppi e clienti. Editor avanzato, template, super set, circuiti e metodi T21.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">▶️</div>
+            <h3 data-i18n="features.runner.title">Runner guidato</h3>
+            <p data-i18n="features.runner.body">Timer, vibrazione, voce TTS e riepilogo a fine sessione. Allenati senza perdere il ritmo.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">📅</div>
+            <h3 data-i18n="features.calendar.title">Calendario smart</h3>
+            <p data-i18n="features.calendar.body">Pianifica gruppi e singole schede con orario opzionale. Appuntamenti trainer e storico completati.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">📈</div>
+            <h3 data-i18n="features.progress.title">Progressi e bio</h3>
+            <p data-i18n="features.progress.body">Storico allenamenti, volume, grafici e dati biometrici per cliente nel tempo.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">⌚</div>
+            <h3 data-i18n="features.watch.title">Apple Watch</h3>
+            <p data-i18n="features.watch.body">Invia la scheda al polso, segui la sessione e sincronizza orari reali di inizio e fine.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🌍</div>
+            <h3 data-i18n="features.i18n.title">Multilingua</h3>
+            <p data-i18n="features.i18n.body">Interfaccia in italiano, inglese, tedesco, francese e spagnolo. Esercizi e date localizzati.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="screens section section-alt" id="screens">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 data-i18n="screens.title">L'app in azione</h2>
+          <p data-i18n="screens.subtitle">Screenshot reali dall'app Android (emulatore). Aggiorna con <code>website/scripts/capture_screenshots.ps1</code> su Windows o lo script .sh su Mac.</p>
+        </div>
+
+        <div class="screens-tabs reveal" role="tablist" aria-label="Schermate">
+          <button class="tab active" role="tab" aria-selected="true" data-tab="home" data-i18n="screens.tabHome">Home & schede</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="runner" data-i18n="screens.tabRunner">Runner</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="calendar" data-i18n="screens.tabCalendar">Calendario</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="trainer" data-i18n="screens.tabTrainer">Trainer Pro</button>
+        </div>
+
+        <div class="screens-showcase reveal">
+          <div class="showcase-copy">
+            <div class="tab-panel active" data-panel="home">
+              <h3 data-i18n="screens.home.title">Home e gestione schede</h3>
+              <p data-i18n="screens.home.body">Visualizza gruppi, routine e pianificazioni. Avvia l'allenamento, condividi schede, gestisci clienti e accedi agli strumenti studio.</p>
+              <ul>
+                <li data-i18n="screens.home.l1">Gruppi e schede con colori e ordinamento</li>
+                <li data-i18n="screens.home.l2">Pianificazione ricorrente con giorni e orario</li>
+                <li data-i18n="screens.home.l3">Trasferimento blocchi tra routine</li>
+              </ul>
+            </div>
+            <div class="tab-panel" data-panel="runner">
+              <h3 data-i18n="screens.runner.title">Sessione di allenamento</h3>
+              <p data-i18n="screens.runner.body">Il runner ti guida esercizio per esercizio con timer di recupero, segnali audio e riepilogo finale con volume e durata.</p>
+              <ul>
+                <li data-i18n="screens.runner.l1">Timer e voce multilingua</li>
+                <li data-i18n="screens.runner.l2">Super set e circuiti</li>
+                <li data-i18n="screens.runner.l3">Sospensione e ripresa sessione</li>
+              </ul>
+            </div>
+            <div class="tab-panel" data-panel="calendar">
+              <h3 data-i18n="screens.calendar.title">Calendario e appuntamenti</h3>
+              <p data-i18n="screens.calendar.body">Vista mensile e giornaliera con allenamenti programmati, completati e appuntamenti PT con durata e note.</p>
+              <ul>
+                <li data-i18n="screens.calendar.l1">Orario opzionale per ogni sessione</li>
+                <li data-i18n="screens.calendar.l2">Filtro per scheda specifica</li>
+                <li data-i18n="screens.calendar.l3">Stati vuoti guidati</li>
+              </ul>
+            </div>
+            <div class="tab-panel" data-panel="trainer">
+              <h3 data-i18n="screens.trainer.title">Area Trainer Pro</h3>
+              <p data-i18n="screens.trainer.body">Database clienti, protocolli mobilità, export PDF/CSV, branding studio e area protetta da PIN per professionisti.</p>
+              <ul>
+                <li data-i18n="screens.trainer.l1">Clienti illimitati e assegnazione massiva</li>
+                <li data-i18n="screens.trainer.l2">Export schede e dati biometrici</li>
+                <li data-i18n="screens.trainer.l3">Modulo flessibilità e postura</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="showcase-devices">
+            <div class="device device-phone showcase-phone">
+              <div class="device-bezel">
+                        <img class="screen-shot" src="assets/screenshots/home.png" alt="Stride home"
+                             data-fallback="home"
+                             onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+                <div class="screen screen-home tab-screen active" data-screen="home">
+                  <div class="status-bar"><span>09:41</span></div>
+                  <div class="app-header">Stride</div>
+                  <div class="chip-row"><span class="chip active">Schede</span><span class="chip">Storico</span></div>
+                  <div class="card-list compact">
+                    <div class="ui-card"><span class="dot blue"></span><div><strong>Upper Power</strong><small>6 esercizi</small></div></div>
+                    <div class="ui-card"><span class="dot orange"></span><div><strong>Leg Day</strong><small>Pianificata · mar 09:00</small></div></div>
+                  </div>
+                </div>
+                <div class="screen screen-runner tab-screen" data-screen="runner" hidden>
+                  <div class="runner-timer">01:30</div>
+                  <p class="runner-label">RECUPERO</p>
+                  <div class="runner-ex">Panca piana · 80 kg</div>
+                  <div class="runner-next">Prossimo: Rematore</div>
+                </div>
+                <div class="screen screen-calendar tab-screen" data-screen="calendar" hidden>
+                  <div class="app-header sm">Calendario</div>
+                  <div class="cal-grid">
+                    <span class="cal-day muted">L</span><span class="cal-day muted">M</span><span class="cal-day muted">M</span><span class="cal-day muted">G</span><span class="cal-day muted">V</span><span class="cal-day muted">S</span><span class="cal-day muted">D</span>
+                    <span class="cal-day">1</span><span class="cal-day">2</span><span class="cal-day active">3</span><span class="cal-day">4</span><span class="cal-day dot-day">5</span><span class="cal-day">6</span><span class="cal-day">7</span>
+                  </div>
+                  <div class="ui-card flat"><strong>Mercoledì 3</strong><small>Upper Power · 09:00</small></div>
+                </div>
+                <div class="screen screen-trainer tab-screen" data-screen="trainer" hidden>
+                  <div class="app-header sm">Trainer Pro 🔒</div>
+                  <div class="card-list compact">
+                    <div class="ui-card"><div><strong>Clienti</strong><small>12 attivi</small></div></div>
+                    <div class="ui-card"><div><strong>Export PDF</strong><small>Schede e manuali</small></div></div>
+                    <div class="ui-card"><div><strong>Protocolli</strong><small>Mobilità e movimento</small></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="device device-tablet">
+              <div class="device-bezel">
+                <img class="screen-shot" src="assets/screenshots/ipad-editor.png" alt="" data-fallback="ipad"
+                     onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+                <div class="screen screen-ipad">
+                  <div class="ipad-layout">
+                    <aside><strong>Editor</strong><small>Squat · 4×8</small><small>Stacco · 3×5</small></aside>
+                    <main>
+                      <h4>Panca piana</h4>
+                      <div class="set-row"><span>Set 1</span><span>12 rep · 60 kg</span></div>
+                      <div class="set-row"><span>Set 2</span><span>10 rep · 65 kg</span></div>
+                      <div class="set-row active"><span>Set 3</span><span>8 rep · 70 kg</span></div>
+                    </main>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="plans section" id="plans">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 data-i18n="plans.title">Per atleti e professionisti</h2>
+          <p data-i18n="plans.subtitle">Inizia gratis e scala quando ti serve di più potenza, clienti o strumenti studio.</p>
+        </div>
+        <div class="plans-grid reveal">
+          <article class="plan-card">
+            <h3 data-i18n="plans.free.name">Free</h3>
+            <p data-i18n="plans.free.desc">Per iniziare con le funzioni essenziali.</p>
+            <ul>
+              <li data-i18n="plans.free.f1">Schede e runner base</li>
+              <li data-i18n="plans.free.f2">Database esercizi</li>
+              <li data-i18n="plans.free.f3">Storico allenamenti</li>
+            </ul>
+          </article>
+          <article class="plan-card featured">
+            <span class="plan-badge" data-i18n="plans.athlete.badge">Popolare</span>
+            <h3 data-i18n="plans.athlete.name">Athlete Pro</h3>
+            <p data-i18n="plans.athlete.desc">Per chi allenamento serio e Apple Watch.</p>
+            <ul>
+              <li data-i18n="plans.athlete.f1">Apple Watch sync</li>
+              <li data-i18n="plans.athlete.f2">Timer avanzati e T21</li>
+              <li data-i18n="plans.athlete.f3">Export PDF schede</li>
+            </ul>
+          </article>
+          <article class="plan-card">
+            <h3 data-i18n="plans.trainer.name">Trainer / Studio Pro</h3>
+            <p data-i18n="plans.trainer.desc">Clienti, branding, export massivo e mobilità.</p>
+            <ul>
+              <li data-i18n="plans.trainer.f1">Clienti illimitati</li>
+              <li data-i18n="plans.trainer.f2">Area protetta PIN</li>
+              <li data-i18n="plans.trainer.f3">Mobilità e protocolli</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="download section section-alt" id="download">
+      <div class="container download-inner reveal">
+        <div>
+          <h2 data-i18n="download.title">Inizia con Stride</h2>
+          <p data-i18n="download.body">Stride è in distribuzione per Android e Apple ecosystem. Contattaci per accesso beta o informazioni commerciali.</p>
+          <div class="store-buttons">
+            <a class="store-btn disabled" href="#" aria-disabled="true" data-i18n="download.google">Google Play — presto</a>
+            <a class="store-btn disabled" href="#" aria-disabled="true" data-i18n="download.apple">App Store — presto</a>
+          </div>
+          <p class="download-note">
+            <span data-i18n="download.contact">Info:</span>
+            <a href="mailto:maufer1@gmail.com">maufer1@gmail.com</a>
+          </p>
+        </div>
+        <div class="download-visual">
+          <img src="assets/icon.png" alt="Stride icon" width="120" height="120" class="app-icon-large">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/icon.png" alt="" width="28" height="28">
+        <span>Stride</span>
+      </div>
+      <p class="footer-copy">© <span id="year"></span> Mauro Ferrari · Stride · <span data-i18n="footer.rights">Tutti i diritti riservati</span></p>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
