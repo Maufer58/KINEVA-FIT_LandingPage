@@ -32,8 +32,8 @@ footer{margin:40px 0 20px;font-size:.85rem;color:#666}
 <nav><a href="#privacy">Privacy</a><a href="#eula">EULA</a></nav>
 <div class="card" id="privacy"><h1>Informativa sulla Privacy — Stride</h1>
 
-<p><b>Versione:</b> 2.1  </p>
-<p><b>Data di aggiornamento:</b> 16 agosto 2026  </p>
+<p><b>Versione:</b> 2.2  </p>
+<p><b>Data di aggiornamento:</b> 17 agosto 2026  </p>
 <p><b>Lingua:</b> Italiano  </p>
 
 <blockquote><p>Documento informativo ai sensi degli artt. 13–14 del Regolamento (UE) 2016/679 (GDPR) e del D.Lgs. 196/2003 (Codice Privacy), come modificato dal D.Lgs. 101/2018.  </p></blockquote>
@@ -72,6 +72,8 @@ footer{margin:40px 0 20px;font-size:.85rem;color:#666}
 <tr><td>Dati di utilizzo tecnici</td><td>log diagnostici locali, preferenze app</td><td>Art. 6(1)(f) legittimo interesse / (b)</td></tr>
 <tr><td>Acquisti in-app</td><td>stato abbonamento (via App Store / RevenueCat)</td><td>Art. 6(1)(b)</td></tr>
 <tr><td>Dati HealthKit / Watch (se autorizzati)</td><td>frequenza cardiaca, energia attiva, workout</td><td>Art. 6(1)(a) + autorizzazione Apple</td></tr>
+<tr><td>Posizione e traccia GPS (se autorizzati)</td><td>coordinate durante corsa outdoor, traccia ridotta, distanza e passo</td><td>Art. 6(1)(a) + autorizzazione sistema</td></tr>
+<tr><td>Snapshot / tile di mappa</td><td>immagine di sfondo stradale per il riepilogo percorso</td><td>Art. 6(1)(b)/(a); richiesta al provider della sola area della corsa</td></tr>
 <tr><td>Immagini (import scheda da foto)</td><td>foto della scheda cartacea elaborata localmente/via AI</td><td>Art. 6(1)(a)/(b)</td></tr>
 <tr><td>Prompt AI (se funzioni AI attive)</td><td>testo/contenuto inviato al modello generativo</td><td>Art. 6(1)(a)/(b)</td></tr>
 </table>
@@ -85,9 +87,11 @@ footer{margin:40px 0 20px;font-size:.85rem;color:#666}
 <p>1. Erogare le funzionalità fitness (schede, timer, storico, export).  </p>
 <p>2. Gestire profili atleta/cliente e preferenze di allenamento.  </p>
 <p>3. Sincronizzare allenamenti con Apple Watch (se abilitato).  </p>
-<p>4. Gestire abbonamenti e crediti AI.  </p>
-<p>5. Migliorare stabilità e sicurezza del prodotto (diagnostica tecnica).  </p>
-<p>6. Adempiere obblighi di legge.</p>
+<p>4. Misurare distanza, passo e percorso nelle corse outdoor (piano Athlete Pro o superiore).  </p>
+<p>5. Mostrare la mappa stradale del percorso a fine sessione.  </p>
+<p>6. Gestire abbonamenti e crediti AI.  </p>
+<p>7. Migliorare stabilità e sicurezza del prodotto (diagnostica tecnica).  </p>
+<p>8. Adempiere obblighi di legge.</p>
 
 <p><b>Non</b> utilizziamo i dati per profilazione pubblicitaria di terzi né per vendita a data broker.</p>
 
@@ -97,6 +101,8 @@ footer{margin:40px 0 20px;font-size:.85rem;color:#666}
 
 <ul>
 <li>Architettura <b>offline-first</b>: la maggior parte dei dati resta sul dispositivo dell’utente (storage locale / Hive).  </li>
+<li>Coordinate GPS e traccia del percorso restano sul dispositivo (e sull’Apple Watch, se usato). <b>Non</b> vengono inviate a server Stride.  </li>
+<li>Per disegnare le strade sotto il percorso, l’app può richiedere uno snapshot o tile di mappa ad Apple Maps, Esri o OpenStreetMap: il provider riceve l’area geografica (bounding box) necessaria al rendering, non la traccia GPS completa.  </li>
 <li>Backup, export o sync avvengono solo se avviati dall’utente o richiesti dalla funzione (es. WatchConnectivity).  </li>
 <li>Periodo di conservazione: fino a cancellazione dell’account/dati dall’app, disinstallazione, o richiesta di cancellazione; i dati di fatturazione restano presso Apple secondo le relative policy.</li>
 </ul>
@@ -109,7 +115,8 @@ footer{margin:40px 0 20px;font-size:.85rem;color:#666}
 
 <table>
 <tr><th>Soggetto</th><th>Ruolo</th><th>Dati tipici</th></tr>
-<tr><td>Apple Inc. / App Store</td><td>Pagamenti, hosting app, HealthKit</td><td>Acquisti, autorizzazioni sistema</td></tr>
+<tr><td>Apple Inc. / App Store</td><td>Pagamenti, hosting app, HealthKit, snapshot Apple Maps</td><td>Acquisti, autorizzazioni sistema, area mappa</td></tr>
+<tr><td>Esri / OpenStreetMap</td><td>Tile o export statico della mappa stradale</td><td>Bounding box della corsa (non la traccia completa)</td></tr>
 <tr><td>RevenueCat</td><td>Gestione entitlement abbonamenti</td><td>Identificativi abbonamento</td></tr>
 <tr><td>Google (Gemini / Generative Language API)</td><td>Funzioni AI opzionali</td><td>Contenuti inviati dall’utente alle API AI</td></tr>
 <tr><td>Dispositivo / iCloud (se l’utente attiva backup Apple)</td><td>Backup di sistema</td><td>Dati app secondo impostazioni utente</td></tr>
@@ -167,8 +174,8 @@ footer{margin:40px 0 20px;font-size:.85rem;color:#666}
 <p>Email privacy: `maufer1@gmail.com`  </p>
 <p>Per questioni legali generiche relative al prodotto: stesso canale o indirizzo indicato su App Store Connect.</p></div><div class="card" id="eula"><h1>Condizioni di Licenza per l’Utente Finale (EULA) — Stride</h1>
 
-<p><b>Versione:</b> 2.1  </p>
-<p><b>Data:</b> 16 agosto 2026  </p>
+<p><b>Versione:</b> 2.2  </p>
+<p><b>Data:</b> 17 agosto 2026  </p>
 
 <blockquote><p>Licenza d’uso del software e condizioni contrattuali B2C. Integra i requisiti Apple Licensed Application End User License Agreement ove applicabili. Revisione legale consigliata prima della pubblicazione definitiva.</p></blockquote>
 
@@ -214,8 +221,8 @@ footer{margin:40px 0 20px;font-size:.85rem;color:#666}
 
 <h2>6. Abbonamenti e acquisti in-app</h2>
 
-<p>Prezzi, rinnovi e cancellazioni seguono le regole di <b>Apple App Store</b>. Il Licenziante non gestisce direttamente i mezzi di pagamento. I crediti AI e i piani possono variare; funzioni “a consumo” si esauriscono secondo quanto indicato in-app.</p>
-
+<p>Prezzi, rinnovi e cancellazioni seguono le regole di <b>Apple App Store</b>. Il Licenziante non gestisce direttamente i mezzi di pagamento. I crediti AI e i piani possono variare; funzioni “a consumo” si esauriscono secondo quanto indicato in-app. Abbonamenti <b>mensili o annuali</b> (annuale: pagamento unico con sconto indicato in-app).</p>
+<p>Le funzioni di <b>mappatura distanza</b> (corsa libera o km predefiniti, GPS, mappa stradale del percorso, passo e annunci vocali al chilometro) e l’app <b>Apple Watch</b> (sessioni, complications) sono incluse nei piani a pagamento a partire da <b>Athlete Pro</b>, come indicato in-app. Il piano Free non include queste funzioni. <b>Piano Pro</b> e <b>Studio &amp; Gym</b> includono Athlete Pro e strumenti trainer: Pro fino a <b>8 clienti</b>; Studio clienti illimitati (come in-app).</p>
 <p>Diritto di recesso / rimborsi: secondo la policy Apple e, ove applicabile, il Codice del Consumo italiano.</p>
 
 <p>---</p>
@@ -267,5 +274,5 @@ footer{margin:40px 0 20px;font-size:.85rem;color:#666}
 <h2>13. Clausola Apple (Licensed Application)</h2>
 
 <p>Riconosci che: (i) l’EULA è concluso tra te e il Licenziante, non con Apple; (ii) Apple non è responsabile del contenuto/manutenzione dell’App; (iii) Apple è terzo beneficiario di alcune clausole EULA e può farle valere; (iv) in caso di mancata conformità a una garanzia applicabile, puoi contattare Apple per il rimborso del prezzo di acquisto secondo le regole Apple, e Apple non ha altri obblighi di garanzia rispetto all’App.</p></div>
-<footer>Stride — legal docs v2.1 — 2026-08-16</footer>
+<footer>Stride — legal docs v2.3 — 2026-08-17</footer>
 </body></html>
