@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fit+ — corsa GPS, palestra, Apple Watch e Studio Gym su iPad: Analizza dati con mappa muscolare Gym Visual, aderenza calendario, analytics Pro multi-cliente, schede massive, export PDF/JSON, WhatsApp e manuali PDF.">
+  <meta name="description" content="Fit+ — schede, GPS (corsa/camminata/bici), nuoto, Apple Watch con complications, AI Wizard e Studio Gym su iPad: Analizza dati Gym Visual, calendario, storico, export PDF/JSON/WhatsApp.">
   <title>Fit+ — Corsa, palestra, analytics e allenamento Watch</title>
   <link rel="icon" href="assets/icon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,6 +40,7 @@
     <nav class="nav-mobile" id="navMobile" hidden>
       <a href="#story" data-i18n="nav.story">Perché</a>
       <a href="#features" data-i18n="nav.features">Funzionalità</a>
+      <a href="#analytics" data-i18n="nav.analytics">Analytics</a>
       <a href="#watch" data-i18n="nav.watch">Watch</a>
       <a href="#ipad" data-i18n="nav.ipad">iPad</a>
       <a href="#trainer-studio" data-i18n="nav.studio">Studio</a>
@@ -143,7 +144,7 @@
             <span class="feature-num">02</span>
             <span class="feature-text">
               <strong data-i18n="features.runner.title">Runner guidato</strong>
-              <span data-i18n="features.runner.body">Timer, TTS con volume, guida uno-due e riepilogo a fine sessione.</span>
+              <span data-i18n="features.runner.body">Timer, TTS con volume, guida uno-due, sospensione/ripresa e riepilogo a fine sessione.</span>
             </span>
           </button>
           <button type="button" class="feature-row reveal" data-shot="04">
@@ -163,15 +164,15 @@
           <button type="button" class="feature-row reveal" data-shot="09">
             <span class="feature-num">09</span>
             <span class="feature-text">
-              <strong data-i18n="features.gps.title">Corsa GPS</strong>
-              <span data-i18n="features.gps.body">Mappa, passo, voce al km e analytics — anche da sessioni Watch.</span>
+              <strong data-i18n="features.gps.title">GPS outdoor</strong>
+              <span data-i18n="features.gps.body">Corsa, camminata o bici: mappa, passo, voce al km (0 km = misura libera) — anche da Watch.</span>
             </span>
           </button>
           <button type="button" class="feature-row reveal" data-shot="08">
             <span class="feature-num">08</span>
             <span class="feature-text">
               <strong data-i18n="features.watch.title">Apple Watch</strong>
-              <span data-i18n="features.watch.body">Lista schede, avvio, sessione e fine al polso — sync con iPhone.</span>
+              <span data-i18n="features.watch.body">Lista, avvio, sessione e fine al polso; invio batch, badge «su Watch» e complications Fit+ / FITPlusIntervals.</span>
             </span>
           </button>
           <button type="button" class="feature-row reveal" data-shot="10">
@@ -181,13 +182,34 @@
               <span data-i18n="features.trainer.body">Schede massive, clienti, JSON/PDF/WhatsApp, database esercizi, patologie, enciclopedia PDF e backup — area PIN.</span>
             </span>
           </button>
+          <button type="button" class="feature-row reveal" data-shot="03">
+            <span class="feature-num">03</span>
+            <span class="feature-text">
+              <strong data-i18n="features.calendar.title">Calendario smart</strong>
+              <span data-i18n="features.calendar.body">Pianifica gruppi e schede con orario opzionale. Appuntamenti trainer e storico delle sessioni completate.</span>
+            </span>
+          </button>
+          <button type="button" class="feature-row reveal" data-shot="05">
+            <span class="feature-num">05</span>
+            <span class="feature-text">
+              <strong data-i18n="features.history.title">Cronologia e export</strong>
+              <span data-i18n="features.history.body">Storico sessioni filtrabile, export JSON e archivio ZIP Pro — riprendi e confronta i tuoi allenamenti.</span>
+            </span>
+          </button>
+          <button type="button" class="feature-row reveal" data-shot="02">
+            <span class="feature-num">11</span>
+            <span class="feature-text">
+              <strong data-i18n="features.swim.title">Nuoto in vasca</strong>
+              <span data-i18n="features.swim.body">Vasche target, lunghezza piscina, stili e riepilogo serie — sul telefono e sul Watch.</span>
+            </span>
+          </button>
         </div>
         <p class="feature-more reveal">
           <a href="#analytics" data-i18n="features.moreAnalytics">Scopri Analizza dati →</a>
           <a href="#watch" data-i18n="features.moreWatch">Scopri Apple Watch →</a>
           <a href="#trainer-studio" data-i18n="features.moreStudio">Funzioni gym e studio →</a>
           <a href="#ipad" data-i18n="features.moreIpad">Scopri iPad e Studio →</a>
-          <a href="#ai-import" data-i18n="features.moreAi">Import AI da foto →</a>
+          <a href="#ai-import" data-i18n="features.moreAi">AI: wizard, foto e scan →</a>
           <a href="#screens" data-i18n="features.more">Esplora tutte le schermate →</a>
         </p>
       </div>
@@ -268,7 +290,7 @@
           <p class="promo-kicker" data-i18n="watch.kicker">Apple Watch</p>
           <h2 data-i18n="watch.title">Fit+</h2>
           <p class="promo-line" data-i18n="watch.line">L’allenamento al polso, in sync con iPhone.</p>
-          <p class="promo-lead" data-i18n="watch.body">Lista schede, avvio, serie e fine sessione senza togliere il telefono dalla tasca — analytics e storico tornano su iPhone.</p>
+          <p class="promo-lead" data-i18n="watch.body">Invio schede (anche in batch), lista, avvio, serie e fine sessione al polso — analytics e storico tornano su iPhone. Complications Fit+ (FC) e FITPlusIntervals sul quadrante.</p>
         </div>
 
         <div class="watch-showcase reveal">
@@ -339,7 +361,7 @@
           <div class="watch-promo-steps" role="tablist" aria-label="Passi Apple Watch">
             <button type="button" class="watch-promo-step active" data-watch-promo="list" role="tab" aria-selected="true">
               <strong data-i18n="watch.s1.title">Lista schede</strong>
-              <span data-i18n="watch.s1.body">Le schede ricevute da iPhone appaiono al polso, pronte da aprire.</span>
+              <span data-i18n="watch.s1.body">Le schede inviate da iPhone (singola o Gestione batch) appaiono al polso, con badge «su Watch» sul telefono.</span>
             </button>
             <button type="button" class="watch-promo-step" data-watch-promo="start" role="tab" aria-selected="false">
               <strong data-i18n="watch.s2.title">Avvio rapido</strong>
@@ -354,6 +376,21 @@
               <span data-i18n="watch.s4.body">Chiudi la sessione: dati e analytics tornano su iPhone.</span>
             </button>
           </div>
+        </div>
+
+        <div class="watch-extras reveal">
+          <article class="watch-extra">
+            <h3 data-i18n="watch.x1.title">Complications</h3>
+            <p data-i18n="watch.x1.body">Fit+ (FC / workout) e FITPlusIntervals (timer) sul quadrante — dopo aver aperto l’app Watch, aggiungile da Modifica quadrante.</p>
+          </article>
+          <article class="watch-extra">
+            <h3 data-i18n="watch.x2.title">Invio batch</h3>
+            <p data-i18n="watch.x2.body">Home → Gestione: seleziona più schede o un gruppo e inviale al polso in un unico transfer.</p>
+          </article>
+          <article class="watch-extra">
+            <h3 data-i18n="watch.x3.title">Pausa al polso</h3>
+            <p data-i18n="watch.x3.body">Tap per pausa, doppio tap per riprendere. Nuoto in vasca e GPS outdoor restano guidati anche da Watch.</p>
+          </article>
         </div>
 
         <p class="promo-watch-foot reveal">
@@ -630,7 +667,7 @@
               <article class="studio-card">
                 <span class="studio-card-num">15</span>
                 <h4 data-i18n="studio.g5.c3.title">Calendario PT e branding</h4>
-                <p data-i18n="studio.g5.c3.body">Appuntamenti trainer nel calendario, logo e nome studio su ogni PDF, area Pro con PIN e condivisione file tra colleghi via export/import.</p>
+                <p data-i18n="studio.g5.c3.body">Appuntamenti trainer nel calendario, logo e nome studio su ogni PDF, area Pro con PIN, Face ID / Touch ID, codice recupero 8 cifre e condivisione file tra colleghi.</p>
               </article>
             </div>
           </div>
@@ -679,28 +716,28 @@
             </div>
           </div>
           <div class="ai-orbit" aria-hidden="true">
-            <span data-i18n="ai.chip1">Foto</span>
-            <span data-i18n="ai.chip2">OCR AI</span>
-            <span data-i18n="ai.chip3">Scheda</span>
+            <span data-i18n="ai.chip1">Wizard</span>
+            <span data-i18n="ai.chip2">Foto OCR</span>
+            <span data-i18n="ai.chip3">Scan bio</span>
           </div>
         </div>
         <div class="promo-copy">
-          <p class="promo-kicker" data-i18n="ai.kicker">Import intelligente</p>
+          <p class="promo-kicker" data-i18n="ai.kicker">AI Fit+</p>
           <h2 data-i18n="ai.title">Fit+</h2>
-          <p class="promo-line" data-i18n="ai.line">Dalla carta allo schermo in un tocco.</p>
-          <p class="promo-lead" data-i18n="ai.body">Scatta o seleziona la foto di una scheda cartacea o di uno screenshot: l’AI estrae esercizi, serie e recuperi e li trasforma in una routine digitale editabile.</p>
+          <p class="promo-line" data-i18n="ai.line">Wizard, foto e scansione biometrica.</p>
+          <p class="promo-lead" data-i18n="ai.body">Tre usi dei crediti AI: genera una scheda dal profilo, importa da foto/screenshot, oppure scansiona la composizione corporea. Revisiona sempre il risultato nell’editor.</p>
           <ol class="promo-steps">
             <li>
-              <strong data-i18n="ai.s1.title">Scatta o carica</strong>
-              <span data-i18n="ai.s1.body">Foto di schede cartacee, PDF stampati o screenshot da altre app.</span>
+              <strong data-i18n="ai.s1.title">AI Wizard</strong>
+              <span data-i18n="ai.s1.body">Obiettivo, giorni, durata e focus: l’AI propone una routine calcolata su biometria e limiti motori.</span>
             </li>
             <li>
-              <strong data-i18n="ai.s2.title">Lettura AI</strong>
-              <span data-i18n="ai.s2.body">Riconosce esercizi e parametri; usa i crediti AI del tuo piano.</span>
+              <strong data-i18n="ai.s2.title">Import da foto</strong>
+              <span data-i18n="ai.s2.body">Schede cartacee, PDF stampati o screenshot: estrae esercizi, serie e recuperi.</span>
             </li>
             <li>
-              <strong data-i18n="ai.s3.title">Routine pronta</strong>
-              <span data-i18n="ai.s3.body">Revisiona nell’editor, assegna al cliente e avviala sul runner o Watch.</span>
+              <strong data-i18n="ai.s3.title">Scan biometrico</strong>
+              <span data-i18n="ai.s3.body">Scansione composizione corporea per il profilo atleta — i crediti si ricaricano col piano o con pack booster.</span>
             </li>
           </ol>
           <a class="btn btn-primary" href="#download" data-i18n="ai.cta">Provala in app</a>
@@ -713,7 +750,7 @@
         <div class="section-head reveal">
           <p class="promo-kicker" data-i18n="more.kicker">Ancora di più</p>
           <h2 data-i18n="more.title">Funzioni da non perdere</h2>
-          <p data-i18n="more.subtitle">Oltre a iPad e import AI, Fit+ spinge su analytics, ritmo, sicurezza e controllo.</p>
+          <p data-i18n="more.subtitle">Oltre a iPad e AI, Fit+ spinge su analytics, ritmo, privacy, sicurezza e controllo.</p>
         </div>
         <div class="highlight-rail reveal">
           <article class="highlight-item">
@@ -734,7 +771,7 @@
           </article>
           <article class="highlight-item">
             <h3 data-i18n="more.h4.title">Nuoto e outdoor</h3>
-            <p data-i18n="more.h4.body">Vasche con stili target, corsa GPS con mappa e voce al km — anche da Watch.</p>
+            <p data-i18n="more.h4.body">Vasche con stili target; GPS corsa/camminata/bici con mappa e voce al km — anche da Watch.</p>
           </article>
           <article class="highlight-item">
             <h3 data-i18n="more.h5.title">Calendario e storico</h3>
@@ -751,6 +788,14 @@
           <article class="highlight-item">
             <h3 data-i18n="more.h6.title">5 lingue</h3>
             <p data-i18n="more.h6.body">Interfaccia IT, EN, DE, FR, ES — schede e date localizzate per atleti e studi misti.</p>
+          </article>
+          <article class="highlight-item">
+            <h3 data-i18n="more.h10.title">Dati sul dispositivo</h3>
+            <p data-i18n="more.h10.body">Offline-first: schede e storico restano sul telefono. GPS e traccia non vanno su server Fit+. HealthKit (iOS) per sessioni e FC se autorizzi.</p>
+          </article>
+          <article class="highlight-item">
+            <h3 data-i18n="more.h11.title">PIN, Face ID e recupero</h3>
+            <p data-i18n="more.h11.body">Area trainer con PIN a 4 cifre, sblocco Face ID / Touch ID e codice di recupero a 8 cifre. Fit+ non è un dispositivo medico.</p>
           </article>
         </div>
         <p class="feature-more reveal">
@@ -788,7 +833,7 @@
               <ul>
                 <li data-i18n="screens.home.l1">Gruppi e schede con colori e ordinamento</li>
                 <li data-i18n="screens.home.l2">Toggle barra/mappa muscolare Gym Visual per routine</li>
-                <li data-i18n="screens.home.l3">Invio alla Watch con stato Consegnato / In coda / Errore</li>
+                <li data-i18n="screens.home.l3">Invio Watch (singolo o Gestione batch) con stato Consegnato / In coda / Errore</li>
               </ul>
             </div>
             <div class="tab-panel" data-panel="runner">
@@ -844,17 +889,17 @@
             <div class="tab-panel" data-panel="settings">
               <p class="shot-ref">#07 · <code>07-settings.png</code></p>
               <h3 data-i18n="screens.settings.title">Impostazioni</h3>
-              <p data-i18n="screens.settings.body">Voce, volume TTS sync Watch, guida ripetizioni, GPS di sessione e preferenze generali.</p>
+              <p data-i18n="screens.settings.body">Voce, volume TTS sync Watch, guida ripetizioni, GPS di sessione, unità, vibrazione, mute e modalità screenshot.</p>
               <ul>
                 <li data-i18n="screens.settings.l1">Slider volume TTS → Watch</li>
                 <li data-i18n="screens.settings.l2">Mute e pace uno-due</li>
-                <li data-i18n="screens.settings.l3">Preferenze lingue e account</li>
+                <li data-i18n="screens.settings.l3">Lingua, unità, vibrazione, mute e screenshot</li>
               </ul>
             </div>
             <div class="tab-panel" data-panel="watch">
               <p class="shot-ref">#08 · <code>08-watch-*.png</code></p>
               <h3 data-i18n="screens.watch.title">Apple Watch</h3>
-              <p data-i18n="screens.watch.body">Dal polso: lista schede ricevute, avvio, sessione e fine — sync continuo con iPhone.</p>
+              <p data-i18n="screens.watch.body">Dal polso: lista schede ricevute, avvio, sessione e fine — sync iPhone, complications Fit+ e FITPlusIntervals.</p>
               <ol class="watch-flow-steps">
                 <li>
                   <button type="button" class="watch-step-btn active" data-watch-step="list" data-i18n="screens.watch.l1">
@@ -880,10 +925,10 @@
             </div>
             <div class="tab-panel" data-panel="gps">
               <p class="shot-ref">#09 · <code>09-gps-map.png</code></p>
-              <h3 data-i18n="screens.gps.title">Corsa e mappa</h3>
-              <p data-i18n="screens.gps.body">Traccia outdoor, passo, voce al km e target km o corsa libera (Athlete Pro+).</p>
+              <h3 data-i18n="screens.gps.title">GPS e mappa</h3>
+              <p data-i18n="screens.gps.body">Traccia outdoor (corsa, camminata, bici), passo, voce al km e target o misura libera (Athlete Pro+).</p>
               <ul>
-                <li data-i18n="screens.gps.l1">Mappa stradale del percorso</li>
+                <li data-i18n="screens.gps.l1">Mappa del percorso — run, walk, bike</li>
                 <li data-i18n="screens.gps.l2">Split e HR per km</li>
                 <li data-i18n="screens.gps.l3">Export analytics da Watch</li>
               </ul>
@@ -997,8 +1042,13 @@
           <div class="paywall-icon" aria-hidden="true">◆</div>
           <h2 data-i18n="plans.unlock">Sblocca Fit+ Pro</h2>
           <p class="paywall-acronym" data-i18n="plans.acronym">Movimento · Ottimizzazione · Vitalità · Evoluzione</p>
-          <p class="paywall-free-note" data-i18n="plans.freeNote">Inizia gratis in app. Qui i piani Pro come nel paywall.</p>
+          <p class="paywall-free-note" data-i18n="plans.freeNote">Piano Free: 1 scheda, 1 gruppo, 15 esercizi. GPS e Watch dal piano Athlete. Prova 7 giorni in Store.</p>
         </div>
+
+        <aside class="plans-free-strip">
+          <strong data-i18n="plans.free.name">Piano Free</strong>
+          <p data-i18n="plans.free.body">1 scheda · 1 gruppo · max 15 esercizi. Ideale per provare runner, calendario e storico. GPS, Watch e AI su Athlete Pro+.</p>
+        </aside>
 
         <div class="billing-toggle" role="group" aria-label="Periodo">
           <button type="button" class="billing-btn active" id="billingAnnual" data-billing="annual">
@@ -1030,9 +1080,9 @@
               <li data-i18n="plans.athlete.f5">Schede illimitate salvabili</li>
               <li data-i18n="plans.athlete.f6">Database completo esercizi</li>
               <li data-i18n="plans.athlete.f7">Metodi di allenamento avanzati (TUT, Drop set)</li>
-              <li data-i18n="plans.athlete.f8">3 Crediti AI mensili</li>
+              <li data-i18n="plans.athlete.f8">3 crediti AI/mese (Wizard, import foto, scan bio) + pack booster</li>
               <li data-i18n="plans.athlete.f9">Timer avanzati personalizzabili</li>
-              <li data-i18n="plans.athlete.f10">Corsa GPS: km liberi o predefiniti, mappa e passo</li>
+              <li data-i18n="plans.athlete.f10">GPS outdoor: corsa, camminata o bici — km liberi o target, mappa e passo</li>
               <li data-i18n="plans.athlete.f11">Filtro Sicurezza Movimento</li>
               <li data-i18n="plans.athlete.f12">Analizza dati: composizione, performance, insights e aderenza</li>
               <li data-i18n="plans.athlete.f13">Mappa muscolare Gym Visual su schede e storico composizione</li>
@@ -1099,6 +1149,7 @@
         </div>
 
         <p class="plans-annual-note" data-i18n="plans.annualNote">L’annuale si paga in un’unica soluzione e include 2 mesi omaggio (−17%). Disdici quando vuoi prima del rinnovo.</p>
+        <p class="plans-trial-note" data-i18n="plans.trial">Prova gratuita 7 giorni sugli abbonamenti App Store e Google Play (offerta introduttiva Store).</p>
       </div>
     </section>
 
@@ -1128,6 +1179,7 @@
         <span>Fit+</span>
       </div>
       <p class="footer-copy">© <span id="year"></span> Mauro Ferrari · Fit+ · <span data-i18n="footer.rights">Tutti i diritti riservati</span></p>
+      <p class="footer-disclaimer" data-i18n="footer.disclaimer">Fit+ è un’app fitness, non un dispositivo medico. I dati restano sul dispositivo.</p>
       <p class="footer-links">
         <a href="legal/index.html">Legal</a>
       </p>
