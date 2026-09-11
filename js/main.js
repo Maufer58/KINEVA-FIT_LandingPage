@@ -196,7 +196,7 @@ function setShowcaseShot(id) {
   img.dataset.tried = '';
   img.dataset.shot = id;
   img.dataset.fallbacks = (entry.legacy || []).join(',');
-  img.alt = `Stride screenshot ${id}`;
+  img.alt = `Fit+ screenshot ${id}`;
   img.hidden = false;
   img.src = SHOT_BASE + entry.file;
   if (label) label.textContent = entry.label;
@@ -405,6 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setShowcaseShot('01');
   initBillingToggle();
+  initLandingShotZoom();
 
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
@@ -475,6 +476,37 @@ function initBillingToggle() {
   }
 
   apply('annual');
+}
+
+/** Hover zoom on landing device mockups (CSS animations override :hover transform). */
+function initLandingShotZoom() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  const zoomSelector = [
+    '.hero-trio__phone',
+    '.hero-trio__watch',
+    '.hero-trio__ipad',
+    '.promo-phone',
+    '.showcase-phone',
+    '.showcase-devices .device-tablet',
+    '.ipad-thumb',
+    '.watch-seq-item',
+    '.watch-flow-item',
+  ].join(',');
+
+  document.querySelectorAll(zoomSelector).forEach((el) => {
+    el.addEventListener('mouseenter', () => el.classList.add('is-shot-zoomed'));
+    el.addEventListener('mouseleave', () => el.classList.remove('is-shot-zoomed'));
+    el.addEventListener('blur', () => el.classList.remove('is-shot-zoomed'), true);
+  });
+
+  document.querySelectorAll('.ipad-hero').forEach((hero) => {
+    const frame = hero.querySelector('.ipad-pro-frame');
+    if (!frame) return;
+    hero.addEventListener('mouseenter', () => frame.classList.add('is-shot-zoomed'));
+    hero.addEventListener('mouseleave', () => frame.classList.remove('is-shot-zoomed'));
+  });
 }
 
 window.SHOT_CATALOG = SHOT_CATALOG;

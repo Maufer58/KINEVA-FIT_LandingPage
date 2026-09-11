@@ -26,7 +26,7 @@ website/
 
 | # | Sezione nella landing | Anchor | File da inserire |
 |---|----------------------|--------|------------------|
-| A | **Prima schermata (Hero)** — 3 telefoni | inizio pagina (`.hero`) | `01-home-a.png` · `01-home-b.png` · `01-home-c.png` |
+| A | **Prima schermata (Hero)** — iPhone + Watch + iPad | inizio pagina (`.hero`) | `01-home.png` · `08-watch-hero.png` · `10-ipad-hero.png` |
 | B | Funzioni (clic sulle righe) | `#features` | usa gli stessi di `#screens` (01, 02, 06, 08, 09, 10) |
 | C | **Promo Apple Watch** — 4 passi | `#watch` | `08-watch-list.png` · `08-watch-start.png` · `08-watch-active.png` · `08-watch-done.png` |
 | D | **Promo iPad Trainer** — 5 passi | `#ipad` | `10-trainer-ipad.png` · `06-editor-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` · `11-studio-ipad.png` |
@@ -40,24 +40,26 @@ website/
 
 ## A · Prima schermata (Hero) — 3 immagini Home
 
-**Dove la vedi:** subito in alto, a destra del titolo “Stride”.  
+**Dove la vedi:** subito in alto, a destra del titolo “Fit+”.  
 **Cosa catturare:** tre **viste diverse della Home** (lista schede), non disclaimer / Run / altre schermate.
 
 | Posizione sul sito | File | Cosa deve mostrare |
 |--------------------|------|--------------------|
-| Telefono **sinistra** (inclinato) | `01-home-a.png` | Home · lista gruppi / schede |
-| Telefono **centro** (in evidenza) | `01-home-b.png` | Home · scheda espansa o badge “su Watch” |
-| Telefono **destra** (inclinato) | `01-home-c.png` | Home · menu azioni / template |
+| **iPhone** (centro) | `01-home.png` | Home schede |
+| **Apple Watch** (sinistra) | `08-watch-hero.png` | Lista schede o sessione al polso *(fallback: `08-watch-list.png`)* |
+| **iPad** (destra) | `10-ipad-hero.png` | Studio trainer / clienti *(fallback: `10-trainer-ipad.png`)* |
 
-**Formato:** PNG telefono **1080×2400** (9:20).
+**Formato:** iPhone **1080×2400** (9:20) · Watch **quadrato** (~390×390) · iPad **landscape 4:3**.
 
-**Fallback:** se manca `01-home-a/b/c.png` → usa `01-home.png` (poi `home.png`).
+**Fallback:** telefono → `home.png` · Watch → `08-watch.png` · iPad → `10-trainer.png`.
 
 ```
-        [ a ]  [ b ]  [ c ]
-         ╲     │     ╱
-          telefono×3 nell’hero
+[ Watch ~108px ]  —gap—  [ iPhone ~220px ]  —gap—  [ iPad ~440px ]
+     sinistra                  centro                  destra
 ```
+
+Layout **flex orizzontale**, testo sopra e dispositivi sotto (full width). Nessuna sovrapposizione.
+Proporzioni: iPhone il più alto, iPad il più largo, Watch il più piccolo.
 
 ---
 
@@ -163,7 +165,7 @@ Non ha file propri. Ogni riga cliccabile apre lo **stesso shot** della gallery:
 
 ### Obbligatori per una landing “completa”
 
-1. **Hero** — 3 file: `01-home-a.png`, `01-home-b.png`, `01-home-c.png`
+1. **Hero** — `01-home.png`, `08-watch-hero.png`, `10-ipad-hero.png`
 2. **Gallery telefono** — `01-home.png` … `07-settings.png` + `09-gps-map.png`
 3. **Watch** — 4 file `08-watch-*.png`
 4. **iPad** — 5 file `10-*-ipad.png` / `06-editor-ipad.png` / `11-studio-ipad.png`
@@ -196,7 +198,7 @@ Non ha file propri. Ogni riga cliccabile apre lo **stesso shot** della gallery:
 ```
 ┌─────────────────────────────────────────┐
 │  HERO (.hero)                           │
-│  01-home-a.png | 01-home-b.png | c.png  │  ← A
+│  01-home · 08-watch-hero · 10-ipad-hero │  ← A
 ├─────────────────────────────────────────┤
 │  #story  (solo testo)                   │
 │  #features  (punta agli shot 01/02/…)   │  ← B
