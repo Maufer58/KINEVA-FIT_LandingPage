@@ -2200,6 +2200,76 @@ code {
   text-decoration: none;
   filter: brightness(1.05);
 }
+.plans-addon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  margin: 1.5rem 0 0;
+  padding: 1.35rem 1.4rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(66, 165, 245, 0.12), rgba(38, 166, 154, 0.1));
+  border: 1px solid rgba(66, 165, 245, 0.28);
+}
+.plans-addon-copy {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+.plans-addon-badge {
+  display: inline-block;
+  margin: 0 0 0.35rem;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0d1117;
+  background: #69f0ae;
+  border-radius: 4px;
+}
+.plans-addon-copy h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+}
+.plans-addon-copy p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.72);
+}
+.plans-addon-meta {
+  flex: 0 0 auto;
+  text-align: right;
+}
+.plans-addon-price {
+  margin: 0 0 0.35rem;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #69f0ae;
+  letter-spacing: -0.02em;
+}
+.plans-addon-price small {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+}
+.plans-addon-note {
+  margin: 0;
+  max-width: 16rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.5);
+}
+@media (max-width: 700px) {
+  .plans-addon-meta { text-align: left; width: 100%; }
+  .plans-addon-note { max-width: none; }
+}
 .plans-paywall .plans-annual-note {
   margin: 1.5rem 0 0;
   text-align: center;
