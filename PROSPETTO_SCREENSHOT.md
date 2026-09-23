@@ -40,7 +40,7 @@ website/
 
 ## A · Prima schermata (Hero) — 3 immagini Home
 
-**Dove la vedi:** subito in alto, a destra del titolo “Fit+”.  
+**Dove la vedi:** subito in alto, a destra del titolo “KINEVA FIT”.  
 **Cosa catturare:** tre **viste diverse della Home** (lista schede), non disclaimer / Run / altre schermate.
 
 | Posizione sul sito | File | Cosa deve mostrare |

@@ -196,7 +196,7 @@ function setShowcaseShot(id) {
   img.dataset.tried = '';
   img.dataset.shot = id;
   img.dataset.fallbacks = (entry.legacy || []).join(',');
-  img.alt = `Fit+ screenshot ${id}`;
+  img.alt = `KINEVA FIT screenshot ${id}`;
   img.hidden = false;
   img.src = SHOT_BASE + entry.file;
   if (label) label.textContent = entry.label;
