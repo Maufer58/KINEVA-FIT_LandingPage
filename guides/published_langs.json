@@ -13,5 +13,6 @@
   "formats": [
     "html",
     "pdf"
-  ]
+  ],
+  "document": "guida_utilizzo"
 }
