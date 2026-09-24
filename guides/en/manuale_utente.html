@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User manual — KINEVA FIT</title>
+<meta name="description" content="KINEVA FIT user guide — online, printable and PDF.">
+<link rel="stylesheet" href="../style.css">
+</head><body>
+<div class="topbar"><span class="title">KINEVA FIT</span>
+<a href="index.html">Index</a>
+<a href="../../index.html">Site</a></div>
+<div class="wrap">
+<div class="langbar"><a href="../it/index.html">IT</a>
+<a href="../en/index.html" class="current">EN</a>
+<a href="../en/index.html" title="English fallback">DE→EN</a>
+<a href="../en/index.html" title="English fallback">FR→EN</a>
+<a href="../en/index.html" title="English fallback">ES→EN</a></div>
+<div class="banner"><strong>Available on Free too. Advanced features are labeled by plan. Read online, print, or download the PDF.</strong></div>
+<div class="toolbar">
+  <a class="primary" href="manuale_utente.pdf">Download PDF</a>
+  <button type="button" onclick="window.print()">Print</button>
+</div>
+<article id="content">
+<h1 id="user-manual-kineva-fit">User manual — KINEVA FIT</h1>
+<p align="center">
+  <img src="stride_icon.png" alt="KINEVA FIT" width="96" height="96"/>
+</p>
+
+<p><strong>Language:</strong> English · Fallback for all non-Italian app locales.</p>
+<p><strong>Document version:</strong> 2.10 · <strong>Date:</strong> 17 September 2026<br />
+<strong>Platforms:</strong> Android · iPhone · iPad · Apple Watch<br />
+<strong>Docs index:</strong> <a href="README.md"><code>docs/README.md</code></a><br />
+<strong>Operational guide:</strong> <a href="guida_operativa_percorsi.html"><code>guida_operativa_percorsi.md</code></a> v1.4 (Index + Reference guide + §1–§15; Free has no distance/GPS)</p>
+<p><strong>In-app (all plans, including Free):</strong> Settings → Base → <em>Guides and help</em> → User manual / Operational guide.<br />
+Public pages: <code>https://maufer58.github.io/KINEVA-FIT_LandingPage/guides/</code> (after <code>./tool/publish_user_guides.sh</code> + landing sync).</p>
+<h3 id="quick-index">Quick index</h3>
+<table>
+<thead>
+<tr>
+<th>§</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Development install (Mac)</td>
+</tr>
+<tr>
+<td>1–2</td>
+<td>What KINEVA FIT is · First launch</td>
+</tr>
+<tr>
+<td>3–6</td>
+<td>Home, clients, plans, editor, runner</td>
+</tr>
+<tr>
+<td>7–12</td>
+<td>Watch, AI, calendar/history, settings, issues, support</td>
+</tr>
+<tr>
+<td><strong>13</strong></td>
+<td>Trainer area / Studio &amp; Gym</td>
+</tr>
+<tr>
+<td><strong>14</strong></td>
+<td><strong>Operational guide with menu paths (all features)</strong></td>
+</tr>
+<tr>
+<td>—</td>
+<td>Full version: <a href="guida_operativa_percorsi.html"><code>guida_operativa_percorsi.md</code></a> (<strong>Index</strong> + <strong>Reference guide</strong> + §1–§15)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="0-development-install-mac">0. Development install (Mac)</h2>
+<p>Recommended project folder: <strong><code>KINEVA</code></strong> (not <code>Stride</code> / <code>MOVEFitness</code>). The same script also renames <code>Stride_Policy</code> → <code>KINEVA-FIT_Policy</code>, <code>Stride_LandingPage</code> → <code>KINEVA-FIT_LandingPage</code>, and <code>Stride_Backups</code> → <code>KINEVA-FIT_Backups</code> under <code>~/Documents</code>: <code>./tool/rename_mac_project_dir.sh</code>.</p>
+<p>Device/simulator build: <code>./fit.sh</code> (or <code>./KINEVA-FIT.sh</code>). Official GitHub origin: <code>https://github.com/Maufer58/KINEVA-FIT.git</code>. Keep Mac ↔ GitHub aligned on the latest version and also update Privacy/EULA + landing on GitHub Pages. Details in <code>README.md</code> and <code>ios/Signing/SIGNING.md</code>.</p>
+<p>To install on the paired Apple Watch: in the menu choose <strong>iPhone + Watch</strong> (not iPhone only). The watch must be unlocked, nearby, with <strong>Developer Mode</strong> enabled (Watch → Settings → Privacy &amp; Security).</p>
+<p>If the script says the iPhone is OK but the Watch is not (often <code>tunnel=disconnected</code>): <strong>iPhone → Watch app → My Watch → KINEVA FIT → Install</strong>. Then, if you still need the Mac tunnel: <code>./ios/scripts/install_iphone_watch.sh --watch-only --skip-git-sync</code>.</p>
+<p>If you see <strong>Developer Disk Image</strong> / <strong>CoreDevice 12040</strong> / <strong>0xe8000076</strong> (“Could not support development” / “developer disk image could not be mounted”): <strong>this is not a KINEVA FIT build error</strong>. The iPhone is already installed; only the <strong>direct Mac→Watch</strong> install fails.</p>
+<p><strong>Why it “used to work” and now does not:</strong> Xcode / watchOS updates made mounting a matching <em>Developer Disk Image</em> (DDI) on the Watch over wireless mandatory. If Developer Mode is incomplete, the DDI does not match, or CoreDevice times out, Xcode rejects the install. The <strong>companion</strong> path (iPhone → Watch app → KINEVA FIT → Install) <strong>does not use the Mac DDI</strong> and remains the reliable route.</p>
+<p>In order:<br />
+1. Watch → Settings → Privacy &amp; Security → <strong>Developer Mode = ON</strong>, confirm the prompt, <strong>restart</strong> the watch.<br />
+2. Simplest path (no Mac DDI): <strong>iPhone → Watch app → KINEVA FIT → Install</strong>, then open KINEVA FIT on the Watch once.<br />
+3. If you still need a Mac install: align Xcode / watchOS support (Xcode → Settings → Platforms), then <code>--watch-only</code>. Do not retry the same command until you complete steps 1–2.<br />
+With <code>./fit.sh</code> iPhone+Watch, if the DDI fails the script still leaves <strong>iPhone OK</strong> (exit 0) and points you to the companion path.</p>
+<p>If iPhone/iPad install fails with <strong>CoreDevice error 1011</strong> / <code>DeviceIdentifier: ecid_*</code>:<br />
+1. <strong>Unlock</strong> the device, screen on, <strong>USB</strong> cable, “Trust”, <strong>Developer Mode ON</strong>.<br />
+2. Check: <code>xcrun xctrace list devices</code> — the <code>00008…</code> UDID must appear (not only <code>ecid_…</code>).<br />
+3. Then, <strong>without rebuilding</strong>: <code>ENABLE_DEV_MENU=true PRODUCER_PASSWORD='MOVE2026' ./fit.sh --install-only</code>.<br />
+The build may already be fine (SprayTuna/other devices installed): the error is only CoreDevice reachability.</p>
+<p>If the Watch fails (<code>tunnel=disconnected</code> / Bluetooth timeout / DDI 12040): unlock the watch, Developer Mode ON (+ restart), keep it near the iPhone; or <strong>iPhone → Watch → KINEVA FIT → Install</strong>. Then <code>./ios/scripts/install_iphone_watch.sh --watch-only --skip-git-sync</code>.</p>
+<p><strong>Apple “workouts on their own” on the Watch:</strong> KINEVA FIT sessions (after <strong>START</strong>) create a real <code>HKWorkout</code> in Fitness (source KINEVA FIT). It is not Apple’s Workout app starting by itself. Turn off <strong>Auto-start Workout</strong> in Watch → Workout if native Apple workouts start without KINEVA FIT. Calendar alerts only open the routine preview after a tap (they do not start HealthKit).</p>
+<p>The <strong>KINEVA FIT</strong> complication does not appear on the face by itself: after opening KINEVA FIT on the Watch, long-press the face → Edit → choose <strong>KINEVA FIT</strong>. (<strong>KINEVA Intervals</strong> is a separate app: its complications appear only if you install that app.)</p>
+<hr />
+<h2 id="1-what-kineva-fit-is">1. What KINEVA FIT is</h2>
+<p>KINEVA FIT is a <strong>workout and routine management</strong> app: you create or import workouts, run them on iPhone or Watch, keep history, and (on Pro plans) manage multiple athletes.</p>
+<p><strong>It is not a medical device.</strong> “Areas of attention” are training preferences, not diagnoses.</p>
+<hr />
+<h2 id="2-first-launch">2. First launch</h2>
+<ol>
+<li>Accept the <strong>Privacy Policy</strong> and <strong>EULA</strong> (required: open them and check “I have read”).  </li>
+<li>Accept the training disclaimer.  </li>
+<li>Complete onboarding (language, basic profile).  </li>
+<li>(Optional) Start the trial or pick a plan from the paywall.</li>
+</ol>
+<hr />
+<h2 id="3-home-and-routines">3. Home and routines</h2>
+<p>In the header, under the KINEVA FIT title, you see: <strong>plan</strong> · <strong>active user role</strong> (Athlete / Trainer · name / Supervisor) · <strong>Active client</strong>. The role is also at the top of the drawer (<code>☰</code>). Full paths: <strong>§14</strong>.</p>
+<ul>
+<li><strong>New routine:</strong> <code>Home → New Routine</code> → Manual editor, AI Wizard, import from photo, template library, free workout.  </li>
+<li><strong>Groups:</strong> organize multiple routines under a group name.  </li>
+<li><strong>Tap ▶ on a routine:</strong> opens the runner.  </li>
+<li><strong>Routine menu (⋯):</strong> duplicate, archive, save as template (non-Free plans), schedule, <strong>Export Program</strong>, <strong>Send to Apple Watch</strong> (single routine, Athlete Pro+).</li>
+</ul>
+<h3 id="export-program-pdf-image">Export Program (PDF / image)</h3>
+<p>From the routine ⋯ menu → <strong>Export Program</strong>. First choose <strong>how to send it</strong>, then the format.</p>
+<p><strong>Channel (always, after choosing the format):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Save file</strong></td>
+<td>Visible copy on the device (Download / Documents). On Android/desktop you can pick the folder.</td>
+</tr>
+<tr>
+<td><strong>Email</strong></td>
+<td>Opens share to attach the file; if the client has an email in their profile it is copied to the clipboard.</td>
+</tr>
+<tr>
+<td><strong>WhatsApp</strong></td>
+<td>Opens share toward the chat.</td>
+</tr>
+</tbody>
+</table>
+<p>The file is <strong>always</strong> saved locally: if Mail or WhatsApp do not open, the snackbar shows the path.</p>
+<p><strong>Formats:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Plan</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Compact table (PDF)</strong></td>
+<td>Athlete Pro+</td>
+<td>More exercises per page: GIF, YouTube QR, sets/rest. Instructions and silhouettes <strong>after</strong> the table, with the same <code>#</code> number.</td>
+</tr>
+<tr>
+<td><strong>Illustrated table (PDF)</strong></td>
+<td>Athlete Pro+</td>
+<td>One row per exercise: Gym Visual GIF, YouTube QR (search “name + exercise”), muscle silhouettes, notes/description/execution <strong>beside</strong> the silhouette. Column header repeated on every page. No extra instruction appendix.</td>
+</tr>
+<tr>
+<td><strong>Program manual (PDF)</strong></td>
+<td>Pro Plan / Studio</td>
+<td>Extended routine: GIF, silhouettes, tips and descriptions; same <code>#</code> numbering as the table.</td>
+</tr>
+<tr>
+<td><strong>HD image</strong></td>
+<td>Pro Plan / Studio</td>
+<td>PNG ready for WhatsApp chat (same File / Email / WhatsApp picker).</td>
+</tr>
+</tbody>
+</table>
+<p>Every PDF shows <strong>KINEVA FIT</strong> and the tagline <em>Fitness &amp; Workout Planner</em> (studio logo if set in Settings). File names stay safe even if the routine title contains <code>/</code>. Circuits expand child exercises. If the profile has areas of attention, warnings stay visible on the row.</p>
+<h3 id="manage-mode-multi-select">Manage mode (multi-select)</h3>
+<p>In the bar under the header (next to <em>Expand groups</em> / <em>Show exercises</em>) tap <strong>Manage</strong>:</p>
+<ol>
+<li>Select one or more <strong>routines</strong> (checkmark on the card) or an <strong>entire group</strong>.  </li>
+<li>At the top, <strong>「X Selected」</strong> appears.  </li>
+<li>Available actions:<br />
+   - <strong>⌚ Send to Watch</strong> — sends all selected routines to the wrist (Athlete Pro+; see §7).<br />
+   - <strong>Select all</strong> — select/deselect the whole list.<br />
+   - <strong>Delete</strong> — removes selected routines and/or groups.  </li>
+<li>Tap <strong>✕</strong> to leave Manage mode.</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> with <strong>2 or more routines</strong> the app uses a batch send (one transfer); if it fails, it automatically retries one routine at a time.</p>
+</blockquote>
+<h3 id="on-watch-badge">“on Watch” badge</h3>
+<p>After a successful send (Delivered or Queued), the card shows the <strong>on Watch</strong> badge.<br />
+If you delete the routine on the watch, the badge disappears on the iPhone too (automatic sync on launch if the Watch is reachable).</p>
+<h3 id="free-plan-limits-summary">Free plan limits (summary)</h3>
+<table>
+<thead>
+<tr>
+<th>Limit</th>
+<th>Free</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Active routines</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Groups</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Exercises per routine</td>
+<td>max 15</td>
+</tr>
+<tr>
+<td>Oversized templates</td>
+<td>blocked on import</td>
+</tr>
+<tr>
+<td>Advanced manual editor</td>
+<td>limited</td>
+</tr>
+<tr>
+<td><strong>Distance / GPS exercises</strong></td>
+<td><strong>No</strong> (Athlete Pro+ only) — editor, templates, import, and runner open the paywall</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-athlete-profile-clients">4. Athlete profile / clients</h2>
+<ul>
+<li>Enter profile details, optional measurements, sport.  </li>
+<li><strong>Areas of attention:</strong> pick generic limitations (e.g. “knee discomfort”); the app flags poorly suited exercises and can <strong>hide them</strong> in selection (Athlete Pro+).  </li>
+<li><strong>Free and Athlete Pro:</strong> a single personal profile (“Me (Default)”). <strong>You cannot</strong> create additional clients (drawer has no “New client”; paywall if attempted).  </li>
+<li><strong>Pro Plan / Studio &amp; Gym:</strong> trainer area with PIN, client drawer, duplicate, routine distribution (<strong>Pro: max 8 clients</strong>; <strong>Studio: unlimited</strong>; at the Pro limit an invite to Studio appears). Earlier Pro subscribers before the limit may keep unlimited clients (grandfathered).</li>
+</ul>
+<blockquote>
+<p>Full trainer/gym operational manual: <strong>§13</strong> below.</p>
+</blockquote>
+<hr />
+<h2 id="4bis-plans-and-subscriptions-summary">4bis. Plans and subscriptions (summary)</h2>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Clients</th>
+<th>Indicative price</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Free</strong></td>
+<td>1</td>
+<td>€0</td>
+<td>1 routine, 15 exercises; <strong>no</strong> distance/GPS, Watch, PDF, multi-client</td>
+</tr>
+<tr>
+<td><strong>Athlete Pro</strong></td>
+<td>1</td>
+<td>€4.99/month · <strong>€49.99/year (−17%)</strong></td>
+<td><strong>Distance/GPS</strong> (define + run), map, Watch, editor, routine PDF, 3 AI credits</td>
+</tr>
+<tr>
+<td><strong>Pro Plan</strong></td>
+<td><strong>max 8</strong></td>
+<td>€19.99/month · <strong>€199.99/year (−17%)</strong></td>
+<td>Trainer area, PIN, batch routines, JSON/PDF/WhatsApp, exercise DB, PDF encyclopedia, catalog backup, client CSV, 50 AI credits</td>
+</tr>
+<tr>
+<td><strong>Studio &amp; Gym</strong></td>
+<td><strong>unlimited</strong></td>
+<td>€49.99/month · <strong>€499.99/year (−17%)</strong></td>
+<td>Everything in Pro + mobility/posture protocols, custom limitations, rehab routines, JSON sharing with colleagues, 150 AI credits</td>
+</tr>
+<tr>
+<td><strong>Pilates Pack</strong> (add-on)</td>
+<td>—</td>
+<td><strong>€9.99 one-time</strong></td>
+<td>Pilates catalog (mat + machine, 29 exercises). <strong>Not</strong> included in Athlete / Pro Plan / Studio: requires <strong>Athlete Pro+</strong> and a separate purchase</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>On the paywall the <strong>annual plan is the default</strong>: one payment, equivalent to <strong>2 months free</strong> (~−17%). Monthly remains available.</li>
+<li><strong>Pilates Pack:</strong> non-consumable IAP (<code>com.mauroferrari.FITPlus.pilates</code>). Menu item <code>New Routine → Pilates Pack</code> (next to Mobility Protocols). Without Athlete+ the item shows the requirement; with the plan but without the pack it opens the in-app store.</li>
+<li><strong>7-day free trial:</strong></li>
+<li><strong>App Store (end users):</strong> Apple/Google introductory offer — tied to the Store account; <strong>does not</strong> renew by uninstalling. Guide: <a href="TRIAL_STORE_VS_LOCALE.md"><code>TRIAL_STORE_VS_LOCALE.md</code></a>.</li>
+<li><strong>Development / pre-release testing:</strong> builds with <code>ENABLE_DEV_MENU</code> (or debug) still keep a <strong>local</strong> trial to exercise Pro without the Store; do not use that build for the Store.</li>
+<li>Anyone already on <strong>Pro Plan</strong> before the 8-client limit keeps unlimited clients (grandfathered).</li>
+<li>Prices and renewals are handled by the App Store / Google Play; legal details in the EULA.</li>
+</ul>
+<hr />
+<h2 id="5-routine-editor">5. Routine editor</h2>
+<ul>
+<li>Add exercises from the library.  </li>
+<li>Configure sets, reps, load, rest, methods (Pro plans).  </li>
+<li><strong>Distance measure (km) / GPS:</strong> <strong>Athlete Pro+</strong> only (item locked with paywall on Free).  </li>
+<li>Circuits / supersets / T21 where available.  </li>
+<li>Save: the routine appears on Home.</li>
+</ul>
+<hr />
+<h2 id="6-runner-workout">6. Runner (workout)</h2>
+<ul>
+<li>Start the routine → timer, rests, skip, exercise list.  </li>
+<li>Routines with distance exercises: <strong>Athlete Pro+</strong> only (Free → paywall on start).  </li>
+<li>Area-of-attention notices when applicable.  </li>
+<li>At session end: summary and save to history.</li>
+</ul>
+<hr />
+<h2 id="7-apple-watch">7. Apple Watch</h2>
+<p><strong>Requirements:</strong> <strong>Athlete Pro</strong> plan (or active trial), KINEVA FIT installed on iPhone <strong>and</strong> Apple Watch, Bluetooth on, watch paired.</p>
+<p>After installing KINEVA FIT on the Watch from the iPhone <strong>Watch</strong> app, <strong>open KINEVA FIT on the watch at least once</strong> before sending routines (so iPhone and Watch connect via WatchConnectivity).</p>
+<h3 id="send-a-single-routine">Send a single routine</h3>
+<ol>
+<li>From <strong>Home</strong>, <strong>⋯</strong> menu on the routine → <strong>Send to Apple Watch</strong>.  </li>
+<li>Message: <em>Delivered</em> (Watch reachable) or <em>Queued</em> (open the Watch app to receive it).  </li>
+<li><strong>on Watch</strong> badge on the iPhone card.</li>
+</ol>
+<h3 id="send-multiple-routines-batch">Send multiple routines (batch)</h3>
+<ol>
+<li>Home → toolbar → <strong>Manage</strong>.  </li>
+<li>Select the routines (or an entire group).  </li>
+<li>Tap the <strong>⌚</strong> icon at top right.  </li>
+<li>Wait for the summary (e.g. “3 routines sent to Apple Watch”).</li>
+</ol>
+<h3 id="on-the-watch">On the Watch</h3>
+<ol>
+<li>Open the <strong>KINEVA FIT</strong> app on the watch.  </li>
+<li><strong>Tap routine</strong> → exercise preview → <strong>OPEN</strong>.  </li>
+<li>On the runner: <strong>START</strong> (voice guide: exercise → 3-2-1 → Go).  </li>
+<li><strong>NEXT</strong> advances to the next set/exercise (or skips rest).  </li>
+<li>During the exercise the <strong>next</strong> step appears at the bottom.  </li>
+<li><strong>Pause:</strong> single tap on the screen; <strong>Resume:</strong> double tap (the PAUSE badge does not cover the back button).  </li>
+<li>Complication: <strong>KINEVA FIT</strong> only (HR/workout). If “KINEVA Intervals” still appears under FIT, it is leftover: delete and reinstall the Watch app (<a href="WATCH_COMPLICATIONS_ICONS.md"><code>WATCH_COMPLICATIONS_ICONS.md</code></a>).</li>
+</ol>
+<h3 id="iphone-watch-badge-sync">iPhone ↔ Watch badge sync</h3>
+<p>On launch, if the Watch is reachable, the iPhone aligns <strong>on Watch</strong> badges with the routines actually present on the watch. Delete a routine on the Watch → the badge disappears on the iPhone too.</p>
+<hr />
+<h2 id="8-ai-and-photo-import">8. AI and photo import</h2>
+<ul>
+<li><strong>AI Wizard:</strong> generates routines (uses credits).  </li>
+<li><strong>Photo import:</strong> photograph a paper routine; always verify the result.  </li>
+<li>Requires connectivity and available credits.</li>
+</ul>
+<hr />
+<h2 id="9-calendar-and-history">9. Calendar and history</h2>
+<ul>
+<li>Schedule recurring sessions.  </li>
+<li>Review volume, sessions, exercise detail.  </li>
+<li>PDF/image/JSON export on plans that allow it (see §13 for WhatsApp delivery and batch).</li>
+<li><strong>Branding in documents:</strong> PDF (compact/illustrated table, technical manual, encyclopedia), image export, and history reports always show the name <strong>KINEVA FIT</strong>, the tagline <em>Fitness &amp; Workout Planner</em>, and the app logo; if in Settings (Trainer) you uploaded a studio logo, that replaces the KINEVA FIT icon in the header.</li>
+<li><strong>Personal cloud archive (Athlete Pro / Pro Plan / Studio):</strong> Settings → Base → <em>Save history and charts (cloud)</em> / <em>Restore history from archive</em> (also ZIP icon in History). Export: ZIP with JSON/CSV/PNG. Import: Merge or Replace from ZIP/<code>history_full.json</code>. Free plan: locked (paywall).</li>
+<li><strong>Trainer catalog backup (Athlete Pro+):</strong> Settings → Trainer tools → <em>Create full backup</em> / <em>Restore from backup</em> — JSON with custom exercises and mobility protocols.</li>
+</ul>
+<hr />
+<h2 id="10-useful-settings">10. Useful settings</h2>
+<ul>
+<li>Language, audio/vibration, units.  </li>
+<li>Smart Swap toggle, screenshot mode (only if needed).  </li>
+<li>Backup/export (enabled plans).  </li>
+<li>Subscription management / paywall.  </li>
+<li><strong>Licensed devices:</strong> Settings → Base. Athlete Pro / Pro Plan: <strong>2</strong> concurrent devices; Studio &amp; Gym: <strong>3</strong>. Apple Watch does not count. If an iPad stays Free after “Restore purchases”, open the list and deactivate another device. The cap follows the Store Apple ID (even with a different iCloud). Sharing the account at the gym beyond the cap is not allowed.</li>
+</ul>
+<hr />
+<h2 id="11-common-issues">11. Common issues</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“KINEVA FIT not installed” message but the icon is on the Watch</td>
+<td>After install from the iPhone <strong>Watch</strong> app, open <strong>KINEVA FIT on the Watch once</strong>, then resend the routine (iOS sometimes still reports “not installed”). Close and reopen KINEVA FIT on the iPhone if needed.</td>
+</tr>
+<tr>
+<td>Watch does not receive the routine</td>
+<td>Watch app installed on <strong>both</strong> devices, Bluetooth on, open KINEVA FIT on the Watch, resend</td>
+</tr>
+<tr>
+<td>Multi-send fails partially</td>
+<td>Retry with fewer routines; verify Pro plan; check “X sent, Y failed” message</td>
+</tr>
+<tr>
+<td>Wrong “on Watch” badge</td>
+<td>Open the app on iPhone with Watch on and nearby (manifest sync); or resend the routine</td>
+</tr>
+<tr>
+<td>Template blocked (Free)</td>
+<td>Too many exercises or already 1 routine/group → Pro</td>
+</tr>
+<tr>
+<td>Disclaimer not acceptable</td>
+<td>Open Privacy + EULA and check both boxes</td>
+</tr>
+<tr>
+<td>iOS file_picker build</td>
+<td><code>flutter build ios --config-only</code> if SPM stays on iOS 13</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="12-support-and-privacy">12. Support and privacy</h2>
+<p>Legal docs: <a href="legal/README.md"><code>docs/legal/README.md</code></a> (owner: Mauro Ferrari; publish on <code>maufer58.github.io/KINEVA-FIT_Policy</code>).<br />
+Contact: privacy/support email listed in the Privacy Policy.</p>
+<p>App Store publication: <a href="APP_STORE_CHECKLIST.md"><code>APP_STORE_CHECKLIST.md</code></a> · QA <a href="qa/checklist_collaudo.md"><code>qa/checklist_collaudo.md</code></a> · ops security (producer) <a href="SECURITY_OPS_REMAINING.md"><code>SECURITY_OPS_REMAINING.md</code></a>.</p>
+<hr />
+<h2 id="13-trainer-area-studio-gym-pro-plan">13. Trainer area, Studio &amp; Gym (Pro Plan+)</h2>
+<p>Section for personal trainers, gyms, and studios. Requires <strong>Pro Plan</strong> or <strong>Studio &amp; Gym</strong> (<code>enableTrainerArea</code>). On iPad the experience is optimal for routine catalogs and client delivery.</p>
+<h3 id="131-access-and-security">13.1 Access and security</h3>
+<ol>
+<li><strong>Settings → Trainer/Studio tools</strong> (card at the bottom of the Trainer Pro tab).  </li>
+<li>If you lack the right plan → paywall.  </li>
+<li><strong>4-digit PIN (required on Pro/Studio)</strong> after the first managed client: protects clients, database, and export. You can also enable Face ID / Touch ID. After inactivity or backgrounding the app asks for the PIN again. When you set the PIN you receive an <strong>8-digit recovery code</strong>: keep it; if you forget the PIN you use it once to unlock (then set a new PIN). Disable only with PIN <code>0000</code> (not recommended if you manage third-party clients).  </li>
+<li><strong>Studio branding:</strong> business name, email, and logo — appear on PDF, encyclopedia, and export images.</li>
+<li><strong>Routine sharing (JSON):</strong> selective export to other devices includes only the client <strong>id and name</strong> (not email, phone, conditions, or biometrics), plus the routines and custom exercises needed.</li>
+</ol>
+<h3 id="132-client-management">13.2 Client management</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Where</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New client</td>
+<td>Drawer → <em>New client</em></td>
+<td>Locked on Free/Athlete; Pro max 8, Studio unlimited</td>
+</tr>
+<tr>
+<td>Edit profile</td>
+<td>Tap client → profile</td>
+<td>Conditions, sport, biometrics, goals, mobility protocols (Studio)</td>
+</tr>
+<tr>
+<td>Duplicate (single)</td>
+<td>Client menu → <em>Duplicate</em></td>
+<td>Copies profile + routines; “(Copy)” suffix</td>
+</tr>
+<tr>
+<td>Duplicate (batch)</td>
+<td>Admin Panel → <em>Duplicate clients</em></td>
+<td>Multi-select; sport/limitations/mobility options</td>
+</tr>
+<tr>
+<td>Delete (batch)</td>
+<td>Admin Panel → <em>Delete clients</em></td>
+<td>The “Me (Default)” profile cannot be deleted</td>
+</tr>
+<tr>
+<td>CSV export</td>
+<td>Admin Panel → <em>Export history/biometrics</em></td>
+<td>Biometrics CSV, session history, distance split per client</td>
+</tr>
+</tbody>
+</table>
+<h3 id="133-bulk-routine-management">13.3 Bulk routine management</h3>
+<p><strong>Master profile:</strong> build routines on the “Me (Default)” profile — templates, advanced techniques, T21.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Admin Panel / Settings</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Assign master routines</strong></td>
+<td><em>Assign master routines</em></td>
+<td>Select master routines/groups → clone to N clients (independent IDs; each clone tracks the source routine). Option <em>Assign and send PDF</em></td>
+</tr>
+<tr>
+<td><strong>Batch routine management</strong></td>
+<td><em>Batch routine management</em></td>
+<td>Flat / by athlete / by routine view: search, archive, or multi-delete; optional BCC email</td>
+</tr>
+<tr>
+<td><strong>Client routine cleanup</strong></td>
+<td>Trainer tab → <em>Client routine cleanup</em></td>
+<td>Delete obsolete routines across profiles (season change)</td>
+</tr>
+<tr>
+<td><strong>Multi-client JSON import</strong></td>
+<td><em>Import client routines (JSON)</em></td>
+<td>Import a file exported by a colleague; choose destination clients; inject custom exercises</td>
+</tr>
+</tbody>
+</table>
+<h3 id="134-delivering-routines-app-whatsapp-pdf-json">13.4 Delivering routines (app, WhatsApp, PDF, JSON)</h3>
+<p><strong>Inside the app (KINEVA FIT client):</strong> assign from the master profile or send a routine already on the client → <strong>SENT</strong> badge / <strong>on Watch</strong> badge (Delivered / Queued / Error).</p>
+<p><strong>Multi send to the wrist (athlete):</strong> from the client profile Home, <strong>Manage</strong> mode → select routines → <strong>⌚</strong> icon (Athlete Pro+).</p>
+<p><strong>File / Email / WhatsApp channel</strong> (same picker as Home, see §3): the file is always copied locally, then the chosen channel’s share sheet opens.</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Plan</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Compact table PDF</strong></td>
+<td>Athlete Pro+</td>
+<td>Many exercises per page; instructions and silhouettes after the table</td>
+</tr>
+<tr>
+<td><strong>Illustrated table PDF</strong></td>
+<td>Athlete Pro+</td>
+<td>Gym Visual GIF, YouTube QR, silhouette and copy on the same row</td>
+</tr>
+<tr>
+<td><strong>Full manual PDF</strong></td>
+<td>Pro Plan / Studio</td>
+<td>Extended routine with GIF, tips, and descriptions</td>
+</tr>
+<tr>
+<td><strong>HD image</strong></td>
+<td>Pro Plan / Studio</td>
+<td>PNG for WhatsApp chat</td>
+</tr>
+<tr>
+<td><strong>Batch JSON</strong></td>
+<td>Pro Plan / Studio</td>
+<td><code>batch_transfer</code> file with routines + custom exercises — importable by anyone using KINEVA FIT</td>
+</tr>
+<tr>
+<td><strong>Bulk PDF export</strong></td>
+<td>Pro Plan / Studio</td>
+<td><em>Deliveries &amp; backup</em>: PDFs generated in parallel per routine; <strong>sequential share per client</strong> (email privacy) via File / Email / WhatsApp</td>
+</tr>
+</tbody>
+</table>
+<p>After <em>Assign and send PDF</em>, PDFs of <strong>newly created clones</strong> are found via the link to the master routine (not by title alone), so duplicate titles do not confuse the export.</p>
+<p>The athlete or a colleague with KINEVA FIT imports the JSON and picks destination profiles; custom exercises are added to the local catalog.</p>
+<h3 id="135-exercise-database-and-customization">13.5 Exercise database and customization</h3>
+<p><strong>Admin Panel → Exercises:</strong> search (standard vs custom), create/edit/delete.</p>
+<ul>
+<li><strong>New exercise:</strong> muscles, equipment, type, difficulty, notes, setup.  </li>
+<li><strong>Per-exercise limitations:</strong> medical icon → conditions for which the exercise is not recommended.  </li>
+<li><strong>Global limitations:</strong> <em>Limitations</em> — customizable catalog of conditions/motor limitations.  </li>
+<li><strong>Muscles / equipment / types:</strong> <em>Manage muscles</em>, <em>equipment</em>, <em>types</em> — extend the master catalog.  </li>
+<li><strong>Mobility protocols (Studio):</strong> <em>Mobility protocols</em> — rehab/mobility sequences assignable to clients.</li>
+<li><strong>Pilates Pack (Athlete+ add-on):</strong> mat + machine catalog (29 exercises) via <code>New Routine → Pilates Pack</code>. One-time purchase €9.99; <strong>not</strong> included in Studio or Pro Plan.</li>
+</ul>
+<h3 id="136-profile-exercise-safety">13.6 Profile ↔ exercise safety</h3>
+<ol>
+<li>Set <strong>areas of attention / conditions</strong> in the client profile.  </li>
+<li>In <strong>exercise selection</strong> enable <strong>“Hide unsuitable”</strong> (default): conflicting movements disappear from the list.  </li>
+<li>In the <strong>runner session:</strong> area-of-attention banner if a borderline exercise remains.  </li>
+<li>On <strong>PDF and export images:</strong> visual warnings for incompatibilities.  </li>
+<li><strong>Smart Swap:</strong> during the workout replace an exercise while staying on the same muscle group.</li>
+</ol>
+<h3 id="137-pdf-encyclopedia-full-manual">13.7 PDF encyclopedia (full manual)</h3>
+<p><strong>Admin Panel → Export manuals (PDF)</strong> — same File / Email / WhatsApp channel as the routine:</p>
+<ul>
+<li>Segments: Upper body · Lower · Core · Mobility · <strong>Full encyclopedia</strong> (entire database — long operation, needs plenty of RAM).  </li>
+<li>Each exercise sheet includes: <strong>Gym Visual GIF</strong> (first frame), <strong>YouTube QR</strong> (movement search), muscle silhouettes, description, execution, equipment, not recommended for.  </li>
+<li>The full catalog includes GIFs (they are no longer skipped).  </li>
+<li>Studio logo in the header; useful for reception and staff training.</li>
+</ul>
+<h3 id="138-backup-and-restore">13.8 Backup and restore</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Content</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Catalog JSON backup</strong></td>
+<td>Custom exercises + mobility protocols</td>
+<td>Athlete Pro+</td>
+</tr>
+<tr>
+<td><strong>History ZIP archive</strong></td>
+<td>Sessions, CSV, chart PNGs</td>
+<td>Athlete Pro+</td>
+</tr>
+<tr>
+<td><strong>Personal JSON export</strong></td>
+<td>Current profile + routines</td>
+<td>Athlete Pro+</td>
+</tr>
+<tr>
+<td><strong>Colleague sharing</strong></td>
+<td>Batch JSON export/import or catalog backup</td>
+<td>Pro / Studio</td>
+</tr>
+</tbody>
+</table>
+<p>Catalog restore: merge exercises and protocols without deleting the rest. ZIP archive: <em>Merge</em> or <em>Replace</em> history.</p>
+<h3 id="139-pt-calendar-and-watch">13.9 PT calendar and Watch</h3>
+<ul>
+<li><strong>Trainer appointments</strong> in the calendar (month/day view).  </li>
+<li><strong>Apple Watch send:</strong> single routine (⋯ menu) or <strong>multiple</strong> (Home → Manage → ⌚). Session sync and analytics on iPhone; <strong>on Watch</strong> badge aligned with the watch’s real content.</li>
+</ul>
+<h3 id="1310-permissions-summary-by-plan">13.10 Permissions summary by plan</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Free</th>
+<th>Athlete Pro</th>
+<th>Pro Plan</th>
+<th>Studio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multi-client</td>
+<td>No</td>
+<td>No</td>
+<td>Yes (max 8*)</td>
+<td>Yes (∞)</td>
+</tr>
+<tr>
+<td><strong>Distance / GPS (define + run)</strong></td>
+<td><strong>No</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr>
+<td>Batch routines / batch JSON</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>PDF encyclopedia / HD WhatsApp</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>“Hide unsuitable” filter</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Custom exercises (editor)</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Editable mobility protocols</td>
+<td>No</td>
+<td>No**</td>
+<td>No**</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Pilates Pack</strong> (mat/machine catalog)</td>
+<td>No</td>
+<td>Yes***</td>
+<td>Yes***</td>
+<td>Yes***</td>
+</tr>
+<tr>
+<td>Catalog backup / history ZIP</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>* Legacy Pro: unlimited clients. ** Pro: mobility if build has <code>ENABLE_MOBILITY</code>; Studio: always. *** Requires <strong>Pilates Pack</strong> add-on purchase (€9.99); not included in the subscription.</p>
+<hr />
+<h2 id="14-operational-guide-menu-paths-all-features">14. Operational guide — menu paths (all features)</h2>
+<p>This section explains <strong>how to use KINEVA FIT correctly</strong> with menu paths.<br />
+Full version (with <strong>Index</strong> and <strong>Reference guide</strong>): <a href="guida_operativa_percorsi.html"><code>guida_operativa_percorsi.md</code></a>.</p>
+<p><strong>Bottom bar:</strong> <code>Home</code> · <code>Calendar</code> · <code>Data</code> · <code>History</code> · <code>More</code> (= Settings)<br />
+<strong>Legend:</strong> <code>⋯</code> routine menu · <code>☰</code> drawer · plans in parentheses (Free / Athlete Pro / Pro Plan / Studio)</p>
+<h3 id="141-orientation">14.1 Orientation</h3>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>See who is in session</td>
+<td><code>Home</code> → role chip under the title (SUPERVISOR / TRAINER · Name / ATHLETE)</td>
+</tr>
+<tr>
+<td>Change active client</td>
+<td><code>Home</code> → tap active client · or <code>☰ Drawer</code> → tap client</td>
+</tr>
+<tr>
+<td>Settings</td>
+<td><code>More</code> · or <code>☰ → More</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="142-create-a-routine">14.2 Create a routine</h3>
+<p><code>Home → New Routine</code> then choose:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Menu item</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manual</td>
+<td><code>Create Manual Routine</code> → Editor → Save</td>
+<td>Free limited; Athlete+ full</td>
+</tr>
+<tr>
+<td>AI</td>
+<td><code>Generate with AI (Gemini)</code></td>
+<td>AI credits</td>
+</tr>
+<tr>
+<td>Photo</td>
+<td><code>Import Routine from Photo</code></td>
+<td>AI credits</td>
+</tr>
+<tr>
+<td>Template</td>
+<td><code>Template Library</code></td>
+<td>Free limits</td>
+</tr>
+<tr>
+<td>Free</td>
+<td><code>Free Workout</code></td>
+<td>Same as editor</td>
+</tr>
+<tr>
+<td>Mobility</td>
+<td><code>Mobility Protocols</code></td>
+<td><strong>Studio</strong></td>
+</tr>
+<tr>
+<td>Pilates</td>
+<td><code>Pilates Pack</code></td>
+<td><strong>Athlete Pro+</strong> + purchased pack</td>
+</tr>
+</tbody>
+</table>
+<p>Edit: <code>Home → ⋯ on the routine → Edit</code>.<br />
+Duplicate / archive / delete: same <code>⋯</code> menu.<br />
+Template: <code>⋯ → Save as Template</code> (not Free).</p>
+<p><strong>Multi management:</strong> <code>Home → Manage</code> → check routines/groups → <code>⌚</code> Watch / select all / delete → <code>✕</code>.<br />
+<strong>Transfer exercises:</strong> <code>Home → Transfer</code> → select → COPY or MOVE.</p>
+<h3 id="143-run-a-workout">14.3 Run a workout</h3>
+<ol>
+<li><code>Home → ▶ on the routine</code> → Runner (timer, rests, next, list).  </li>
+<li>End of session → summary → save to <strong>History</strong>.  </li>
+<li>Early exit: Delete and exit · Finish now · Suspend.  </li>
+<li>Rerun / reset today: <code>⋯ on the routine → Rerun</code> / <code>Reset today’s run</code>.  </li>
+</ol>
+<p><strong>GPS run (Athlete Pro+):</strong> in the Editor use distance measure km → <code>▶</code> → GPS ON panel.<br />
+The track is saved in history (map) and, on iPhone, sent to <strong>Apple Fitness / Health</strong> at session end (workout + route).<br />
+Health consent (<strong>write only</strong>) is requested on <strong>first app launch</strong> and stays on by default. GPS asks for <strong>location</strong> only the <strong>first time</strong> you use it; later runs do not show the system sheets again. If it does not appear in Fitness: <code>Settings → Health → Data Access → KINEVA FIT</code>.<br />
+<strong>Free plan:</strong> cannot define or start distance exercises (paywall).<br />
+Privacy: <code>More → Base → Save GPS route</code> (on by default; if you turn it off, no map in history and no route in Fitness).</p>
+<h3 id="144-history-and-progress">14.4 History and progress</h3>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Session list</td>
+<td><code>History</code> → Filters (period, type) → tap card → detail</td>
+</tr>
+<tr>
+<td>Filter athlete (gym)</td>
+<td><code>History → Filter Athlete</code> (Pro/Studio)</td>
+</tr>
+<tr>
+<td>Charts / volume</td>
+<td><code>Data</code> → Workout / Bio tabs</td>
+</tr>
+<tr>
+<td>Progress export</td>
+<td><code>Data → ⋮ → Export progress</code> (Athlete+)</td>
+</tr>
+<tr>
+<td>Cloud ZIP archive</td>
+<td><code>More → Base → Save history and charts (cloud)</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="145-calendar-and-scheduling">14.5 Calendar and scheduling</h3>
+<p><code>Home → ⋯ routine → Schedule</code> / <code>Manage Dates</code><br />
+<code>Calendar</code> → day → PROGRAM / HISTORY / APPOINTMENTS<br />
+<code>Calendar → +</code> → New appointment (Pro/Studio)</p>
+<h3 id="146-pdf-whatsapp-export">14.6 PDF / WhatsApp export</h3>
+<p><code>Home → ⋯ → Share / Export → Export Program</code><br />
+→ format (compact/illustrated table · manual · HD image) → channel <strong>File / Email / WhatsApp</strong>.</p>
+<h3 id="147-apple-watch">14.7 Apple Watch</h3>
+<p><code>Home → ⋯ → Send to Apple Watch</code> (one routine)<br />
+<code>Home → Manage → select → ⌚</code> (batch)<br />
+On the Watch: KINEVA FIT → routine → OPEN → START → NEXT</p>
+<h3 id="148-clients-pro-plan-studio">14.8 Clients (Pro Plan / Studio)</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New</td>
+<td><code>☰ → New Client</code> → Create <em>(form stays open; does not change the active client on its own)</em></td>
+</tr>
+<tr>
+<td>Registry</td>
+<td><code>☰ → Client registry</code></td>
+</tr>
+<tr>
+<td>Edit / duplicate / suspend</td>
+<td><code>☰ → ⋯ on the client</code></td>
+</tr>
+<tr>
+<td>Share with trainers</td>
+<td><code>⋯ client → Share with trainers</code> → X / CLOSE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="149-create-and-manage-trainers-studio-gym-supervisor">14.9 Create and manage trainers (Studio &amp; Gym · Supervisor)</h3>
+<ol>
+<li><code>More → Trainer Pro → Studio tools</code> → (PIN) → Admin  </li>
+<li><strong>Trainer management</strong> → <code>+</code> / Add trainer → name + PIN → save  </li>
+<li>Enable login, Suspend/Reactivate, Export, Delete (license seat with 30-day cooldown)  </li>
+<li>Login: overlay → choose profile (gear) → PIN on the on-screen keypad  </li>
+</ol>
+<p>Max 3 trainers/device + supervisor. Freeing “ghost” seats is not in the supervisor menu (producer black door only).</p>
+<h3 id="1410-admin-panel-summary">14.10 Admin Panel (summary)</h3>
+<p><code>More → Trainer Pro → Studio tools → [PIN] → Admin</code></p>
+<ul>
+<li>Studio branding · Exercise database · PDF encyclopedia  </li>
+<li>Assign Master Routines · Massive management · Deliveries &amp; Backup · JSON import  </li>
+<li>Duplicate/Delete clients · History/biometrics CSV · Trainer management (Studio)</li>
+</ul>
+<h3 id="1411-subscription-and-settings">14.11 Subscription and settings</h3>
+<p><code>☰ / More → banner</code> → paywall (plans, trial, Restore purchases)<br />
+<code>More → Base</code> → language, audio, GPS, theme, history archive<br />
+<code>More → Trainer Pro</code> → PIN, Smart Swap, catalog backup, Studio tools  </p>
+<p>Full detail: <a href="guida_operativa_percorsi.html"><code>guida_operativa_percorsi.md</code></a>.</p>
+<h3 id="1412-cheat-sheet">14.12 Cheat sheet</h3>
+<table>
+<thead>
+<tr>
+<th>I want to…</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create a routine</td>
+<td><code>Home → New Routine → Create Manual Routine</code></td>
+</tr>
+<tr>
+<td>Work out</td>
+<td><code>Home → ▶</code></td>
+</tr>
+<tr>
+<td>History</td>
+<td><code>History → tap session</code></td>
+</tr>
+<tr>
+<td>Charts</td>
+<td><code>Data</code></td>
+</tr>
+<tr>
+<td>PDF/WhatsApp</td>
+<td><code>⋯ → Share / Export</code></td>
+</tr>
+<tr>
+<td>Watch</td>
+<td><code>⋯ → Send to Apple Watch</code></td>
+</tr>
+<tr>
+<td>New client</td>
+<td><code>☰ → New Client</code></td>
+</tr>
+<tr>
+<td>New trainer</td>
+<td><code>More → Trainer Pro → Studio tools → Trainer management → +</code></td>
+</tr>
+<tr>
+<td>Subscription</td>
+<td>Drawer/Settings banner</td>
+</tr>
+<tr>
+<td>Session role</td>
+<td>Chip under Home title</td>
+</tr>
+</tbody>
+</table>
+</article>
+</div>
+</body></html>

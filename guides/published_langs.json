@@ -1,0 +1,17 @@
+{
+  "publishedLangs": [
+    "en",
+    "it"
+  ],
+  "supportedLangs": [
+    "it",
+    "en",
+    "de",
+    "fr",
+    "es"
+  ],
+  "formats": [
+    "html",
+    "pdf"
+  ]
+}

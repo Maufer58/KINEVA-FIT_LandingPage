@@ -413,6 +413,9 @@ const translations = {
     'download.contact': 'Info:',
     'footer.rights': 'Tutti i diritti riservati',
     'footer.disclaimer': 'KINEVA FIT è un’app fitness, non un dispositivo medico. I dati restano sul dispositivo.',
+    'footer.guides': 'Guide (online / PDF)',
+    'footer.guidesIt': 'IT',
+    'footer.guidesEn': 'EN',
   },
   en: {
     'nav.story': 'Why',
@@ -828,6 +831,9 @@ const translations = {
     'download.contact': 'Contact:',
     'footer.rights': 'All rights reserved',
     'footer.disclaimer': 'KINEVA FIT is a fitness app, not a medical device. Data stays on your device.',
+    'footer.guides': 'Guides (online / PDF)',
+    'footer.guidesIt': 'IT',
+    'footer.guidesEn': 'EN',
   },
 };
 
