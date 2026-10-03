@@ -15,7 +15,7 @@ L’affermazione «molte immagini sembrano placeholder e non corrispondono all�
 
 | Situazione | File coinvolti |
 |---|---|
-| Stesso PNG ripetuto = **Disclaimer** (brand vecchio M.O.V.E., non Home/Calendario) | `01-home.png` = `03-calendar.png` (+ alias `home.png`, `calendar.png`, `01-home-a/b/c.png`) |
+| Stesso PNG ripetuto = **Disclaimer** (non Home/Calendario — PNG disclaimer ripetuto) | `01-home.png` = `03-calendar.png` (+ alias `home.png`, `calendar.png`, `01-home-a/b/c.png`) |
 | Stesso PNG ripetuto = **«ACCESSO NEGATO»** (non Runner/Editor) | `02-runner.png` = `06-editor.png` (+ `runner.png`, `ipad-editor.png`) |
 | Stesso PNG ripetuto = **«ACCESSO NEGATO»** (non Progressi/Storico/Impostazioni) | `04-progress.png` = `05-history.png` = `07-settings.png` (+ alias) |
 | Mock UI **Stride** (orario 9:41, non cattura KINEVA FIT live) | `08-watch-list/start/active/done.png` |
@@ -37,7 +37,7 @@ L’affermazione «molte immagini sembrano placeholder e non corrispondono all�
 | **Stato** | ❌ da creare o rifare · ✅ ok reale (oggi: nessuno ✅) |
 
 Formati consigliati: iPhone **1080×2400** · Watch **~390×390** (quadrato) · iPad **landscape ~4:3** (es. 2048×1536).  
-Lingua UI: **IT**. Brand in schermata: **KINEVA FIT** (non M.O.V.E. / Stride).
+Lingua UI: **IT**. Brand in schermata: **KINEVA FIT**.
 
 ---
 

@@ -14,8 +14,8 @@ const translations = {
     'nav.download': 'Scarica',
     'hero.eyebrow': 'Android · iPhone · iPad · Apple Watch',
     'hero.title': 'KINEVA FIT',
-    'hero.line': 'Il ritmo che conta.',
-    'hero.lead': 'Schede, GPS e Apple Watch in sync. Ogni serie ha un perché.',
+    'hero.line': 'Schede, GPS e Apple Watch',
+    'hero.lead': 'Scegli, pianifica, allenati. La tua agenda fitness su misura.',
     'hero.ctaPrimary': 'Inizia con KINEVA FIT',
     'hero.ctaSecondary': "Guarda l'app",
     'hero.badge1': '5 lingue · IT EN DE FR ES',
@@ -417,6 +417,9 @@ const translations = {
     'footer.guides': 'Guide (online / PDF)',
     'footer.guidesIt': 'IT',
     'footer.guidesEn': 'EN',
+    'footer.privacy': 'Privacy',
+    'footer.eula': 'EULA',
+    'footer.legal': 'Legal',
   },
   en: {
     'nav.story': 'Why',
@@ -433,8 +436,8 @@ const translations = {
     'nav.download': 'Download',
     'hero.eyebrow': 'Android · iPhone · iPad · Apple Watch',
     'hero.title': 'KINEVA FIT',
-    'hero.line': 'The rhythm that counts.',
-    'hero.lead': 'Programs, GPS and Apple Watch in sync. Every set has a reason.',
+    'hero.line': 'Programs, GPS & Apple Watch',
+    'hero.lead': 'Choose, plan, train. Your fitness agenda, tailored to you.',
     'hero.ctaPrimary': 'Get started with KINEVA FIT',
     'hero.ctaSecondary': 'See the app',
     'hero.badge1': '5 languages · IT EN DE FR ES',
@@ -836,6 +839,9 @@ const translations = {
     'footer.guides': 'Guides (online / PDF)',
     'footer.guidesIt': 'IT',
     'footer.guidesEn': 'EN',
+    'footer.privacy': 'Privacy',
+    'footer.eula': 'EULA',
+    'footer.legal': 'Legal',
   },
 };
 
@@ -851,6 +857,20 @@ window.siteI18n = {
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
       if (dict[key]) el.textContent = dict[key];
+    });
+    const legalLang = lang === 'it' ? 'it' : 'en';
+    const legalBase = 'https://kineva-fit.synapse-digital-adv-app.com';
+    document.querySelectorAll('[data-legal-doc]').forEach((el) => {
+      const doc = el.getAttribute('data-legal-doc');
+      if (doc === 'privacy' || doc === 'eula') {
+        // Cloudflare landing root: privacy.html / eula.html (IT) or *_en.html
+        el.setAttribute(
+          'href',
+          legalLang === 'it'
+            ? `${legalBase}/${doc}.html`
+            : `${legalBase}/${doc}_en.html`,
+        );
+      }
     });
     const toggle = document.getElementById('langToggle');
     if (toggle) toggle.textContent = lang === 'it' ? 'EN' : 'IT';
