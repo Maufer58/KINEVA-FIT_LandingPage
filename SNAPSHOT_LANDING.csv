@@ -1,0 +1,22 @@
+Numero_Codice_snapshot;Device;Nome_pagina;Percorso_in_app
+01 (01-home.png);iPhone;Home — lista schede;Avvio app → Accetta Disclaimer → Completa onboarding (3 step) → Tab Home (lista schede visibile; UI IT; brand KINEVA FIT)
+02 (02-runner.png);iPhone;Runner — sessione in corso;Tab Home → tap ▶ sulla scheda → Runner con sessione attiva (serie/timer/reps in corso)
+03 (03-calendar.png);iPhone;Calendario;Tab Calendario → giorno con PROGRAMMA/allenamento programmato visibile
+04 (04-progress.png);iPhone;Progressi / Analytics;Tab Dati → sezione Allenamento (grafici e analytics)
+05 (05-history.png);iPhone;Storico sessioni;Tab Storico (lista sessioni storiche)
+06 (06-editor.png);iPhone;Editor scheda (iPhone);Tab Home → ⋯ sulla scheda → Modifica (editor con esercizi reali)
+07 (07-settings.png);iPhone;Impostazioni Base;Tab Altro → Base (impostazioni principali)
+08a (08-watch-list.png);Apple Watch;Watch — lista schede;Prerequisito: Athlete Pro+ · da iPhone Home → ⋯ → Invia ad Apple Watch · sul Watch apri app KINEVA FIT → lista Schede ricevute
+08b (08-watch-start.png);Apple Watch;Watch — avvio workout;Sul Watch: tap scheda → APRI → schermata INIZIA (prima di avviare)
+08c (08-watch-active.png);Apple Watch;Watch — sessione attiva;Sul Watch: INIZIA → sessione in corso (serie / reps / recupero)
+08d (08-watch-done.png);Apple Watch;Watch — fine sessione;Sul Watch: completa la sessione → schermata riepilogo / sync verso iPhone
+08-hero (08-watch-hero.png);Apple Watch;Hero Watch (landing);Come 08a (lista) oppure 08c (sessione attiva) — cattura dedicata per hero sinistra landing
+09 (09-gps-map.png);iPhone;Corsa GPS — mappa;Athlete Pro+ · Runner con GPS ON → completa corsa → Tab Storico → tap sessione GPS → mappa percorso
+10 (10-trainer.png);iPhone;Trainer su iPhone (opzionale);Piano Pro+ · Tab Home → ☰ drawer → Anagrafica clienti
+10a (10-trainer-ipad.png);iPad;iPad — Anagrafica clienti;iPad landscape · Piano Pro / Studio · Home → ☰ → Anagrafica clienti (clienti reali; non mock)
+06-ipad (06-editor-ipad.png);iPad;iPad — Editor scheda;iPad landscape · Home → ⋯ sulla scheda → Modifica (esercizi reali)
+10b (10-send-ipad.png);iPad;iPad — Assegna schede master;iPad · Tab Altro → Trainer Pro → Strumenti studio → Assegna Schede Master
+10c (10-share-ipad.png);iPad;iPad — Condividi / Esporta;iPad · Home → ⋯ → Condividi / Esporta (PDF / share HD)
+11 (11-studio-ipad.png);iPad;iPad — Studio & Gym Admin;iPad · Tab Altro → Trainer Pro → Strumenti studio → Admin (branding / back-office)
+10-hero (10-ipad-hero.png);iPad;Hero iPad (landing);Come 10a (clienti) oppure 11 (Studio Admin) — cattura dedicata per hero destra landing
+13 (13-ai-import.png);iPhone;Import AI da foto;Tab Home → Nuova Routine → Importa Scheda da Foto (oppure Genera con AI) — schermata flusso AI
