@@ -94,6 +94,12 @@ const SHOT_CATALOG = {
     label: '#11 · 11-studio-ipad.png',
     tab: 'studio',
   },
+  '13': {
+    file: '13-ai-import.png',
+    legacy: ['06-editor.png'],
+    label: '#13 · 13-ai-import.png',
+    tab: 'ai',
+  },
 };
 
 const SHOT_BASE = 'assets/screenshots/';
