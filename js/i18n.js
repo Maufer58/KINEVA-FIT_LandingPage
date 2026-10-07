@@ -411,7 +411,7 @@ const translations = {
     'download.body': 'KINEVA FIT è in distribuzione su Android e Apple. Scrivici per beta o info commerciali.',
     'download.google': 'Google Play — presto',
     'download.apple': 'App Store — presto',
-    'download.contact': 'Info:',
+    'download.contact': 'Supporto:',
     'footer.rights': 'Tutti i diritti riservati',
     'footer.disclaimer': 'KINEVA FIT è un’app fitness, non un dispositivo medico. I dati restano sul dispositivo.',
     'footer.guides': 'Guide (online / PDF)',
@@ -420,6 +420,7 @@ const translations = {
     'footer.privacy': 'Privacy',
     'footer.eula': 'EULA',
     'footer.legal': 'Legal',
+    'footer.support': 'Supporto',
   },
   en: {
     'nav.story': 'Why',
@@ -833,7 +834,7 @@ const translations = {
     'download.body': 'KINEVA FIT is rolling out on Android and Apple. Write us for beta or business info.',
     'download.google': 'Google Play — soon',
     'download.apple': 'App Store — soon',
-    'download.contact': 'Contact:',
+    'download.contact': 'Support:',
     'footer.rights': 'All rights reserved',
     'footer.disclaimer': 'KINEVA FIT is a fitness app, not a medical device. Data stays on your device.',
     'footer.guides': 'Guides (online / PDF)',
@@ -842,6 +843,7 @@ const translations = {
     'footer.privacy': 'Privacy',
     'footer.eula': 'EULA',
     'footer.legal': 'Legal',
+    'footer.support': 'Support',
   },
 };
 
