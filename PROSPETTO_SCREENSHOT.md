@@ -27,7 +27,7 @@ website/
 | # | Sezione nella landing | Anchor | File da inserire |
 |---|----------------------|--------|------------------|
 | A | **Prima schermata (Hero)** — iPhone + Watch + iPad | inizio pagina (`.hero`) | `01-home.png` · `08-watch-hero.png` · `10-ipad-hero.png` |
-| B | Funzioni (clic sulle righe) | `#features` | usa gli stessi di `#screens` (01, 02, 06, 08, 09, 10) |
+| B | Funzioni (clic sulle righe) | `#features` | usa gli stessi di `#screens` (01, 02, 06, 08, 09, 10) · riga **12 Checklist e promemoria** → target `12-prep-checklist.png` (oggi fallback `data-shot="02"`) |
 | C | **Promo Apple Watch** — 4 passi | `#watch` | `08-watch-list.png` · `08-watch-start.png` · `08-watch-active.png` · `08-watch-done.png` |
 | D | **Promo iPad Trainer** — 5 passi | `#ipad` | `10-trainer-ipad.png` · `06-editor-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` · `11-studio-ipad.png` |
 | **G** | **Studio & Gym (back-office)** | `#trainer-studio` | **nessuna** cattura dedicata — riusa `#ipad` / `#screens` tab 10 |
