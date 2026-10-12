@@ -28,17 +28,19 @@ website/
 |---|----------------------|--------|------------------|
 | A | **Prima schermata (Hero)** — iPhone + Watch + iPad | inizio pagina (`.hero`) | `01-home.png` · `08-watch-hero.png` · `10-ipad-hero.png` |
 | B | Funzioni (clic sulle righe) | `#features` | usa gli stessi di `#screens` (01, 02, 06, 08, 09, 10) · riga **12 Checklist e promemoria** → target `12-prep-checklist.png` (oggi fallback `data-shot="02"`) |
-| C | **Promo Apple Watch** — 4 passi | `#watch` | `08-watch-list.png` · `08-watch-start.png` · `08-watch-active.png` · `08-watch-done.png` |
-| D | **Promo iPad Trainer** — 5 passi | `#ipad` | `10-trainer-ipad.png` · `06-editor-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` · `11-studio-ipad.png` |
+| C | **Promo Apple Watch** — **sequenza 4 passi** | `#watch` | `08-watch-list.png` · `08-watch-start.png` · `08-watch-active.png` · `08-watch-done.png` |
+| D | **Promo iPad Trainer** — **1** snapshot (+ testi step) | `#ipad` | `10-trainer-ipad.png` |
 | **G** | **Studio & Gym (back-office)** | `#trainer-studio` | **nessuna** cattura dedicata — riusa `#ipad` / `#screens` tab 10 |
 | E | Import AI da foto | `#ai-import` | `13-ai-import.png` |
-| F | **Gallery “Dentro l’app”** — tab 01…10 | `#screens` | `01-home.png` … `10-trainer.png` (+ Watch a/b/c/d) |
+| F | **Gallery “Dentro l’app”** — tab 01…10, **1** device per tab (Watch = sequenza 4) | `#screens` | `01-home.png` … `10-trainer.png` (+ Watch a/b/c/d solo sul tab 08) |
 | — | Highlight / piani / download | `#highlights` `#plans` `#download` | **nessuna** cattura app |
 | — | **Studio & Gym (testo)** | `#trainer-studio` | **nessuna** cattura app |
 
+> **Semplificazione (ott 2026):** restano intatte **hero (trio)** e **sequenza Watch**. Nelle altre sezioni: una sola snapshot (niente thumb iPad; niente tablet duplicato in `#screens`).
+
 ---
 
-## A · Prima schermata (Hero) — 3 immagini Home
+## A · Prima schermata (Hero) — 3 immagini (intestazione)
 
 **Dove la vedi:** subito in alto, a destra del titolo “KINEVA FIT”.  
 **Cosa catturare:** tre **viste diverse della Home** (lista schede), non disclaimer / Run / altre schermate.
@@ -83,18 +85,14 @@ Proporzioni: iPhone il più alto, iPad il più largo, Watch il più piccolo.
 
 ## D · Sezione iPad Trainer (`#ipad`)
 
-**Dove la vedi:** blocco iPad con thumbnails sotto e immagine grande sopra.
+**Dove la vedi:** blocco iPad con **una** immagine grande; i 5 step restano solo testo (nessuna thumb gallery).
 
-| Passo in pagina (caption) | File | Contenuto da catturare |
-|---------------------------|------|------------------------|
-| 1 · Clienti | `10-trainer-ipad.png` | Lista / profili clienti, area PIN |
-| 2 · Editor | `06-editor-ipad.png` | Editor scheda / tecniche su iPad |
-| 3 · Invio app | `10-send-ipad.png` | Assegnazione / invio scheda al cliente |
-| 4 · WhatsApp | `10-share-ipad.png` | Export HD / PDF / share |
-| 5 · Studio & Gym | `11-studio-ipad.png` | Studio: clienti, branding, mobilità |
+| Uso in pagina | File | Contenuto da catturare |
+|---------------|------|------------------------|
+| Snapshot unica | `10-trainer-ipad.png` | Lista / profili clienti, area PIN (rappresentativa Studio) |
 
 **Formato:** PNG landscape ~**4:3** (es. 2048×1536 o 1600×1200).  
-**Fallback editor:** `ipad-editor.png`.
+**Fallback:** `10-trainer.png` · `ipad-editor.png`.
 
 ---
 

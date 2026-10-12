@@ -477,7 +477,6 @@ code {
     min-width: min(100%, 11rem);
   }
 }
-
 .hero-platforms {
   position: relative;
   z-index: 1;
@@ -1793,8 +1792,7 @@ code {
   .watch-flow-item,
   .hero-trio__phone,
   .hero-trio__watch,
-  .hero-trio__ipad,
-  .ipad-thumb {
+  .hero-trio__ipad {
     cursor: zoom-in;
   }
 
@@ -1807,8 +1805,7 @@ code {
   .hero-trio__ipad,
   .ipad-pro-frame,
   .watch-seq-item,
-  .watch-flow-item,
-  .ipad-thumb {
+  .watch-flow-item {
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease, box-shadow 0.35s ease;
   }
 
@@ -1845,10 +1842,6 @@ code {
 
   .ipad-pro-frame.is-shot-zoomed {
     transform: scale(1.28) !important;
-  }
-
-  .ipad-thumb.is-shot-zoomed {
-    transform: translateY(-2px) scale(1.3) !important;
   }
 
   .watch-seq-item.is-shot-zoomed {

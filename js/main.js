@@ -157,14 +157,10 @@ function setShowcaseMode(mode) {
   const devices = document.querySelector('.showcase-devices');
   const watchFlow = document.getElementById('showcaseWatchFlow');
   const phone = document.getElementById('showcasePhone');
-  const tablet = document.getElementById('showcaseTablet');
   const isWatch = mode === 'watch';
   devices?.classList.toggle('is-watch-mode', isWatch);
   if (watchFlow) watchFlow.hidden = !isWatch;
   if (phone) phone.hidden = isWatch;
-  if (tablet && isWatch) {
-    tablet.classList.remove('is-active');
-  }
 }
 
 /** iPad shots: keep landscape frame; show mock UI if files are missing. */
@@ -189,7 +185,6 @@ function setShowcaseShot(id) {
   const entry = SHOT_CATALOG[id];
   const img = document.getElementById('showcaseShot');
   const label = document.getElementById('showcaseShotLabel');
-  const tablet = document.getElementById('showcaseTablet');
   if (!entry || !img) return;
 
   const isWatch = entry.tab === 'watch' || id === '08' || id.startsWith('08');
@@ -206,26 +201,6 @@ function setShowcaseShot(id) {
   img.hidden = false;
   img.src = SHOT_BASE + entry.file;
   if (label) label.textContent = entry.label;
-
-  if (tablet) {
-    const useIpad = id === '06' || id === '10' || id === '11';
-    tablet.classList.toggle('is-active', useIpad);
-    tablet.classList.toggle('is-landscape', useIpad);
-    tablet.style.opacity = '';
-    const tabletImg = tablet.querySelector('img.screen-shot');
-    if (tabletImg && useIpad) {
-      const ipadMap = {
-        '06': ['06-editor-ipad.png', 'ipad-editor.png', '06-editor.png'],
-        '10': ['10-trainer-ipad.png', '10-trainer.png'],
-        '11': ['11-studio-ipad.png', '11-studio.png'],
-      };
-      const chain = ipadMap[id] || [];
-      tabletImg.dataset.tried = '';
-      tabletImg.dataset.fallbacks = chain.slice(1).join(',');
-      tabletImg.hidden = false;
-      tabletImg.src = SHOT_BASE + chain[0];
-    }
-  }
 }
 
 function probeShotStatus() {
@@ -354,39 +329,17 @@ document.addEventListener('DOMContentLoaded', () => {
     stopWatchAuto();
   }, { once: true });
 
+  // iPad: one snapshot; step buttons only highlight copy (no image carousel).
   const setIpadStep = (step) => {
     const key = step || 'clients';
-    const thumb = document.querySelector(`.ipad-thumb[data-ipad-step="${key}"]`);
     document.querySelectorAll('.ipad-step-btn').forEach((btn) => {
       const on = btn.dataset.ipadStep === key;
       btn.classList.toggle('active', on);
       btn.setAttribute('aria-selected', String(on));
     });
-    document.querySelectorAll('.ipad-thumb').forEach((btn) => {
-      btn.classList.toggle('is-active', btn.dataset.ipadStep === key);
-    });
-
-    const hero = document.getElementById('ipadHeroShot');
-    const mock = document.getElementById('ipadHeroMock');
-    const caption = document.getElementById('ipadHeroCaption');
-    if (hero && thumb) {
-      hero.dataset.tried = '';
-      hero.hidden = false;
-      if (mock) mock.hidden = true;
-      hero.dataset.fallbacks = thumb.dataset.fallbacks || '';
-      hero.src = thumb.dataset.src || thumb.querySelector('img')?.getAttribute('src') || hero.src;
-      hero.alt = `iPad Pro · ${thumb.getAttribute('aria-label') || key}`;
-    }
-    if (caption && thumb) {
-      const lang = window.siteI18n?.lang || 'it';
-      const dict = window.siteI18n?.translations?.[lang] || {};
-      const capKey = thumb.dataset.capKey;
-      caption.textContent = (capKey && dict[capKey]) || thumb.dataset.cap || caption.textContent;
-      if (capKey) caption.setAttribute('data-i18n', capKey);
-    }
   };
 
-  document.querySelectorAll('.ipad-step-btn, .ipad-thumb').forEach((el) => {
+  document.querySelectorAll('.ipad-step-btn').forEach((el) => {
     el.addEventListener('click', () => setIpadStep(el.dataset.ipadStep));
   });
 
@@ -495,8 +448,6 @@ function initLandingShotZoom() {
     '.hero-trio__ipad',
     '.promo-phone',
     '.showcase-phone',
-    '.showcase-devices .device-tablet',
-    '.ipad-thumb',
     '.watch-seq-item',
     '.watch-flow-item',
   ].join(',');
