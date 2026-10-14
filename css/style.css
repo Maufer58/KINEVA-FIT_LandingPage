@@ -1331,6 +1331,38 @@ code {
   animation: floatY 6.2s ease-in-out infinite;
   animation-delay: -0.8s;
 }
+.promo-broll {
+  width: min(100%, 520px);
+  margin: 0 auto;
+}
+.promo-broll-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 14px;
+  background: #0a0e14;
+  border: 1px solid rgba(10, 14, 20, 0.12);
+  box-shadow: 0 18px 40px rgba(10, 14, 20, 0.14);
+}
+.analytics-broll {
+  width: min(100%, 420px);
+}
+.analytics-broll .promo-broll-video {
+  animation: floatY 6.2s ease-in-out infinite;
+  animation-delay: -0.8s;
+}
+.studio-broll {
+  margin: 1.75rem auto 0;
+  width: min(100%, 720px);
+  text-align: center;
+}
+.studio-broll figcaption {
+  margin-top: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
 .analytics-gym-chip {
   position: absolute;
   top: 0;
@@ -1695,6 +1727,11 @@ code {
   overflow: visible;
   align-items: center;
 }
+.showcase-devices.is-broll-mode {
+  max-height: none;
+  overflow: visible;
+  align-items: center;
+}
 .showcase-phone {
   width: min(230px, 62vw);
   max-width: 100%;
@@ -1702,8 +1739,33 @@ code {
   z-index: 2;
   flex-shrink: 0;
 }
+.showcase-broll {
+  width: min(100%, 480px);
+  position: relative;
+  z-index: 2;
+}
+.showcase-broll[hidden] { display: none !important; }
+.showcase-broll-frame {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0a0e14;
+  border: 1px solid rgba(10, 14, 20, 0.12);
+  box-shadow: 0 18px 40px rgba(10, 14, 20, 0.14);
+}
+.showcase-broll-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center top;
+  background: #0a0e14;
+}
 .showcase-devices.is-watch-mode .showcase-phone,
+.showcase-devices.is-watch-mode .showcase-broll,
 .showcase-devices.is-watch-mode .device-tablet {
+  display: none;
+}
+.showcase-devices.is-broll-mode .showcase-phone {
   display: none;
 }
 .showcase-watch-flow {

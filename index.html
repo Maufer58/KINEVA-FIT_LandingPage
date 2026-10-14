@@ -234,14 +234,17 @@
 
         <div class="analytics-showcase reveal">
           <div class="analytics-visual">
-            <div class="device device-phone analytics-phone">
-              <div class="device-bezel">
-                <img class="screen-shot"
-                     src="assets/screenshots/04-progress.png"
-                     alt="Analizza dati — composizione e mappa muscolare"
-                     data-fallbacks="progress.png"
-                     onerror="window.strideShotFallback && window.strideShotFallback(this)">
-              </div>
+            <div class="promo-broll analytics-broll">
+              <video class="promo-broll-video"
+                     muted
+                     loop
+                     playsinline
+                     autoplay
+                     preload="metadata"
+                     poster="assets/screenshots/04-progress.png"
+                     aria-label="Demo Analizza dati">
+                <source src="assets/videos/broll-analytics.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="analytics-gym-chip" aria-hidden="true">
               <span class="analytics-gym-dot"></span>
@@ -505,6 +508,20 @@
             <span data-i18n="studio.flow3.body">PDF/JSON/WhatsApp, badge «inviata»; Supervisore gestisce trainer, posti e sospensioni.</span>
           </li>
         </ol>
+
+        <figure class="promo-broll studio-broll reveal">
+          <video class="promo-broll-video"
+                 muted
+                 loop
+                 playsinline
+                 autoplay
+                 preload="metadata"
+                 poster="assets/screenshots/10-trainer.png"
+                 aria-label="Demo area trainer">
+            <source src="assets/videos/broll-trainer.mp4" type="video/mp4">
+          </video>
+          <figcaption data-i18n="studio.brollCaption">Clienti e strumenti Trainer Pro — anteprima in-app</figcaption>
+        </figure>
 
         <div class="studio-groups reveal">
           <div class="studio-group">
@@ -792,7 +809,7 @@
       <div class="container">
         <div class="section-head reveal">
           <h2 data-i18n="screens.title">Dentro l'app</h2>
-          <p data-i18n="screens.subtitle">Scorri le viste principali dell'app.</p>
+          <p data-i18n="screens.subtitle">Scorri le viste principali: dove c’è una demo video, parte in automatico (senza audio).</p>
         </div>
 
         <div class="screens-tabs reveal" role="tablist" aria-label="Schermate">
@@ -932,7 +949,21 @@
           </div>
 
           <div class="showcase-devices">
-            <div class="device device-phone showcase-phone" id="showcasePhone">
+            <div class="showcase-broll" id="showcaseBroll" hidden>
+              <div class="showcase-broll-frame">
+                <video id="showcaseVideo"
+                       class="showcase-broll-video"
+                       muted
+                       loop
+                       playsinline
+                       preload="metadata"
+                       poster="assets/screenshots/01-home.png"
+                       aria-label="Demo KINEVA FIT">
+                </video>
+              </div>
+              <p class="shot-caption"><span id="showcaseBrollLabel">#01 · demo</span></p>
+            </div>
+            <div class="device device-phone showcase-phone" id="showcasePhone" hidden>
               <div class="device-bezel">
                 <img id="showcaseShot"
                      class="screen-shot"

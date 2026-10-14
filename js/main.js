@@ -1,28 +1,34 @@
-/** Screenshot catalog (#01–#10) — keep in sync with assets/screenshots/README.md */
+/** Screenshot catalog (#01–#10) — keep in sync with assets/screenshots/README.md
+ * Optional `video` = muted B-roll under assets/videos/ (Linux desktop capture).
+ */
 const SHOT_CATALOG = {
   '01': {
     file: '01-home.png',
     legacy: ['home.png'],
     label: '#01 · 01-home.png',
     tab: 'home',
+    video: 'broll-home.mp4',
   },
   '02': {
     file: '02-runner.png',
     legacy: ['runner.png'],
     label: '#02 · 02-runner.png',
     tab: 'runner',
+    video: 'broll-runner.mp4',
   },
   '03': {
     file: '03-calendar.png',
     legacy: ['calendar.png'],
     label: '#03 · 03-calendar.png',
     tab: 'calendar',
+    video: 'broll-calendar.mp4',
   },
   '04': {
     file: '04-progress.png',
     legacy: ['progress.png'],
     label: '#04 · 04-progress.png',
     tab: 'progress',
+    video: 'broll-analytics.mp4',
   },
   '05': {
     file: '05-history.png',
@@ -41,6 +47,7 @@ const SHOT_CATALOG = {
     legacy: ['settings.png'],
     label: '#07 · 07-settings.png',
     tab: 'settings',
+    video: 'broll-settings.mp4',
   },
   '08': {
     file: '08-watch-list.png',
@@ -87,6 +94,7 @@ const SHOT_CATALOG = {
     legacy: ['10-trainer-ipad.png'],
     label: '#10 · 10-trainer.png',
     tab: 'trainer',
+    video: 'broll-trainer.mp4',
   },
   '11': {
     file: '11-studio-ipad.png',
@@ -103,6 +111,7 @@ const SHOT_CATALOG = {
 };
 
 const SHOT_BASE = 'assets/screenshots/';
+const VIDEO_BASE = 'assets/videos/';
 
 window.strideShotFallback = function strideShotFallback(img) {
   const tried = (img.dataset.tried || '').split(',').filter(Boolean);
@@ -157,10 +166,20 @@ function setShowcaseMode(mode) {
   const devices = document.querySelector('.showcase-devices');
   const watchFlow = document.getElementById('showcaseWatchFlow');
   const phone = document.getElementById('showcasePhone');
+  const broll = document.getElementById('showcaseBroll');
+  const video = document.getElementById('showcaseVideo');
   const isWatch = mode === 'watch';
+  const isBroll = mode === 'broll';
   devices?.classList.toggle('is-watch-mode', isWatch);
+  devices?.classList.toggle('is-broll-mode', isBroll);
   if (watchFlow) watchFlow.hidden = !isWatch;
-  if (phone) phone.hidden = isWatch;
+  if (phone) phone.hidden = isWatch || isBroll;
+  if (broll) broll.hidden = !isBroll;
+  if (!isBroll && video) {
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+  }
 }
 
 /** iPad shots: keep landscape frame; show mock UI if files are missing. */
@@ -185,15 +204,32 @@ function setShowcaseShot(id) {
   const entry = SHOT_CATALOG[id];
   const img = document.getElementById('showcaseShot');
   const label = document.getElementById('showcaseShotLabel');
+  const video = document.getElementById('showcaseVideo');
+  const brollLabel = document.getElementById('showcaseBrollLabel');
   if (!entry || !img) return;
 
   const isWatch = entry.tab === 'watch' || id === '08' || id.startsWith('08');
-  setShowcaseMode(isWatch ? 'watch' : 'phone');
   if (isWatch) {
+    setShowcaseMode('watch');
     setWatchStep(entry.step || 'list');
     return;
   }
 
+  if (entry.video && video) {
+    setShowcaseMode('broll');
+    video.poster = SHOT_BASE + entry.file;
+    video.src = VIDEO_BASE + entry.video;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    const play = video.play();
+    if (play && typeof play.catch === 'function') play.catch(() => {});
+    if (brollLabel) brollLabel.textContent = entry.label + ' · demo';
+    if (label) label.textContent = entry.label;
+    return;
+  }
+
+  setShowcaseMode('phone');
   img.dataset.tried = '';
   img.dataset.shot = id;
   img.dataset.fallbacks = (entry.legacy || []).join(',');
@@ -365,6 +401,14 @@ document.addEventListener('DOMContentLoaded', () => {
   setShowcaseShot('01');
   initBillingToggle();
   initLandingShotZoom();
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('video.promo-broll-video, #showcaseVideo').forEach((v) => {
+      v.removeAttribute('autoplay');
+      v.pause();
+      v.controls = true;
+    });
+  }
 
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
