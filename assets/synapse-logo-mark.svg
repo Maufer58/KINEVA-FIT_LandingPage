@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="SYNAPSE DIGITAL">
+  <defs>
+    <linearGradient id="nodeA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1F2A"/>
+      <stop offset="100%" stop-color="#163A4A"/>
+    </linearGradient>
+  </defs>
+  <!-- connection -->
+  <path d="M34 40 C58 40, 70 88, 94 88" fill="none" stroke="#0B1F2A" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M40 86 C62 70, 72 52, 90 42" fill="none" stroke="#14B8A6" stroke-width="3.2" stroke-linecap="round" opacity="0.95"/>
+  <!-- nodes -->
+  <circle cx="34" cy="40" r="14" fill="url(#nodeA)"/>
+  <circle cx="34" cy="40" r="5.5" fill="#14B8A6"/>
+  <circle cx="94" cy="88" r="14" fill="url(#nodeA)"/>
+  <circle cx="94" cy="88" r="5.5" fill="#E8F7F4"/>
+  <circle cx="64" cy="64" r="7" fill="#14B8A6"/>
+</svg>

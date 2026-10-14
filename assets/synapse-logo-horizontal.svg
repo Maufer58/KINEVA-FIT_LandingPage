@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 140" role="img" aria-label="SYNAPSE DIGITAL Advanced App Development">
+  <!-- mark -->
+  <g transform="translate(8,18) scale(0.82)">
+    <path d="M34 40 C58 40, 70 88, 94 88" fill="none" stroke="#0B1F2A" stroke-width="5.5" stroke-linecap="round"/>
+    <path d="M40 86 C62 70, 72 52, 90 42" fill="none" stroke="#14B8A6" stroke-width="3.2" stroke-linecap="round"/>
+    <circle cx="34" cy="40" r="14" fill="#0B1F2A"/>
+    <circle cx="34" cy="40" r="5.5" fill="#14B8A6"/>
+    <circle cx="94" cy="88" r="14" fill="#0B1F2A"/>
+    <circle cx="94" cy="88" r="5.5" fill="#E8F7F4"/>
+    <circle cx="64" cy="64" r="7" fill="#14B8A6"/>
+  </g>
+  <!-- wordmark -->
+  <text x="140" y="72" font-family="Syne, Arial Black, sans-serif" font-size="42" font-weight="800" fill="#0B1F2A" letter-spacing="1.5">SYNAPSE</text>
+  <text x="360" y="72" font-family="Syne, Arial Black, sans-serif" font-size="42" font-weight="600" fill="#163A4A" letter-spacing="1.5">DIGITAL</text>
+  <text x="142" y="102" font-family="Figtree, Arial, sans-serif" font-size="14" font-weight="600" fill="#5A7180" letter-spacing="3.2">ADVANCED APP DEVELOPMENT</text>
+</svg>
