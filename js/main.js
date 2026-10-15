@@ -466,6 +466,13 @@ document.addEventListener('DOMContentLoaded', () => {
     inner.appendChild(media);
     panel.appendChild(inner);
     panel.dataset.ready = '1';
+    // Hover zoom for phones created after initLandingShotZoom.
+    panel.querySelectorAll('.feature-phone, .feature-watch-grid figure').forEach((el) => {
+      if (el.dataset.zoomBound === '1') return;
+      el.dataset.zoomBound = '1';
+      el.addEventListener('mouseenter', () => el.classList.add('is-shot-zoomed'));
+      el.addEventListener('mouseleave', () => el.classList.remove('is-shot-zoomed'));
+    });
     return panel;
   };
 
@@ -592,19 +599,31 @@ function initLandingShotZoom() {
     '.showcase-phone',
     '.watch-seq-item',
     '.watch-flow-item',
+    '.feature-phone',
+    '.feature-watch-grid figure',
   ].join(',');
 
-  document.querySelectorAll(zoomSelector).forEach((el) => {
+  const bindZoom = (el) => {
+    if (!el || el.dataset.zoomBound === '1') return;
+    el.dataset.zoomBound = '1';
     el.addEventListener('mouseenter', () => el.classList.add('is-shot-zoomed'));
     el.addEventListener('mouseleave', () => el.classList.remove('is-shot-zoomed'));
     el.addEventListener('blur', () => el.classList.remove('is-shot-zoomed'), true);
-  });
+  };
+
+  document.querySelectorAll(zoomSelector).forEach(bindZoom);
 
   document.querySelectorAll('.ipad-hero').forEach((hero) => {
     const frame = hero.querySelector('.ipad-pro-frame');
     if (!frame) return;
     hero.addEventListener('mouseenter', () => frame.classList.add('is-shot-zoomed'));
     hero.addEventListener('mouseleave', () => frame.classList.remove('is-shot-zoomed'));
+  });
+
+  // Feature accordion builds phones lazily — bind on open / mouseover.
+  document.getElementById('featureList')?.addEventListener('mouseover', (ev) => {
+    const target = ev.target.closest('.feature-phone, .feature-watch-grid figure');
+    if (target) bindZoom(target);
   });
 }
 

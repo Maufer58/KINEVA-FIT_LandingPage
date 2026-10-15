@@ -707,6 +707,7 @@ code {
   background: #0a0e14;
   box-shadow: 0 10px 28px rgba(10, 14, 20, 0.18);
   border: 1px solid rgba(10, 14, 20, 0.12);
+  transform-origin: center top;
 }
 .feature-phone img {
   width: 100%;
@@ -715,6 +716,11 @@ code {
   aspect-ratio: 9 / 19.5;
   object-fit: cover;
   object-position: top center;
+}
+.feature-panel,
+.feature-panel-media,
+.feature-item.is-open {
+  overflow: visible;
 }
 .feature-watch-grid {
   display: grid;
@@ -1953,7 +1959,9 @@ code {
   .watch-flow-item,
   .hero-trio__phone,
   .hero-trio__watch,
-  .hero-trio__ipad {
+  .hero-trio__ipad,
+  .feature-phone,
+  .feature-watch-grid figure {
     cursor: zoom-in;
   }
 
@@ -1966,7 +1974,9 @@ code {
   .hero-trio__ipad,
   .ipad-pro-frame,
   .watch-seq-item,
-  .watch-flow-item {
+  .watch-flow-item,
+  .feature-phone,
+  .feature-watch-grid figure {
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease, box-shadow 0.35s ease;
   }
 
@@ -1977,6 +1987,19 @@ code {
     animation: none !important;
     transform: scale(1.38) !important;
     z-index: 8;
+  }
+
+  .feature-phone.is-shot-zoomed {
+    transform: scale(1.72) !important;
+    z-index: 12;
+    box-shadow: 0 28px 56px rgba(10, 14, 20, 0.35);
+    position: relative;
+  }
+
+  .feature-watch-grid figure.is-shot-zoomed {
+    transform: scale(1.55) !important;
+    z-index: 12;
+    position: relative;
   }
 
   .hero-trio__phone.is-shot-zoomed {
