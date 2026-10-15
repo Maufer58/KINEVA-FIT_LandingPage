@@ -138,6 +138,18 @@ const SHOT_CATALOG = {
     label: '#17 · 17-exercise-editor.png',
     tab: 'exerciseEditor',
   },
+  '18': {
+    file: '18-exercise-gif.png',
+    legacy: [],
+    label: '#18 · 18-exercise-gif.png',
+    tab: 'muscleMap',
+  },
+  '19': {
+    file: '19-muscle-map.png',
+    legacy: [],
+    label: '#19 · 19-muscle-map.png',
+    tab: 'muscleMap',
+  },
 };
 
 const SHOT_BASE = 'assets/screenshots/';
