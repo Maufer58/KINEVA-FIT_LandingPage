@@ -185,9 +185,11 @@ Non ha file propri. Ogni riga cliccabile apre lo **stesso shot** della gallery:
 
 | Device | Dimensione | Esempi file |
 |--------|------------|-------------|
-| iPhone | 1080×2400 (9:20) | `01-home*.png`, `02-runner.png`, … |
-| Apple Watch | quadrato (≈390×390) | `08-watch-*.png` |
-| iPad | landscape ≈4:3 | `*-ipad.png` |
+| iPhone | ≥1125×2436 (ideale 1290×2796), PNG | `01-home*.png`, `02-runner.png`, … |
+| Apple Watch | quadrato nativo (≈390×390+) | `08-watch-*.png` |
+| iPad | landscape ≥2048×1536 (ideale 2732×2048) | `*-ipad.png` |
+
+**Qualità:** preferisci Simulator a 100% o screenshot di sistema → AirDrop/USB in PNG. Non passare da WhatsApp/JPEG. Dettaglio in [`assets/screenshots/README.md`](assets/screenshots/README.md).
 
 ---
 

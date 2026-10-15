@@ -102,11 +102,41 @@ const SHOT_CATALOG = {
     label: '#11 · 11-studio-ipad.png',
     tab: 'studio',
   },
+  '12': {
+    file: '12-prep-checklist.png',
+    legacy: ['01-home.png', 'home.png'],
+    label: '#12 · 12-prep-checklist.png',
+    tab: 'prep',
+  },
   '13': {
     file: '13-ai-import.png',
     legacy: ['06-editor.png'],
     label: '#13 · 13-ai-import.png',
     tab: 'ai',
+  },
+  '14': {
+    file: '14-summary-reminder.png',
+    legacy: ['02-runner.png', 'runner.png'],
+    label: '#14 · 14-summary-reminder.png',
+    tab: 'summary',
+  },
+  '15': {
+    file: '15-history-detail.png',
+    legacy: ['05-history.png', 'history.png'],
+    label: '#15 · 15-history-detail.png',
+    tab: 'historyDetail',
+  },
+  '16': {
+    file: '16-gps-charts.png',
+    legacy: ['09-gps-map.png'],
+    label: '#16 · 16-gps-charts.png',
+    tab: 'gpsCharts',
+  },
+  '17': {
+    file: '17-exercise-editor.png',
+    legacy: ['06-editor.png'],
+    label: '#17 · 17-exercise-editor.png',
+    tab: 'exerciseEditor',
   },
 };
 
