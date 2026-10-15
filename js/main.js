@@ -150,6 +150,12 @@ const SHOT_CATALOG = {
     label: '#19 · 19-muscle-map.png',
     tab: 'muscleMap',
   },
+  '20': {
+    file: '20-ai-result.png',
+    legacy: ['06-editor.png', '13-ai-import.png'],
+    label: '#20 · 20-ai-result.png',
+    tab: 'ai',
+  },
 };
 
 const SHOT_BASE = 'assets/screenshots/';

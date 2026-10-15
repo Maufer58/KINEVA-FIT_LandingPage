@@ -261,12 +261,12 @@
             </button>
             <div class="feature-panel" hidden></div>
           </article>
-          <article class="feature-item reveal" data-shots="13-ai-import.png">
+          <article class="feature-item reveal" data-shots="13-ai-import.png,20-ai-result.png">
             <button type="button" class="feature-row" aria-expanded="false">
               <span class="feature-num">13</span>
               <span class="feature-text">
                 <strong data-i18n="features.ai.title">Importa scheda da foto (AI)</strong>
-                <span data-i18n="features.ai.body">Scatta o scegli la foto di una scheda cartacea: l’AI estrae gli esercizi e li apre nell’editor.</span>
+                <span data-i18n="features.ai.body">Scatta o scegli la foto di una scheda cartacea: l’AI estrae gli esercizi e li apre nell’editor (foto → risultato riconosciuto).</span>
               </span>
               <span class="feature-chevron" aria-hidden="true"></span>
             </button>
@@ -766,14 +766,31 @@
     <section class="promo promo-ai section" id="ai-import">
       <div class="container promo-grid promo-grid-flip reveal">
         <div class="promo-visual promo-visual-ai">
-          <div class="device device-phone promo-phone">
-            <div class="device-bezel">
-              <img class="screen-shot"
-                   src="assets/screenshots/13-ai-import.png"
-                   alt="Import scheda da foto con AI"
-                   data-fallbacks="13-ai-import.png,06-editor.png,01-home.png,home.png"
-                   onerror="window.strideShotFallback && window.strideShotFallback(this)">
-            </div>
+          <div class="promo-phone-pair" aria-label="Import AI: foto e risultato">
+            <figure class="promo-phone-fig">
+              <div class="device device-phone promo-phone">
+                <div class="device-bezel">
+                  <img class="screen-shot"
+                       src="assets/screenshots/13-ai-import.png"
+                       alt="Import scheda da foto con AI"
+                       data-fallbacks="13-ai-import.png,06-editor.png,01-home.png,home.png"
+                       onerror="window.strideShotFallback && window.strideShotFallback(this)">
+                </div>
+              </div>
+              <figcaption data-i18n="ai.capPhoto">1 · Foto scheda</figcaption>
+            </figure>
+            <figure class="promo-phone-fig">
+              <div class="device device-phone promo-phone">
+                <div class="device-bezel">
+                  <img class="screen-shot"
+                       src="assets/screenshots/20-ai-result.png"
+                       alt="Scheda riconosciuta dall’AI nell’editor"
+                       data-fallbacks="20-ai-result.png,06-editor.png,13-ai-import.png"
+                       onerror="window.strideShotFallback && window.strideShotFallback(this)">
+                </div>
+              </div>
+              <figcaption data-i18n="ai.capResult">2 · Risultato AI</figcaption>
+            </figure>
           </div>
           <div class="ai-orbit" aria-hidden="true">
             <span data-i18n="ai.chip1">Wizard</span>
