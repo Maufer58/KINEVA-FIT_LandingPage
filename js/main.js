@@ -457,12 +457,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const media = document.createElement('div');
     media.className = isWatch ? 'feature-panel-media feature-watch-grid' : 'feature-panel-media';
     shots.forEach((file) => {
+      const catEntry = Object.values(SHOT_CATALOG).find((e) => e.file === file);
+      const fallbacks = (catEntry && catEntry.legacy) ? catEntry.legacy.join(',') : '';
       if (isWatch) {
         const fig = document.createElement('figure');
         const img = document.createElement('img');
         img.src = SHOT_BASE + file;
         img.alt = file;
         img.loading = 'lazy';
+        img.dataset.fallbacks = fallbacks;
         img.onerror = function onErr() {
           window.strideShotFallback && window.strideShotFallback(this);
         };
@@ -479,9 +482,10 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = SHOT_BASE + file;
         img.alt = file;
         img.loading = 'lazy';
-        img.dataset.fallbacks = '';
+        img.dataset.fallbacks = fallbacks;
         img.onerror = function onErr() {
           window.strideShotFallback && window.strideShotFallback(this);
+          if (this.hidden) frame.classList.add('is-missing');
         };
         frame.appendChild(img);
         const wrap = document.createElement('div');
