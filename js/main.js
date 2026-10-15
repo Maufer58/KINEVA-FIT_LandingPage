@@ -409,21 +409,89 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('click', () => setIpadStep(el.dataset.ipadStep));
   });
 
-  document.querySelectorAll('.feature-row[data-shot]').forEach((row) => {
-    row.addEventListener('click', () => {
-      const shot = row.dataset.shot;
-      if (shot === '08') {
-        document.getElementById('watch')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        return;
+  const buildFeaturePanel = (item) => {
+    const panel = item.querySelector('.feature-panel');
+    if (!panel || panel.dataset.ready === '1') return panel;
+    const shots = (item.dataset.shots || '')
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
+    const body = item.querySelector('.feature-text span')?.textContent?.trim() || '';
+    const isWatch = item.dataset.watch === '1';
+    const media = document.createElement('div');
+    media.className = isWatch ? 'feature-panel-media feature-watch-grid' : 'feature-panel-media';
+    shots.forEach((file) => {
+      if (isWatch) {
+        const fig = document.createElement('figure');
+        const img = document.createElement('img');
+        img.src = SHOT_BASE + file;
+        img.alt = file;
+        img.loading = 'lazy';
+        img.onerror = function onErr() {
+          window.strideShotFallback && window.strideShotFallback(this);
+        };
+        fig.appendChild(img);
+        const cap = document.createElement('p');
+        cap.className = 'feature-shot-cap';
+        cap.textContent = file;
+        fig.appendChild(cap);
+        media.appendChild(fig);
+      } else {
+        const frame = document.createElement('div');
+        frame.className = 'feature-phone';
+        const img = document.createElement('img');
+        img.src = SHOT_BASE + file;
+        img.alt = file;
+        img.loading = 'lazy';
+        img.dataset.fallbacks = '';
+        img.onerror = function onErr() {
+          window.strideShotFallback && window.strideShotFallback(this);
+        };
+        frame.appendChild(img);
+        const wrap = document.createElement('div');
+        wrap.appendChild(frame);
+        const cap = document.createElement('p');
+        cap.className = 'feature-shot-cap';
+        cap.textContent = file;
+        wrap.appendChild(cap);
+        media.appendChild(wrap);
       }
-      if (shot === '10') {
-        document.getElementById('ipad')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        return;
-      }
-      const tab = document.querySelector(`.screens-tabs .tab[data-shot="${shot}"]`);
-      if (tab) {
-        activateTab(tab);
-        document.getElementById('screens')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    const inner = document.createElement('div');
+    inner.className = 'feature-panel-inner';
+    const copy = document.createElement('p');
+    copy.className = 'feature-panel-copy';
+    copy.textContent = body;
+    inner.appendChild(copy);
+    inner.appendChild(media);
+    panel.appendChild(inner);
+    panel.dataset.ready = '1';
+    return panel;
+  };
+
+  document.querySelectorAll('#featureList .feature-item').forEach((item) => {
+    const btn = item.querySelector('.feature-row');
+    const panel = item.querySelector('.feature-panel');
+    if (!btn || !panel) return;
+    btn.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('is-open');
+      document.querySelectorAll('#featureList .feature-item.is-open').forEach((openItem) => {
+        if (openItem === item) return;
+        openItem.classList.remove('is-open');
+        openItem.querySelector('.feature-row')?.setAttribute('aria-expanded', 'false');
+        const p = openItem.querySelector('.feature-panel');
+        if (p) p.hidden = true;
+      });
+      if (willOpen) {
+        buildFeaturePanel(item);
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        panel.hidden = false;
+        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        item.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
       }
     });
   });
