@@ -156,6 +156,24 @@ const SHOT_CATALOG = {
     label: '#20 · 20-ai-result.png',
     tab: 'ai',
   },
+  '21': {
+    file: '21-runner-rest.png',
+    legacy: ['02-runner.png', 'runner.png'],
+    label: '#21 · 21-runner-rest.png',
+    tab: 'runner',
+  },
+  '22': {
+    file: '22-swim-setup.png',
+    legacy: [],
+    label: '#22 · 22-swim-setup.png',
+    tab: 'swim',
+  },
+  '23': {
+    file: '23-swim-session.png',
+    legacy: [],
+    label: '#23 · 23-swim-session.png',
+    tab: 'swim',
+  },
 };
 
 const SHOT_BASE = 'assets/screenshots/';
