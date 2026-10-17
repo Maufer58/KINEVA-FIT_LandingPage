@@ -91,7 +91,8 @@ Proporzioni: iPhone il più alto, iPad il più largo, Watch il più piccolo.
 
 | Uso in pagina | File | Contenuto da catturare |
 |---------------|------|------------------------|
-| Snapshot unica | `10-trainer-ipad.png` | Lista / profili clienti, area PIN (rappresentativa Studio) |
+| Snapshot unica (`#ipad`) | `10-trainer-ipad.png` | Lista / profili clienti, area PIN (rappresentativa Studio) |
+| Trio Studio (`#trainer-studio`) | `11-studio-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` | Gestione trainer / posti · assegnazione clienti · trasferimento/condivisione |
 
 **Formato:** PNG landscape ~**4:3** (es. 2048×1536 o 1600×1200).  
 **Fallback:** `10-trainer.png` · `ipad-editor.png`.
