@@ -1776,6 +1776,56 @@ code {
 }
 
 /* Backup ≠ Export / Import */
+.promo-staff {
+  background:
+    radial-gradient(ellipse 55% 45% at 88% 18%, rgba(255, 152, 0, 0.14), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 8% 82%, rgba(93, 64, 55, 0.10), transparent 50%),
+    var(--mist-2);
+  color: var(--ink);
+}
+.promo-staff .promo-kicker { color: #e65100; }
+.promo-staff .section-head h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.promo-staff .promo-lead {
+  color: var(--muted);
+  max-width: 46rem;
+}
+.staff-path {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #e65100;
+  max-width: 48rem;
+}
+.staff-rule {
+  margin: 1.5rem 0 0;
+  padding: 0.95rem 1.15rem;
+  border-left: 3px solid #ff9800;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 52rem;
+}
+.staff-flow-seats { border-top-color: #ff9800; }
+.staff-flow-create { border-top-color: #e65100; }
+.staff-flow-assign { border-top-color: #5d4037; }
+.staff-flow-transfer { border-top-color: #00897b; }
+.staff-flow-pause { border-top-color: var(--ink-soft); }
+.staff-flow-seats .backup-flow-label,
+.staff-flow-create .backup-flow-label { color: #e65100; }
+.staff-flow-assign .backup-flow-label { color: #5d4037; }
+.staff-flow-transfer .backup-flow-label { color: #00897b; }
+.staff-matrix {
+  background: rgba(255, 152, 0, 0.07);
+}
+.promo-staff .feature-more a { color: #e65100; }
+.promo-staff .feature-more a:hover { color: var(--ink); }
+
 .promo-backup {
   background:
     radial-gradient(ellipse 55% 45% at 10% 20%, rgba(15, 118, 110, 0.12), transparent 55%),

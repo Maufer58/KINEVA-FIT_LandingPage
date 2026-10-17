@@ -24,6 +24,7 @@
         <a href="#watch" data-i18n="nav.watch">Watch</a>
         <a href="#ipad" data-i18n="nav.ipad">iPad</a>
         <a href="#trainer-studio" data-i18n="nav.studio">Studio</a>
+        <a href="#staff-trainers" data-i18n="nav.staff">Staff</a>
         <a href="#backup-export" data-i18n="nav.backup">Dati</a>
         <a href="#mobility-pilates" data-i18n="nav.mobility">Mobilità</a>
         <a href="#ai-import" data-i18n="nav.ai">AI</a>
@@ -45,6 +46,7 @@
       <a href="#watch" data-i18n="nav.watch">Watch</a>
       <a href="#ipad" data-i18n="nav.ipad">iPad</a>
       <a href="#trainer-studio" data-i18n="nav.studio">Studio</a>
+      <a href="#staff-trainers" data-i18n="nav.staff">Staff</a>
       <a href="#backup-export" data-i18n="nav.backup">Dati</a>
       <a href="#mobility-pilates" data-i18n="nav.mobility">Mobilità</a>
       <a href="#ai-import" data-i18n="nav.ai">AI</a>
@@ -796,9 +798,137 @@
         <p class="studio-note reveal" data-i18n="studio.note">File, Email e WhatsApp: il PDF/JSON/immagine resta sempre salvato in locale, poi si apre la condivisione. Multi‑trainer, sospensioni e condivisione clienti richiedono Studio &amp; Gym (Supervisore). Free e Athlete: profilo personale singolo; multi-cliente da Piano Pro.</p>
 
         <p class="feature-more reveal">
+          <a href="#staff-trainers" data-i18n="features.moreStaff">Staff, posti e clienti →</a>
           <a href="#backup-export" data-i18n="features.moreBackup">Backup e Export/Import →</a>
           <a href="#plans" data-i18n="studio.cta">Confronta Piano Pro e Studio →</a>
           <a href="#ipad" data-i18n="features.moreIpad">Vedi iPad →</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="promo promo-staff section" id="staff-trainers">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="promo-kicker" data-i18n="staff.kicker">Studio &amp; Gym · Staff</p>
+          <h2 data-i18n="staff.title">Multi-trainer: posti sul device, turni, clienti e trasferimenti</h2>
+          <p class="promo-lead" data-i18n="staff.lead">Nella palestra un Supervisore governa lo staff sullo stesso iPad/iPhone: crea i trainer, decide chi può accedere (turni), assegna o condivide i clienti e sposta un trainer su un altro dispositivo senza mescolare gli spazi altrui.</p>
+          <p class="staff-path" data-i18n="staff.path">Percorsi: login (rotella profilo + PIN) · Impostazioni / Gestione trainer (solo Supervisore) · drawer ☰ → ⋯ sul cliente → Condividi con i trainer · Export/import profilo trainer.</p>
+        </div>
+
+        <p class="staff-rule reveal" data-i18n="staff.rule">Regola pratica: sul device convivono 1 Supervisore (non consuma posto) + fino a 3 posti trainer. Puoi abilitare al login 1, 2 o tutti e 3 per i turni: usa l’app una persona alla volta, ma i profili e i clienti restano separati.</p>
+
+        <div class="backup-flows reveal">
+          <article class="backup-flow staff-flow-seats">
+            <p class="backup-flow-label" data-i18n="staff.seats.label">1 · Posti e turni sullo stesso device</p>
+            <h3 data-i18n="staff.seats.title">Studio gym → staff sullo stesso iPad/iPhone</h3>
+            <dl class="backup-dl">
+              <div>
+                <dt data-i18n="backup.who">Chi</dt>
+                <dd data-i18n="staff.seats.who">Piano Studio &amp; Gym. Il Supervisore (titolare) non occupa un posto trainer; i 3 posti staff sono per i trainer operativi.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.to">A chi</dt>
+                <dd data-i18n="staff.seats.to">Fino a 3 trainer nello stesso dispositivo. Per i turni mattina/sera abilita solo chi deve entrare: 1, 2 o tutti e 3. Chi non è abilitato non appare al login.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.how">Come</dt>
+                <dd data-i18n="staff.seats.how">Gestione trainer: crea profilo (nome + PIN) e abilita i posti per il turno. All’avvio: rotella → Supervisore o Trainer → PIN sul tastierino. In testata vedi sempre il ruolo attivo.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.noteLabel">Importante</dt>
+                <dd data-i18n="staff.seats.not">Eliminare un trainer non libera subito il posto (cooldown 30 giorni): evita di ruotare oltre i 3 staff. La sostituzione posto e la pulizia «fantasma» seguono le regole di licenza / menu produttore.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="backup-flow staff-flow-create">
+            <p class="backup-flow-label" data-i18n="staff.create.label">2 · Creare e governare i trainer</p>
+            <h3 data-i18n="staff.create.title">Supervisore → trainer dello studio</h3>
+            <dl class="backup-dl">
+              <div>
+                <dt data-i18n="backup.who">Chi</dt>
+                <dd data-i18n="staff.create.who">Solo il Supervisore: crea, sospende, riattiva ed elimina i trainer; gestisce i posti e vede tutti i clienti dello studio.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.to">A chi</dt>
+                <dd data-i18n="staff.create.to">Ai trainer dello staff. Un trainer operativo gestisce solo i propri clienti e quelli condivisi con lui — non crea altri trainer né vede tutto il roster.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.how">Come</dt>
+                <dd data-i18n="staff.create.how">Gestione trainer → nuovo profilo (nome + PIN 4 cifre). Sospendi in batch per bloccare il login senza cancellare i dati. Il trainer lavora con le stesse funzioni operative (schede, PDF, Watch, analytics sui suoi atleti).</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="backup-flow staff-flow-assign">
+            <p class="backup-flow-label" data-i18n="staff.assign.label">3 · Assegnare e condividere i clienti</p>
+            <h3 data-i18n="staff.assign.title">Proprietario / Supervisore → uno o più trainer</h3>
+            <dl class="backup-dl">
+              <div>
+                <dt data-i18n="backup.who">Chi</dt>
+                <dd data-i18n="staff.assign.who">Chi crea il cliente ne è proprietario. Supervisore e proprietario decidono la condivisione; il ricevente gestisce l’atleta ma non lo cancella per tutti.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.to">A chi</dt>
+                <dd data-i18n="staff.assign.to">A uno o più trainer dello stesso device: lo stesso atleta può essere seguito da più staff (es. forza + mobilità) con un unico record cliente.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.how">Come</dt>
+                <dd data-i18n="staff.assign.how">Drawer ☰ → ⋯ sul cliente → «Condividi con i trainer»: imposta proprietario e chi può seguire; opzione di nascondere campi biometrici. Togliere la condivisione = il ricevente smette di vederlo; i dati restano al proprietario.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.not">Non usare per</dt>
+                <dd data-i18n="staff.assign.not">Spostare un intero trainer su un altro iPad (serve l’export profilo trainer). Né per mandare solo schede a un collega esterno (usa JSON schede in Dati).</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="backup-flow staff-flow-transfer">
+            <p class="backup-flow-label" data-i18n="staff.transfer.label">4 · Trasferire un trainer tra dispositivi</p>
+            <h3 data-i18n="staff.transfer.title">Trainer A su device 1 → stesso trainer su device 2</h3>
+            <dl class="backup-dl">
+              <div>
+                <dt data-i18n="backup.who">Chi</dt>
+                <dd data-i18n="staff.transfer.who">Supervisore / studio: esporta il pacchetto del profilo trainer (clienti, schede e storico di quello staff), non un Backup Completo di tutta la palestra.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.to">A chi</dt>
+                <dd data-i18n="staff.transfer.to">Al secondo iPhone/iPad dello studio dove deve lavorare quel trainer. Gli altri trainer sul device di partenza non vengono mescolati nel file.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.how">Come</dt>
+                <dd data-i18n="staff.transfer.how">Export profilo trainer → File/Email/cloud → import sul device destinazione: riallinea id stabili di clienti e schede. Distinto da «Esporta / Invia Schede» (solo programmi) e dal Backup Completo (tutta l’app).</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.noteLabel">Importante</dt>
+                <dd data-i18n="staff.transfer.not">Sul device destinazione serve Studio &amp; Gym e un posto libero (o lo stesso trainer già allineato). Non sostituisce la condivisione clienti sullo stesso device.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="backup-flow staff-flow-pause">
+            <p class="backup-flow-label" data-i18n="staff.pause.label">5 · Pause e continuità</p>
+            <h3 data-i18n="staff.pause.title">Supervisore ↔ staff e clienti</h3>
+            <p data-i18n="staff.pause.body">Sospendi trainer (niente login fino alla riattivazione) o clienti fuori stagione senza cancellare schede e storico. Badge «Sospeso», anche in selezione multipla. Per liberare un posto dopo uscita staff: cooldown 30 giorni / sostituzione posto — non basta eliminare il profilo.</p>
+          </article>
+        </div>
+
+        <aside class="backup-matrix staff-matrix reveal" aria-label="Riepilogo staff">
+          <h3 data-i18n="staff.matrix.title">Riepilogo rapido</h3>
+          <ul class="backup-matrix-list">
+            <li data-i18n="staff.matrix.i1">1 Supervisore + max 3 trainer per device; abilita 1–3 profili per i turni.</li>
+            <li data-i18n="staff.matrix.i2">Solo il Supervisore crea/sospende i trainer e governa i posti.</li>
+            <li data-i18n="staff.matrix.i3">Cliente: un proprietario + condivisioni a più trainer sullo stesso device.</li>
+            <li data-i18n="staff.matrix.i4">Ricevente: gestisce l’atleta; «rimuovi» = esce dalla condivisione, non cancella i dati.</li>
+            <li data-i18n="staff.matrix.i5">Trasferimento device: export/import profilo trainer (non Backup Completo né solo JSON schede).</li>
+            <li data-i18n="staff.matrix.i6">Eliminare un trainer non libera subito il posto (cooldown 30 giorni).</li>
+          </ul>
+        </aside>
+
+        <p class="feature-more reveal">
+          <a href="#trainer-studio" data-i18n="staff.ctaStudio">Torna a Studio &amp; Gym →</a>
+          <a href="#backup-export" data-i18n="staff.ctaBackup">Backup e Export/Import →</a>
+          <a href="#plans" data-i18n="staff.ctaPlans">Vedi piano Studio &amp; Gym →</a>
         </p>
       </div>
     </section>
@@ -942,6 +1072,7 @@
         </aside>
 
         <p class="feature-more reveal">
+          <a href="#staff-trainers" data-i18n="backup.ctaStaff">Staff e multi-trainer →</a>
           <a href="#trainer-studio" data-i18n="backup.ctaStudio">Torna a Studio &amp; Gym →</a>
           <a href="#plans" data-i18n="backup.ctaPlans">Vedi piani e limiti →</a>
         </p>
