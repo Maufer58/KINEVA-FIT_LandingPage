@@ -31,7 +31,9 @@ website/
 | C | **Promo Apple Watch** — **sequenza 4 passi** | `#watch` | `08-watch-list.png` · `08-watch-start.png` · `08-watch-active.png` · `08-watch-done.png` |
 | D | **Promo iPad Trainer** — **1** snapshot (+ testi step) | `#ipad` | `10-trainer-ipad.png` |
 | **G** | **Studio & Gym (back-office)** | `#trainer-studio` | **nessuna** cattura dedicata — riusa `#ipad` / `#screens` tab 10 |
-| E | Import AI da foto | `#ai-import` | `13-ai-import.png` |
+| E | Import AI da foto | `#ai-import` | `13-ai-import.png` · `20-ai-result.png` |
+| M | **Mobilità & Pilates** — doppio telefono | `#mobility-pilates` | `24-mobility.png` · `25-pilates.png` (fallback: `18` / `19` finché mancano) |
+| Bkp | **Backup ≠ Export/Import** — flussi chi→chi (solo testo) | `#backup-export` | nessuna immagine dedicata |
 | F | **Gallery “Dentro l’app”** — tab 01…10, **1** device per tab (Watch = sequenza 4) | `#screens` | `01-home.png` … `10-trainer.png` (+ Watch a/b/c/d solo sul tab 08) |
 | — | Highlight / piani / download | `#highlights` `#plans` `#download` | **nessuna** cattura app |
 | — | **Studio & Gym (testo)** | `#trainer-studio` | **nessuna** cattura app |

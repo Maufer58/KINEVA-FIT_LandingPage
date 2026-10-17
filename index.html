@@ -24,6 +24,8 @@
         <a href="#watch" data-i18n="nav.watch">Watch</a>
         <a href="#ipad" data-i18n="nav.ipad">iPad</a>
         <a href="#trainer-studio" data-i18n="nav.studio">Studio</a>
+        <a href="#backup-export" data-i18n="nav.backup">Dati</a>
+        <a href="#mobility-pilates" data-i18n="nav.mobility">Mobilità</a>
         <a href="#ai-import" data-i18n="nav.ai">AI</a>
         <a href="#screens" data-i18n="nav.screens">App</a>
         <a href="#plans" data-i18n="nav.plans">Piani</a>
@@ -43,6 +45,8 @@
       <a href="#watch" data-i18n="nav.watch">Watch</a>
       <a href="#ipad" data-i18n="nav.ipad">iPad</a>
       <a href="#trainer-studio" data-i18n="nav.studio">Studio</a>
+      <a href="#backup-export" data-i18n="nav.backup">Dati</a>
+      <a href="#mobility-pilates" data-i18n="nav.mobility">Mobilità</a>
       <a href="#ai-import" data-i18n="nav.ai">AI</a>
       <a href="#screens" data-i18n="nav.screens">App</a>
       <a href="#plans" data-i18n="nav.plans">Piani</a>
@@ -239,6 +243,17 @@
             </button>
             <div class="feature-panel" hidden></div>
           </article>
+          <article class="feature-item reveal" data-shots="">
+            <button type="button" class="feature-row" aria-expanded="false">
+              <span class="feature-num">26</span>
+              <span class="feature-text">
+                <strong data-i18n="features.backup.title">Backup ≠ Export / Import</strong>
+                <span data-i18n="features.backup.body">Chi può inviare cosa a chi: backup completo (tu → tuo altro device), schede JSON tra trainer/colleghi, storico ZIP personale, PDF al cliente. Dettaglio in Dati.</span>
+              </span>
+              <span class="feature-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="feature-panel" hidden></div>
+          </article>
           <article class="feature-item reveal" data-shots="03-calendar.png">
             <button type="button" class="feature-row" aria-expanded="false">
               <span class="feature-num">03</span>
@@ -283,8 +298,32 @@
             </button>
             <div class="feature-panel" hidden></div>
           </article>
+          <article class="feature-item reveal" data-shots="24-mobility.png">
+            <button type="button" class="feature-row" aria-expanded="false">
+              <span class="feature-num">24</span>
+              <span class="feature-text">
+                <strong data-i18n="features.mobility.title">Protocolli di mobilità</strong>
+                <span data-i18n="features.mobility.body">Libreria mobilità/postura e protocolli assegnabili: filtra per limiti motori e costruisci schede di recupero e prevenzione.</span>
+              </span>
+              <span class="feature-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="feature-panel" hidden></div>
+          </article>
+          <article class="feature-item reveal" data-shots="25-pilates.png">
+            <button type="button" class="feature-row" aria-expanded="false">
+              <span class="feature-num">25</span>
+              <span class="feature-text">
+                <strong data-i18n="features.pilates.title">Pacchetto Pilates</strong>
+                <span data-i18n="features.pilates.body">Add-on con esercizi mat e macchina, note e silhouette — distinto dai protocolli mobilità di Studio.</span>
+              </span>
+              <span class="feature-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="feature-panel" hidden></div>
+          </article>
         </div>
         <p class="feature-more reveal">
+          <a href="#backup-export" data-i18n="features.moreBackup">Backup e Export/Import →</a>
+          <a href="#mobility-pilates" data-i18n="features.moreMobility">Mobilità e Pilates →</a>
           <a href="#screens" data-i18n="features.more">Esplora tutte le schermate →</a>
           <a href="#plans" data-i18n="features.morePlans">Vedi i piani →</a>
         </p>
@@ -685,8 +724,8 @@
               </article>
               <article class="studio-card">
                 <span class="studio-card-num">14</span>
-                <h4 data-i18n="studio.g5.c2.title">Backup e ripristino</h4>
-                <p data-i18n="studio.g5.c2.body">Backup JSON del catalogo trainer (esercizi custom e protocolli); archivio ZIP storico sessioni + grafici sul tuo cloud (Athlete Pro+).</p>
+                <h4 data-i18n="studio.g5.c2.title">Backup ≠ Export / Import</h4>
+                <p data-i18n="studio.g5.c2.body">Flussi distinti: Backup Completo (tu→tuo device), JSON schede (trainer↔collega via Importa Schede), ZIP storico (tu→archivio→tu), PDF al cliente. Dettaglio in #backup-export.</p>
               </article>
               <article class="studio-card">
                 <span class="studio-card-num">15</span>
@@ -757,9 +796,209 @@
         <p class="studio-note reveal" data-i18n="studio.note">File, Email e WhatsApp: il PDF/JSON/immagine resta sempre salvato in locale, poi si apre la condivisione. Multi‑trainer, sospensioni e condivisione clienti richiedono Studio &amp; Gym (Supervisore). Free e Athlete: profilo personale singolo; multi-cliente da Piano Pro.</p>
 
         <p class="feature-more reveal">
+          <a href="#backup-export" data-i18n="features.moreBackup">Backup e Export/Import →</a>
           <a href="#plans" data-i18n="studio.cta">Confronta Piano Pro e Studio →</a>
           <a href="#ipad" data-i18n="features.moreIpad">Vedi iPad →</a>
         </p>
+      </div>
+    </section>
+
+    <section class="promo promo-backup section" id="backup-export">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="promo-kicker" data-i18n="backup.kicker">Dati · chi → chi</p>
+          <h2 data-i18n="backup.title">Backup, export e import: chi invia, chi riceve, come</h2>
+          <p class="promo-lead" data-i18n="backup.lead">In Trainer Pro le azioni sono separate: un Backup Completo non è uno scambio di schede; un JSON schede non si apre con «Ripristina da Backup»; uno ZIP storico non ripristina le schede. Ogni file ha un solo ingresso corretto.</p>
+          <p class="backup-path" data-i18n="backup.path">Percorsi: Altro → Trainer Pro (Backup / Export e import) · Impostazioni → Base (storico ZIP atleta) · Home → ⋯ sulla scheda (PDF/immagine al cliente).</p>
+        </div>
+
+        <p class="backup-rule reveal" data-i18n="backup.rule">Regola pratica: scegli il canale (File, Email, WhatsApp o cloud) solo dopo aver creato il file giusto. Il destinatario deve usare la voce di import corrispondente — non quella di un’altra categoria.</p>
+
+        <div class="backup-flows reveal">
+          <article class="backup-flow backup-flow-full">
+            <p class="backup-flow-label" data-i18n="backup.full.label">1 · Backup e ripristino app</p>
+            <h3 data-i18n="backup.full.title">Tu → te stesso (altro iPhone/iPad o dopo wipe)</h3>
+            <dl class="backup-dl">
+              <div>
+                <dt data-i18n="backup.who">Chi</dt>
+                <dd data-i18n="backup.full.who">Il titolare dell’app con Athlete Pro+ a pagamento (non in prova). Tipico: trainer o atleta che cambia dispositivo.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.to">A chi</dt>
+                <dd data-i18n="backup.full.to">Solo a te: salvi il file e lo ripristini sullo stesso account/dispositivo nuovo. Non è uno scambio con un collega.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.how">Come</dt>
+                <dd data-i18n="backup.full.how">Trainer Pro → Crea Backup Completo → salva via File/Email/cloud → sull’altro device Trainer Pro → Ripristina da Backup. Contiene clienti, schede, storico e impostazioni.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.not">Non usare per</dt>
+                <dd data-i18n="backup.full.not">Mandare solo schede a un collega o solo lo storico. Se apri un JSON schede da «Ripristina», l’app ti propone «Importa Schede».</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="backup-flow backup-flow-routines">
+            <p class="backup-flow-label" data-i18n="backup.routines.label">2 · Schede tra trainer / dispositivi (JSON)</p>
+            <h3 data-i18n="backup.routines.title">Trainer A → Trainer B (o A → altro device di A)</h3>
+            <dl class="backup-dl">
+              <div>
+                <dt data-i18n="backup.who">Chi</dt>
+                <dd data-i18n="backup.routines.who">Mittente: Piano Pro o Studio &amp; Gym a pagamento (non in prova). Voce: Esporta / Invia Schede (anche da Strumenti studio / Admin).</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.to">A chi</dt>
+                <dd data-i18n="backup.routines.to">Ricevente: un collega con KINEVA FIT, oppure tu su un secondo iPhone/iPad. Condivide il file JSON (o PDF batch) via File, Email o WhatsApp.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.how">Come</dt>
+                <dd data-i18n="backup.routines.how">Mittente esporta → invia il file → ricevente apre Trainer Pro → Importa Schede e sceglie i clienti destinazione. L’import può creare i clienti mancanti presenti nel file.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.noteLabel">Importante</dt>
+                <dd data-i18n="backup.routines.not">Il JSON di «Esporta / Invia Schede» si reimporta solo con «Importa Schede» — mai con «Ripristina da Backup» né con l’import storico ZIP.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="backup-flow backup-flow-personal">
+            <p class="backup-flow-label" data-i18n="backup.personal.label">3 · Export JSON personale (schede del profilo)</p>
+            <h3 data-i18n="backup.personal.title">Il tuo profilo → import come schede</h3>
+            <dl class="backup-dl">
+              <div>
+                <dt data-i18n="backup.who">Chi</dt>
+                <dd data-i18n="backup.personal.who">Athlete Pro+ a pagamento: «Esporta i miei dati (JSON schede)» dal profilo corrente.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.to">A chi</dt>
+                <dd data-i18n="backup.personal.to">A te su un altro device, o a un trainer/collega che importi con «Importa Schede» (stesso formato di ingresso delle schede batch).</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.how">Come</dt>
+                <dd data-i18n="backup.personal.how">Esporta i miei dati → salva/invia il JSON → Importa Schede sul device destinazione. Non sostituisce un Backup Completo (mancano storico e impostazioni globali).</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="backup-flow backup-flow-pdf">
+            <p class="backup-flow-label" data-i18n="backup.pdf.label">4 · PDF / immagine di una scheda al cliente</p>
+            <h3 data-i18n="backup.pdf.title">Atleta o trainer → persona (carta o chat)</h3>
+            <dl class="backup-dl">
+              <div>
+                <dt data-i18n="backup.who">Chi</dt>
+                <dd data-i18n="backup.pdf.who">Chiunque con piano a pagamento adeguato: dalla Home → ⋯ sulla scheda → Esporta programma (tabella PDF, manuale, immagine HD).</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.to">A chi</dt>
+                <dd data-i18n="backup.pdf.to">Al cliente umano (o a te) via File, Email o WhatsApp. È una consegna leggibile — non un file da reimportare in KINEVA FIT come JSON schede.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.how">Come</dt>
+                <dd data-i18n="backup.pdf.how">Scegli formato → canale. Il file resta anche salvato in locale. GIF Gym Visual restano solo in-app (in PDF: silhouette e QR YouTube).</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="backup-flow backup-flow-history">
+            <p class="backup-flow-label" data-i18n="backup.history.label">5 · Storico e grafici (ZIP)</p>
+            <h3 data-i18n="backup.history.title">Tu → archivio cloud/File → di nuovo tu</h3>
+            <dl class="backup-dl">
+              <div>
+                <dt data-i18n="backup.who">Chi</dt>
+                <dd data-i18n="backup.history.who">Athlete Pro+ (non in prova). Percorso: Impostazioni → Base → Export / Import · Storico, oppure Trainer Pro → Export e import → Storico.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.to">A chi</dt>
+                <dd data-i18n="backup.history.to">A te stesso: archivi sessioni e grafici sul tuo cloud o nei File, poi li reimporti sullo stesso o su un altro device.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.how">Come</dt>
+                <dd data-i18n="backup.history.how">Esporta ZIP → salva → Importa storico: Unisci (aggiunge solo sessioni mancanti) oppure Sostituisci tutto. Non ripristina schede né clienti.</dd>
+              </div>
+              <div>
+                <dt data-i18n="backup.not">Non usare per</dt>
+                <dd data-i18n="backup.history.not">Uno ZIP storico non è un Backup Completo. Se carichi un full backup qui, l’app ti indirizza a «Ripristina da Backup».</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="backup-flow backup-flow-mgmt">
+            <p class="backup-flow-label" data-i18n="backup.mgmt.label">6 · Gestione (non è uno scambio file)</p>
+            <h3 data-i18n="backup.mgmt.title">Trainer sul proprio roster</h3>
+            <p data-i18n="backup.mgmt.body">In Export e import → Gestione trovi strumenti come la pulizia multipla schede: operano sui clienti già in app, non generano un pacchetto da mandare a un collega. Per CSV biometria/storico per cliente usa le voci dedicate in area trainer (abbonamento a pagamento).</p>
+          </article>
+        </div>
+
+        <aside class="backup-matrix reveal" aria-label="Riepilogo da-chi-a-chi">
+          <h3 data-i18n="backup.matrix.title">Riepilogo rapido</h3>
+          <ul class="backup-matrix-list">
+            <li data-i18n="backup.matrix.i1">Backup Completo — solo tu → tuo altro device (disaster recovery).</li>
+            <li data-i18n="backup.matrix.i2">JSON schede — trainer/collega → trainer/collega (o tuo 2° device); ingresso: Importa Schede.</li>
+            <li data-i18n="backup.matrix.i3">JSON personale — il tuo profilo → Importa Schede (non è full backup).</li>
+            <li data-i18n="backup.matrix.i4">PDF / immagine — tu → cliente in chat/stampa (non si reimporta come schede).</li>
+            <li data-i18n="backup.matrix.i5">ZIP storico — tu → tuo archivio → tu (Unisci/Sostituisci); niente schede.</li>
+            <li data-i18n="backup.matrix.i6">Prova gratuita — queste export/import a pagamento non sono disponibili.</li>
+          </ul>
+        </aside>
+
+        <p class="feature-more reveal">
+          <a href="#trainer-studio" data-i18n="backup.ctaStudio">Torna a Studio &amp; Gym →</a>
+          <a href="#plans" data-i18n="backup.ctaPlans">Vedi piani e limiti →</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="promo promo-mobility section" id="mobility-pilates">
+      <div class="container promo-grid reveal">
+        <div class="promo-copy">
+          <p class="promo-kicker" data-i18n="mobility.kicker">Mobilità &amp; Pilates</p>
+          <h2 data-i18n="mobility.title">Oltre la forza: recupero, postura e mat</h2>
+          <p class="promo-line" data-i18n="mobility.line">Due percorsi dedicati nella stessa app.</p>
+          <p class="promo-lead" data-i18n="mobility.body">Protocolli di mobilità per prevenire e recuperare; Pacchetto Pilates come add-on con esercizi mat e macchina, note e silhouette anatomiche.</p>
+          <ol class="promo-steps">
+            <li>
+              <strong data-i18n="mobility.s1.title">Protocolli mobilità</strong>
+              <span data-i18n="mobility.s1.body">Libreria e protocolli (Studio) assegnabili ai clienti, con filtri su limiti motori e focus posturali.</span>
+            </li>
+            <li>
+              <strong data-i18n="mobility.s2.title">Pacchetto Pilates</strong>
+              <span data-i18n="mobility.s2.body">49 esercizi mat + macchina (acquisto una tantum, Athlete Pro+). In app: Nuova Routine → Pacchetto Pilates.</span>
+            </li>
+            <li>
+              <strong data-i18n="mobility.s3.title">Stesso editor e runner</strong>
+              <span data-i18n="mobility.s3.body">GIF, mappa muscolare e guida in sessione restano allineati al resto del catalogo KINEVA FIT.</span>
+            </li>
+          </ol>
+          <a class="btn btn-primary" href="#plans" data-i18n="mobility.cta">Vedi piani e add-on</a>
+        </div>
+        <div class="promo-visual promo-visual-mobility">
+          <div class="promo-phone-pair" aria-label="Mobilità e Pilates">
+            <figure class="promo-phone-fig">
+              <div class="device device-phone promo-phone">
+                <div class="device-bezel">
+                  <img class="screen-shot"
+                       src="assets/screenshots/24-mobility.png"
+                       alt="Protocolli di mobilità in KINEVA FIT"
+                       data-fallbacks="24-mobility.png,18-exercise-gif.png,01-home.png,home.png"
+                       onerror="window.strideShotFallback && window.strideShotFallback(this)">
+                </div>
+              </div>
+              <figcaption data-i18n="mobility.capMobility">1 · Mobilità</figcaption>
+            </figure>
+            <figure class="promo-phone-fig">
+              <div class="device device-phone promo-phone">
+                <div class="device-bezel">
+                  <img class="screen-shot"
+                       src="assets/screenshots/25-pilates.png"
+                       alt="Pacchetto Pilates in KINEVA FIT"
+                       data-fallbacks="25-pilates.png,19-muscle-map.png,06-editor.png"
+                       onerror="window.strideShotFallback && window.strideShotFallback(this)">
+                </div>
+              </div>
+              <figcaption data-i18n="mobility.capPilates">2 · Pilates</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -861,6 +1100,10 @@
           <article class="highlight-item">
             <h3 data-i18n="more.h12.title">Export schede File · Email · WhatsApp</h3>
             <p data-i18n="more.h12.body">Dalla Home: tabella PDF compatta o illustrata (GIF, QR, silhouette, stesso #), manuale Pro e immagine HD. Il file resta sempre sul dispositivo.</p>
+          </article>
+          <article class="highlight-item">
+            <h3 data-i18n="more.h14.title">Backup ≠ Export / Import</h3>
+            <p data-i18n="more.h14.body">Trainer Pro: disaster recovery dell’intera app separato da export/import per schede, storico ZIP e gestione. Stessa logica della guida utente.</p>
           </article>
           <article class="highlight-item">
             <h3 data-i18n="more.h7.title">Enciclopedia PDF trainer</h3>

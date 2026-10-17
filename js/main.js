@@ -174,6 +174,18 @@ const SHOT_CATALOG = {
     label: '#23 · 23-swim-session.png',
     tab: 'swim',
   },
+  '24': {
+    file: '24-mobility.png',
+    legacy: ['18-exercise-gif.png', '01-home.png', 'home.png'],
+    label: '#24 · 24-mobility.png',
+    tab: 'mobility',
+  },
+  '25': {
+    file: '25-pilates.png',
+    legacy: ['19-muscle-map.png', '06-editor.png'],
+    label: '#25 · 25-pilates.png',
+    tab: 'pilates',
+  },
 };
 
 const SHOT_BASE = 'assets/screenshots/';
@@ -181,9 +193,12 @@ const VIDEO_BASE = 'assets/videos/';
 
 window.strideShotFallback = function strideShotFallback(img) {
   const tried = (img.dataset.tried || '').split(',').filter(Boolean);
+  // Mark the URL that just failed so we never retry the same 404
+  // (browsers often skip a second onerror for an identical src).
+  const failed = (img.currentSrc || img.getAttribute('src') || '').split('/').pop();
+  if (failed && !tried.includes(failed)) tried.push(failed);
+
   const chain = [];
-  const primary = (img.getAttribute('src') || '').split('/').pop();
-  if (primary) chain.push(primary);
   const fb = (img.dataset.fallbacks || '').split(',').map((s) => s.trim()).filter(Boolean);
   chain.push(...fb);
 
@@ -195,6 +210,7 @@ window.strideShotFallback = function strideShotFallback(img) {
     img.hidden = false;
     return;
   }
+  img.dataset.tried = tried.join(',');
   img.hidden = true;
   const mock = img.nextElementSibling;
   if (mock && mock.classList.contains('screen')) mock.hidden = false;

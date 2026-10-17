@@ -1337,6 +1337,29 @@ code {
   .ipad-pro-frame { max-width: none; }
 }
 
+.promo-mobility {
+  background:
+    radial-gradient(ellipse 50% 45% at 90% 25%, rgba(20, 184, 166, 0.16), transparent 55%),
+    radial-gradient(ellipse 40% 40% at 8% 80%, rgba(184, 240, 0, 0.10), transparent 50%),
+    var(--mist);
+  color: var(--ink);
+}
+.promo-mobility .promo-kicker { color: var(--teal); }
+.promo-mobility .promo-line { color: var(--teal-soft); }
+.promo-mobility .promo-lead { color: var(--muted); }
+.promo-mobility .promo-steps li::before { color: var(--teal-soft); }
+.promo-mobility .promo-steps span { color: var(--muted); }
+.promo-visual-mobility {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+  overflow: visible;
+  width: 100%;
+  max-width: 100%;
+}
+
 .promo-ai {
   background:
     radial-gradient(ellipse 55% 50% at 12% 30%, rgba(184, 240, 0, 0.18), transparent 55%),
@@ -1751,6 +1774,142 @@ code {
 .promo-studio .feature-more a:hover {
   color: #ffe0b2;
 }
+
+/* Backup ≠ Export / Import */
+.promo-backup {
+  background:
+    radial-gradient(ellipse 55% 45% at 10% 20%, rgba(15, 118, 110, 0.12), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 92% 78%, rgba(255, 152, 0, 0.10), transparent 50%),
+    var(--mist-2);
+  color: var(--ink);
+}
+.promo-backup .promo-kicker { color: var(--teal); }
+.promo-backup .section-head h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.promo-backup .promo-lead {
+  color: var(--muted);
+  max-width: 44rem;
+}
+.backup-path {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--teal);
+  max-width: 48rem;
+}
+.backup-rule {
+  margin: 1.5rem 0 0;
+  padding: 0.95rem 1.15rem;
+  border-left: 3px solid var(--teal);
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 52rem;
+}
+.backup-flows {
+  display: grid;
+  gap: 1.1rem;
+  margin-top: 1.75rem;
+}
+.backup-flow {
+  margin: 0;
+  padding: 1.25rem 1.3rem 1.35rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.78);
+  border-top: 3px solid var(--teal);
+}
+.backup-flow-full { border-top-color: #ff9800; }
+.backup-flow-routines { border-top-color: var(--teal); }
+.backup-flow-personal { border-top-color: #00897b; }
+.backup-flow-pdf { border-top-color: #5c6bc0; }
+.backup-flow-history { border-top-color: #0288d1; }
+.backup-flow-mgmt { border-top-color: var(--ink-soft); }
+.backup-flow-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.backup-flow-full .backup-flow-label { color: #e65100; }
+.backup-flow h3 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.backup-flow > p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.backup-dl {
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.backup-dl > div {
+  display: grid;
+  gap: 0.2rem;
+}
+@media (min-width: 640px) {
+  .backup-dl > div {
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: 0.75rem 1rem;
+    align-items: start;
+  }
+}
+.backup-dl dt {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  padding-top: 0.15rem;
+}
+.backup-dl dd {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.backup-matrix {
+  margin: 1.75rem 0 0;
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: rgba(15, 118, 110, 0.06);
+  max-width: 52rem;
+}
+.backup-matrix h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+.backup-matrix-list {
+  margin: 0;
+  padding: 0 0 0 1.15rem;
+  display: grid;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.backup-matrix-list strong { color: var(--ink); }
+.promo-backup .feature-more a { color: var(--teal); }
+.promo-backup .feature-more a:hover { color: var(--ink); }
 
 .promo-more {
   background: var(--paper);
@@ -2846,7 +3005,8 @@ code {
   .showcase-phone {
     width: min(210px, 58vw);
   }
-  .promo-visual-ai {
+  .promo-visual-ai,
+  .promo-visual-mobility {
     min-height: 280px;
   }
   .ai-orbit span {
