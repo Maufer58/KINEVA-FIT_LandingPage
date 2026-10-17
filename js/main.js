@@ -91,10 +91,17 @@ const SHOT_CATALOG = {
   },
   '10': {
     file: '10-trainer.png',
-    legacy: ['10-trainer-ipad.png'],
+    legacy: [],
     label: '#10 · 10-trainer.png',
     tab: 'trainer',
     video: 'broll-trainer.mp4',
+  },
+  '10a': {
+    file: '10-trainer-ipad.png',
+    legacy: ['11-studio-ipad.png', '10-trainer.png'],
+    label: '#10a · 10-trainer-ipad.png',
+    tab: 'trainer',
+    device: 'ipad',
   },
   '11': {
     file: '11-studio-ipad.png',
@@ -461,6 +468,20 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('click', () => setIpadStep(el.dataset.ipadStep));
   });
 
+  const featureShotCaption = (item, index, file) => {
+    const keys = (item.dataset.shotCaps || '')
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
+    const key = keys[index];
+    if (key && window.siteI18n?.translations) {
+      const lang = window.siteI18n.lang || 'it';
+      const dict = window.siteI18n.translations[lang] || window.siteI18n.translations.it || {};
+      if (dict[key]) return dict[key];
+    }
+    return file;
+  };
+
   const buildFeaturePanel = (item) => {
     const panel = item.querySelector('.feature-panel');
     if (!panel || panel.dataset.ready === '1') return panel;
@@ -472,14 +493,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const isWatch = item.dataset.watch === '1';
     const media = document.createElement('div');
     media.className = isWatch ? 'feature-panel-media feature-watch-grid' : 'feature-panel-media';
-    shots.forEach((file) => {
+    shots.forEach((file, index) => {
       const catEntry = Object.values(SHOT_CATALOG).find((e) => e.file === file);
       const fallbacks = (catEntry && catEntry.legacy) ? catEntry.legacy.join(',') : '';
+      const caption = featureShotCaption(item, index, file);
       if (isWatch) {
         const fig = document.createElement('figure');
         const img = document.createElement('img');
         img.src = SHOT_BASE + file;
-        img.alt = file;
+        img.alt = caption;
         img.loading = 'lazy';
         img.dataset.fallbacks = fallbacks;
         img.onerror = function onErr() {
@@ -488,15 +510,20 @@ document.addEventListener('DOMContentLoaded', () => {
         fig.appendChild(img);
         const cap = document.createElement('p');
         cap.className = 'feature-shot-cap';
-        cap.textContent = file;
+        if (item.dataset.shotCaps) {
+          const keys = item.dataset.shotCaps.split(',').map((s) => s.trim());
+          if (keys[index]) cap.setAttribute('data-i18n', keys[index]);
+        }
+        cap.textContent = caption;
         fig.appendChild(cap);
         media.appendChild(fig);
       } else {
+        const isIpad = /\-ipad\./i.test(file) || (catEntry && catEntry.device === 'ipad');
         const frame = document.createElement('div');
-        frame.className = 'feature-phone';
+        frame.className = isIpad ? 'feature-tablet' : 'feature-phone';
         const img = document.createElement('img');
         img.src = SHOT_BASE + file;
-        img.alt = file;
+        img.alt = caption;
         img.loading = 'lazy';
         img.dataset.fallbacks = fallbacks;
         img.onerror = function onErr() {
@@ -508,7 +535,11 @@ document.addEventListener('DOMContentLoaded', () => {
         wrap.appendChild(frame);
         const cap = document.createElement('p');
         cap.className = 'feature-shot-cap';
-        cap.textContent = file;
+        if (item.dataset.shotCaps) {
+          const keys = item.dataset.shotCaps.split(',').map((s) => s.trim());
+          if (keys[index]) cap.setAttribute('data-i18n', keys[index]);
+        }
+        cap.textContent = caption;
         wrap.appendChild(cap);
         media.appendChild(wrap);
       }
@@ -522,8 +553,8 @@ document.addEventListener('DOMContentLoaded', () => {
     inner.appendChild(media);
     panel.appendChild(inner);
     panel.dataset.ready = '1';
-    // Hover zoom for phones created after initLandingShotZoom.
-    panel.querySelectorAll('.feature-phone, .feature-watch-grid figure').forEach((el) => {
+    // Hover zoom for phones/tablets created after initLandingShotZoom.
+    panel.querySelectorAll('.feature-phone, .feature-tablet, .feature-watch-grid figure').forEach((el) => {
       if (el.dataset.zoomBound === '1') return;
       el.dataset.zoomBound = '1';
       el.addEventListener('mouseenter', () => el.classList.add('is-shot-zoomed'));

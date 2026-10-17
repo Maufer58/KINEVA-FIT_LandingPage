@@ -138,7 +138,7 @@ Un clic sul tab cambia l’immagine grande a destra.
 | 07 · Impostazioni | `07-settings.png` | Settings | |
 | 08 · Watch | vedi sezione **C** (4 file) | Flusso Watch | Non un solo file |
 | 09 · GPS | `09-gps-map.png` | Corsa / mappa GPS | |
-| 10 · Trainer | `10-trainer.png` | Trainer su telefono | **Opzionale** se hai già gli iPad |
+| 10 · Trainer | `10-trainer.png` + `10-trainer-ipad.png` | Accordion «Cosa puoi fare» #10: iPhone clienti + iPad gestione clienti | iPad: sostituire mock Stride con cattura reale |
 
 **Formato telefono:** PNG **1080×2400** (9:20).
 

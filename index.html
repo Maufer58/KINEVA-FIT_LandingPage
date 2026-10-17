@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="KINEVA FIT — Schede, GPS e Apple Watch. Scegli, pianifica, allenati: la tua agenda fitness su misura. Per atleti, trainer e studio.">
-  <title>KINEVA FIT — Schede, GPS e Apple Watch</title>
+  <meta name="description" content="KINEVA FIT — schede, GPS e Apple Watch. Compatibile con Android, iPhone e iPad. Scegli, pianifica, allenati: la tua agenda fitness su misura. Per atleti, trainer e studio.">
+  <title>KINEVA FIT — Android, iPhone, iPad e Apple Watch</title>
   <link rel="icon" href="assets/icon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +20,7 @@
       <nav class="nav-desktop" aria-label="Principale">
         <a href="#story" data-i18n="nav.story">Perché</a>
         <a href="#features" data-i18n="nav.features">Funzionalità</a>
+        <a href="#platforms" data-i18n="nav.platforms">Dispositivi</a>
         <a href="#analytics" data-i18n="nav.analytics">Analytics</a>
         <a href="#watch" data-i18n="nav.watch">Watch</a>
         <a href="#ipad" data-i18n="nav.ipad">iPad</a>
@@ -42,6 +43,7 @@
     <nav class="nav-mobile" id="navMobile" hidden>
       <a href="#story" data-i18n="nav.story">Perché</a>
       <a href="#features" data-i18n="nav.features">Funzionalità</a>
+      <a href="#platforms" data-i18n="nav.platforms">Dispositivi</a>
       <a href="#analytics" data-i18n="nav.analytics">Analytics</a>
       <a href="#watch" data-i18n="nav.watch">Watch</a>
       <a href="#ipad" data-i18n="nav.ipad">iPad</a>
@@ -68,8 +70,9 @@
             <img class="hero-logo" src="assets/logo-horizontal.png" alt="KINEVA FIT" width="420" height="162">
             <span class="visually-hidden" data-i18n="hero.title">KINEVA FIT</span>
           </h1>
+          <p class="hero-eyebrow" data-i18n="hero.eyebrow">Android · iPhone · iPad · Apple Watch</p>
           <p class="hero-line" data-i18n="hero.line">Schede, GPS e Apple Watch</p>
-          <p class="lead" data-i18n="hero.lead">Scegli, pianifica, allenati. La tua agenda fitness su misura.</p>
+          <p class="lead" data-i18n="hero.lead">Su Android e Apple: scegli, pianifica, allenati. La tua agenda fitness su misura.</p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="#download" data-i18n="hero.ctaPrimary">Inizia con KINEVA FIT</a>
             <a class="btn btn-ghost" href="#screens" data-i18n="hero.ctaSecondary">Guarda l'app</a>
@@ -123,7 +126,33 @@
       <div class="container story-grid reveal">
         <p class="story-kicker" data-i18n="story.kicker">Una sola app. Due mondi.</p>
         <h2 data-i18n="story.title">Palestra che conta le serie. Corsa che legge la strada.</h2>
-        <p class="story-body" data-i18n="story.body">KINEVA FIT unisce runner guidato, tecniche avanzate e GPS outdoor — sul telefono e al polso — così atleti e trainer restano sullo stesso ritmo.</p>
+        <p class="story-body" data-i18n="story.body">KINEVA FIT unisce runner guidato, tecniche avanzate e GPS outdoor — su Android e iPhone, e al polso con Apple Watch — così atleti e trainer restano sullo stesso ritmo.</p>
+      </div>
+    </section>
+
+    <section class="platforms section" id="platforms" aria-labelledby="platforms-title">
+      <div class="container platforms-inner reveal">
+        <p class="platforms-kicker" data-i18n="platforms.kicker">Dispositivi</p>
+        <h2 id="platforms-title" data-i18n="platforms.title">Un'unica esperienza su tutti i tuoi dispositivi</h2>
+        <p class="platforms-body" data-i18n="platforms.body">KINEVA FIT è compatibile con Android (smartphone e tablet) e con l’ecosistema Apple. Stesse schede, GPS e strumenti trainer sul telefono; su iPhone puoi anche allenarti da Apple Watch.</p>
+        <ul class="platforms-list">
+          <li>
+            <strong data-i18n="platforms.android.name">Android</strong>
+            <span data-i18n="platforms.android">Smartphone e tablet</span>
+          </li>
+          <li>
+            <strong data-i18n="platforms.iphone.name">iPhone</strong>
+            <span data-i18n="platforms.iphone">App nativa iOS</span>
+          </li>
+          <li>
+            <strong data-i18n="platforms.ipad.name">iPad</strong>
+            <span data-i18n="platforms.ipad">Editor e gestione ampliata</span>
+          </li>
+          <li>
+            <strong data-i18n="platforms.watch.name">Apple Watch</strong>
+            <span data-i18n="platforms.watch">Sessioni e tempi reali</span>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -234,12 +263,12 @@
             </button>
             <div class="feature-panel" hidden></div>
           </article>
-          <article class="feature-item reveal" data-shots="10-trainer.png">
+          <article class="feature-item reveal" data-shots="10-trainer.png,10-trainer-ipad.png" data-shot-caps="features.trainer.capPhone,features.trainer.capIpad">
             <button type="button" class="feature-row" aria-expanded="false">
               <span class="feature-num">10</span>
               <span class="feature-text">
                 <strong data-i18n="features.trainer.title">Trainer Pro → Studio &amp; Gym</strong>
-                <span data-i18n="features.trainer.body">Schede massive, clienti, multi‑trainer con Supervisore, sospensione staff/clienti, condivisione atleti, File/Email/WhatsApp, PDF illustrato e backup — area PIN.</span>
+                <span data-i18n="features.trainer.body">Schede massive, clienti, multi‑trainer con Supervisore (3 posti + turni), assegnazione/condivisione atleti, trasferimento trainer tra device, File/Email/WhatsApp e PDF — area PIN. Dettaglio in Staff.</span>
               </span>
               <span class="feature-chevron" aria-hidden="true"></span>
             </button>
@@ -1755,7 +1784,7 @@
       <div class="container download-panel reveal">
         <div class="download-copy">
           <h2 data-i18n="download.title">Pronto a partire?</h2>
-          <p data-i18n="download.body">KINEVA FIT è in distribuzione su Android e Apple. Scrivici per beta o info commerciali.</p>
+          <p data-i18n="download.body">KINEVA FIT è compatibile con Android e Apple (iPhone, iPad e Apple Watch). In distribuzione su Google Play e App Store — scrivici per beta o info commerciali.</p>
           <div class="store-buttons">
             <a class="store-btn disabled" href="#" aria-disabled="true" data-i18n="download.google">Google Play — presto</a>
             <a class="store-btn disabled" href="#" aria-disabled="true" data-i18n="download.apple">App Store — presto</a>

@@ -477,6 +477,14 @@ code {
     min-width: min(100%, 11rem);
   }
 }
+.hero-eyebrow {
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--volt);
+}
 .hero-platforms {
   position: relative;
   z-index: 1;
@@ -488,6 +496,63 @@ code {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+/* Platforms (text-only device list — no screenshots) */
+.platforms {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(10, 14, 20, 0.08);
+}
+.platforms-inner { max-width: 720px; }
+.platforms-kicker {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--volt);
+}
+.platforms-inner h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 3.5vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+.platforms-body {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 40rem;
+}
+.platforms-list {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem 1.75rem;
+}
+.platforms-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.platforms-list strong {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+.platforms-list span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+@media (max-width: 520px) {
+  .platforms-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Devices */
@@ -719,6 +784,27 @@ code {
   background: #0a0e14;
 }
 .feature-phone.is-missing {
+  display: none;
+}
+.feature-tablet {
+  width: min(280px, 72vw);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #0a0e14;
+  box-shadow: 0 10px 28px rgba(10, 14, 20, 0.18);
+  border: 1px solid rgba(10, 14, 20, 0.12);
+  transform-origin: center top;
+}
+.feature-tablet img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  object-position: top center;
+  background: #0a0e14;
+}
+.feature-tablet.is-missing {
   display: none;
 }
 .feature-panel,
@@ -2308,6 +2394,7 @@ code {
   .hero-trio__watch,
   .hero-trio__ipad,
   .feature-phone,
+  .feature-tablet,
   .feature-watch-grid figure {
     cursor: zoom-in;
   }
@@ -2323,6 +2410,7 @@ code {
   .watch-seq-item,
   .watch-flow-item,
   .feature-phone,
+  .feature-tablet,
   .feature-watch-grid figure {
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease, box-shadow 0.35s ease;
   }
@@ -2338,6 +2426,13 @@ code {
 
   .feature-phone.is-shot-zoomed {
     transform: scale(1.72) !important;
+    z-index: 12;
+    box-shadow: 0 28px 56px rgba(10, 14, 20, 0.35);
+    position: relative;
+  }
+
+  .feature-tablet.is-shot-zoomed {
+    transform: scale(1.35) !important;
     z-index: 12;
     box-shadow: 0 28px 56px rgba(10, 14, 20, 0.35);
     position: relative;
