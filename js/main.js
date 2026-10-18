@@ -454,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
     stopWatchAuto();
   }, { once: true });
 
-  // iPad: one snapshot; step buttons only highlight copy (no image carousel).
+  // iPad workbench: 3-image carousel (anagrafica · assign · bio) + step copy tabs.
   const setIpadStep = (step) => {
     const key = step || 'clients';
     document.querySelectorAll('.ipad-step-btn').forEach((btn) => {
@@ -467,6 +467,200 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.ipad-step-btn').forEach((el) => {
     el.addEventListener('click', () => setIpadStep(el.dataset.ipadStep));
   });
+
+  const ipadCarousel = document.querySelector('[data-ipad-carousel]');
+  if (ipadCarousel) {
+    const slides = Array.from(ipadCarousel.querySelectorAll('[data-ipad-slide]'));
+    const dotsHost = ipadCarousel.querySelector('[data-ipad-carousel-dots]');
+    const captionEl = document.getElementById('ipadHeroCaption');
+    let ipadIdx = 0;
+    let ipadTimer = null;
+
+    const captionFor = (slide) => {
+      const key = slide?.dataset.captionKey;
+      if (key && window.siteI18n?.translations) {
+        const lang = window.siteI18n.lang || 'it';
+        const dict =
+          window.siteI18n.translations[lang] ||
+          window.siteI18n.translations.it ||
+          {};
+        if (dict[key]) return dict[key];
+      }
+      return slide?.alt || '';
+    };
+
+    const goIpad = (index) => {
+      if (!slides.length) return;
+      ipadIdx = ((index % slides.length) + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const on = i === ipadIdx;
+        slide.classList.toggle('is-active', on);
+        if (on) slide.removeAttribute('hidden');
+        else slide.setAttribute('hidden', '');
+      });
+      dotsHost?.querySelectorAll('.ipad-carousel-dot').forEach((dot, i) => {
+        dot.setAttribute('aria-selected', String(i === ipadIdx));
+      });
+      if (captionEl) {
+        const text = captionFor(slides[ipadIdx]);
+        captionEl.textContent = text;
+        const key = slides[ipadIdx]?.dataset.captionKey;
+        if (key) captionEl.setAttribute('data-i18n', key);
+      }
+    };
+
+    if (dotsHost) {
+      dotsHost.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'ipad-carousel-dot';
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Snapshot ${i + 1}`);
+        dot.setAttribute('aria-selected', String(i === 0));
+        dot.addEventListener('click', () => {
+          stopIpadAuto();
+          goIpad(i);
+        });
+        dotsHost.appendChild(dot);
+      });
+    }
+
+    ipadCarousel
+      .querySelector('[data-ipad-carousel-prev]')
+      ?.addEventListener('click', () => {
+        stopIpadAuto();
+        goIpad(ipadIdx - 1);
+      });
+    ipadCarousel
+      .querySelector('[data-ipad-carousel-next]')
+      ?.addEventListener('click', () => {
+        stopIpadAuto();
+        goIpad(ipadIdx + 1);
+      });
+
+    const startIpadAuto = () => {
+      if (ipadTimer || slides.length < 2) return;
+      ipadTimer = window.setInterval(() => goIpad(ipadIdx + 1), 3800);
+    };
+    const stopIpadAuto = () => {
+      if (!ipadTimer) return;
+      window.clearInterval(ipadTimer);
+      ipadTimer = null;
+    };
+
+    goIpad(0);
+
+    const ipadSection = document.getElementById('ipad');
+    if (ipadSection && 'IntersectionObserver' in window) {
+      const iio = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) startIpadAuto();
+            else stopIpadAuto();
+          });
+        },
+        { threshold: 0.3 },
+      );
+      iio.observe(ipadSection);
+    }
+    ipadCarousel.addEventListener(
+      'pointerdown',
+      () => {
+        stopIpadAuto();
+      },
+      { once: true },
+    );
+  }
+
+  // Studio iPad snapshots: single-frame carousel (saves vertical space vs grid).
+  const studioCarousel = document.querySelector('[data-studio-carousel]');
+  if (studioCarousel) {
+    const slides = Array.from(
+      studioCarousel.querySelectorAll('.studio-snap[data-studio-slide]'),
+    );
+    const dotsHost = studioCarousel.querySelector('[data-studio-carousel-dots]');
+    let studioIdx = 0;
+    let studioTimer = null;
+
+    const goStudio = (index) => {
+      if (!slides.length) return;
+      studioIdx = ((index % slides.length) + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const on = i === studioIdx;
+        slide.classList.toggle('is-active', on);
+        if (on) slide.removeAttribute('hidden');
+        else slide.setAttribute('hidden', '');
+      });
+      dotsHost?.querySelectorAll('.studio-carousel-dot').forEach((dot, i) => {
+        dot.setAttribute('aria-selected', String(i === studioIdx));
+      });
+    };
+
+    if (dotsHost) {
+      dotsHost.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'studio-carousel-dot';
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Snapshot ${i + 1}`);
+        dot.setAttribute('aria-selected', String(i === 0));
+        dot.addEventListener('click', () => {
+          stopStudioAuto();
+          goStudio(i);
+        });
+        dotsHost.appendChild(dot);
+      });
+    }
+
+    studioCarousel
+      .querySelector('[data-studio-carousel-prev]')
+      ?.addEventListener('click', () => {
+        stopStudioAuto();
+        goStudio(studioIdx - 1);
+      });
+    studioCarousel
+      .querySelector('[data-studio-carousel-next]')
+      ?.addEventListener('click', () => {
+        stopStudioAuto();
+        goStudio(studioIdx + 1);
+      });
+
+    const advanceStudio = () => goStudio(studioIdx + 1);
+    const startStudioAuto = () => {
+      if (studioTimer || slides.length < 2) return;
+      studioTimer = window.setInterval(advanceStudio, 4200);
+    };
+    const stopStudioAuto = () => {
+      if (!studioTimer) return;
+      window.clearInterval(studioTimer);
+      studioTimer = null;
+    };
+
+    goStudio(0);
+
+    const studioSection = document.getElementById('trainer-studio');
+    if (studioSection && 'IntersectionObserver' in window) {
+      const sio = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) startStudioAuto();
+            else stopStudioAuto();
+          });
+        },
+        { threshold: 0.28 },
+      );
+      sio.observe(studioSection);
+    }
+    studioCarousel.addEventListener(
+      'pointerdown',
+      () => {
+        stopStudioAuto();
+      },
+      { once: true },
+    );
+  }
 
   const featureShotCaption = (item, index, file) => {
     const keys = (item.dataset.shotCaps || '')

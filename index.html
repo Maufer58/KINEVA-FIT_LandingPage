@@ -560,17 +560,36 @@
 
         <div class="ipad-showcase reveal">
           <div class="ipad-visual">
-            <div class="ipad-hero">
+            <div class="ipad-hero" id="ipadHeroCarousel" data-ipad-carousel>
               <div class="ipad-pro-frame" aria-hidden="false">
                 <div class="ipad-pro-chrome">
                   <span class="ipad-pro-cam" aria-hidden="true"></span>
                   <div class="ipad-pro-screen">
-                    <img id="ipadHeroShot"
-                         class="ipad-pro-shot"
-                         src="assets/screenshots/10-trainer-ipad.png"
-                         alt="iPad Pro · profili clienti"
-                         data-fallbacks="10-trainer.png,11-studio-ipad.png,06-editor-ipad.png,ipad-editor.png"
-                         onerror="window.strideIpadShotFallback && window.strideIpadShotFallback(this)">
+                    <div class="ipad-carousel-slides" aria-live="polite">
+                      <img class="ipad-pro-shot is-active"
+                           data-ipad-slide="0"
+                           src="assets/screenshots/10-anagrafica-ipad.png"
+                           alt="iPad Pro · anagrafiche a quadratoni"
+                           data-caption-key="ipad.carousel.cap1"
+                           data-fallbacks="10-trainer-ipad.png,10-trainer.png"
+                           onerror="window.strideIpadShotFallback && window.strideIpadShotFallback(this)">
+                      <img class="ipad-pro-shot"
+                           data-ipad-slide="1"
+                           src="assets/screenshots/10-send-ipad.png"
+                           alt="iPad Pro · assegnazione clienti"
+                           data-caption-key="ipad.carousel.cap2"
+                           hidden
+                           data-fallbacks="10-trainer-ipad.png,10-trainer.png"
+                           onerror="window.strideIpadShotFallback && window.strideIpadShotFallback(this)">
+                      <img class="ipad-pro-shot"
+                           data-ipad-slide="2"
+                           src="assets/screenshots/10-bio-ipad.png"
+                           alt="iPad Pro · dati biometrici"
+                           data-caption-key="ipad.carousel.cap3"
+                           hidden
+                           data-fallbacks="10-anagrafica-ipad.png,10-trainer-ipad.png,10-trainer.png"
+                           onerror="window.strideIpadShotFallback && window.strideIpadShotFallback(this)">
+                    </div>
                     <div class="ipad-pro-mock" id="ipadHeroMock" hidden>
                       <aside class="ipad-mock-side">
                         <strong>Clienti</strong>
@@ -588,14 +607,19 @@
                 </div>
                 <p class="ipad-pro-badge">iPad Pro</p>
               </div>
-              <p class="ipad-hero-caption" id="ipadHeroCaption" data-i18n="ipad.soloCaption">iPad Pro · Studio trainer</p>
+              <div class="ipad-carousel-controls">
+                <button type="button" class="ipad-carousel-nav" data-ipad-carousel-prev aria-label="Immagine precedente">‹</button>
+                <div class="ipad-carousel-dots" role="tablist" aria-label="Snapshot tavolo di lavoro" data-ipad-carousel-dots></div>
+                <button type="button" class="ipad-carousel-nav" data-ipad-carousel-next aria-label="Immagine successiva">›</button>
+              </div>
+              <p class="ipad-hero-caption" id="ipadHeroCaption" data-i18n="ipad.carousel.cap1">iPad Pro · Anagrafiche a quadratoni</p>
             </div>
           </div>
 
           <div class="ipad-steps" role="tablist" aria-label="Funzioni iPad">
             <button type="button" class="ipad-step-btn active" data-ipad-step="clients" role="tab" aria-selected="true">
               <strong data-i18n="ipad.s1.title">Profili clienti</strong>
-              <span data-i18n="ipad.s1.body">Anagrafica, note, limitazioni, sport e biometria — area protetta da PIN.</span>
+              <span data-i18n="ipad.s1.body">Su iPad anagrafiche a quadratoni con Apri: note, limitazioni, sport e biometria — area protetta da PIN.</span>
             </button>
             <button type="button" class="ipad-step-btn" data-ipad-step="editor" role="tab" aria-selected="false">
               <strong data-i18n="ipad.s2.title">Schede e editor</strong>
@@ -647,58 +671,98 @@
         </ol>
 
         <div class="studio-snaps-head reveal">
-          <h3 data-i18n="studio.snaps.title">Tre snapshot iPad: staff, clienti, trasferimento</h3>
-          <p data-i18n="studio.snaps.lead">Su tablet il Supervisore governa i posti trainer, assegna gli atleti allo staff e sposta clienti o profili tra device — senza mescolare gli spazi degli altri.</p>
+          <h3 data-i18n="studio.snaps.title">Snapshot iPad in carosello</h3>
+          <p data-i18n="studio.snaps.lead">Una cornice alla volta: staff, clienti, trasferimento, anagrafica a quadratoni e biometria — scorri o lascia scorrere per risparmiare spazio.</p>
         </div>
 
-        <div class="studio-snapshots reveal" aria-label="Snapshot iPad Studio">
-          <article class="studio-snap">
-            <figure class="studio-snap-frame">
-              <img src="assets/screenshots/11-studio-ipad.png"
-                   alt="iPad — Studio &amp; Gym, roster clienti e area Supervisore"
-                   width="1200"
-                   height="900"
-                   loading="lazy"
-                   decoding="async"
-                   data-fallbacks="10-trainer-ipad.png,10-trainer.png">
-              <span class="studio-snap-badge" data-i18n="studio.snap1.badge">01 · Gestione trainer</span>
-            </figure>
-            <h4 data-i18n="studio.snap1.title">Gestione trainer e posti sul device</h4>
-            <p data-i18n="studio.snap1.body">Il Supervisore crea fino a 3 trainer (nome + PIN), abilita chi entra nei turni e sospende lo staff senza cancellare i dati. Un Supervisore + 3 posti; in testata vedi sempre il ruolo attivo.</p>
-            <p class="studio-snap-path" data-i18n="studio.snap1.path">Percorso: login (rotella + PIN) → Gestione trainer · Piano Studio &amp; Gym</p>
-          </article>
+        <div class="studio-carousel reveal" id="studioCarousel" data-studio-carousel>
+          <div class="studio-carousel-stage">
+            <button type="button" class="studio-carousel-nav studio-carousel-nav--prev" data-studio-carousel-prev aria-label="Snapshot precedente">‹</button>
+            <div class="studio-snapshots" id="studioSnapshots" aria-live="polite" aria-roledescription="carosello" aria-label="Snapshot iPad Studio">
+              <article class="studio-snap is-active" data-studio-slide="0">
+                <figure class="studio-snap-frame">
+                  <img src="assets/screenshots/11-studio-ipad.png"
+                       alt="iPad — Studio &amp; Gym, roster clienti e area Supervisore"
+                       width="1200"
+                       height="900"
+                       loading="lazy"
+                       decoding="async"
+                       data-fallbacks="10-trainer-ipad.png,10-trainer.png">
+                  <span class="studio-snap-badge" data-i18n="studio.snap1.badge">01 · Gestione trainer</span>
+                </figure>
+                <h4 data-i18n="studio.snap1.title">Gestione trainer e posti sul device</h4>
+                <p data-i18n="studio.snap1.body">Il Supervisore crea fino a 3 trainer (nome + PIN), abilita chi entra nei turni e sospende lo staff senza cancellare i dati. Un Supervisore + 3 posti; in testata vedi sempre il ruolo attivo.</p>
+                <p class="studio-snap-path" data-i18n="studio.snap1.path">Percorso: login (rotella + PIN) → Gestione trainer · Piano Studio &amp; Gym</p>
+              </article>
 
-          <article class="studio-snap">
-            <figure class="studio-snap-frame">
-              <img src="assets/screenshots/10-send-ipad.png"
-                   alt="iPad — assegnazione schede e clienti all’atleta"
-                   width="1200"
-                   height="900"
-                   loading="lazy"
-                   decoding="async"
-                   data-fallbacks="10-trainer-ipad.png,10-trainer.png">
-              <span class="studio-snap-badge" data-i18n="studio.snap2.badge">02 · Assegnazione clienti</span>
-            </figure>
-            <h4 data-i18n="studio.snap2.title">Assegnare clienti e schede allo staff</h4>
-            <p data-i18n="studio.snap2.body">Chi crea l’atleta ne è proprietario. Dal drawer puoi condividere lo stesso cliente con uno o più trainer: il ricevente gestisce schede e allenamenti; solo proprietario/Supervisore cancellano o ri-condividono.</p>
-            <p class="studio-snap-path" data-i18n="studio.snap2.path">Percorso: ☰ drawer → ⋯ sul cliente → Condividi con i trainer · oppure assegna schede dal catalogo master</p>
-          </article>
+              <article class="studio-snap" data-studio-slide="1" hidden>
+                <figure class="studio-snap-frame">
+                  <img src="assets/screenshots/10-send-ipad.png"
+                       alt="iPad — assegnazione schede e clienti all’atleta"
+                       width="1200"
+                       height="900"
+                       loading="lazy"
+                       decoding="async"
+                       data-fallbacks="10-trainer-ipad.png,10-trainer.png">
+                  <span class="studio-snap-badge" data-i18n="studio.snap2.badge">02 · Assegnazione clienti</span>
+                </figure>
+                <h4 data-i18n="studio.snap2.title">Assegnare clienti e schede allo staff</h4>
+                <p data-i18n="studio.snap2.body">Chi crea l’atleta ne è proprietario. Dal drawer puoi condividere lo stesso cliente con uno o più trainer: il ricevente gestisce schede e allenamenti; solo proprietario/Supervisore cancellano o ri-condividono.</p>
+                <p class="studio-snap-path" data-i18n="studio.snap2.path">Percorso: ☰ drawer → ⋯ sul cliente → Condividi con i trainer · oppure assegna schede dal catalogo master</p>
+              </article>
 
-          <article class="studio-snap">
-            <figure class="studio-snap-frame">
-              <img src="assets/screenshots/10-share-ipad.png"
-                   alt="iPad — condivisione e trasferimento clienti / esportazioni"
-                   width="1200"
-                   height="900"
-                   loading="lazy"
-                   decoding="async"
-                   data-fallbacks="10-send-ipad.png,10-trainer-ipad.png">
-              <span class="studio-snap-badge" data-i18n="studio.snap3.badge">03 · Trasferimento</span>
-            </figure>
-            <h4 data-i18n="studio.snap3.title">Trasferire clienti e profili trainer</h4>
-            <p data-i18n="studio.snap3.body">Sullo stesso device: togli o sposta la condivisione tra trainer senza perdere lo storico del proprietario. Tra iPad/iPhone: export/import del profilo trainer (clienti + schede + storico) — distinto dal Backup Completo e dal solo JSON schede.</p>
-            <p class="studio-snap-path" data-i18n="studio.snap3.path">Percorso: Condividi con i trainer · Export/import profilo trainer · vedi anche #staff-trainers e #backup-export</p>
-          </article>
+              <article class="studio-snap" data-studio-slide="2" hidden>
+                <figure class="studio-snap-frame">
+                  <img src="assets/screenshots/10-share-ipad.png"
+                       alt="iPad — condivisione e trasferimento clienti / esportazioni"
+                       width="1200"
+                       height="900"
+                       loading="lazy"
+                       decoding="async"
+                       data-fallbacks="10-send-ipad.png,10-trainer-ipad.png">
+                  <span class="studio-snap-badge" data-i18n="studio.snap3.badge">03 · Trasferimento</span>
+                </figure>
+                <h4 data-i18n="studio.snap3.title">Trasferire clienti e profili trainer</h4>
+                <p data-i18n="studio.snap3.body">Sullo stesso device: togli o sposta la condivisione tra trainer senza perdere lo storico del proprietario. Tra iPad/iPhone: export/import del profilo trainer (clienti + schede + storico) — distinto dal Backup Completo e dal solo JSON schede.</p>
+                <p class="studio-snap-path" data-i18n="studio.snap3.path">Percorso: Condividi con i trainer · Export/import profilo trainer · vedi anche #staff-trainers e #backup-export</p>
+              </article>
+
+              <article class="studio-snap" data-studio-slide="3" hidden>
+                <figure class="studio-snap-frame">
+                  <img src="assets/screenshots/10-anagrafica-ipad.png"
+                       alt="iPad — anagrafiche clienti a quadratoni, area protetta PIN"
+                       width="1200"
+                       height="900"
+                       loading="lazy"
+                       decoding="async"
+                       data-fallbacks="10-trainer-ipad.png,10-trainer.png">
+                  <span class="studio-snap-badge" data-i18n="studio.snap4.badge">04 · Anagrafica</span>
+                </figure>
+                <h4 data-i18n="studio.snap4.title">Anagrafiche clienti a quadratoni</h4>
+                <p data-i18n="studio.snap4.body">Su iPad l’elenco clienti è una griglia di tile grandi: nome, stato scheda e pulsante Apri. Tocca un quadratone per entrare nel profilo (note, limitazioni, sport) nell’area protetta da PIN — più leggibile del semplice elenco.</p>
+                <p class="studio-snap-path" data-i18n="studio.snap4.path">Percorso: Anagrafica clienti (tablet) · area PIN Trainer / Studio</p>
+              </article>
+
+              <article class="studio-snap" data-studio-slide="4" hidden>
+                <figure class="studio-snap-frame">
+                  <img src="assets/screenshots/10-bio-ipad.png"
+                       alt="iPad — dati biometrici del cliente selezionato"
+                       width="1200"
+                       height="900"
+                       loading="lazy"
+                       decoding="async"
+                       data-fallbacks="10-anagrafica-ipad.png,10-trainer-ipad.png,10-trainer.png">
+                  <span class="studio-snap-badge" data-i18n="studio.snap5.badge">05 · Biometria</span>
+                </figure>
+                <h4 data-i18n="studio.snap5.title">Dati biometrici del cliente</h4>
+                <p data-i18n="studio.snap5.body">Dopo Apri, sul tablet vedi peso, altezza, composizione e storico misure accanto all’anagrafica — master–detail pensato per il canvas iPad, senza lasciare la scheda cliente.</p>
+                <p class="studio-snap-path" data-i18n="studio.snap5.path">Percorso: Anagrafica clienti → Apri tile → pannello biometria</p>
+              </article>
+            </div>
+            <button type="button" class="studio-carousel-nav studio-carousel-nav--next" data-studio-carousel-next aria-label="Snapshot successiva">›</button>
+          </div>
+          <div class="studio-carousel-dots" role="tablist" aria-label="Scegli snapshot" data-studio-carousel-dots></div>
+          <p class="studio-carousel-hint" data-i18n="studio.snaps.carouselHint">Scorri · 5 snapshot</p>
         </div>
 
         <p class="studio-snaps-more reveal">

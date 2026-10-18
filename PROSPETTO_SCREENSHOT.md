@@ -91,24 +91,30 @@ Proporzioni: iPhone il più alto, iPad il più largo, Watch il più piccolo.
 
 | Uso in pagina | File | Contenuto da catturare |
 |---------------|------|------------------------|
-| Snapshot unica (`#ipad`) | `10-trainer-ipad.png` | Lista / profili clienti, area PIN (rappresentativa Studio) |
-| Trio Studio (`#trainer-studio`) | `11-studio-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` | Gestione trainer / posti · assegnazione clienti · trasferimento/condivisione |
+| Snapshot unica (`#ipad`) | `10-trainer-ipad.png` | Lista / profili clienti a **quadratoni**, area PIN (rappresentativa Studio) |
+| Carosello Studio (`#trainer-studio`) | `11-studio-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` · `10-anagrafica-ipad.png` · `10-bio-ipad.png` | **Una cornice alla volta** (autoplay + freccia/dot): trainer · assegnazione · trasferimento · anagrafica tile · biometria |
 
 **Formato:** PNG landscape ~**4:3** (es. 2048×1536 o 1600×1200).  
-**Fallback:** `10-trainer.png` · `ipad-editor.png`.
+**Fallback:** `10-trainer-ipad.png` → `10-trainer.png` · `ipad-editor.png`.
+
+| File Studio extra | Cosa catturare su iPad |
+|-------------------|------------------------|
+| `10-anagrafica-ipad.png` | Griglia clienti (tile grandi + **Apri**), area protetta PIN |
+| `10-bio-ipad.png` | Pannello dati biometrici del cliente aperto (peso/altezza/composizione) |
 
 ---
 
 ## G · Sezione Studio & Gym (`#trainer-studio`)
 
-**Dove la vedi:** blocco tra iPad e Import AI — workflow 3 step + griglia 15 card (batch schede, WhatsApp/PDF/JSON, database, patologie, backup, clienti).
+**Dove la vedi:** blocco tra iPad e Import AI — workflow 3 step + **cinque** snapshot iPad + griglia card (batch schede, WhatsApp/PDF/JSON, database, patologie, backup, clienti).
 
 | Contenuto | Screenshot |
 |-----------|------------|
-| Testo marketing IT/EN | **Nessun file dedicato** |
-| Riferimento visivo consigliato | Tab `#screens` **10 · Trainer** (`10-trainer.png`) e/o iPad `#ipad` passi 1–5 |
+| Carosello 5 snapshot iPad | `11-studio-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` · `10-anagrafica-ipad.png` · `10-bio-ipad.png` |
+| Testo marketing IT/EN | griglia card sotto il carosello |
 
-**Nota:** se in futuro aggiungi catture dedicate (es. Admin Panel, batch schede), salva come `10-trainer-batch.png`, `10-trainer-export.png` e aggiorna `index.html` + questo prospetto.
+**UI:** una sola cornice visibile (freccia / dot / autoplay ~4s).  
+**Catture 04–05:** sostituire i placeholder (oggi copia di `10-trainer-ipad.png`) con screenshot reali di anagrafica a tile e pannello biometria.
 
 ---
 
