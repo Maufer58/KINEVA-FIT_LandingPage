@@ -573,6 +573,95 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
+  // Studio iPad snapshots: large single-frame carousel.
+  const studioCarousel = document.querySelector('[data-studio-carousel]');
+  if (studioCarousel) {
+    const slides = Array.from(
+      studioCarousel.querySelectorAll('.studio-snap[data-studio-slide]'),
+    );
+    const dotsHost = studioCarousel.querySelector('[data-studio-carousel-dots]');
+    let studioIdx = 0;
+    let studioTimer = null;
+
+    const goStudio = (index) => {
+      if (!slides.length) return;
+      studioIdx = ((index % slides.length) + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const on = i === studioIdx;
+        slide.classList.toggle('is-active', on);
+        if (on) slide.removeAttribute('hidden');
+        else slide.setAttribute('hidden', '');
+      });
+      dotsHost?.querySelectorAll('.studio-carousel-dot').forEach((dot, i) => {
+        dot.setAttribute('aria-selected', String(i === studioIdx));
+      });
+    };
+
+    if (dotsHost) {
+      dotsHost.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'studio-carousel-dot';
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Snapshot ${i + 1}`);
+        dot.setAttribute('aria-selected', String(i === 0));
+        dot.addEventListener('click', () => {
+          stopStudioAuto();
+          goStudio(i);
+        });
+        dotsHost.appendChild(dot);
+      });
+    }
+
+    studioCarousel
+      .querySelector('[data-studio-carousel-prev]')
+      ?.addEventListener('click', () => {
+        stopStudioAuto();
+        goStudio(studioIdx - 1);
+      });
+    studioCarousel
+      .querySelector('[data-studio-carousel-next]')
+      ?.addEventListener('click', () => {
+        stopStudioAuto();
+        goStudio(studioIdx + 1);
+      });
+
+    const advanceStudio = () => goStudio(studioIdx + 1);
+    const startStudioAuto = () => {
+      if (studioTimer || slides.length < 2) return;
+      studioTimer = window.setInterval(advanceStudio, 4200);
+    };
+    const stopStudioAuto = () => {
+      if (!studioTimer) return;
+      window.clearInterval(studioTimer);
+      studioTimer = null;
+    };
+
+    goStudio(0);
+
+    const studioSection = document.getElementById('trainer-studio');
+    if (studioSection && 'IntersectionObserver' in window) {
+      const sio = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) startStudioAuto();
+            else stopStudioAuto();
+          });
+        },
+        { threshold: 0.28 },
+      );
+      sio.observe(studioSection);
+    }
+    studioCarousel.addEventListener(
+      'pointerdown',
+      () => {
+        stopStudioAuto();
+      },
+      { once: true },
+    );
+  }
+
   const featureShotCaption = (item, index, file) => {
     const keys = (item.dataset.shotCaps || '')
       .split(',')
@@ -794,6 +883,7 @@ function initLandingShotZoom() {
     '.watch-flow-item',
     '.feature-phone',
     '.feature-watch-grid figure',
+    '.studio-snap-frame',
   ].join(',');
 
   const bindZoom = (el) => {
@@ -820,7 +910,7 @@ function initLandingShotZoom() {
   });
 }
 
-/** Click-to-lightbox for iPad carousel snapshots (works on touch too). */
+/** Click-to-lightbox for Studio / iPad carousel snapshots (works on touch too). */
 function initShotLightbox() {
   const root = document.createElement('div');
   root.className = 'shot-lightbox';
@@ -887,17 +977,21 @@ function initShotLightbox() {
   };
 
   const captionNear = (el) => {
-    const host = el.closest?.('.ipad-hero, [data-ipad-carousel]');
+    const host = el.closest?.('.studio-snap, .ipad-hero, [data-ipad-carousel], [data-studio-carousel]');
     if (!host) return '';
-    const cap = host.querySelector?.('.ipad-hero-caption');
+    const title = host.querySelector?.('h4');
+    if (title?.textContent?.trim()) return title.textContent.trim();
+    const cap = host.querySelector?.('.ipad-hero-caption, .studio-snap-badge');
     return cap?.textContent?.trim() || '';
   };
 
   document.addEventListener('click', (ev) => {
-    const hit = ev.target.closest?.('.ipad-pro-frame, .ipad-pro-shot.is-active');
+    const hit = ev.target.closest?.(
+      '.studio-snap-frame, .ipad-pro-frame, .ipad-pro-shot.is-active',
+    );
     if (!hit) return;
     // Ignore carousel nav / dots inside the same visual block.
-    if (ev.target.closest?.('button, a, .ipad-carousel-nav, .ipad-carousel-dot')) {
+    if (ev.target.closest?.('button, a, .ipad-carousel-nav, .studio-carousel-nav, .ipad-carousel-dot, .studio-carousel-dot')) {
       return;
     }
     const img = resolveImg(hit);
@@ -906,12 +1000,17 @@ function initShotLightbox() {
     open(img.currentSrc || img.src, img.alt || '', captionNear(hit));
   });
 
-  document.querySelectorAll('.ipad-pro-frame').forEach((frame) => {
+  document.querySelectorAll('.studio-snap-frame, .ipad-pro-frame').forEach((frame) => {
     if (frame.dataset.lbBound === '1') return;
     frame.dataset.lbBound = '1';
     frame.setAttribute('role', 'button');
     frame.setAttribute('tabindex', '0');
-    frame.setAttribute('aria-label', 'Ingrandisci snapshot iPad');
+    frame.setAttribute(
+      'aria-label',
+      frame.classList.contains('studio-snap-frame')
+        ? 'Ingrandisci snapshot'
+        : 'Ingrandisci snapshot iPad',
+    );
     frame.addEventListener('keydown', (ev) => {
       if (ev.key !== 'Enter' && ev.key !== ' ') return;
       ev.preventDefault();
