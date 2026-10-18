@@ -1330,6 +1330,15 @@ code {
   text-transform: uppercase;
   color: #5eead4;
 }
+.ipad-carousel-hint {
+  margin: 0.25rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(243, 246, 249, 0.4);
+}
 .ipad-thumbs {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));

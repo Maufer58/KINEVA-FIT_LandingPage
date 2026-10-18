@@ -91,16 +91,17 @@ Proporzioni: iPhone il più alto, iPad il più largo, Watch il più piccolo.
 
 | Uso in pagina | File | Contenuto da catturare |
 |---------------|------|------------------------|
-| Snapshot unica (`#ipad`) | `10-trainer-ipad.png` | Lista / profili clienti a **quadratoni**, area PIN (rappresentativa Studio) |
-| Carosello Studio (`#trainer-studio`) | `11-studio-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` · `10-anagrafica-ipad.png` · `10-bio-ipad.png` | **Una cornice alla volta** (autoplay + freccia/dot): trainer · assegnazione · trasferimento · anagrafica tile · biometria |
+| Carosello 3 (`#ipad` · tavolo di lavoro) | `10-anagrafica-ipad.png` · `10-anagrafica-detail-ipad.png` · `10-bio-ipad.png` | **Quadratoni** → **dettaglio anagrafica** → **biometria** (autoplay + freccia/dot) |
+| Carosello Studio (`#trainer-studio`) | `11-studio-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` · `10-anagrafica-ipad.png` · `10-bio-ipad.png` | **Una cornice alla volta**: trainer · assegnazione · trasferimento · anagrafica tile · biometria |
 
 **Formato:** PNG landscape ~**4:3** (es. 2048×1536 o 1600×1200).  
 **Fallback:** `10-trainer-ipad.png` → `10-trainer.png` · `ipad-editor.png`.
 
-| File Studio extra | Cosa catturare su iPad |
-|-------------------|------------------------|
+| File `#ipad` / Studio | Cosa catturare su iPad |
+|-----------------------|------------------------|
 | `10-anagrafica-ipad.png` | Griglia clienti (tile grandi + **Apri**), area protetta PIN |
-| `10-bio-ipad.png` | Pannello dati biometrici del cliente aperto (peso/altezza/composizione) |
+| `10-anagrafica-detail-ipad.png` | **Dettaglio anagrafica** del cliente aperto (note, limitazioni, sport, contatti) |
+| `10-bio-ipad.png` | Pannello dati biometrici del cliente (peso/altezza/composizione) |
 
 ---
 
