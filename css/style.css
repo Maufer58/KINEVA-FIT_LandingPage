@@ -2751,6 +2751,7 @@ body.shot-lightbox-open {
     transform: scale(1.28) !important;
     z-index: 8;
     position: relative;
+    overflow: visible;
     box-shadow: 0 24px 48px rgba(10, 14, 20, 0.28);
   }
 
