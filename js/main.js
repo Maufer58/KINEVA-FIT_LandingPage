@@ -882,8 +882,12 @@ function initLandingShotZoom() {
     '.watch-seq-item',
     '.watch-flow-item',
     '.feature-phone',
+    '.feature-tablet',
     '.feature-watch-grid figure',
     '.studio-snap-frame',
+    '.analytics-shot',
+    '.plans-addon-shot',
+    '.studio-broll .promo-broll-video',
   ].join(',');
 
   const bindZoom = (el) => {
@@ -977,17 +981,29 @@ function initShotLightbox() {
   };
 
   const captionNear = (el) => {
-    const host = el.closest?.('.studio-snap, .ipad-hero, [data-ipad-carousel], [data-studio-carousel]');
+    const snap = el.closest?.('.studio-snap');
+    if (snap) {
+      return snap.querySelector('h4')?.textContent?.trim() || '';
+    }
+    if (el.closest?.('#analytics')) {
+      return (
+        document.querySelector('#analytics [data-i18n="analytics.title"]')?.textContent?.trim() ||
+        'Analizza dati'
+      );
+    }
+    if (el.closest?.('.plans-addon')) {
+      return (
+        el.closest('.plans-addon').querySelector('h3')?.textContent?.trim() || 'Pacchetto Pilates'
+      );
+    }
+    const host = el.closest?.('.ipad-hero, [data-ipad-carousel]');
     if (!host) return '';
-    const title = host.querySelector?.('h4');
-    if (title?.textContent?.trim()) return title.textContent.trim();
-    const cap = host.querySelector?.('.ipad-hero-caption, .studio-snap-badge');
-    return cap?.textContent?.trim() || '';
+    return host.querySelector?.('.ipad-hero-caption')?.textContent?.trim() || '';
   };
 
   document.addEventListener('click', (ev) => {
     const hit = ev.target.closest?.(
-      '.studio-snap-frame, .ipad-pro-frame, .ipad-pro-shot.is-active',
+      '.studio-snap-frame, .ipad-pro-frame, .ipad-pro-shot.is-active, .analytics-shot, .plans-addon-shot',
     );
     if (!hit) return;
     // Ignore carousel nav / dots inside the same visual block.
@@ -1000,7 +1016,7 @@ function initShotLightbox() {
     open(img.currentSrc || img.src, img.alt || '', captionNear(hit));
   });
 
-  document.querySelectorAll('.studio-snap-frame, .ipad-pro-frame').forEach((frame) => {
+  document.querySelectorAll('.studio-snap-frame, .ipad-pro-frame, .analytics-shot, .plans-addon-shot').forEach((frame) => {
     if (frame.dataset.lbBound === '1') return;
     frame.dataset.lbBound = '1';
     frame.setAttribute('role', 'button');

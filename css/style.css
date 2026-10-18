@@ -1717,6 +1717,7 @@ body.shot-lightbox-open {
   display: flex;
   justify-content: center;
   padding: 1rem 0;
+  overflow: visible;
 }
 .analytics-phone {
   width: min(240px, 62vw);
@@ -1747,6 +1748,9 @@ body.shot-lightbox-open {
 }
 .analytics-shot {
   margin: 0;
+  display: block;
+  width: 100%;
+  transform-origin: center center;
 }
 .analytics-shot-img {
   display: block;
@@ -1760,6 +1764,7 @@ body.shot-lightbox-open {
   box-shadow: 0 18px 40px rgba(10, 14, 20, 0.14);
   animation: floatY 6.2s ease-in-out infinite;
   animation-delay: -0.8s;
+  pointer-events: none;
 }
 .studio-broll {
   margin: 1.75rem auto 0;
@@ -2117,19 +2122,6 @@ body.shot-lightbox-open {
   font-weight: 600;
   line-height: 1.4;
   color: #ffb74d;
-}
-.studio-snaps-more {
-  margin: 0 0 2rem;
-}
-.studio-snaps-more a {
-  color: #ffb74d;
-  font-weight: 700;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255, 183, 77, 0.35);
-}
-.studio-snaps-more a:hover {
-  color: var(--mist);
-  border-bottom-color: rgba(230, 235, 241, 0.45);
 }
 .studio-groups {
   display: grid;
@@ -2636,7 +2628,11 @@ body.shot-lightbox-open {
   .hero-trio__ipad,
   .feature-phone,
   .feature-tablet,
-  .feature-watch-grid figure {
+  .feature-watch-grid figure,
+  .studio-snap-frame,
+  .analytics-shot,
+  .plans-addon-shot,
+  .studio-broll .promo-broll-video {
     cursor: zoom-in;
   }
 
@@ -2652,7 +2648,12 @@ body.shot-lightbox-open {
   .watch-flow-item,
   .feature-phone,
   .feature-tablet,
-  .feature-watch-grid figure {
+  .feature-watch-grid figure,
+  .studio-snap-frame,
+  .analytics-shot,
+  .analytics-shot-img,
+  .plans-addon-shot,
+  .studio-broll .promo-broll-video {
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease, box-shadow 0.35s ease;
   }
 
@@ -2726,6 +2727,39 @@ body.shot-lightbox-open {
 
   .watch-flow-item.is-active.is-shot-zoomed {
     transform: translateY(-4px) scale(1.36) !important;
+  }
+
+  .analytics-visual:has(.is-shot-zoomed),
+  .plans-addon-shots:has(.is-shot-zoomed) {
+    overflow: visible;
+    z-index: 6;
+  }
+
+  .analytics-shot.is-shot-zoomed {
+    animation: none !important;
+    transform: scale(1.12) !important;
+    z-index: 8;
+    position: relative;
+  }
+
+  .analytics-shot.is-shot-zoomed .analytics-shot-img {
+    animation: none !important;
+    box-shadow: 0 28px 56px rgba(10, 14, 20, 0.35);
+  }
+
+  .plans-addon-shot.is-shot-zoomed {
+    transform: scale(1.28) !important;
+    z-index: 8;
+    position: relative;
+    box-shadow: 0 24px 48px rgba(10, 14, 20, 0.28);
+  }
+
+  .studio-broll .promo-broll-video.is-shot-zoomed {
+    animation: none !important;
+    transform: scale(1.08) !important;
+    z-index: 6;
+    position: relative;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
   }
 }
 
@@ -3155,6 +3189,7 @@ body.shot-lightbox-open {
   gap: 0.75rem;
   margin: 1rem 0 0;
   align-items: flex-end;
+  overflow: visible;
 }
 .plans-addon-shot {
   margin: 0;
@@ -3165,6 +3200,7 @@ body.shot-lightbox-open {
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: #0a0e14;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  transform-origin: center bottom;
 }
 .plans-addon-shot img {
   display: block;
@@ -3173,6 +3209,7 @@ body.shot-lightbox-open {
   aspect-ratio: 9 / 19.5;
   object-fit: cover;
   object-position: top center;
+  pointer-events: none;
 }
 .plans-addon-badge {
   display: inline-block;
