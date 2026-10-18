@@ -32,7 +32,7 @@ website/
 | D | **Promo iPad Trainer** — **1** snapshot (+ testi step) | `#ipad` | `10-trainer-ipad.png` |
 | **G** | **Studio & Gym (back-office)** | `#trainer-studio` | **nessuna** cattura dedicata — riusa `#ipad` / `#screens` tab 10 |
 | E | Import AI da foto | `#ai-import` | `13-ai-import.png` · `20-ai-result.png` |
-| M | **Mobilità & Pilates** — doppio telefono | `#mobility-pilates` | `24-mobility.png` · `25-pilates.png` (fallback: `18` / `19` finché mancano) |
+| M | **Mobilità & Pilates** — tre telefoni | `#mobility-pilates` | `21-mobility.png` · `21-pilates.png` · `21-pilates2.png` (fallback: `24-mobility` / `25-pilates`) |
 | Bkp | **Backup ≠ Export/Import** — flussi chi→chi (solo testo) | `#backup-export` | nessuna immagine dedicata |
 | F | **Gallery “Dentro l’app”** — tab 01…10, **1** device per tab (Watch = sequenza 4) | `#screens` | `01-home.png` … `10-trainer.png` (+ Watch a/b/c/d solo sul tab 08) |
 | — | Highlight / piani / download | `#highlights` `#plans` `#download` | **nessuna** cattura app |
@@ -92,13 +92,12 @@ Proporzioni: iPhone il più alto, iPad il più largo, Watch il più piccolo.
 | Uso in pagina | File | Contenuto da catturare |
 |---------------|------|------------------------|
 | Carosello 3 (`#ipad` · tavolo di lavoro) | `10-anagrafica-ipad.png` · `10-anagrafica-detail-ipad.png` · `10-bio-ipad.png` | **Quadratoni** → **dettaglio anagrafica** → **biometria** (autoplay + freccia/dot) |
-| Carosello Studio (`#trainer-studio`) | `11-studio-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` · `10-anagrafica-ipad.png` · `10-bio-ipad.png` | **Una cornice alla volta**: trainer · assegnazione · trasferimento · anagrafica tile · biometria |
 
 **Formato:** PNG landscape ~**4:3** (es. 2048×1536 o 1600×1200).  
 **Fallback:** `10-trainer-ipad.png` → `10-trainer.png` · `ipad-editor.png`.
 
-| File `#ipad` / Studio | Cosa catturare su iPad |
-|-----------------------|------------------------|
+| File `#ipad` | Cosa catturare su iPad |
+|--------------|------------------------|
 | `10-anagrafica-ipad.png` | Griglia clienti (tile grandi + **Apri**), area protetta PIN |
 | `10-anagrafica-detail-ipad.png` | **Dettaglio anagrafica** del cliente aperto (note, limitazioni, sport, contatti) |
 | `10-bio-ipad.png` | Pannello dati biometrici del cliente (peso/altezza/composizione) |
@@ -107,15 +106,12 @@ Proporzioni: iPhone il più alto, iPad il più largo, Watch il più piccolo.
 
 ## G · Sezione Studio & Gym (`#trainer-studio`)
 
-**Dove la vedi:** blocco tra iPad e Import AI — workflow 3 step + **cinque** snapshot iPad + griglia card (batch schede, WhatsApp/PDF/JSON, database, patologie, backup, clienti).
+**Dove la vedi:** blocco tra iPad e Import AI — workflow 3 step + b-roll + griglia card (batch schede, WhatsApp/PDF/JSON, database, patologie, backup, clienti).  
+**Niente carosello snapshot iPad** in questa sezione (le catture iPad restano in `#ipad`).
 
 | Contenuto | Screenshot |
 |-----------|------------|
-| Carosello 5 snapshot iPad | `11-studio-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` · `10-anagrafica-ipad.png` · `10-bio-ipad.png` |
-| Testo marketing IT/EN | griglia card sotto il carosello |
-
-**UI:** una sola cornice visibile (freccia / dot / autoplay ~4s).  
-**Catture 04–05:** sostituire i placeholder (oggi copia di `10-trainer-ipad.png`) con screenshot reali di anagrafica a tile e pannello biometria.
+| Testo marketing IT/EN | griglia card + video b-roll |
 
 ---
 
@@ -219,7 +215,7 @@ Non ha file propri. Ogni riga cliccabile apre lo **stesso shot** della gallery:
 │  #ipad                                  │
 │  clienti → editor → invio → share → gym │  ← D
 ├─────────────────────────────────────────┤
-│  #trainer-studio  (testo, 15 card)      │  ← G
+│  #trainer-studio  (testo, 22 card)      │  ← G
 ├─────────────────────────────────────────┤
 │  #ai-import   → 13-ai-import.png        │  ← E
 │  #highlights  (testo)                   │

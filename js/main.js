@@ -182,15 +182,15 @@ const SHOT_CATALOG = {
     tab: 'swim',
   },
   '24': {
-    file: '24-mobility.png',
-    legacy: ['18-exercise-gif.png', '01-home.png', 'home.png'],
-    label: '#24 · 24-mobility.png',
+    file: '21-mobility.png',
+    legacy: ['24-mobility.png', '18-exercise-gif.png', '01-home.png', 'home.png'],
+    label: '#24 · 21-mobility.png',
     tab: 'mobility',
   },
   '25': {
-    file: '25-pilates.png',
-    legacy: ['19-muscle-map.png', '06-editor.png'],
-    label: '#25 · 25-pilates.png',
+    file: '21-pilates.png',
+    legacy: ['21-pilates2.png', '25-pilates.png', '19-muscle-map.png', '06-editor.png'],
+    label: '#25 · 21-pilates.png',
     tab: 'pilates',
   },
 };
@@ -573,95 +573,6 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // Studio iPad snapshots: single-frame carousel (saves vertical space vs grid).
-  const studioCarousel = document.querySelector('[data-studio-carousel]');
-  if (studioCarousel) {
-    const slides = Array.from(
-      studioCarousel.querySelectorAll('.studio-snap[data-studio-slide]'),
-    );
-    const dotsHost = studioCarousel.querySelector('[data-studio-carousel-dots]');
-    let studioIdx = 0;
-    let studioTimer = null;
-
-    const goStudio = (index) => {
-      if (!slides.length) return;
-      studioIdx = ((index % slides.length) + slides.length) % slides.length;
-      slides.forEach((slide, i) => {
-        const on = i === studioIdx;
-        slide.classList.toggle('is-active', on);
-        if (on) slide.removeAttribute('hidden');
-        else slide.setAttribute('hidden', '');
-      });
-      dotsHost?.querySelectorAll('.studio-carousel-dot').forEach((dot, i) => {
-        dot.setAttribute('aria-selected', String(i === studioIdx));
-      });
-    };
-
-    if (dotsHost) {
-      dotsHost.innerHTML = '';
-      slides.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'studio-carousel-dot';
-        dot.setAttribute('role', 'tab');
-        dot.setAttribute('aria-label', `Snapshot ${i + 1}`);
-        dot.setAttribute('aria-selected', String(i === 0));
-        dot.addEventListener('click', () => {
-          stopStudioAuto();
-          goStudio(i);
-        });
-        dotsHost.appendChild(dot);
-      });
-    }
-
-    studioCarousel
-      .querySelector('[data-studio-carousel-prev]')
-      ?.addEventListener('click', () => {
-        stopStudioAuto();
-        goStudio(studioIdx - 1);
-      });
-    studioCarousel
-      .querySelector('[data-studio-carousel-next]')
-      ?.addEventListener('click', () => {
-        stopStudioAuto();
-        goStudio(studioIdx + 1);
-      });
-
-    const advanceStudio = () => goStudio(studioIdx + 1);
-    const startStudioAuto = () => {
-      if (studioTimer || slides.length < 2) return;
-      studioTimer = window.setInterval(advanceStudio, 4200);
-    };
-    const stopStudioAuto = () => {
-      if (!studioTimer) return;
-      window.clearInterval(studioTimer);
-      studioTimer = null;
-    };
-
-    goStudio(0);
-
-    const studioSection = document.getElementById('trainer-studio');
-    if (studioSection && 'IntersectionObserver' in window) {
-      const sio = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) startStudioAuto();
-            else stopStudioAuto();
-          });
-        },
-        { threshold: 0.28 },
-      );
-      sio.observe(studioSection);
-    }
-    studioCarousel.addEventListener(
-      'pointerdown',
-      () => {
-        stopStudioAuto();
-      },
-      { once: true },
-    );
-  }
-
   const featureShotCaption = (item, index, file) => {
     const keys = (item.dataset.shotCaps || '')
       .split(',')
@@ -787,6 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setShowcaseShot('01');
   initBillingToggle();
   initLandingShotZoom();
+  initShotLightbox();
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('video.promo-broll-video, #showcaseVideo').forEach((v) => {
@@ -905,6 +817,122 @@ function initLandingShotZoom() {
   document.getElementById('featureList')?.addEventListener('mouseover', (ev) => {
     const target = ev.target.closest('.feature-phone, .feature-watch-grid figure');
     if (target) bindZoom(target);
+  });
+}
+
+/** Click-to-lightbox for iPad carousel snapshots (works on touch too). */
+function initShotLightbox() {
+  const root = document.createElement('div');
+  root.className = 'shot-lightbox';
+  root.id = 'shotLightbox';
+  root.setAttribute('role', 'dialog');
+  root.setAttribute('aria-modal', 'true');
+  root.setAttribute('aria-label', 'Snapshot ingrandito');
+  root.hidden = true;
+  root.innerHTML =
+    '<div class="shot-lightbox__panel">' +
+    '<button type="button" class="shot-lightbox__close" aria-label="Chiudi">×</button>' +
+    '<img class="shot-lightbox__img" alt="">' +
+    '<p class="shot-lightbox__caption" hidden></p>' +
+    '</div>';
+  document.body.appendChild(root);
+
+  const imgEl = root.querySelector('.shot-lightbox__img');
+  const captionEl = root.querySelector('.shot-lightbox__caption');
+  const closeBtn = root.querySelector('.shot-lightbox__close');
+  let lastFocus = null;
+
+  const close = () => {
+    if (root.hidden) return;
+    root.classList.remove('is-open');
+    root.hidden = true;
+    root.removeAttribute('open');
+    document.body.classList.remove('shot-lightbox-open');
+    imgEl.removeAttribute('src');
+    captionEl.hidden = true;
+    captionEl.textContent = '';
+    if (lastFocus && typeof lastFocus.focus === 'function') {
+      try {
+        lastFocus.focus();
+      } catch (_) {
+        /* ignore */
+      }
+    }
+    lastFocus = null;
+  };
+
+  const open = (src, alt, caption) => {
+    if (!src) return;
+    lastFocus = document.activeElement;
+    imgEl.src = src;
+    imgEl.alt = alt || '';
+    if (caption) {
+      captionEl.textContent = caption;
+      captionEl.hidden = false;
+    } else {
+      captionEl.textContent = '';
+      captionEl.hidden = true;
+    }
+    root.hidden = false;
+    root.setAttribute('open', '');
+    root.classList.add('is-open');
+    document.body.classList.add('shot-lightbox-open');
+    closeBtn.focus();
+  };
+
+  const resolveImg = (fromEl) => {
+    if (!fromEl) return null;
+    if (fromEl.matches?.('img')) return fromEl;
+    return fromEl.querySelector?.('img.is-active, img');
+  };
+
+  const captionNear = (el) => {
+    const host = el.closest?.('.ipad-hero, [data-ipad-carousel]');
+    if (!host) return '';
+    const cap = host.querySelector?.('.ipad-hero-caption');
+    return cap?.textContent?.trim() || '';
+  };
+
+  document.addEventListener('click', (ev) => {
+    const hit = ev.target.closest?.('.ipad-pro-frame, .ipad-pro-shot.is-active');
+    if (!hit) return;
+    // Ignore carousel nav / dots inside the same visual block.
+    if (ev.target.closest?.('button, a, .ipad-carousel-nav, .ipad-carousel-dot')) {
+      return;
+    }
+    const img = resolveImg(hit);
+    if (!img || !img.getAttribute('src') || img.hidden) return;
+    ev.preventDefault();
+    open(img.currentSrc || img.src, img.alt || '', captionNear(hit));
+  });
+
+  document.querySelectorAll('.ipad-pro-frame').forEach((frame) => {
+    if (frame.dataset.lbBound === '1') return;
+    frame.dataset.lbBound = '1';
+    frame.setAttribute('role', 'button');
+    frame.setAttribute('tabindex', '0');
+    frame.setAttribute('aria-label', 'Ingrandisci snapshot iPad');
+    frame.addEventListener('keydown', (ev) => {
+      if (ev.key !== 'Enter' && ev.key !== ' ') return;
+      ev.preventDefault();
+      const img = resolveImg(frame);
+      if (!img) return;
+      open(img.currentSrc || img.src, img.alt || '', captionNear(frame));
+    });
+  });
+
+  closeBtn.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+    close();
+  });
+  root.addEventListener('click', (ev) => {
+    if (ev.target === root) close();
+  });
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' && !root.hidden) {
+      ev.preventDefault();
+      close();
+    }
   });
 }
 
