@@ -650,7 +650,7 @@ const translations = {
     'eff.ex.assign': 'Supervisore: Marco V., Demo Cardio e Andrea P. Giulia Ferri: Elena Rossi, Sarah J., Giulia W., Davide G. e Luca M. in condivisione. Andrea Conti: Luca M., Roberto Bianchi, Francesco K. e Sofia L. Nel pacchetto demo il PIN di Giulia e Andrea è 1234; il Supervisore vede tutti e 11.',
     'eff.shot.phone': 'iPhone — un grafico e la lista «Da richiamare»',
     'eff.shot.ipad': 'iPad — lista a sinistra, tre grafici a destra',
-    'eff.shot.note': 'Schermate del pacchetto demo, filtro iniziale «Da richiamare». I numeri sono l’aderenza delle schede in agenda, non un referto.',
+    'eff.shot.note': 'Schermate del pacchetto demo, filtro iniziale «Da richiamare». Clicca per ingrandire. I numeri sono l’aderenza delle schede in agenda, non un referto.',
   },
   en: {
     'nav.story': 'Why',
@@ -1303,7 +1303,7 @@ const translations = {
     'eff.ex.assign': 'Supervisor: Marcus V., Demo Cardio and Andrea P. Giulia Ferri: Elena Smith, Sarah J., Julia W., David G., and Luca M. shared. Andrea Conti: Luca M., Robert Brown, Frank K. and Sofia L. In the demo package Giulia and Andrea’s PIN is 1234; the supervisor sees all 11.',
     'eff.shot.phone': 'iPhone — one chart and the “To call” list',
     'eff.shot.ipad': 'iPad — list on the left, three charts on the right',
-    'eff.shot.note': 'Demo-package screens, opening filter “To call”. The numbers are calendar adherence, not a clinical report.',
+    'eff.shot.note': 'Demo-package screens, opening filter “To call”. Click to zoom. The numbers are calendar adherence, not a clinical report.',
   },
 };
 

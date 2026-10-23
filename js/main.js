@@ -888,6 +888,7 @@ function initLandingShotZoom() {
     '.analytics-shot',
     '.plans-addon-shot',
     '.studio-broll .promo-broll-video',
+    '.efficiency-shot-frame',
   ].join(',');
 
   const bindZoom = (el) => {
@@ -996,6 +997,10 @@ function initShotLightbox() {
         el.closest('.plans-addon').querySelector('h3')?.textContent?.trim() || 'Pacchetto Pilates'
       );
     }
+    const efficiency = el.closest?.('.efficiency-shot');
+    if (efficiency) {
+      return efficiency.querySelector('figcaption')?.textContent?.trim() || '';
+    }
     const host = el.closest?.('.ipad-hero, [data-ipad-carousel]');
     if (!host) return '';
     return host.querySelector?.('.ipad-hero-caption')?.textContent?.trim() || '';
@@ -1003,7 +1008,7 @@ function initShotLightbox() {
 
   document.addEventListener('click', (ev) => {
     const hit = ev.target.closest?.(
-      '.studio-snap-frame, .ipad-pro-frame, .ipad-pro-shot.is-active, .analytics-shot, .plans-addon-shot',
+      '.studio-snap-frame, .ipad-pro-frame, .ipad-pro-shot.is-active, .analytics-shot, .plans-addon-shot, .efficiency-shot-frame',
     );
     if (!hit) return;
     // Ignore carousel nav / dots inside the same visual block.
@@ -1016,16 +1021,18 @@ function initShotLightbox() {
     open(img.currentSrc || img.src, img.alt || '', captionNear(hit));
   });
 
-  document.querySelectorAll('.studio-snap-frame, .ipad-pro-frame, .analytics-shot, .plans-addon-shot').forEach((frame) => {
+  document.querySelectorAll('.studio-snap-frame, .ipad-pro-frame, .analytics-shot, .plans-addon-shot, .efficiency-shot-frame').forEach((frame) => {
     if (frame.dataset.lbBound === '1') return;
     frame.dataset.lbBound = '1';
     frame.setAttribute('role', 'button');
     frame.setAttribute('tabindex', '0');
     frame.setAttribute(
       'aria-label',
-      frame.classList.contains('studio-snap-frame')
-        ? 'Ingrandisci snapshot'
-        : 'Ingrandisci snapshot iPad',
+      frame.classList.contains('efficiency-shot-frame')
+        ? 'Ingrandisci schermata'
+        : frame.classList.contains('studio-snap-frame')
+          ? 'Ingrandisci snapshot'
+          : 'Ingrandisci snapshot iPad',
     );
     frame.addEventListener('keydown', (ev) => {
       if (ev.key !== 'Enter' && ev.key !== ' ') return;
