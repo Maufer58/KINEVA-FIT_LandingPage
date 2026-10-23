@@ -2244,6 +2244,80 @@ body.shot-lightbox-open {
   color: #243044;
   line-height: 1.45;
 }
+.efficiency-example { margin: 0 0 1.5rem; }
+.efficiency-example h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--ink);
+}
+.efficiency-example > p,
+.efficiency-assign,
+.efficiency-shot-note {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  max-width: 48rem;
+  line-height: 1.5;
+}
+.efficiency-bands {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .efficiency-bands { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.efficiency-bands li {
+  margin: 0;
+  padding: 1rem 1rem 1rem 0.9rem;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius);
+  border-left: 4px solid #0f766e;
+}
+.efficiency-bands strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+}
+.efficiency-bands span {
+  display: block;
+  color: #243044;
+  line-height: 1.45;
+  font-size: 0.92rem;
+}
+.band-on { border-left-color: #2e7d32; }
+.band-on strong { color: #2e7d32; }
+.band-follow { border-left-color: #e53935; }
+.band-follow strong { color: #c62828; }
+.band-none { border-left-color: #607d8b; }
+.band-none strong { color: #455a64; }
+.efficiency-shots {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0 0 0.75rem;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .efficiency-shots { grid-template-columns: 280px minmax(0, 1fr); }
+}
+.efficiency-shot { margin: 0; }
+.efficiency-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+.efficiency-shot-ipad img { border-radius: 10px; }
+.efficiency-shot figcaption {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+html[lang="en"] .efficiency-shot-it { display: none; }
+html:not([lang="en"]) .efficiency-shot-en { display: none; }
 .promo-efficiency .feature-more a { color: #0f766e; }
 .promo-efficiency .feature-more a:hover { color: var(--ink); }
 
