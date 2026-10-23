@@ -2214,14 +2214,35 @@ body.shot-lightbox-open {
   color: var(--muted);
   max-width: 46rem;
 }
-.promo-efficiency .studio-workflow li {
-  background: #fff;
-  border-color: rgba(15, 23, 42, 0.08);
+.efficiency-cards {
+  list-style: none;
+  margin: 0 0 2.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
 }
-.promo-efficiency .studio-workflow strong { color: #0f766e; }
-.promo-efficiency .studio-workflow span { color: var(--muted); }
 @media (min-width: 768px) {
-  .efficiency-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .efficiency-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+}
+.efficiency-cards li {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.efficiency-cards strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+  color: #0f766e;
+}
+.efficiency-cards span {
+  display: block;
+  font-size: 0.95rem;
+  color: #243044;
+  line-height: 1.45;
 }
 .promo-efficiency .feature-more a { color: #0f766e; }
 .promo-efficiency .feature-more a:hover { color: var(--ink); }
