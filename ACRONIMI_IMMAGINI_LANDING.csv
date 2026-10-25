@@ -1,0 +1,19 @@
+Sezione;Anchor;N;Voci;Acronimi;Immagini;Stato
+Hero;inizio;4;Watch | iPhone | iPad | iPad prospetto;08-hero | 01 | 10a | 10-hero;08-watch-hero.png | 01-home.png | 10-trainer-ipad.png | 10-ipad-hero.png;Presente | Presente | Presente | Non agganciato
+Cosa puoi fare;#features;30;Routine | Tecniche | Tecniche | Runner | Runner | Checklist | Avviso fine scheda | Analizza dati | Mappa muscolare | Mappa muscolare | Mappa muscolare | GPS | GPS | Watch | Watch | Watch | Watch | Trainer | Trainer | Calendario | Cronologia | Cronologia | Import AI | Import AI | Nuoto | Nuoto | Mobilità | Pilates | Pilates;01 | 06 | 17 | 02 | 21 | 12 | 14 | 04 | 18 | 19 | 06 | 09 | 16 | 08a | 08b | 08c | 08d | 10 | 10a | 03 | 05 | 15 | 13 | 20 | 22 | 23 | 24 | 25 | 25;01-home.png | 06-editor.png | 17-exercise-editor.png | 02-runner.png | 21-runner-rest.png | 12-prep-checklist.png | 14-summary-reminder.png | 04-progress.png | 18-exercise-gif.png | 19-muscle-map.png | 06-editor.png | 09-gps-map.png | 16-gps-charts.png | 08-watch-list.png | 08-watch-start.png | 08-watch-active.png | 08-watch-done.png | 10-trainer.png | 10-trainer-ipad.png | 03-calendar.png | 05-history.png | 15-history-detail.png | 13-ai-import.png | 20-ai-result.png | 22-swim-setup.png | 23-swim-session.png | 21-mobility.png | 21-pilates.png | 21-pilates2.png;Presente
+Analizza dati;#analytics;1;Analizza dati;04-ipad;04-analytics-ipad.png;Presente
+Apple Watch;#watch;4;Lista | Avvio | Sessione | Fine;08a | 08b | 08c | 08d;08-watch-list.png | 08-watch-start.png | 08-watch-active.png | 08-watch-done.png;Presente
+iPad Trainer;#ipad;4;Anagrafica | Dettaglio | Biometria | Editor;10-anag | 10-dett | 10-bio | 06-ipad;10-anagrafica-ipad.png | 10-anagrafica-detail-ipad.png | 10-bio-ipad.png | 06-editor-ipad.png;Presente | Presente | Presente | Non agganciato
+Studio & Gym;#trainer-studio;6;01 Gestione trainer | 02 Assegnazione | 03 Tabella assegnazioni | 04 Trasferimento | 05 Anagrafica | 06 Biometria;11 | 10b | 27 | 10c | 10-anag | 10-bio;11-studio-ipad.png | 10-send-ipad.png | 27-assignment-matrix-ipad.png | 10-share-ipad.png | 10-anagrafica-ipad.png | 10-bio-ipad.png;Presente | Presente | Slot | Presente | Presente | Presente
+Efficienza;#trainer-efficiency;4;iPhone IT | iPhone EN | iPad IT | iPad EN;26 | 26 | 26 | 26;26-efficiency-iphone-it.png | 26-efficiency-iphone-en.png | 26-efficiency-ipad-it.png | 26-efficiency-ipad-en.png;Presente
+Mobilità e Pilates;#mobility-pilates;4;Mobilità | Pilates | Mobilità fallback | Pilates fallback;24 | 25 | 24 | 25;21-mobility.png | 21-pilates.png | 24-mobility.png | 25-pilates.png;Presente | Presente | Non agganciato | Non agganciato
+Import AI;#ai-import;2;Foto | Risultato;13 | 20;13-ai-import.png | 20-ai-result.png;Presente
+Dentro l'app;#screens;19;Home | Runner | Runner recupero | Calendario | Progressi | Storico | Editor | Impostazioni | Watch lista | Watch avvio | Watch sessione | Watch fine | GPS | Trainer | Checklist | Riepilogo | Dettaglio | Grafici GPS | Esercizio;01 | 02 | 21 | 03 | 04 | 05 | 06 | 07 | 08a | 08b | 08c | 08d | 09 | 10 | 12 | 14 | 15 | 16 | 17;01-home.png | 02-runner.png | 21-runner-rest.png | 03-calendar.png | 04-progress.png | 05-history.png | 06-editor.png | 07-settings.png | 08-watch-list.png | 08-watch-start.png | 08-watch-active.png | 08-watch-done.png | 09-gps-map.png | 10-trainer.png | 12-prep-checklist.png | 14-summary-reminder.png | 15-history-detail.png | 16-gps-charts.png | 17-exercise-editor.png;Presente
+Piani;#plans;2;Add-on Pilates | Add-on Pilates;25 | 25;21-pilates.png | 21-pilates2.png;Presente
+Storia;#story;0;;;;Senza screenshot
+Piattaforme;#platforms;0;;;;Senza screenshot
+Backup ≠ Export;#backup-export;0;;;;Senza screenshot
+Staff e posti;#staff-trainers;0;;;;Senza screenshot
+Highlight;#highlights;0;;;;Senza screenshot
+Download;#download;0;;;;Senza screenshot
+Editore;#publisher;0;;;;Senza screenshot
