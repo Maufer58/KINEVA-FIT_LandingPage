@@ -674,7 +674,7 @@
 
         <div class="studio-snaps-head reveal">
           <h3 data-i18n="studio.snaps.title">Snapshot iPad in carosello</h3>
-          <p data-i18n="studio.snaps.lead">Una cornice alla volta: gestione trainer, assegnazione, trasferimento, anagrafica a quadratoni e biometria — scorri o clicca per zoom.</p>
+          <p data-i18n="studio.snaps.lead">Una cornice alla volta: gestione trainer, assegnazione, tabella clienti × trainer, trasferimento, anagrafica a quadratoni e biometria — scorri o clicca per zoom.</p>
         </div>
 
         <div class="studio-carousel reveal" id="studioCarousel" data-studio-carousel>
@@ -714,6 +714,22 @@
               </article>
 
               <article class="studio-snap" data-studio-slide="2" hidden>
+                <figure class="studio-snap-frame studio-snap-slot">
+                  <img src="assets/screenshots/27-assignment-matrix-ipad.png"
+                       alt="iPad — tabella assegnazioni clienti e trainer"
+                       width="2732"
+                       height="2048"
+                       loading="lazy"
+                       decoding="async">
+                  <span class="studio-snap-slot-label" data-i18n="studio.snapMatrix.slot">Slot snapshot · salva il file come 27-assignment-matrix-ipad.png</span>
+                  <span class="studio-snap-badge" data-i18n="studio.snapMatrix.badge">03 · Tabella assegnazioni</span>
+                </figure>
+                <h4 data-i18n="studio.snapMatrix.title">Tabella assegnazioni: clienti e trainer</h4>
+                <p data-i18n="studio.snapMatrix.body">Solo il Supervisore. Ogni riga è un cliente, ogni colonna un trainer. Nella legenda: una persona è il proprietario, due persone la condivisione, il trattino nessun legame. La colonna del Supervisore mostra solo i clienti parcheggiati. Un trainer sospeso resta visibile ma non riceve clienti nuovi. Toccare un nome apre l’anagrafica e non sposta il cliente.</p>
+                <p class="studio-snap-path" data-i18n="studio.snapMatrix.path">Percorso: Altro → Trainer Pro → Strumenti studio → Gestione trainer → Assegnazioni · Piano Studio &amp; Gym</p>
+              </article>
+
+              <article class="studio-snap" data-studio-slide="3" hidden>
                 <figure class="studio-snap-frame">
                   <img src="assets/screenshots/10-share-ipad.png"
                        alt="iPad — condivisione e trasferimento clienti / esportazioni"
@@ -722,14 +738,14 @@
                        loading="lazy"
                        decoding="async"
                        data-fallbacks="10-share-ipad.png,10-send-ipad.png,10-trainer-ipad.png">
-                  <span class="studio-snap-badge" data-i18n="studio.snap3.badge">03 · Trasferimento</span>
+                  <span class="studio-snap-badge" data-i18n="studio.snap3.badge">04 · Trasferimento</span>
                 </figure>
                 <h4 data-i18n="studio.snap3.title">Trasferire clienti e profili trainer</h4>
                 <p data-i18n="studio.snap3.body">Sullo stesso device: togli o sposta la condivisione tra trainer senza perdere lo storico del proprietario. Tra iPad/iPhone: export/import del profilo trainer (clienti + schede + storico) — distinto dal Backup Completo e dal solo JSON schede.</p>
                 <p class="studio-snap-path" data-i18n="studio.snap3.path">Percorso: Condividi con i trainer · Export/import profilo trainer · vedi anche #staff-trainers e #backup-export</p>
               </article>
 
-              <article class="studio-snap" data-studio-slide="3" hidden>
+              <article class="studio-snap" data-studio-slide="4" hidden>
                 <figure class="studio-snap-frame">
                   <img src="assets/screenshots/10-anagrafica-ipad.png"
                        alt="iPad — anagrafiche clienti a quadratoni, area protetta PIN"
@@ -738,14 +754,14 @@
                        loading="lazy"
                        decoding="async"
                        data-fallbacks="10-anagrafica-ipad.png,10-trainer-ipad.png,10-trainer.png">
-                  <span class="studio-snap-badge" data-i18n="studio.snap4.badge">04 · Anagrafica</span>
+                  <span class="studio-snap-badge" data-i18n="studio.snap4.badge">05 · Anagrafica</span>
                 </figure>
                 <h4 data-i18n="studio.snap4.title">Anagrafiche clienti a quadratoni</h4>
                 <p data-i18n="studio.snap4.body">Su iPad l’elenco clienti è una griglia di tile grandi: nome, stato scheda e pulsante Apri. Tocca un quadratone per entrare nel profilo (note, limitazioni, sport) nell’area protetta da PIN — più leggibile del semplice elenco.</p>
                 <p class="studio-snap-path" data-i18n="studio.snap4.path">Percorso: Anagrafica clienti (tablet) · area PIN Trainer / Studio</p>
               </article>
 
-              <article class="studio-snap" data-studio-slide="4" hidden>
+              <article class="studio-snap" data-studio-slide="5" hidden>
                 <figure class="studio-snap-frame">
                   <img src="assets/screenshots/10-bio-ipad.png"
                        alt="iPad — dati biometrici del cliente selezionato"
@@ -754,7 +770,7 @@
                        loading="lazy"
                        decoding="async"
                        data-fallbacks="10-bio-ipad.png,10-anagrafica-ipad.png,10-trainer-ipad.png">
-                  <span class="studio-snap-badge" data-i18n="studio.snap5.badge">05 · Biometria</span>
+                  <span class="studio-snap-badge" data-i18n="studio.snap5.badge">06 · Biometria</span>
                 </figure>
                 <h4 data-i18n="studio.snap5.title">Dati biometrici del cliente</h4>
                 <p data-i18n="studio.snap5.body">Dopo Apri, sul tablet vedi peso, altezza, composizione e storico misure accanto all’anagrafica — master–detail pensato per il canvas iPad, senza lasciare la scheda cliente.</p>
@@ -764,7 +780,7 @@
             <button type="button" class="studio-carousel-nav studio-carousel-nav--next" data-studio-carousel-next aria-label="Snapshot successiva">›</button>
           </div>
           <div class="studio-carousel-dots" role="tablist" aria-label="Scegli snapshot" data-studio-carousel-dots></div>
-          <p class="studio-carousel-hint" data-i18n="studio.snaps.carouselHint">Scorri · 5 snapshot · clic per zoom</p>
+          <p class="studio-carousel-hint" data-i18n="studio.snaps.carouselHint">Scorri · 6 snapshot · clic per zoom</p>
         </div>
 
         <figure class="promo-broll studio-broll reveal">
@@ -1094,7 +1110,7 @@
               </div>
               <div>
                 <dt data-i18n="backup.how">Come</dt>
-                <dd data-i18n="staff.assign.how">Drawer ☰ → ⋯ sul cliente → «Condividi con i trainer»: imposta proprietario e chi può seguire; opzione di nascondere campi biometrici. Togliere la condivisione = il ricevente smette di vederlo; i dati restano al proprietario.</dd>
+                <dd data-i18n="staff.assign.how">Drawer ☰ → ⋯ sul cliente → «Condividi con i trainer»: imposta proprietario e chi può seguire; opzione di nascondere campi biometrici. La tabella Assegnazioni in Gestione trainer mostra tutta la rosa: persona = proprietario, due persone = condivisione. Togliere la condivisione = il ricevente smette di vederlo; i dati restano al proprietario.</dd>
               </div>
               <div>
                 <dt data-i18n="backup.not">Non usare per</dt>

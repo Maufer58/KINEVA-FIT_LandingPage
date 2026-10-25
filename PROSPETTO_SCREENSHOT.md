@@ -30,7 +30,7 @@ website/
 | B | Funzioni (clic sulle righe) | `#features` | usa gli stessi di `#screens` (01, 02, 06, 08, 09, 10) · riga **12 Checklist e promemoria** → target `12-prep-checklist.png` (oggi fallback `data-shot="02"`) |
 | C | **Promo Apple Watch** — **sequenza 4 passi** | `#watch` | `08-watch-list.png` · `08-watch-start.png` · `08-watch-active.png` · `08-watch-done.png` |
 | D | **Promo iPad Trainer** — **1** snapshot (+ testi step) | `#ipad` | `10-trainer-ipad.png` |
-| **G** | **Studio & Gym (back-office)** | `#trainer-studio` | carosello 5: `11-studio-ipad` · `10-send-ipad` · `10-share-ipad` · `10-anagrafica-ipad` · `10-bio-ipad` |
+| **G** | **Studio & Gym (back-office)** | `#trainer-studio` | carosello 6: `11-studio-ipad` · `10-send-ipad` · **slot** `27-assignment-matrix-ipad` · `10-share-ipad` · `10-anagrafica-ipad` · `10-bio-ipad` |
 | E | Import AI da foto | `#ai-import` | `13-ai-import.png` · `20-ai-result.png` |
 | M | **Mobilità & Pilates** — due telefoni | `#mobility-pilates` | `21-mobility.png` · `21-pilates.png` (fallback: `24-mobility` / `25-pilates`; `21-pilates2` resta in `#plans` add-on) |
 | Bkp | **Backup ≠ Export/Import** — flussi chi→chi (solo testo) | `#backup-export` | nessuna immagine dedicata |
@@ -106,11 +106,11 @@ Proporzioni: iPhone il più alto, iPad il più largo, Watch il più piccolo.
 
 ## G · Sezione Studio & Gym (`#trainer-studio`)
 
-**Dove la vedi:** blocco tra iPad e Import AI — workflow 3 step + **carosello 5 snapshot iPad** (ampio) + b-roll + griglia card.
+**Dove la vedi:** blocco tra iPad e Import AI — workflow 3 step + **carosello 6 snapshot iPad** (ampio) + b-roll + griglia card.
 
 | Contenuto | Screenshot |
 |-----------|------------|
-| Carosello 5 snapshot iPad | `11-studio-ipad.png` · `10-send-ipad.png` · `10-share-ipad.png` · `10-anagrafica-ipad.png` · `10-bio-ipad.png` |
+| Carosello 6 snapshot iPad | `11-studio-ipad.png` · `10-send-ipad.png` · **slot** `27-assignment-matrix-ipad.png` (tabella Assegnazioni) · `10-share-ipad.png` · `10-anagrafica-ipad.png` · `10-bio-ipad.png` |
 | Testo marketing IT/EN | griglia card + video b-roll |
 
 **UI:** una sola cornice grande (max ~1280px, 4:3, clic per zoom).

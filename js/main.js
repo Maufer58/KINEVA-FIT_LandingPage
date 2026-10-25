@@ -638,6 +638,16 @@ document.addEventListener('DOMContentLoaded', () => {
       studioTimer = null;
     };
 
+    slides.forEach((slide) => {
+      const img = slide.querySelector('.studio-snap-slot img');
+      if (!img) return;
+      const markEmpty = () => {
+        img.closest('.studio-snap-slot')?.classList.add('is-empty');
+      };
+      img.addEventListener('error', markEmpty);
+      if (img.complete && img.naturalWidth === 0) markEmpty();
+    });
+
     goStudio(0);
 
     const studioSection = document.getElementById('trainer-studio');
