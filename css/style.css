@@ -2057,6 +2057,29 @@ body.shot-lightbox-open {
     display: none;
   }
 }
+.sheet-print {
+  margin: 2.4rem 0 0.4rem;
+}
+.sheet-print h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.35rem;
+}
+.sheet-print > p {
+  margin: 0 0 1rem;
+  max-width: 68ch;
+  color: rgba(230, 235, 241, 0.78);
+  line-height: 1.5;
+}
+.sheet-print-slots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 800px) {
+  .sheet-print-slots {
+    grid-template-columns: 1fr;
+  }
+}
 .studio-snap-frame {
   margin: 0;
   position: relative;
