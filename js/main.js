@@ -655,6 +655,54 @@ document.addEventListener('DOMContentLoaded', () => {
       if (img.complete && img.naturalWidth === 0) markEmpty();
     });
 
+    const portalForm = document.getElementById('studio-portal-form');
+    portalForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const msg = document.getElementById('studio-portal-msg');
+      const input = document.getElementById('studio-portal-code');
+      const text = (key) => {
+        const lang = window.siteI18n?.lang || 'it';
+        const dict = window.siteI18n?.translations?.[lang] || {};
+        return dict[key] || key;
+      };
+      const say = (key) => {
+        if (!msg) return;
+        msg.hidden = false;
+        msg.textContent = text(key);
+      };
+      say('studio.portal.wait');
+      try {
+        const res = await fetch('/api/studio-download', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ code: (input?.value || '').trim() }),
+        });
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          const key = data.error === 'unavailable'
+            ? 'studio.portal.errOff'
+            : data.error === 'missing'
+              ? 'studio.portal.errFile'
+              : 'studio.portal.err';
+          say(key);
+          return;
+        }
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'KINEVA-FIT-Studio.zip';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+        if (input) input.value = '';
+        say('studio.portal.ok');
+      } catch {
+        say('studio.portal.errOff');
+      }
+    });
+
     goStudio(0);
 
     const studioSection = document.getElementById('trainer-studio');

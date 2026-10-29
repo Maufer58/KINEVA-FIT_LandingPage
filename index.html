@@ -702,6 +702,17 @@
           </div>
         </div>
 
+        <div class="studio-portal reveal" id="studio-portal">
+          <h3 data-i18n="studio.portal.title">Portale da scrivania</h3>
+          <p data-i18n="studio.portal.body">Anagrafiche, schede e note esercizio da Mac o PC, poi Importa Schede sull’app. Il download è per chi ha Piano Pro o Studio &amp; Gym a pagamento: il codice è in Impostazioni → Trainer Pro. Non vale in prova, né con Athlete Pro.</p>
+          <form id="studio-portal-form" autocomplete="off">
+            <label for="studio-portal-code" data-i18n="studio.portal.label">Codice del portale</label>
+            <input id="studio-portal-code" name="code" type="text" inputmode="text" autocomplete="off" spellcheck="false" required>
+            <button class="btn btn-primary" type="submit" data-i18n="studio.portal.submit">Scarica il portale</button>
+            <p id="studio-portal-msg" role="status" hidden></p>
+          </form>
+        </div>
+
         <div class="studio-snaps-head reveal">
           <h3 data-i18n="studio.snaps.title">Snapshot iPad in carosello</h3>
           <p data-i18n="studio.snaps.lead">Una cornice alla volta: gestione trainer, assegnazione, tabella clienti × trainer, trasferimento, anagrafica a quadratoni e biometria — scorri o clicca per zoom.</p>
@@ -1907,6 +1918,7 @@
               <li data-i18n="plans.trainer.f13">Export progressi JSON/PDF multi-cliente</li>
               <li data-i18n="plans.trainer.f14">Panoramica team, Efficienza (aderenza e da richiamare) e insights bio↔carico</li>
               <li data-i18n="plans.trainer.f15">Fino a 2 dispositivi contemporanei (Apple Watch escluso)</li>
+              <li data-i18n="plans.trainer.f16">Portale da scrivania (Mac e PC) con codice sull’app, solo a pagamento</li>
             </ul>
             <a class="paywall-cta" href="#download" data-i18n="plans.subscribe">Abbonati ora</a>
           </article>
@@ -1936,6 +1948,7 @@
               <li data-i18n="plans.studio.f12">Analytics team illimitati e report progressi su tutta la rosa clienti</li>
               <li data-i18n="plans.studio.f13">Fino a 3 dispositivi contemporanei (Apple Watch escluso)</li>
               <li data-i18n="plans.studio.f14">Enciclopedia PDF completa (intero catalogo esercizi) — solo Studio</li>
+              <li data-i18n="plans.studio.f15">Portale da scrivania (Mac e PC) con codice sull’app, solo a pagamento</li>
             </ul>
             <a class="paywall-cta" href="#download" data-i18n="plans.subscribe">Abbonati ora</a>
           </article>

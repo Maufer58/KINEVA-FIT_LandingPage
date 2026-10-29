@@ -2070,6 +2070,46 @@ body.shot-lightbox-open {
   color: rgba(230, 235, 241, 0.78);
   line-height: 1.5;
 }
+.studio-portal {
+  margin: 2rem 0 0.6rem;
+  max-width: 68ch;
+}
+.studio-portal h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.35rem;
+}
+.studio-portal > p {
+  margin: 0 0 1rem;
+  color: rgba(230, 235, 241, 0.78);
+  line-height: 1.5;
+}
+.studio-portal form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 0.75rem;
+  align-items: end;
+}
+.studio-portal label {
+  flex: 1 1 100%;
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+.studio-portal input {
+  flex: 1 1 16rem;
+  min-width: 0;
+  padding: 0.7rem 0.85rem;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(230, 235, 241, 0.22);
+  background: rgba(8, 12, 18, 0.45);
+  color: #e6ebf1;
+  font: inherit;
+}
+.studio-portal #studio-portal-msg {
+  flex: 1 1 100%;
+  margin: 0.15rem 0 0;
+  color: rgba(230, 235, 241, 0.82);
+  line-height: 1.45;
+}
 .sheet-print-slots {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
