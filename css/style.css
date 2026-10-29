@@ -76,8 +76,7 @@ code {
   font-weight: 800;
   letter-spacing: -0.03em;
   font-size: 1.15rem;
-  min-width: 0;
-  flex-shrink: 1;
+  flex-shrink: 0;
 }
 .brand-logo {
   display: block;
@@ -110,6 +109,7 @@ code {
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
+  white-space: nowrap;
 }
 .nav-desktop a:hover { color: var(--ink); }
 .header-actions {
@@ -167,7 +167,17 @@ code {
   text-decoration: none;
 }
 @media (min-width: 880px) {
-  .nav-desktop { display: flex; }
+  .header-inner { flex-wrap: wrap; align-items: center; }
+  .nav-desktop {
+    display: flex;
+    flex: 1 0 100%;
+    order: 3;
+    margin-left: 0;
+    gap: 0.45rem 1rem;
+    flex-wrap: wrap;
+    padding: 0 0 0.65rem;
+  }
+  .nav-desktop ~ .header-actions { margin-left: auto; }
   .nav-toggle { display: none; }
   .nav-mobile { display: none !important; }
 }
