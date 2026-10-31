@@ -683,7 +683,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ? 'studio.portal.errOff'
             : data.error === 'missing'
               ? 'studio.portal.errFile'
-              : 'studio.portal.err';
+              : data.error === 'expired'
+                ? 'studio.portal.errExpired'
+                : 'studio.portal.err';
           say(key);
           return;
         }

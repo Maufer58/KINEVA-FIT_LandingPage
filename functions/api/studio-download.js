@@ -1,3 +1,5 @@
+import { verifyToken } from '../_studio_token.js';
+
 function sameSecret(given, expected) {
   const enc = new TextEncoder();
   const a = enc.encode(given);
@@ -29,7 +31,10 @@ export async function onRequestPost(context) {
   } catch {
     code = '';
   }
-  if (!sameSecret(code, expected)) return json(401, 'invalid');
+  const token = await verifyToken(expected, code);
+  if (!token.ok && !sameSecret(code, expected)) {
+    return json(401, token.reason === 'expired' ? 'expired' : 'invalid');
+  }
 
   const assetUrl = new URL('/downloads/kineva-fit-studio.zip', context.request.url);
   const asset = await context.env.ASSETS.fetch(new Request(assetUrl, { method: 'GET' }));
