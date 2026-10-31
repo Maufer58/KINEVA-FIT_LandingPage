@@ -493,7 +493,7 @@ code {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--volt);
+  color: #1a3d12;
 }
 .hero-platforms {
   position: relative;
