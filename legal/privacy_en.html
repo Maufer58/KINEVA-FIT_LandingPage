@@ -71,8 +71,8 @@
   <img src="logo-horizontal.png" class="brand-logo-h" width="220" height="85" alt="KINEVA FIT"/>
 </div>
 <h1>Privacy Policy — KINEVA FIT</h1>
-<p><strong>Version:</strong> 2.16<br />
-<strong>Last updated:</strong> 23 October 2026<br />
+<p><strong>Version:</strong> 2.17<br />
+<strong>Last updated:</strong> 2 November 2026<br />
 <strong>Language:</strong> English  </p>
 <blockquote>
 <p>Information notice under Articles 13–14 of Regulation (EU) 2016/679 (GDPR) and Legislative Decree 196/2003 (Italian Privacy Code), as amended by Legislative Decree 101/2018.<br />
@@ -113,7 +113,7 @@ It is <strong>not a medical device</strong> (MDR / Italian Legislative Decree 46
 </tr>
 <tr>
 <td>Training data</td>
-<td>routines, sets, session history, notes</td>
+<td>routines, sets, session history, active time, load (kilograms, kilometres or laps), calories, average heart rate when recorded, effort from 1 to 5, session notes</td>
 <td>Art. 6(1)(b)</td>
 </tr>
 <tr>
@@ -188,12 +188,14 @@ It is <strong>not a medical device</strong> (MDR / Italian Legislative Decree 46
 <li>Improve product stability and security (local technical diagnostics).  </li>
 <li>Comply with legal obligations.</li>
 <li>Show the trainer, on the device, adherence and missed sessions for clients they already manage (Efficiency view). The calculation stays on the device and is not sent to a KINEVA FIT server. The labels “On track”, “To call” and “No calendar” describe that same log.</li>
+<li>Show, on the device, the session summary and the 7-, 28- and 90-day windows (sessions done and planned, load, kilometres, calories and, when a distance was recorded, pace). From Athlete Pro, the weekly chart and the comparison with the previous same routine appear. Pro Plan and Studio show the last 28 days of each client already visible; Studio also shows the studio total and, when there is more than one trainer, the split. The calculation stays on the device and is not sent to a KINEVA FIT server. It is not a medical report and it does not guarantee a result.</li>
 </ol>
 <p>We do <strong>not</strong> use data for third-party advertising profiling or sale to data brokers. There is <strong>no KINEVA FIT backend</strong> that centralises users’ routines, GPS or biometrics.</p>
 <hr />
 <h2>5. Means and place of storage</h2>
 <ul>
 <li><strong>Offline-first</strong> architecture: most data stays on the device (local <strong>encrypted</strong> Hive database and, where applicable, Keychain / Keystore).  </li>
+<li>History summaries (the session, 7-, 28- and 90-day windows, comparison with the previous routine, per-client and studio totals) are calculated on the device from sessions already stored and are not sent to a KINEVA FIT server.</li>
 <li>GPS coordinates and the route track stay on the device (and on Apple Watch, if used). They are <strong>not</strong> sent to KINEVA FIT servers.  </li>
 <li>To draw streets under the route, the app may request a map snapshot or tiles from Apple Maps, Esri or OpenStreetMap: the provider receives the geographic area (bounding box) needed for rendering, not the full GPS track.  </li>
 <li>Backup, export or sync occur only when started by the user (File / Email / WhatsApp / ZIP archive to Files/iCloud/Drive) or required by a feature (e.g. WatchConnectivity).  </li>

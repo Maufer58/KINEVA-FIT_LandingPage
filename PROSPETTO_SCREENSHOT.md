@@ -31,6 +31,7 @@ website/
 | C | **Promo Apple Watch** — **sequenza 4 passi** | `#watch` | `08-watch-list.png` · `08-watch-start.png` · `08-watch-active.png` · `08-watch-done.png` |
 | D | **Promo iPad Trainer** — **1** snapshot (+ testi step) | `#ipad` | `10-trainer-ipad.png` |
 | **G** | **Studio & Gym (back-office)** | `#trainer-studio` | carosello 6: `11-studio-ipad` · `10-send-ipad` · **slot** `27-assignment-matrix-ipad` · `10-share-ipad` · `10-anagrafica-ipad` · `10-bio-ipad` |
+| **H** | **Storico (seduta, finestre, studio)** | `#history` | slot vuoti finché non salvi i PNG: `29-history-session-iphone-it` · `29-history-session-iphone-en` · `29-history-windows-iphone-it` · `29-history-windows-iphone-en` · `29-history-studio-ipad-it` · `29-history-studio-ipad-en` |
 | E | Import AI da foto | `#ai-import` | `13-ai-import.png` · `20-ai-result.png` |
 | M | **Mobilità & Pilates** — due telefoni | `#mobility-pilates` | `21-mobility.png` · `21-pilates.png` (fallback: `24-mobility` / `25-pilates`; `21-pilates2` resta in `#plans` add-on) |
 | Bkp | **Backup ≠ Export/Import** — flussi chi→chi (solo testo) | `#backup-export` | nessuna immagine dedicata |
@@ -39,6 +40,21 @@ website/
 | — | **Studio & Gym (testo + carosello)** | `#trainer-studio` | vedi riga **G** |
 
 > **Semplificazione (ott 2026):** restano intatte **hero (trio)** e **sequenza Watch**. Nelle altre sezioni: una sola snapshot (niente thumb iPad; niente tablet duplicato in `#screens`).
+
+---
+
+## H · Storico (`#history`) — 6 slot
+
+**Dove la vedi:** sezione «La seduta, poi le finestre di tempo», dopo Analytics.  
+In italiano si vedono i tre file `*-it`; in inglese i tre `*-en`. Se il PNG manca, la cornice mostra il nome del file.
+
+| Posizione | File | Cosa catturare |
+|-----------|------|----------------|
+| iPhone seduta | `29-history-session-iphone-it.png` / `…-en.png` | Cinque numeri: tempo attivo, carico, calorie, frequenza, sforzo, e la freccia |
+| iPhone finestre | `29-history-windows-iphone-it.png` / `…-en.png` | Chip 7 / 28 / 90 e il grafico delle settimane |
+| iPad studio | `29-history-studio-ipad-it.png` / `…-en.png` | Totale dello studio e la riga per trainer |
+
+**Formato:** iPhone 1290×2796 · iPad landscape. Pacchetto demo, Piano Studio.
 
 ---
 
@@ -216,6 +232,9 @@ Non ha file propri. Ogni riga cliccabile apre lo **stesso shot** della gallery:
 ├─────────────────────────────────────────┤
 │  #ipad                                  │
 │  clienti → editor → invio → share → gym │  ← D
+├─────────────────────────────────────────┤
+│  #history  seduta · finestre · studio   │  ← H
+│  29-history-session / windows / studio  │
 ├─────────────────────────────────────────┤
 │  #trainer-studio  (testo, 22 card)      │  ← G
 ├─────────────────────────────────────────┤

@@ -71,8 +71,8 @@
   <img src="logo-horizontal.png" class="brand-logo-h" width="220" height="85" alt="KINEVA FIT"/>
 </div>
 <h1>Informativa sulla Privacy — KINEVA FIT</h1>
-<p><strong>Versione:</strong> 2.16<br />
-<strong>Data di aggiornamento:</strong> 23 ottobre 2026<br />
+<p><strong>Versione:</strong> 2.17<br />
+<strong>Data di aggiornamento:</strong> 2 novembre 2026<br />
 <strong>Lingua:</strong> Italiano  </p>
 <blockquote>
 <p>Documento informativo ai sensi degli artt. 13–14 del Regolamento (UE) 2016/679 (GDPR) e del D.Lgs. 196/2003 (Codice Privacy), come modificato dal D.Lgs. 101/2018.<br />
@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td>Dati di allenamento</td>
-<td>schede, serie, cronologia sessioni, note</td>
+<td>schede, serie, cronologia sessioni, tempo attivo, carico (chili, chilometri o vasche), calorie, frequenza cardiaca media se registrata, sforzo da 1 a 5, note di seduta</td>
 <td>Art. 6(1)(b)</td>
 </tr>
 <tr>
@@ -188,12 +188,14 @@
 <li>Migliorare stabilità e sicurezza del prodotto (diagnostica tecnica locale).  </li>
 <li>Adempiere obblighi di legge.</li>
 <li>Mostrare al trainer, sul dispositivo, aderenza e sessioni mancate dei clienti che già gestisce (vista Efficienza). Il calcolo resta locale e non viene inviato a un server KINEVA FIT. Le etichette «In linea», «Da richiamare» e «Senza calendario» descrivono lo stesso registro.</li>
+<li>Mostrare sul dispositivo il riepilogo della seduta e le finestre di 7, 28 e 90 giorni (sedute fatte e pianificate, carico, chilometri, calorie e, se c’è una distanza, il passo). Dal piano Athlete Pro compaiono il grafico delle settimane e il confronto con la stessa scheda precedente. Piano Pro e Studio mostrano gli ultimi 28 giorni di ogni cliente già visibile; Studio mostra anche il totale dello studio e, se ci sono più trainer, la ripartizione. Il calcolo resta sul dispositivo e non viene inviato a un server KINEVA FIT. Non è un referto medico né una garanzia di risultato.</li>
 </ol>
 <p><strong>Non</strong> utilizziamo i dati per profilazione pubblicitaria di terzi né per vendita a data broker. <strong>Non</strong> esiste un backend KINEVA FIT che centralizzi schede, GPS o biometrie degli utenti.</p>
 <hr />
 <h2>5. Modalità e luogo di conservazione</h2>
 <ul>
 <li>Architettura <strong>offline-first</strong>: la maggior parte dei dati resta sul dispositivo (database locale Hive <strong>cifrato</strong> e, dove previsto, Keychain / Keystore).  </li>
+<li>I riepiloghi di storico (seduta, finestre di 7, 28 e 90 giorni, confronto con la scheda precedente, totali per cliente e per studio) sono calcolati sul dispositivo dalle sessioni già salvate e non vengono inviati a un server KINEVA FIT.</li>
 <li>Coordinate GPS e traccia del percorso restano sul dispositivo (e sull’Apple Watch, se usato). <strong>Non</strong> vengono inviate a server KINEVA FIT.  </li>
 <li>Per disegnare le strade sotto il percorso, l’app può richiedere uno snapshot o tile di mappa ad Apple Maps, Esri o OpenStreetMap: il provider riceve l’area geografica (bounding box) necessaria al rendering, non la traccia GPS completa.  </li>
 <li>Backup, export o sync avvengono solo se avviati dall’utente (File / Email / WhatsApp / archivio ZIP verso Files/iCloud/Drive) o richiesti dalla funzione (es. WatchConnectivity).  </li>
