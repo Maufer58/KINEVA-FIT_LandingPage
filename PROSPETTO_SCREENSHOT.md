@@ -50,11 +50,11 @@ In italiano si vedono i tre file `*-it`; in inglese i tre `*-en`. Se il PNG manc
 
 | Posizione | File | Cosa catturare |
 |-----------|------|----------------|
-| iPhone seduta | `29-history-session-iphone-it.png` / `…-en.png` | Cinque numeri: tempo attivo, carico, calorie, frequenza, sforzo, e la freccia |
-| iPhone finestre | `29-history-windows-iphone-it.png` / `…-en.png` | Chip 7 / 28 / 90 e il grafico delle settimane |
+| iPad seduta | `29-history-session-iphone-it.png` / `…-en.png` | Cinque numeri: tempo attivo, carico, calorie, frequenza, sforzo, e la freccia |
+| iPad finestre | `29-history-windows-iphone-it.png` / `…-en.png` | Chip 7 / 28 / 90 e il grafico delle settimane |
 | iPad studio | `29-history-studio-ipad-it.png` / `…-en.png` | Totale dello studio e la riga per trainer |
 
-**Formato:** iPhone 1290×2796 · iPad landscape. Pacchetto demo, Piano Studio.
+**Formato:** iPad portrait. Pacchetto demo, Piano Studio.
 
 ---
 
