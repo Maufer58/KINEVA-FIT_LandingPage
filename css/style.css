@@ -3913,7 +3913,7 @@ html:not([lang="en"]) .efficiency-shot-en { display: none; }
   text-decoration: none;
 }
 .footer-brand img { border-radius: 0; }
-.footer-copy, .footer-links, .footer-disclaimer, .footer-legal-line {
+.footer-copy, .footer-links, .footer-disclaimer, .footer-trademarks, .footer-legal-line {
   margin: 0;
   color: var(--muted);
   font-size: 0.85rem;
@@ -3928,7 +3928,22 @@ html:not([lang="en"]) .efficiency-shot-en { display: none; }
   max-width: 40rem;
   line-height: 1.45;
 }
+.footer-trademarks {
+  flex-basis: 100%;
+  max-width: 48rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
 .footer-links a { color: var(--muted); font-weight: 600; }
+.download-store-note {
+  margin: 0.75rem 0 0 !important;
+  max-width: 34rem;
+  font-size: 0.82rem !important;
+  color: rgba(243, 246, 249, 0.55) !important;
+  line-height: 1.4;
+}
 
 /* Motion */
 .reveal {
