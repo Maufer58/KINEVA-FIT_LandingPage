@@ -944,7 +944,7 @@
                   <span class="studio-snap-badge" data-i18n="studio.snap2.badge">02 · Assegnazione clienti</span>
                 </figure>
                 <h4 data-i18n="studio.snap2.title">Assegnare clienti e schede allo staff</h4>
-                <p data-i18n="studio.snap2.body">Chi crea l’atleta ne è proprietario. Dal drawer puoi condividere lo stesso cliente con uno o più trainer: il ricevente gestisce schede e allenamenti; solo proprietario/Supervisore cancellano o ri-condividono.</p>
+                <p data-i18n="studio.snap2.body">Chi crea l’atleta ne è proprietario. Il supervisore può darsi un nome e condividere il cliente. Il ricevente consulta schede e storico, senza modificarli, avviarli, esportarli o inviarli. Solo proprietario e Supervisore cancellano o cambiano la condivisione.</p>
                 <p class="studio-snap-path" data-i18n="studio.snap2.path">Percorso: ☰ drawer → ⋯ sul cliente → Condividi con i trainer · oppure assegna schede dal catalogo master</p>
               </article>
 
@@ -1155,17 +1155,17 @@
               <article class="studio-card">
                 <span class="studio-card-num">17</span>
                 <h4 data-i18n="studio.g7.c1.title">Gestione trainer (Supervisore)</h4>
-                <p data-i18n="studio.g7.c1.body">Solo il Supervisore crea i trainer (nome + PIN), abilita l’accesso e gestisce i posti: 3 trainer per dispositivo + supervisore. In testata vedi sempre il ruolo attivo.</p>
+                <p data-i18n="studio.g7.c1.body">Solo il Supervisore crea i trainer (nome + PIN), può darsi un nome, abilita l’accesso e gestisce i posti: 3 trainer per dispositivo + supervisore. In testata vedi sempre il ruolo attivo.</p>
               </article>
               <article class="studio-card">
                 <span class="studio-card-num">18</span>
                 <h4 data-i18n="studio.g7.c2.title">Login multi-profilo con PIN</h4>
-                <p data-i18n="studio.g7.c2.body">All’avvio scegli Supervisore o Trainer (rotella) e digita il PIN sul tastierino a schermo. Ogni trainer vede solo i propri clienti e i condivisi; schede, storico e statistiche restano separati.</p>
+                <p data-i18n="studio.g7.c2.body">All’avvio scegli Supervisore o Trainer (rotella) e digita il PIN. Ogni trainer modifica solo i propri clienti. I condivisi si consultano in sola lettura. Dalla Home, Esci torna al login se il PIN è attivo.</p>
               </article>
               <article class="studio-card">
                 <span class="studio-card-num">19</span>
                 <h4 data-i18n="studio.g7.c3.title">Condivisione clienti tra trainer</h4>
-                <p data-i18n="studio.g7.c3.body">Dal drawer: ⋯ sul cliente → «Condividi con i trainer». Imposta proprietario e chi può seguire l’atleta; puoi nascondere campi biometrici. Togliere la condivisione non cancella i dati del proprietario.</p>
+                <p data-i18n="studio.g7.c3.body">Dal drawer, sul cliente di cui sei proprietario: ⋯ → «Condividi con i trainer». Puoi nascondere campi biometrici. Il ricevente vede il resto in sola lettura. Togliere la condivisione non cancella i dati del proprietario.</p>
               </article>
               <article class="studio-card">
                 <span class="studio-card-num">20</span>
@@ -1322,7 +1322,7 @@
               </div>
               <div>
                 <dt data-i18n="backup.to">A chi</dt>
-                <dd data-i18n="staff.create.to">Ai trainer dello staff. Un trainer operativo gestisce solo i propri clienti e quelli condivisi con lui — non crea altri trainer né vede tutto il roster.</dd>
+                <dd data-i18n="staff.create.to">Ai trainer dello staff. Un trainer modifica solo i clienti di cui è proprietario. Un cliente condiviso si consulta (anagrafica consentita, schede e storico) e non si modifica, non si esporta e non si invia. Non crea altri trainer e non vede i clienti non condivisi.</dd>
               </div>
               <div>
                 <dt data-i18n="backup.how">Come</dt>
@@ -1337,7 +1337,7 @@
             <dl class="backup-dl">
               <div>
                 <dt data-i18n="backup.who">Chi</dt>
-                <dd data-i18n="staff.assign.who">Chi crea il cliente ne è proprietario. Supervisore e proprietario decidono la condivisione; il ricevente gestisce l’atleta ma non lo cancella per tutti.</dd>
+                <dd data-i18n="staff.assign.who">Chi crea il cliente ne è proprietario. Supervisore e proprietario decidono la condivisione. Il ricevente consulta anagrafica consentita, schede e storico, e non può modificarli, avviarli, esportarli o inviarli.</dd>
               </div>
               <div>
                 <dt data-i18n="backup.to">A chi</dt>
@@ -1345,7 +1345,7 @@
               </div>
               <div>
                 <dt data-i18n="backup.how">Come</dt>
-                <dd data-i18n="staff.assign.how">Drawer ☰ → ⋯ sul cliente → «Condividi con i trainer»: imposta proprietario e chi può seguire; opzione di nascondere campi biometrici. La tabella Assegnazioni in Gestione trainer mostra tutta la rosa: persona = proprietario, due persone = condivisione. Togliere la condivisione = il ricevente smette di vederlo; i dati restano al proprietario.</dd>
+                <dd data-i18n="staff.assign.how">Drawer ☰ → ⋯ sul cliente di cui sei proprietario → «Condividi con i trainer»: imposta chi può consultarlo e quali campi biometrici restano nascosti. La tabella Assegnazioni in Gestione trainer mostra tutta la rosa: persona = proprietario, due persone = condivisione. Togliere la condivisione la fa il proprietario o il supervisore; i dati restano al proprietario. Il ricevente non modifica, non esporta e non invia.</dd>
               </div>
               <div>
                 <dt data-i18n="backup.not">Non usare per</dt>
@@ -1390,7 +1390,7 @@
             <li data-i18n="staff.matrix.i1">1 Supervisore + max 3 trainer per device; abilita 1–3 profili per i turni.</li>
             <li data-i18n="staff.matrix.i2">Solo il Supervisore crea/sospende i trainer e governa i posti.</li>
             <li data-i18n="staff.matrix.i3">Cliente: un proprietario + condivisioni a più trainer sullo stesso device.</li>
-            <li data-i18n="staff.matrix.i4">Ricevente: gestisce l’atleta; «rimuovi» = esce dalla condivisione, non cancella i dati.</li>
+            <li data-i18n="staff.matrix.i4">Ricevente: sola lettura di anagrafica consentita, schede e storico. Non modifica, non esporta e non toglie da solo la condivisione.</li>
             <li data-i18n="staff.matrix.i5">Trasferimento device: export/import profilo trainer (non Backup Completo né solo JSON schede).</li>
             <li data-i18n="staff.matrix.i6">Eliminare un trainer non libera subito il posto (cooldown 30 giorni).</li>
           </ul>
