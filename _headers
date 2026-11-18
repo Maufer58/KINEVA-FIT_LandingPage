@@ -1,0 +1,4 @@
+# Screenshots are replaced in place, under the same file name.
+# Revalidate on each visit so a new PNG shows up without waiting out the edge cache.
+/assets/screenshots/*
+  Cache-Control: public, max-age=0, must-revalidate

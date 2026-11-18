@@ -638,22 +638,28 @@ document.addEventListener('DOMContentLoaded', () => {
       studioTimer = null;
     };
 
+    const bindShotSlot = (img) => {
+      const frame = img.closest('.studio-snap-slot');
+      if (!frame) return;
+      const markEmpty = () => frame.classList.add('is-empty');
+      const markReady = () => frame.classList.remove('is-empty');
+      img.addEventListener('error', markEmpty);
+      img.addEventListener('load', markReady);
+      if (img.complete && img.naturalWidth > 0) {
+        markReady();
+        return;
+      }
+      // A hidden carousel slide reports width 0 before it is shown. Marking it
+      // empty hides the image and then it never loads.
+      const slide = img.closest('.studio-snap');
+      const waiting = slide && (slide.hidden || slide.hasAttribute('hidden'));
+      if (img.complete && img.naturalWidth === 0 && !waiting) markEmpty();
+    };
     slides.forEach((slide) => {
       const img = slide.querySelector('.studio-snap-slot img');
-      if (!img) return;
-      const markEmpty = () => {
-        img.closest('.studio-snap-slot')?.classList.add('is-empty');
-      };
-      img.addEventListener('error', markEmpty);
-      if (img.complete && img.naturalWidth === 0) markEmpty();
+      if (img) bindShotSlot(img);
     });
-    document.querySelectorAll('#sheet-print .studio-snap-slot img, #studio-sheets .studio-snap-slot img, #client-registry .studio-snap-slot img').forEach((img) => {
-      const markEmpty = () => {
-        img.closest('.studio-snap-slot')?.classList.add('is-empty');
-      };
-      img.addEventListener('error', markEmpty);
-      if (img.complete && img.naturalWidth === 0) markEmpty();
-    });
+    document.querySelectorAll('#sheet-print .studio-snap-slot img, #studio-sheets .studio-snap-slot img, #client-registry .studio-snap-slot img').forEach(bindShotSlot);
 
     const portalForm = document.getElementById('studio-portal-form');
     portalForm?.addEventListener('submit', async (event) => {
