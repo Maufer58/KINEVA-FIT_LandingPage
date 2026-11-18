@@ -72,8 +72,8 @@
 </div>
 <nav style="margin:0 0 1.5rem"><a href="#privacy">Privacy</a> · <a href="#eula">EULA</a></nav>
 <section><h1 id="privacy">Privacy Policy — KINEVA FIT</h1>
-<p><strong>Version:</strong> 2.18<br />
-<strong>Last updated:</strong> 17 November 2026<br />
+<p><strong>Version:</strong> 2.19<br />
+<strong>Last updated:</strong> 18 November 2026<br />
 <strong>Language:</strong> English  </p>
 <blockquote>
 <p>Information notice under Articles 13–14 of Regulation (EU) 2016/679 (GDPR) and Legislative Decree 196/2003 (Italian Privacy Code), as amended by Legislative Decree 101/2018.<br />
@@ -164,7 +164,7 @@ It is <strong>not a medical device</strong> (MDR / Italian Legislative Decree 46
 </tr>
 <tr>
 <td>Device licence data</td>
-<td>local identifier and subscription “seat” registry (Keychain / Keystore; iCloud Keychain sync if enabled)</td>
+<td>local device identifier, device name and seat registry. On the Store build the registry follows the purchase account (RevenueCat) through the Licensor’s seat service on Cloudflare. Without that service it stays on the device and, if enabled, in iCloud Keychain. It does not include routines or workouts</td>
 <td>Art. 6(1)(b)/(f)</td>
 </tr>
 <tr>
@@ -192,7 +192,7 @@ It is <strong>not a medical device</strong> (MDR / Italian Legislative Decree 46
 <li>Show, on the device, the session summary and the 7-, 28- and 90-day windows (sessions done and planned, load, kilometres, calories and, when a distance was recorded, pace). From Athlete Pro, the weekly chart and the comparison with the previous same routine appear. Pro Plan and Studio show the last 28 days of each client already visible; Studio also shows the studio total and, when there is more than one trainer, the split. The calculation stays on the device and is not sent to a KINEVA FIT server. It is not a medical report and it does not guarantee a result.</li>
 <li>On the Studio plan, on the same device, the supervisor sees every client and can set their own name. A trainer edits only the clients they own. A shared client can be read by the receiving trainer (profile fields the owner did not hide, routines and history) and cannot be edited, started, exported, transferred or sent. Other trainers’ clients that are not shared stay hidden. Everything stays on the device.</li>
 </ol>
-<p>We do <strong>not</strong> use data for third-party advertising profiling or sale to data brokers. There is <strong>no KINEVA FIT backend</strong> that centralises users’ routines, GPS or biometrics.</p>
+<p>We do <strong>not</strong> use data for third-party advertising profiling or sale to data brokers. There is <strong>no KINEVA FIT backend</strong> that centralises users’ routines, GPS or biometrics. The Store app contacts the Licensor’s seat service only for the device cap, as described below.</p>
 <hr />
 <h2>5. Means and place of storage</h2>
 <ul>
@@ -201,7 +201,7 @@ It is <strong>not a medical device</strong> (MDR / Italian Legislative Decree 46
 <li>GPS coordinates and the route track stay on the device (and on Apple Watch, if used). They are <strong>not</strong> sent to KINEVA FIT servers.  </li>
 <li>To draw streets under the route, the app may request a map snapshot or tiles from Apple Maps, Esri or OpenStreetMap: the provider receives the geographic area (bounding box) needed for rendering, not the full GPS track.  </li>
 <li>Backup, export or sync occur only when started by the user (File / Email / WhatsApp / ZIP archive to Files/iCloud/Drive) or required by a feature (e.g. WatchConnectivity).  </li>
-<li>The licence seat registry may sync via <strong>iCloud Keychain</strong> if the user has iCloud Keychain enabled (licence metadata only, not workout routines).  </li>
+<li>To enforce the device cap of the same subscription even when iCloud accounts differ, the Store app sends the purchase-account identifier, a local device identifier and the device name to the Licensor’s seat service (Cloudflare). The service reads the subscription status on RevenueCat and stores only the seat list there. It does not send routines, GPS, photos or profile data. If that service is not configured, the list stays on the device and may sync through iCloud Keychain.  </li>
 <li>Retention period: until deletion of data in the app, uninstall, or an erasure request to the Controller; billing data remains with Apple / Google under their policies.</li>
 </ul>
 <hr />
@@ -233,8 +233,13 @@ It is <strong>not a medical device</strong> (MDR / Italian Legislative Decree 46
 </tr>
 <tr>
 <td>RevenueCat</td>
-<td>Subscription / add-on entitlements</td>
-<td>Subscription identifiers (not Hive routines)</td>
+<td>Subscription / add-on entitlements and the seat registry</td>
+<td>Subscription identifiers and, for the device cap, the seat list (not Hive routines)</td>
+</tr>
+<tr>
+<td>Cloudflare</td>
+<td>Device-seat service of the Store build</td>
+<td>Purchase-account identifier, device identifier and device name. Not the routines</td>
 </tr>
 <tr>
 <td>User-chosen channels</td>
@@ -293,8 +298,8 @@ Phone: <a href="tel:+393717364261">+39 371 7364261</a><br />
 For general legal matters about the product: the same channel or the address shown on App Store Connect / Google Play Console.</p></section>
 <hr/>
 <section><h1 id="eula">End User License Agreement (EULA) — KINEVA FIT</h1>
-<p><strong>Version:</strong> 2.18<br />
-<strong>Date:</strong> 17 November 2026  </p>
+<p><strong>Version:</strong> 2.19<br />
+<strong>Date:</strong> 18 November 2026  </p>
 <blockquote>
 <p>Software licence and B2C contractual terms. Incorporates Apple Licensed Application End User License Agreement requirements where applicable. Legal review recommended before final publication.</p>
 </blockquote>
@@ -307,7 +312,7 @@ For general legal matters about the product: the same channel or the address sho
 <h2>2. Licence</h2>
 <p>You are granted a <strong>personal, non-exclusive, non-transferable, revocable</strong> licence to use the App on devices you own or control, subject to store rules (Apple).</p>
 <p>The licence is <strong>personal</strong> and covers the subscription bound to the purchaser’s Apple ID / Google Play account, not an unlimited number of concurrent installations. Concurrent devices with paid features (iPhone, iPad, Android): <strong>Athlete Pro 2</strong>, <strong>Pro Plan 2</strong>, <strong>Studio &amp; Gym 3</strong>. The <strong>Apple Watch</strong> paired with the iPhone does <strong>not</strong> consume a seat. The Free plan has no device cap (each install remains Free).</p>
-<p>Restore Purchases remains available on every device, as required by the stores. A device over the cap stays on the Free plan until another device is deactivated in Settings. <strong>Sharing an Apple ID or Play account</strong> (for example across gym iPads) to bypass the cap is forbidden. Clients of a studio do <strong>not</strong> inherit the Studio plan: they remain Free unless they purchase Athlete Pro themselves.</p>
+<p>Restore Purchases remains available on every device, as required by the stores. The seat count follows the store account even when iCloud is a different account. The list holds the device identifier and name, not the routines. A device over the cap stays on the Free plan until another device is deactivated in Settings. <strong>Sharing an Apple ID or Play account</strong> (for example across gym iPads) to bypass the cap is forbidden. Clients of a studio do <strong>not</strong> inherit the Studio plan: they remain Free unless they purchase Athlete Pro themselves.</p>
 <p>You do not acquire ownership of the software, trademarks, exercise database or protected content.</p>
 <p>Some exercise animations (GIFs) are used under a <strong>third-party commercial licence</strong> (Gym Visual, <a href="https://gymvisual.com">gymvisual.com</a>). Copyright in that media remains with the rights holder. You acquire no rights in those files and may not extract, copy or redistribute them separately from the App. <strong>Gym Visual GIFs are for in-app display only</strong>: they are not included in PDF exports, print images, or encyclopedias generated by the App.</p>
 <p><strong>Muscle silhouettes and body maps</strong> shown in the App and in exports are <strong>generated by the App</strong> and owned by <strong>SYNAPSE DIGITAL Advanced App Development</strong>; they are not part of the Gym Visual licence.</p>

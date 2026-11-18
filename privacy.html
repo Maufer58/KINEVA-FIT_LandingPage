@@ -71,8 +71,8 @@
   <img src="logo-horizontal.png" class="brand-logo-h" width="220" height="85" alt="KINEVA FIT"/>
 </div>
 <h1>Informativa sulla Privacy — KINEVA FIT</h1>
-<p><strong>Versione:</strong> 2.18<br />
-<strong>Data di aggiornamento:</strong> 17 novembre 2026<br />
+<p><strong>Versione:</strong> 2.19<br />
+<strong>Data di aggiornamento:</strong> 18 novembre 2026<br />
 <strong>Lingua:</strong> Italiano  </p>
 <blockquote>
 <p>Documento informativo ai sensi degli artt. 13–14 del Regolamento (UE) 2016/679 (GDPR) e del D.Lgs. 196/2003 (Codice Privacy), come modificato dal D.Lgs. 101/2018.<br />
@@ -163,7 +163,7 @@
 </tr>
 <tr>
 <td>Dati di licenza dispositivo</td>
-<td>identificativo locale e registro “sedie” abbonamento (Keychain / Keystore; sync iCloud Keychain se attiva)</td>
+<td>identificativo locale del dispositivo, nome del dispositivo e registro dei posti. Sulla build Store il registro segue l’account dell’acquisto (RevenueCat) tramite il servizio posti del Licenziante su Cloudflare. Senza quel servizio resta sul dispositivo e, se attivo, su iCloud Keychain. Non include schede né allenamenti</td>
 <td>Art. 6(1)(b)/(f)</td>
 </tr>
 <tr>
@@ -191,7 +191,7 @@
 <li>Mostrare sul dispositivo il riepilogo della seduta e le finestre di 7, 28 e 90 giorni (sedute fatte e pianificate, carico, chilometri, calorie e, se c’è una distanza, il passo). Dal piano Athlete Pro compaiono il grafico delle settimane e il confronto con la stessa scheda precedente. Piano Pro e Studio mostrano gli ultimi 28 giorni di ogni cliente già visibile; Studio mostra anche il totale dello studio e, se ci sono più trainer, la ripartizione. Il calcolo resta sul dispositivo e non viene inviato a un server KINEVA FIT. Non è un referto medico né una garanzia di risultato.</li>
 <li>Sul piano Studio, sullo stesso dispositivo, il supervisore vede tutti i clienti e può assegnarsi un nome. Il trainer modifica solo i clienti di cui è proprietario. Un cliente condiviso è consultabile dal trainer che lo riceve (anagrafica nei campi non nascosti dal proprietario, schede e storico) e non può essere modificato, avviato, esportato, trasferito o inviato. I clienti non condivisi degli altri trainer restano nascosti. Tutto resta sul dispositivo.</li>
 </ol>
-<p><strong>Non</strong> utilizziamo i dati per profilazione pubblicitaria di terzi né per vendita a data broker. <strong>Non</strong> esiste un backend KINEVA FIT che centralizzi schede, GPS o biometrie degli utenti.</p>
+<p><strong>Non</strong> utilizziamo i dati per profilazione pubblicitaria di terzi né per vendita a data broker. <strong>Non</strong> esiste un backend KINEVA FIT che centralizzi schede, GPS o biometrie degli utenti. L’app Store contatta il servizio posti del Licenziante solo per il tetto dispositivi, come descritto sotto.</p>
 <hr />
 <h2>5. Modalità e luogo di conservazione</h2>
 <ul>
@@ -200,7 +200,7 @@
 <li>Coordinate GPS e traccia del percorso restano sul dispositivo (e sull’Apple Watch, se usato). <strong>Non</strong> vengono inviate a server KINEVA FIT.  </li>
 <li>Per disegnare le strade sotto il percorso, l’app può richiedere uno snapshot o tile di mappa ad Apple Maps, Esri o OpenStreetMap: il provider riceve l’area geografica (bounding box) necessaria al rendering, non la traccia GPS completa.  </li>
 <li>Backup, export o sync avvengono solo se avviati dall’utente (File / Email / WhatsApp / archivio ZIP verso Files/iCloud/Drive) o richiesti dalla funzione (es. WatchConnectivity).  </li>
-<li>Il registro delle sedi di licenza può sincronizzarsi tramite <strong>iCloud Keychain</strong> se l’utente ha iCloud Keychain attivo (solo metadati di licenza, non le schede di allenamento).  </li>
+<li>Per far rispettare il tetto di dispositivi dello stesso abbonamento anche con iCloud diversi, l’app Store invia al servizio posti del Licenziante (Cloudflare) l’identificativo dell’account acquisti, un identificativo locale del dispositivo e il nome del dispositivo. Il servizio legge lo stato dell’abbonamento su RevenueCat e vi salva solo l’elenco dei posti. Non invia schede, GPS, foto o dati anagrafici. Se quel servizio non è configurato, l’elenco resta sul dispositivo e può sincronizzarsi con iCloud Keychain.  </li>
 <li>Periodo di conservazione: fino a cancellazione dei dati dall’app, disinstallazione, o richiesta di cancellazione al Titolare; i dati di fatturazione restano presso Apple / Google secondo le relative policy.</li>
 </ul>
 <hr />
@@ -232,8 +232,13 @@
 </tr>
 <tr>
 <td>RevenueCat</td>
-<td>Gestione entitlement abbonamenti / add-on</td>
-<td>Identificativi abbonamento (non le schede Hive)</td>
+<td>Gestione entitlement abbonamenti / add-on e registro posti</td>
+<td>Identificativi abbonamento e, per il tetto dispositivi, l’elenco dei posti (non le schede Hive)</td>
+</tr>
+<tr>
+<td>Cloudflare</td>
+<td>Servizio posti dispositivo della build Store</td>
+<td>Identificativo dell’account acquisti, identificativo e nome del dispositivo. Non le schede</td>
 </tr>
 <tr>
 <td>Canali scelti dall’utente</td>
