@@ -647,7 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
       img.addEventListener('error', markEmpty);
       if (img.complete && img.naturalWidth === 0) markEmpty();
     });
-    document.querySelectorAll('#sheet-print .studio-snap-slot img').forEach((img) => {
+    document.querySelectorAll('#sheet-print .studio-snap-slot img, #studio-sheets .studio-snap-slot img').forEach((img) => {
       const markEmpty = () => {
         img.closest('.studio-snap-slot')?.classList.add('is-empty');
       };
