@@ -944,7 +944,7 @@
                   <span class="studio-snap-badge" data-i18n="studio.snap2.badge">02 · Assegnazione clienti</span>
                 </figure>
                 <h4 data-i18n="studio.snap2.title">Assegnare clienti e schede allo staff</h4>
-                <p data-i18n="studio.snap2.body">Chi crea l’atleta ne è proprietario. Il supervisore può darsi un nome e condividere il cliente. Il ricevente consulta schede e storico, senza modificarli, avviarli, esportarli o inviarli. Solo proprietario e Supervisore cancellano o cambiano la condivisione.</p>
+                <p data-i18n="studio.snap2.body">Chi crea l’atleta ne è proprietario. Il supervisore può darsi un nome e condividere il cliente. Il ricevente consulta schede e storico. In anagrafica Modifica si apre in sola lettura e Duplica è disabilitato. Solo proprietario e Supervisore cancellano o cambiano la condivisione.</p>
                 <p class="studio-snap-path" data-i18n="studio.snap2.path">Percorso: ☰ drawer → ⋯ sul cliente → Condividi con i trainer · oppure assegna schede dal catalogo master</p>
               </article>
 
@@ -1160,7 +1160,7 @@
               <article class="studio-card">
                 <span class="studio-card-num">18</span>
                 <h4 data-i18n="studio.g7.c2.title">Login multi-profilo con PIN</h4>
-                <p data-i18n="studio.g7.c2.body">All’avvio scegli Supervisore o Trainer (rotella) e digita il PIN. Ogni trainer modifica solo i propri clienti. I condivisi si consultano in sola lettura. Dalla Home, Esci torna al login se il PIN è attivo.</p>
+                <p data-i18n="studio.g7.c2.body">All’avvio scegli Supervisore o Trainer (rotella) e digita il PIN. Ogni trainer modifica solo i propri clienti. Su un condiviso, in anagrafica Modifica si apre in sola lettura e Duplica è disabilitato. Dalla Home, Esci torna al login se il PIN è attivo.</p>
               </article>
               <article class="studio-card">
                 <span class="studio-card-num">19</span>
@@ -1322,7 +1322,7 @@
               </div>
               <div>
                 <dt data-i18n="backup.to">A chi</dt>
-                <dd data-i18n="staff.create.to">Ai trainer dello staff. Un trainer modifica solo i clienti di cui è proprietario. Un cliente condiviso si consulta (anagrafica consentita, schede e storico) e non si modifica, non si esporta e non si invia. Non crea altri trainer e non vede i clienti non condivisi.</dd>
+                <dd data-i18n="staff.create.to">Ai trainer dello staff. Un trainer modifica solo i clienti di cui è proprietario. Un cliente condiviso si consulta (anagrafica consentita, schede e storico): in anagrafica Modifica si apre in sola lettura e Duplica è disabilitato. Non si esporta e non si invia. Non crea altri trainer e non vede i clienti non condivisi.</dd>
               </div>
               <div>
                 <dt data-i18n="backup.how">Come</dt>
@@ -1337,7 +1337,7 @@
             <dl class="backup-dl">
               <div>
                 <dt data-i18n="backup.who">Chi</dt>
-                <dd data-i18n="staff.assign.who">Chi crea il cliente ne è proprietario. Supervisore e proprietario decidono la condivisione. Il ricevente consulta anagrafica consentita, schede e storico, e non può modificarli, avviarli, esportarli o inviarli.</dd>
+                <dd data-i18n="staff.assign.who">Chi crea il cliente ne è proprietario. Supervisore e proprietario decidono la condivisione. Il ricevente consulta anagrafica consentita, schede e storico. In anagrafica Modifica si apre in sola lettura e Duplica è disabilitato. Non può avviare, esportare o inviare.</dd>
               </div>
               <div>
                 <dt data-i18n="backup.to">A chi</dt>
@@ -1345,7 +1345,7 @@
               </div>
               <div>
                 <dt data-i18n="backup.how">Come</dt>
-                <dd data-i18n="staff.assign.how">Drawer ☰ → ⋯ sul cliente di cui sei proprietario → «Condividi con i trainer»: imposta chi può consultarlo e quali campi biometrici restano nascosti. La tabella Assegnazioni in Gestione trainer mostra tutta la rosa: persona = proprietario, due persone = condivisione. Togliere la condivisione la fa il proprietario o il supervisore; i dati restano al proprietario. Il ricevente non modifica, non esporta e non invia.</dd>
+                <dd data-i18n="staff.assign.how">Drawer ☰ → ⋯ sul cliente di cui sei proprietario → «Condividi con i trainer»: imposta chi può consultarlo e quali campi biometrici restano nascosti. La tabella Assegnazioni in Gestione trainer mostra tutta la rosa: persona = proprietario, due persone = condivisione. Togliere la condivisione la fa il proprietario o il supervisore; i dati restano al proprietario. Per il ricevente, Modifica in anagrafica è in sola lettura e Duplica è disabilitato.</dd>
               </div>
               <div>
                 <dt data-i18n="backup.not">Non usare per</dt>
@@ -1390,7 +1390,7 @@
             <li data-i18n="staff.matrix.i1">1 Supervisore + max 3 trainer per device; abilita 1–3 profili per i turni.</li>
             <li data-i18n="staff.matrix.i2">Solo il Supervisore crea/sospende i trainer e governa i posti.</li>
             <li data-i18n="staff.matrix.i3">Cliente: un proprietario + condivisioni a più trainer sullo stesso device.</li>
-            <li data-i18n="staff.matrix.i4">Ricevente: sola lettura di anagrafica consentita, schede e storico. Non modifica, non esporta e non toglie da solo la condivisione.</li>
+            <li data-i18n="staff.matrix.i4">Ricevente: in anagrafica Modifica si apre in sola lettura e Duplica è disabilitato. Vede schede e storico. Non esporta e non toglie da solo la condivisione.</li>
             <li data-i18n="staff.matrix.i5">Trasferimento device: export/import profilo trainer (non Backup Completo né solo JSON schede).</li>
             <li data-i18n="staff.matrix.i6">Eliminare un trainer non libera subito il posto (cooldown 30 giorni).</li>
           </ul>
@@ -2035,12 +2035,12 @@
           <div class="paywall-icon" aria-hidden="true">◆</div>
           <h2 data-i18n="plans.unlock">Sblocca KINEVA FIT Pro</h2>
           <p class="paywall-acronym" data-i18n="plans.acronym">Movimento · Ottimizzazione · Vitalità · Evoluzione</p>
-          <p class="paywall-free-note" data-i18n="plans.freeNote">Piano Free: 1 scheda, 1 gruppo, 15 esercizi, 3 crediti AI/mese. Niente distanza/GPS, Watch né PDF scheda (Athlete Pro+). Prova 7 giorni in Store.</p>
+          <p class="paywall-free-note" data-i18n="plans.freeNote">Piano Free: 1 scheda, 1 gruppo, 15 esercizi, 3 crediti AI per la settimana di offerta (non ogni mese). Niente distanza/GPS, Watch né PDF scheda (Athlete Pro+). Prova 7 giorni in Store.</p>
         </div>
 
         <aside class="plans-free-strip">
           <strong data-i18n="plans.free.name">Piano Free</strong>
-          <p data-i18n="plans.free.body">1 scheda · 1 gruppo · max 15 esercizi. Runner palestra, calendario, storico e 3 crediti AI/mese. GPS/distanza, Watch, PDF scheda e schede illimitate su Athlete Pro+.</p>
+          <p data-i18n="plans.free.body">1 scheda · 1 gruppo · max 15 esercizi. Runner palestra, calendario, storico e 3 crediti AI per la settimana di offerta, non ogni mese. GPS/distanza, Watch, PDF scheda e schede illimitate su Athlete Pro+.</p>
         </aside>
 
         <div class="billing-toggle" role="group" aria-label="Periodo">
@@ -2074,7 +2074,7 @@
               <li data-i18n="plans.athlete.f5">Schede illimitate salvabili</li>
               <li data-i18n="plans.athlete.f6">Database completo esercizi (fitness + mobilità in libreria)</li>
               <li data-i18n="plans.athlete.f7">Metodi di allenamento avanzati (TUT, Drop set)</li>
-              <li data-i18n="plans.athlete.f8">3 crediti AI/mese (Wizard, import foto) + pack booster (+2 1,49€ · +10 7,99€ · +30 24,99€) — stessi 3 anche sul Free</li>
+              <li data-i18n="plans.athlete.f8">3 crediti AI/mese (Wizard, import foto) + pack booster (+2 1,49€ · +10 7,99€ · +30 24,99€). Sul Free: 3 crediti per la settimana di offerta, non ogni mese</li>
               <li data-i18n="plans.athlete.f9">Timer avanzati personalizzabili</li>
               <li data-i18n="plans.athlete.f11">Filtro Sicurezza Movimento</li>
               <li data-i18n="plans.athlete.f12">Analizza dati: composizione, performance, insights e aderenza</li>
@@ -2294,7 +2294,7 @@
     </div>
   </footer>
 
-  <script src="js/i18n.js?v=20261106a"></script>
+  <script src="js/i18n.js?v=20261118b"></script>
   <script src="js/main.js?v=20261101a"></script>
 </body>
 </html>
