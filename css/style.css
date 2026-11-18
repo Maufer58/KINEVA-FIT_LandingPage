@@ -2297,6 +2297,15 @@ body.shot-lightbox-open {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
+.sheet-print-slots--pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 920px;
+}
+.sheet-print-slots--one {
+  grid-template-columns: minmax(0, 28rem);
+}
+html[lang="en"] .lang-it { display: none; }
+html:not([lang="en"]) .lang-en { display: none; }
 @media (max-width: 800px) {
   .sheet-print-slots {
     grid-template-columns: 1fr;
