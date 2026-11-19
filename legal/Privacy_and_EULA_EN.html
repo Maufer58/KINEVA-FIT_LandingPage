@@ -72,26 +72,26 @@
 </div>
 <nav style="margin:0 0 1.5rem"><a href="#privacy">Privacy</a> · <a href="#eula">EULA</a></nav>
 <section><h1 id="privacy">Privacy Policy — KINEVA FIT</h1>
-<p><strong>Version:</strong> 2.20<br />
+<p><strong>Version:</strong> 2.24<br />
 <strong>Last updated:</strong> 18 November 2026<br />
 <strong>Language:</strong> English  </p>
 <blockquote>
-<p>Information notice under Articles 13–14 of Regulation (EU) 2016/679 (GDPR) and Legislative Decree 196/2003 (Italian Privacy Code), as amended by Legislative Decree 101/2018.<br />
-<strong>Disclaimer:</strong> operational text aligned with GDPR practice and the app’s features; have counsel/DPO review it before relying on it as final legal advice for production publication.</p>
+<p>Information notice under Articles 13–14 of Regulation (EU) 2016/679 (GDPR) and Legislative Decree 196/2003 (Italian Privacy Code), as amended by Legislative Decree 101/2018.</p>
 </blockquote>
 <hr />
 <h2>1. Data controller</h2>
-<p><strong>Controller:</strong> SYNAPSE DIGITAL Advanced App Development (company of the KINEVA FIT application)<br />
+<p><strong>Controller:</strong> SYNAPSE DIGITAL Advanced App Development, a sole proprietorship that publishes the KINEVA FIT application<br />
 <strong>Registered address:</strong> Largo Molinetto n. 1, 20900 Monza (MB), Italy<br />
 <strong>Phone:</strong> <a href="tel:+393717364261">+39 371 7364261</a><br />
 <strong>VAT:</strong> 14895130962 · <strong>D-U-N-S:</strong> 302873219<br />
 <strong>Support / privacy contact:</strong> <code>support@synapse-digital-adv-app.com</code><br />
 <strong>Company website:</strong> <a href="https://synapse-digital-adv-app.com/">synapse-digital-adv-app.com</a></p>
 <p>To exercise GDPR rights, write to the privacy address above with the subject line “KINEVA FIT privacy request”.</p>
-<p>No DPO is appointed (not required under the Controller’s current setup). If appointment becomes mandatory in the future, the DPO’s contact details will be published in this notice.</p>
+<p>The Controller is a sole proprietorship. No DPO is appointed. Appointment is not required merely because of that legal form: GDPR Art. 37 requires one for public authorities, for regular and systematic monitoring of people on a large scale, or for large-scale processing of special-category data (health and the like). Here the workout and health archive stays on the device and the Controller does not collect it on its own server. If appointment becomes mandatory in the future, the DPO’s contact details will be published in this notice.</p>
 <hr />
 <h2>2. Scope and nature of the service</h2>
 <p>The application is published as <strong>KINEVA FIT</strong> on the <strong>Apple App Store</strong> and <strong>Google Play</strong>.</p>
+<p>This notice applies to users in every country. The Controller is established in Italy and the processing is carried out for that activity.</p>
 <p>KINEVA FIT is a <strong>fitness</strong> application (running, gym and Apple Watch training) and a <strong>workout-organisation</strong> tool, including multi-client features for trainers/gyms.<br />
 It is <strong>not a medical device</strong> (MDR / Italian Legislative Decree 46/1997 as amended), and does not provide diagnosis, treatment or medical advice.</p>
 <p>Educational content in the app (exercise illustrations, muscle-group indications, descriptions and silhouettes) is <strong>purely informational and illustrative</strong>: it is not healthcare advice and not a personalised biomechanical analysis.</p>
@@ -192,18 +192,22 @@ It is <strong>not a medical device</strong> (MDR / Italian Legislative Decree 46
 <li>Show, on the device, the session summary and the 7-, 28- and 90-day windows (sessions done and planned, load, kilometres, calories and, when a distance was recorded, pace). From Athlete Pro, the weekly chart and the comparison with the previous same routine appear. Pro Plan and Studio show the last 28 days of each client already visible; Studio also shows the studio total and, when there is more than one trainer, the split. The calculation stays on the device and is not sent to a KINEVA FIT server. It is not a medical report and it does not guarantee a result.</li>
 <li>On the Studio plan, on the same device, the supervisor sees every client and can set their own name. A trainer edits only the clients they own. A shared client can be read by the receiving trainer (profile fields the owner did not hide, routines and history) and cannot be edited, started, exported, transferred or sent. Other trainers’ clients that are not shared stay hidden. Everything stays on the device.</li>
 <li>On the Studio plan the supervisor can copy a routine from their own profile onto a trainer’s profile. The copy stays on the device. The trainer cannot change it until the supervisor allows it. They can assign it to a client: that copy is another routine, still on the device, and the trainer can adapt it. Printing matrices and registries makes a PDF on the device and sends it only to the printer or the share channel the person printing chooses. It is not sent to a KINEVA FIT server.</li>
+<li>Run <strong>KINEVA FIT Studio</strong> on the computer of the person who starts it. Client records, routines, sessions read from a full backup or a history ZIP, and trainer names, stay in the local file on that computer. The program is not a network service and does not send that data to a KINEVA FIT server. The JSON downloaded for the app contains only what the transfer screen includes. A trainer created from that backup stays suspended until the supervisor sets a portal password.</li>
 </ol>
-<p>We do <strong>not</strong> use data for third-party advertising profiling or sale to data brokers. There is <strong>no KINEVA FIT backend</strong> that centralises users’ routines, GPS or biometrics. The Store app contacts the Licensor’s seat service only for the device cap, as described below.</p>
+<p>We do <strong>not</strong> use data for advertising profiling, insurance, credit decisions, or sale to data brokers. Data written to Apple Health is not used for marketing or data mining. There is <strong>no KINEVA FIT backend</strong> that centralises users’ routines, GPS or biometrics. The Store app contacts the Licensor’s seat service only for the device cap, as described below.</p>
 <hr />
 <h2>5. Means and place of storage</h2>
+<p>Routines, client records, history, GPS, PINs and health notes are processed on the device and, for KINEVA FIT Studio, on the computer of the person who starts it. The Controller has no cloud of this data. Data leaves the device only in the cases listed below: a store purchase, the device-seat list, an AI request the user starts, the map area, a write to Apple Health, and files the user exports.</p>
 <ul>
-<li><strong>Offline-first</strong> architecture: most data stays on the device (local <strong>encrypted</strong> Hive database and, where applicable, Keychain / Keystore).  </li>
+<li><strong>Offline-first</strong> architecture: workout data stays on the device (local <strong>encrypted</strong> Hive database and, where applicable, Keychain / Keystore).  </li>
 <li>History summaries (the session, 7-, 28- and 90-day windows, comparison with the previous routine, per-client and studio totals) are calculated on the device from sessions already stored and are not sent to a KINEVA FIT server.</li>
 <li>GPS coordinates and the route track stay on the device (and on Apple Watch, if used). They are <strong>not</strong> sent to KINEVA FIT servers.  </li>
 <li>To draw streets under the route, the app may request a map snapshot or tiles from Apple Maps, Esri or OpenStreetMap: the provider receives the geographic area (bounding box) needed for rendering, not the full GPS track.  </li>
 <li>Backup, export or sync occur only when started by the user (File / Email / WhatsApp / ZIP archive to Files/iCloud/Drive) or required by a feature (e.g. WatchConnectivity).  </li>
 <li>To enforce the device cap of the same subscription even when iCloud accounts differ, the Store app sends the purchase-account identifier, a local device identifier and the device name to the Licensor’s seat service (Cloudflare). The service reads the subscription status on RevenueCat and stores only the seat list there. It does not send routines, GPS, photos or profile data. If that service is not configured, the list stays on the device and may sync through iCloud Keychain.  </li>
-<li>Retention period: until deletion of data in the app, uninstall, or an erasure request to the Controller; billing data remains with Apple / Google under their policies.</li>
+<li><strong>Apple Health / HealthKit.</strong> If the user allows it, the app writes the finished workout, the effort they entered and any route. It does not read the Health archive to profile the user. Revoke access in iOS Settings → Health → Data Access &amp; Devices. Data already written to Health stays there under Apple’s policy and is not deleted by uninstalling KINEVA FIT. The Controller does not keep a cloud copy of what it wrote to Health.</li>
+<li><strong>KINEVA FIT Studio.</strong> The studio file stays on the computer, in the application folder. Importing a full backup or a history ZIP copies that data onto that computer. There is no Studio account on a Controller server.</li>
+<li><strong>Retention.</strong> On the device, until the user deletes the data or uninstalls the app, apart from system backups the user keeps. The Cloudflare device-seat list stays while the subscription is active and for as long as needed to enforce the cap; it is deleted on request or when it is no longer needed for that purpose. Prompts sent to the AI are not kept by the Controller on its own server after the reply. Purchase identifiers remain with Apple, Google and RevenueCat under their policies.</li>
 </ul>
 <hr />
 <h2>6. Recipients and processors</h2>
@@ -255,7 +259,8 @@ It is <strong>not a medical device</strong> (MDR / Italian Legislative Decree 46
 </tbody>
 </table>
 <p>Extra-EEA transfers (e.g. USA) take place, where applicable, with Chapter V GDPR safeguards (adequacy decisions, SCCs and providers’ measures).</p>
-<p><strong>Trainers / Studio:</strong> if you use Pro/Studio plans, toward your clients’ data you typically act as an <strong>independent controller</strong>. You are responsible for legal bases, notices and instructions to your clients. Routine export/transfer features may include client identity and biometric data: use them only with an adequate legal basis.</p>
+<p><strong>Trainers / Studio:</strong> if you use Pro/Studio plans, toward your clients’ data you typically act as an <strong>independent controller</strong>. You are responsible for legal bases, notices and instructions to your clients, including when you enter their data in KINEVA FIT Studio. Routine export/transfer features may include client identity and biometric data: use them only with an adequate legal basis.</p>
+<p>Supplying workout, Health or location data is necessary only for the feature that uses it. Without that permission the feature does not run and the rest of the app stays available. We do not make decisions based solely on automated processing that produce legal effects or similarly significantly affect the person (GDPR Art. 22). AI text is a draft to check before use. Prompts sent to Google Gemini are processed by Google to produce the reply, under the API terms; the Controller does not use them to train its own model.</p>
 <hr />
 <h2>7. Data subject rights (GDPR Chapter III)</h2>
 <p>You may exercise at any time:</p>
@@ -267,12 +272,12 @@ It is <strong>not a medical device</strong> (MDR / Italian Legislative Decree 46
 <li>portability (Art. 20)  </li>
 <li>objection (Art. 21)  </li>
 <li>withdrawal of consent (Art. 7), without affecting the lawfulness of processing before withdrawal  </li>
-<li>complaint to the <strong>Italian Data Protection Authority (Garante)</strong> (www.garanteprivacy.it) or to the supervisory authority of your EU Member State of residence</li>
+<li>complaint to the <strong>Italian Data Protection Authority (Garante)</strong>, Piazza Venezia 11, 00187 Rome, www.garanteprivacy.it, or to the supervisory authority of your EU Member State of residence. You may also complain to the data protection authority of the country where you live, anywhere in the world. In the United Kingdom that authority is the Information Commissioner’s Office (ico.org.uk). In Switzerland it is the Federal Data Protection and Information Commissioner, Feldeggweg 1, 3003 Bern (www.edoeb.admin.ch)</li>
 </ul>
 <p>To delete data from the app: use the profile/data deletion features in Settings, or contact the Controller. Uninstalling removes residual local data on the device, without prejudice to system backups created by the user. “Clear workout history” deletes sessions from the device and they are not rebuilt on relaunch. A demo package reloads only if the user asks for it again. Exercises and equipment names created by the trainer stay in the local database until the trainer deletes them.</p>
 <hr />
 <h2>8. Children</h2>
-<p>The service is intended for users of an age that meets store requirements and, in Italy, generally <strong>at least 14 years</strong> for autonomous digital consent (Art. 2-quinquies of the Privacy Code), unless otherwise capable. If you are under 14, parental/guardian consent is required. In other EU Member States, the age set by national implementing law applies (between 13 and 16).</p>
+<p>The service is intended for users of an age that meets store requirements and, in Italy, generally <strong>at least 14 years</strong> for autonomous digital consent (Art. 2-quinquies of the Privacy Code), unless otherwise capable. If you are under 14, parental/guardian consent is required. In other EU Member States, the age set by national implementing law applies (between 13 and 16). Outside the Union, the age set by the law of the country of residence applies. If a trainer enters data about a client who is a minor, that trainer, as controller of that processing, must have consent from the person with parental responsibility.</p>
 <hr />
 <h2>9. Security and confidentiality</h2>
 <p>Technical and organisational measures adopted, proportionate to the risk:</p>
@@ -283,6 +288,8 @@ It is <strong>not a medical device</strong> (MDR / Italian Legislative Decree 46
 <li>selective routine sharing that does <strong>not</strong> include email, phone, conditions or full client biometrics (id and name only), unless an explicit full trainer export/transfer is used;  </li>
 <li>on the same device, a trainer who receives a shared client can read that client’s routines, history and profile fields that were not hidden, and cannot edit, export, transfer or send them;  </li>
 <li>printing matrices and registries stays on the device and leaves only toward the printer or the channel chosen by the person printing;</li>
+<li>health and workout data are not sold and are not used for advertising;</li>
+<li>KINEVA FIT Studio keeps its file only on the computer of the person who starts it;</li>
 <li>no KINEVA FIT application server for routines/GPS;  </li>
 <li>cleartext HTTP traffic disabled on the Android client.</li>
 </ul>
@@ -300,10 +307,10 @@ Phone: <a href="tel:+393717364261">+39 371 7364261</a><br />
 For general legal matters about the product: the same channel or the address shown on App Store Connect / Google Play Console.</p></section>
 <hr/>
 <section><h1 id="eula">End User License Agreement (EULA) — KINEVA FIT</h1>
-<p><strong>Version:</strong> 2.20<br />
-<strong>Date:</strong> 18 November 2026  </p>
+<p><strong>Version:</strong> 2.25<br />
+<strong>Date:</strong> 19 November 2026  </p>
 <blockquote>
-<p>Software licence and B2C contractual terms. Incorporates Apple Licensed Application End User License Agreement requirements where applicable. Legal review recommended before final publication.</p>
+<p>Software licence and B2C contractual terms. Incorporates Apple Licensed Application End User License Agreement requirements where applicable.</p>
 </blockquote>
 <hr />
 <h2>1. Acceptance</h2>
@@ -315,8 +322,9 @@ For general legal matters about the product: the same channel or the address sho
 <p>You are granted a <strong>personal, non-exclusive, non-transferable, revocable</strong> licence to use the App on devices you own or control, subject to store rules (Apple).</p>
 <p>The licence is <strong>personal</strong> and covers the subscription bound to the purchaser’s Apple ID / Google Play account, not an unlimited number of concurrent installations. Concurrent devices with paid features (iPhone, iPad, Android): <strong>Athlete Pro 2</strong>, <strong>Pro Plan 2</strong>, <strong>Studio &amp; Gym 3</strong>. The <strong>Apple Watch</strong> paired with the iPhone does <strong>not</strong> consume a seat. The Free plan has no device cap (each install remains Free).</p>
 <p>Restore Purchases remains available on every device, as required by the stores. The seat count follows the store account even when iCloud is a different account. The list holds the device identifier and name, not the routines. A device over the cap stays on the Free plan until another device is deactivated in Settings. <strong>Sharing an Apple ID or Play account</strong> (for example across gym iPads) to bypass the cap is forbidden. Clients of a studio do <strong>not</strong> inherit the Studio plan: they remain Free unless they purchase Athlete Pro themselves.</p>
+<p><strong>KINEVA FIT Studio</strong> is the same software, as a desktop program. The licence covers the computer you start it on. It is not a network service. The data file stays on that computer.</p>
 <p>You do not acquire ownership of the software, trademarks, exercise database or protected content.</p>
-<p>Some exercise animations (GIFs) are used under a <strong>third-party commercial licence</strong> (Gym Visual, <a href="https://gymvisual.com">gymvisual.com</a>). Copyright in that media remains with the rights holder. You acquire no rights in those files and may not extract, copy or redistribute them separately from the App. <strong>Gym Visual GIFs are for in-app display only</strong>: they are not included in PDF exports, print images, or encyclopedias generated by the App.</p>
+<p>Some exercise animations (GIFs) are used under a <strong>third-party commercial licence</strong> (Gym Visual, <a href="https://gymvisual.com">gymvisual.com</a>). Copyright in that media remains with the rights holder. You acquire no rights in those files and may not extract, copy or redistribute them separately from the App. <strong>Gym Visual GIFs</strong> are shown in the App. A workout sheet printed or sent to a client may include at most three frames per exercise, together with the notice that the sheet is informational and not medical advice, and that the images may not be extracted, transferred or resold. Those frames are not a separate catalogue and may not be extracted for redistribution. The full-catalog PDF encyclopedia does not include the GIFs.</p>
 <p><strong>Muscle silhouettes and body maps</strong> shown in the App and in exports are <strong>generated by the App</strong> and owned by <strong>SYNAPSE DIGITAL Advanced App Development</strong>; they are not part of the Gym Visual licence.</p>
 <hr />
 <h2>3. Restrictions</h2>
@@ -325,28 +333,29 @@ For general legal matters about the product: the same channel or the address sho
 <h2>4. Nature of the service — not a medical device</h2>
 <p>The App is a <strong>fitness</strong> tool (running, gym and Apple Watch training) and a <strong>workout-organisation</strong> aid.<br />
 It is not a medical device, does not diagnose or treat, and does not replace advice from a qualified healthcare professional or trainer.</p>
-<p>You agree to stop exercising if you feel pain, dizziness or malaise and to assess your own fitness for training.</p>
-<p><strong>Muscle-group</strong> indications (animations, silhouettes, primary and secondary muscle lists) and other exercise illustrations are <strong>teaching simplifications</strong> for illustrative purposes. They may not fully reflect real activation, which varies with technique, anatomy and load. They do not replace biomechanical or kinesiological assessment or professional supervision. Adherence and efficiency views (scheduled and completed sessions, clients to follow up) and the history readout (active time, load, calories, heart rate, effort, 7-, 28- and 90-day windows, comparison with the previous routine, per-client or studio totals) are an operational training log: they are not a medical or clinical assessment and they do not guarantee a result. Which figures appear depends on the plan shown in the app.</p>
+<p>You agree to stop exercising if you feel pain, dizziness, chest pain, shortness of breath or malaise and to assess your own fitness for training. With a medical condition, during pregnancy, after an injury, or for a minor, a physician should be consulted before starting.</p>
+<p><strong>Muscle-group</strong> indications (animations, silhouettes, primary and secondary muscle lists) and other exercise illustrations are <strong>teaching simplifications</strong> for illustrative purposes. They may not fully reflect real activation, which varies with technique, anatomy and load. They do not replace biomechanical or kinesiological assessment or professional supervision. Adherence and efficiency views (scheduled and completed sessions, clients to follow up) and the history readout (active time, load, calories, heart rate, effort, 7-, 28- and 90-day windows, comparison with the previous routine, per-client or studio totals) are an operational training log: they are not a medical or clinical assessment and they do not guarantee a result. Which figures appear depends on the plan shown in the app. Calories, pace, heart rate and effort are estimates or values entered by the user, not clinical measurements. Writing a workout to Apple Health does not make the App a medical device. Figures in Health are the user’s record and follow Apple’s policy.</p>
 <hr />
 <h2>5. Professional / trainer accounts</h2>
-<p>If you use multi-client features (Pro/Studio plans), you represent that you hold any qualifications required by law for your activity and that you are <strong>solely responsible</strong> for programmes assigned to clients and for respecting clients’ privacy (an independent controller–data subject relationship toward your clients). The Efficiency view summarises, on the device, the history and calendar of clients already visible to that trainer and does not send that data to a Licensor server. The last-28-day totals, per client and for the studio, stay on the same device and cover only clients already visible. How those figures are used with clients remains the trainer’s responsibility. The labels “On track”, “To call” and “No calendar”, and 7-day and 28-day adherence, are part of that log, are included in Pro Plan and Studio & Gym, and are not a guarantee of a result. The PIN, the recovery code, the count of wrong attempts and the automatic sign-out time stay on the device: after 5 wrong PINs sign-in stops for one minute, and after 8 the recovery code is required. On the Studio plan the supervisor can assign a routine from their own profile to a trainer. Without permission the trainer does not change that copy: they can assign it to their own clients and adapt only the client’s copy. Printing matrices and registries stays on the device.</p>
+<p>If you use multi-client features (Pro/Studio plans), you represent that you hold any qualifications required by law for your activity and that you are <strong>solely responsible</strong> for programmes assigned to clients and for respecting clients’ privacy (an independent controller–data subject relationship toward your clients). The Efficiency view summarises, on the device, the history and calendar of clients already visible to that trainer and does not send that data to a Licensor server. The last-28-day totals, per client and for the studio, stay on the same device and cover only clients already visible. How those figures are used with clients remains the trainer’s responsibility. The labels “On track”, “To call” and “No calendar”, and 7-day and 28-day adherence, are part of that log, are included in Pro Plan and Studio & Gym, and are not a guarantee of a result. The PIN, the recovery code, the count of wrong attempts and the automatic sign-out time stay on the device: after 5 wrong PINs sign-in stops for one minute, and after 8 the recovery code is required. On the Studio plan the supervisor can assign a routine from their own profile to a trainer. Without permission the trainer does not change that copy: they can assign it to their own clients and adapt only the client’s copy. Printing matrices and registries stays on the device. KINEVA FIT Studio has its own sign-ins, separate from the app PIN. A trainer imported from an app backup stays suspended until the supervisor sets a portal password. The supervisor informs clients, including minors, before entering their data.</p>
 <hr />
 <h2>6. Subscriptions and in-app purchases</h2>
 <p>Prices, renewals and cancellations follow <strong>Apple App Store</strong> and, on Android, <strong>Google Play</strong> rules. The Licensor does not process payment instruments directly. AI credits, add-ons (e.g. <strong>Pilates pack</strong>, one-time purchase) and plans may change; consumable features deplete as shown in-app. Subscriptions are available on a <strong>monthly or annual</strong> basis (annual is a single upfront payment with the discount shown in-app, typically equivalent to two months free).</p>
 <p><strong>Distance mapping</strong> features (free or prescribed-km runs, GPS, street route map, pace and kilometre voice cues) and the <strong>Apple Watch</strong> app (sessions, complications) are included in paid plans starting at <strong>Athlete Pro</strong>, as shown in-app. The Free plan does not include these features. <strong>Pro Plan</strong> and <strong>Studio &amp; Gym</strong> include Athlete Pro and add client/studio tools: Pro Plan allows up to <strong>8 client profiles</strong>; Studio &amp; Gym allows <strong>unlimited</strong> clients (as shown in-app). “Clients” are <strong>in-app profiles</strong>, not device seats: concurrent-device caps remain those in section 2.</p>
-<p>Withdrawal / refunds: according to Apple or Google Play policy and, where applicable, the Italian Consumer Code / EU consumer law.</p>
+<p>Withdrawal / refunds: according to Apple or Google Play policy and, where applicable, the Italian Consumer Code / EU consumer law. Where EU law gives a 14-day withdrawal right for distance contracts, asking for immediate performance of digital content can end that right, as the store flow explains. Where the law of the country of residence provides another withdrawal right or another refund, that rule remains. Apple and Google refund tools remain available.</p>
 <hr />
 <h2>7. User content and AI</h2>
 <p>You retain ownership of content you enter (routines, notes, photos). You grant the Licensor a limited licence to process it solely to provide the service. Exercises and equipment names entered by the trainer are user content. The catalog category (Fitness, Mobility, Isometric, Pilates) files them in the library and does not certify the movement or the equipment.</p>
-<p>AI features may produce incomplete or inaccurate results: you must always review them before using them in training.</p>
+<p>AI features may produce incomplete or inaccurate results: you must always review them before using them in training. AI output is not medical advice.</p>
 <hr />
 <h2>8. Availability and changes</h2>
 <p>The App is provided “as is” to the extent permitted by law. We may update features, plans and technical limits. Updates may be required to continue using the App.</p>
 <hr />
 <h2>9. Limitation of liability</h2>
-<p>To the maximum extent permitted by Italian and EU law:</p>
+<p>To the maximum extent permitted by Italian law, EU law and the law of the consumer’s country of residence:</p>
 <ul>
 <li>use of the App and performance of exercises are at your own risk;  </li>
+<li>the App’s advice (routines, text, figures, illustrations and AI proposals) is informational: the user’s use and performance of it are at their own risk, to the maximum extent permitted by law;  </li>
 <li>the Licensor is not liable for indirect damages, loss of profits, or data loss due to failure to back up;  </li>
 <li>nothing excludes liability for wilful misconduct or gross negligence, nor mandatory consumer rights.</li>
 </ul>
@@ -355,14 +364,14 @@ It is not a medical device, does not diagnose or treat, and does not replace adv
 <p>The licence ends if you breach this EULA or uninstall the App. Clauses on IP, liability and governing law survive.</p>
 <hr />
 <h2>11. Governing law and venue</h2>
-<p>Subject to mandatory consumer-protection rules, <strong>Italian law</strong> applies. Consumer venue: the place of residence/domicile of the consumer user in the EU; in all other cases jurisdiction is determined by the rules of law applicable to the relationship.</p>
+<p>Subject to the mandatory consumer-protection rules of the consumer’s country of residence, <strong>Italian law</strong> applies. Those protections apply in the European Union, the United Kingdom, Switzerland and every other country that grants them. The consumer’s venue is the place of residence or domicile, wherever that is. In all other cases jurisdiction is determined by the rules of law applicable to the relationship.</p>
 <hr />
 <h2>12. Contact</h2>
 <p><code>Support@synapse-digital-adv-app.com</code><br />
 Tel.: <a href="tel:+393717364261">+39 371 7364261</a></p>
 <hr />
 <h2>13. Apple Licensed Application clause</h2>
-<p>You acknowledge that: (i) this EULA is concluded between you and the Licensor, not Apple; (ii) Apple is not responsible for the App’s content or maintenance; (iii) Apple is a third-party beneficiary of certain EULA clauses and may enforce them; (iv) if the App fails to conform to an applicable warranty, you may contact Apple for a refund of the purchase price under Apple’s rules, and Apple has no other warranty obligations regarding the App.</p></section>
+<p>You acknowledge that: (i) this EULA is concluded between you and the Licensor, not Apple; (ii) Apple is not responsible for the App’s content or maintenance; (iii) Apple is a third-party beneficiary of certain EULA clauses and may enforce them; (iv) if the App fails to conform to an applicable warranty, you may contact Apple for a refund of the purchase price under Apple’s rules, and Apple has no other warranty obligations regarding the App; (v) if you allow writing to Health, Apple does not warrant the accuracy of data the App writes, and you can revoke access in iOS Settings. Data already in Health follows Apple’s policy.</p></section>
     <div class="footer">
         KINEVA FIT © 2026 SYNAPSE DIGITAL Advanced App Development.
     </div>
