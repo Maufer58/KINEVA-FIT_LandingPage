@@ -1156,7 +1156,7 @@ function onRequest() {
 }
 __name(onRequest, "onRequest");
 
-// ../.wrangler/tmp/pages-oNUJpR/functionsRoutes-0.808294458520892.mjs
+// ../.wrangler/tmp/pages-dmRldk/functionsRoutes-0.11781830578668084.mjs
 var routes = [
   {
     routePath: "/api/studio-code",
