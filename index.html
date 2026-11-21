@@ -216,9 +216,11 @@
             <strong data-i18n="platforms.iphone.name">iPhone</strong>
             <span data-i18n="platforms.iphone">App nativa iOS</span>
           </li>
-          <li>
-            <strong data-i18n="platforms.ipad.name">iPad</strong>
-            <span data-i18n="platforms.ipad">Editor e gestione ampliata</span>
+          <li class="platforms-item platforms-item--ipad">
+            <a href="#ipad">
+              <strong data-i18n="platforms.ipad.name">iPad</strong>
+              <span data-i18n="platforms.ipad">Tavolo di lavoro per Piano Pro e Studio</span>
+            </a>
           </li>
           <li>
             <strong data-i18n="platforms.watch.name">Apple Watch</strong>
@@ -761,6 +763,11 @@
           <p class="promo-kicker" data-i18n="ipad.kicker">Studio su iPad</p>
           <h2 data-i18n="ipad.title">KINEVA FIT</h2>
           <p class="promo-line" data-i18n="ipad.line">Il tavolo di lavoro del trainer e della gym.</p>
+          <aside class="ipad-recommend">
+            <p class="ipad-recommend-kicker" data-i18n="ipad.recommend.kicker">Piano Pro e Studio &amp; Gym, su iPhone e su iPad</p>
+            <p class="ipad-recommend-body" data-i18n="ipad.recommend.body">Su iPhone il piano è completo. Su iPad anagrafiche, schede, clienti e grafici restano affiancati: più cose visibili insieme. Il layout si adatta da solo.</p>
+            <p class="ipad-recommend-seat" data-i18n="ipad.recommend.seat">L’iPad conta come un dispositivo della licenza (Piano Pro: 2 posti, Studio &amp; Gym: 3, Apple Watch escluso).</p>
+          </aside>
           <p class="promo-lead" data-i18n="ipad.body">Su iPad gestisci profili, schede e consegna: File, Email o WhatsApp, PDF illustrato (GIF + QR) — da Trainer Pro fino a Studio &amp; Gym.</p>
         </div>
 
@@ -861,6 +868,10 @@
           <h2 data-i18n="studio.title">Il back-office della tua palestra</h2>
           <p data-i18n="studio.subtitle">Schede del profilo, clienti, multi‑trainer con Supervisore, griglia schede per trainer, stampa dei registri, sospensione, condivisione atleti, consegna File/Email/WhatsApp, PDF illustrati e backup — area protetta da PIN.</p>
         </div>
+        <p class="studio-ipad-banner reveal">
+          <span data-i18n="studio.ipadBanner">Su iPhone il piano è completo. Su iPad anagrafiche, schede e grafici restano affiancati e il layout si adatta da solo.</span>
+          <a href="#ipad" data-i18n="studio.ipadBannerLink">Vedi il layout iPad</a>
+        </p>
 
         <ol class="studio-workflow reveal" aria-label="Flusso trainer">
           <li>
@@ -2134,6 +2145,10 @@
             </p>
             <p class="paywall-equiv" data-annual-hint-it="equivale a 16.67€ al mese · 2 mesi omaggio" data-annual-hint-en="equals €16.67 / month · 2 months free" data-monthly-hint=""></p>
             <hr class="paywall-divider">
+            <p class="paywall-ipad-note">
+              <span data-i18n="plans.ipadNote">Su iPhone il piano è completo. Su iPad anagrafiche, schede e grafici restano affiancati.</span>
+              <a href="#ipad" data-i18n="plans.ipadNoteLink">Dettaglio iPad</a>
+            </p>
             <ul class="paywall-features">
               <li data-i18n="plans.trainer.f1">Tutte le funzioni Athlete PRO</li>
               <li data-i18n="plans.trainer.f17">Protocolli mobilità/postura assegnabili ai clienti</li>
@@ -2167,6 +2182,10 @@
             </p>
             <p class="paywall-equiv" data-annual-hint-it="equivale a 41.67€ al mese · 2 mesi omaggio" data-annual-hint-en="equals €41.67 / month · 2 months free" data-monthly-hint=""></p>
             <hr class="paywall-divider">
+            <p class="paywall-ipad-note">
+              <span data-i18n="plans.ipadNote">Su iPhone il piano è completo. Su iPad anagrafiche, schede e grafici restano affiancati.</span>
+              <a href="#ipad" data-i18n="plans.ipadNoteLink">Dettaglio iPad</a>
+            </p>
             <ul class="paywall-features">
               <li data-i18n="plans.studio.f1">Tutte le funzioni Piano Pro</li>
               <li data-i18n="plans.studio.f2">150 Crediti AI mensili</li>
@@ -2315,6 +2334,8 @@
         Largo Molinetto n. 1, 20900 Monza (MB) · Tel. +39 371 7364261 · P.IVA 14895130962 · D-U-N-S 302873219
       </p>
       <p class="footer-disclaimer" data-i18n="footer.disclaimer">KINEVA FIT è un’app fitness, non un dispositivo medico. I dati restano sul dispositivo.</p>
+      <p class="footer-gif" data-i18n="footer.gif">Alcune animazioni degli esercizi (GIF) sono usate con licenza commerciale di terzi (Gym Visual, gymvisual.com). Il copyright resta del titolare. Non si estraggono, non si copiano e non si ridistribuiscono fuori dall’app. Sulla scheda stampata o inviata, al massimo tre fotogrammi. Il testo completo è nell’EULA.</p>
+      <p class="footer-gif" data-i18n="footer.third">Apple, Google, Gemini, YouTube e WhatsApp sono marchi di terzi. L’AI opzionale invia a Gemini la richiesta che avvii tu: la risposta è una bozza da controllare. Il tetto dispositivi della build Store usa il servizio posti del Licenziante su Cloudflare e lo stato dell’abbonamento su RevenueCat. Ogni altro nome di terzo resta del suo titolare. Termini e trattamento sono nell’EULA e nella Privacy.</p>
       <p class="footer-links">
         <a href="#publisher" data-i18n="footer.publisher">Editore</a>
         <span aria-hidden="true"> · </span>
@@ -2335,7 +2356,7 @@
     </div>
   </footer>
 
-  <script src="js/i18n.js?v=20261118f"></script>
+  <script src="js/i18n.js?v=20261120b"></script>
   <script src="js/main.js?v=20261118g"></script>
 </body>
 </html>

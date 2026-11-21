@@ -655,6 +655,20 @@ code {
   color: var(--muted);
   font-size: 0.95rem;
 }
+.platforms-item--ipad a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(15, 118, 110, 0.08);
+  border: 1px solid rgba(15, 118, 110, 0.45);
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.08);
+}
+.platforms-item--ipad strong { color: #0f766e; }
+.platforms-item--ipad span { color: var(--ink); font-weight: 600; }
 @media (max-width: 520px) {
   .platforms-list {
     grid-template-columns: 1fr;
@@ -1315,6 +1329,37 @@ code {
   margin-bottom: 2.25rem;
 }
 .promo-ipad-head .promo-lead { max-width: 40rem; }
+.ipad-recommend {
+  margin: 1.15rem 0 1.15rem;
+  padding: 1rem 1.15rem;
+  max-width: 46rem;
+  border-radius: 14px;
+  border: 1px solid rgba(94, 234, 212, 0.7);
+  background: linear-gradient(135deg, rgba(38, 166, 154, 0.32), rgba(255, 152, 0, 0.16));
+  box-shadow: 0 0 0 1px rgba(94, 234, 212, 0.18), 0 16px 36px rgba(0, 0, 0, 0.28);
+}
+.ipad-recommend-kicker {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5eead4;
+}
+.ipad-recommend-body {
+  margin: 0;
+  color: #f3f6f9;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  font-weight: 700;
+}
+.ipad-recommend-seat {
+  margin: 0.5rem 0 0;
+  color: rgba(243, 246, 249, 0.78);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
 .ipad-showcase {
   display: grid;
   gap: 1.75rem;
@@ -2093,6 +2138,25 @@ body.shot-lightbox-open {
   width: min(100% - 2rem, 1280px);
 }
 .promo-studio .promo-kicker { color: #ffb74d; }
+.studio-ipad-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  margin: 0 0 1.75rem;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(94, 234, 212, 0.55);
+  background: rgba(38, 166, 154, 0.16);
+  color: #f3f6f9;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.studio-ipad-banner a {
+  color: #5eead4;
+  font-weight: 800;
+  text-underline-offset: 2px;
+}
 .promo-studio .section-head h2 {
   font-family: var(--font-display);
   letter-spacing: -0.035em;
@@ -3584,6 +3648,24 @@ html:not([lang="en"]) .efficiency-shot-en { display: none; }
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin: 1rem 0;
 }
+.paywall-ipad-note {
+  margin: 0 0 0.9rem;
+  padding: 0.7rem 0.75rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--tier) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tier) 62%, transparent);
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.paywall-ipad-note a {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: #fff;
+  font-weight: 800;
+  text-underline-offset: 2px;
+}
 .paywall-features {
   margin: 0;
   padding: 0;
@@ -3922,7 +4004,7 @@ html:not([lang="en"]) .efficiency-shot-en { display: none; }
   text-decoration: none;
 }
 .footer-brand img { border-radius: 0; }
-.footer-copy, .footer-links, .footer-disclaimer, .footer-legal-line {
+.footer-copy, .footer-links, .footer-disclaimer, .footer-gif, .footer-legal-line {
   margin: 0;
   color: var(--muted);
   font-size: 0.85rem;
@@ -3935,6 +4017,11 @@ html:not([lang="en"]) .efficiency-shot-en { display: none; }
 .footer-disclaimer {
   flex-basis: 100%;
   max-width: 40rem;
+  line-height: 1.45;
+}
+.footer-gif {
+  flex-basis: 100%;
+  max-width: 52rem;
   line-height: 1.45;
 }
 .footer-links a { color: var(--muted); font-weight: 600; }
