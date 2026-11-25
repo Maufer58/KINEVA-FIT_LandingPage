@@ -2340,6 +2340,14 @@ body.shot-lightbox-open {
   font-size: 0.85rem;
   font-weight: 650;
 }
+.studio-portal label small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+  font-weight: 450;
+  line-height: 1.45;
+  color: rgba(230, 235, 241, 0.72);
+}
 .studio-portal input {
   flex: 1 1 16rem;
   min-width: 0;

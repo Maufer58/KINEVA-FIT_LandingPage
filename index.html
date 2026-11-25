@@ -949,7 +949,10 @@
           <h3 data-i18n="studio.portal.title">KINEVA FIT Studio</h3>
           <p data-i18n="studio.portal.body">Anagrafiche, schede e note esercizio da Mac o PC, poi Importa Schede sull’app. Il download è per chi ha Piano Pro o Studio &amp; Gym a pagamento: il codice è in Impostazioni → Trainer Pro. Non vale in prova, né con Athlete Pro.</p>
           <form id="studio-portal-form" autocomplete="off">
-            <label for="studio-portal-code" data-i18n="studio.portal.label">Codice del portale</label>
+            <label for="studio-portal-code">
+              <span data-i18n="studio.portal.label">Codice del portale</span>
+              <small data-i18n="studio.portal.where">Nell’app: Altro → Trainer Pro → Portale da scrivania. Vale 7 giorni, con Piano Pro o Studio &amp; Gym a pagamento. Non in prova, né con Athlete Pro.</small>
+            </label>
             <input id="studio-portal-code" name="code" type="text" inputmode="text" autocomplete="off" spellcheck="false" required>
             <button class="btn btn-primary" type="submit" data-i18n="studio.portal.submit">Scarica il portale</button>
             <p id="studio-portal-msg" role="status" hidden></p>
@@ -2356,7 +2359,7 @@
     </div>
   </footer>
 
-  <script src="js/i18n.js?v=20261125e"></script>
+  <script src="js/i18n.js?v=20261125f"></script>
   <script src="js/main.js?v=20261125c"></script>
 </body>
 </html>
