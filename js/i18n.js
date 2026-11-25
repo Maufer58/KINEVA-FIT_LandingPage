@@ -1528,6 +1528,9 @@ window.siteI18n = {
     });
     const toggle = document.getElementById('langToggle');
     if (toggle) toggle.textContent = lang === 'it' ? 'EN' : 'IT';
+    if (typeof window.localizeLandingShots === 'function') {
+      window.localizeLandingShots();
+    }
   },
 
   toggle() {
