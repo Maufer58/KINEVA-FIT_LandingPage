@@ -198,90 +198,6 @@ const SHOT_CATALOG = {
 const SHOT_BASE = 'assets/screenshots/';
 const VIDEO_BASE = 'assets/videos/';
 
-/** Italian file → English file. Only names that exist in assets/screenshots/. */
-const SHOT_EN = {
-  '01-home.png': '01-home-en.png',
-  '02-runner.png': '02-runner-en.png',
-  '03-calendar.png': '03-calendar-en.png',
-  '04-progress.png': '04-progress-en.png',
-  '04-analytics-ipad.png': '04-analytics-ipad-en.png',
-  '05-history.png': '05-history-en.png',
-  '06-editor.png': '06-editor-en.png',
-  '07-settings.png': '07-settings-en.png',
-  '08-watch-hero.png': '08-watch-hero-en.png',
-  '08-watch-list.png': '08-watch-list-en.png',
-  '08-watch-start.png': '08-watch-start-en.png',
-  '08-watch-active.png': '08-watch-active-en.png',
-  '08-watch-done.png': '08-watch-done-en.png',
-  '09-gps-map.png': '09-gps-map-en.png',
-  '10-trainer.png': '10-trainer-en.png',
-  '10-trainer-ipad.png': '10-trainer-ipad-en.png',
-  '10-anagrafica-ipad.png': '10-anagrafica-ipad-en.png',
-  '10-anagrafica-detail-ipad.png': '10-anagrafica-detail-ipad-en.png',
-  '10-bio-ipad.png': '10-bio-ipad-en.png',
-  '10-send-ipad.png': '10-send-ipad-en.png',
-  '10-share-ipad.png': '10-share-ipad-en.png',
-  '11-studio-ipad.png': '11-studio-ipad-en.png',
-  '12-prep-checklist.png': '12-prep-checklist-en.png',
-  '13-ai-import.png': '13-ai-import-en.png',
-  '14-summary-reminder.png': '14-summary-reminder-en.png',
-  '15-history-detail.png': '15-history-detail-en.png',
-  '16-gps-charts.png': '16-gps-charts-en.png',
-  '17-exercise-editor.png': '17-exercise-editor-en.png',
-  '18-exercise-gif.png': '18-exercise-gif-en.png',
-  '19-muscle-map.png': '19-muscle-map-en.png',
-  '21-runner-rest.png': '21-runner-rest-en.png',
-  '27-assignment-matrix-ipad.png': '27-assignment-matrix-ipad-en.png',
-  '20-ai-result.png': '20-ai-result-en.png',
-  '21-mobility.png': '21-mobility-en.png',
-  '21-pilates.png': '21-pilates-en.png',
-  '21-pilates2.png': '21-pilates2-en.png',
-  '22-swim-setup.png': '22-swim-setup-en.png',
-  '23-swim-session.png': '23-swim-session-en.png',
-  '28-scheda-menu.png': '28-scheda-menu-en.png',
-  '28-scheda-a4.png': '28-scheda-a4-en.png',
-  '28-scheda-contatti.png': '28-scheda-contatti-en.png',
-};
-
-const SHOT_IT_FROM_EN = Object.fromEntries(
-  Object.entries(SHOT_EN).map(([it, en]) => [en, it]),
-);
-
-function landingLang() {
-  return (window.siteI18n && window.siteI18n.lang) || document.documentElement.lang || 'it';
-}
-
-/** Pick the English PNG when the page language is English and that file exists. */
-function shotFile(name) {
-  const file = String(name || '').split('?')[0].split('/').pop();
-  if (!file) return name;
-  if (landingLang() !== 'en') return SHOT_IT_FROM_EN[file] || file;
-  return SHOT_EN[file] || file;
-}
-
-function shotUrl(name) {
-  const raw = String(name || '');
-  const q = raw.includes('?') ? raw.slice(raw.indexOf('?')) : '';
-  return SHOT_BASE + shotFile(raw) + q;
-}
-
-/** Rewrite static screenshot <img> and video posters. Paired IT/EN slots stay as authored. */
-window.localizeLandingShots = function localizeLandingShots(root) {
-  const scope = root && root.querySelectorAll ? root : document;
-  scope.querySelectorAll('img[src*="screenshots/"], video[poster*="screenshots/"]').forEach((el) => {
-    if (el.closest('.efficiency-shot-it, .efficiency-shot-en, .lang-it, .lang-en')) return;
-    const attr = el.tagName === 'VIDEO' ? 'poster' : 'src';
-    const raw = el.getAttribute(attr) || '';
-    const file = raw.split('/').pop().split('?')[0];
-    const next = shotFile(file);
-    if (!next || next === file) return;
-    const q = raw.includes('?') ? raw.slice(raw.indexOf('?')) : '';
-    const prefix = raw.slice(0, raw.lastIndexOf('/') + 1);
-    el.dataset.tried = '';
-    el.setAttribute(attr, prefix + next + q);
-  });
-};
-
 window.strideShotFallback = function strideShotFallback(img) {
   const tried = (img.dataset.tried || '').split(',').filter(Boolean);
   // Mark the URL that just failed so we never retry the same 404
@@ -390,7 +306,7 @@ function setShowcaseShot(id) {
 
   if (entry.video && video) {
     setShowcaseMode('broll');
-    video.poster = shotUrl(entry.file);
+    video.poster = SHOT_BASE + entry.file;
     video.src = VIDEO_BASE + entry.video;
     video.muted = true;
     video.loop = true;
@@ -408,7 +324,7 @@ function setShowcaseShot(id) {
   img.dataset.fallbacks = (entry.legacy || []).join(',');
   img.alt = `KINEVA FIT screenshot ${id}`;
   img.hidden = false;
-  img.src = shotUrl(entry.file);
+  img.src = SHOT_BASE + entry.file;
   if (label) label.textContent = entry.label;
 }
 
@@ -851,7 +767,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isWatch) {
         const fig = document.createElement('figure');
         const img = document.createElement('img');
-        img.src = shotUrl(file);
+        img.src = SHOT_BASE + file;
         img.alt = caption;
         img.loading = 'lazy';
         img.dataset.fallbacks = fallbacks;
@@ -873,7 +789,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const frame = document.createElement('div');
         frame.className = isIpad ? 'feature-tablet' : 'feature-phone';
         const img = document.createElement('img');
-        img.src = shotUrl(file);
+        img.src = SHOT_BASE + file;
         img.alt = caption;
         img.loading = 'lazy';
         img.dataset.fallbacks = fallbacks;
