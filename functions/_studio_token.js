@@ -49,22 +49,70 @@ function periodBlocksDownload(ent) {
   return period === 'trial' || period === 'intro';
 }
 
-/** Paid Piano Pro or Studio & Gym. Trial and Athlete Pro get nothing. */
+const ANNUAL_PORTAL_PRODUCTS = new Set([
+  'com.mauroferrari.FITPlus.pro_trainer.annual',
+  'com.mauroferrari.FITPlus.studio.yearly',
+  // Retired Connect id. Existing annual subscribers may still carry it.
+  'com.mauroferrari.FITPlus.studio.annual',
+]);
+
+export function portalProductId(ent) {
+  return String(ent?.product_identifier || ent?.productIdentifier || '').trim();
+}
+
+/** Annual Piano Pro or Studio only. Monthly product ids are refused. */
+export function isAnnualPortalProduct(productId) {
+  const base = String(productId || '').trim().toLowerCase().split(':')[0];
+  if (!base) return false;
+  for (const id of ANNUAL_PORTAL_PRODUCTS) {
+    if (base === id.toLowerCase()) return true;
+  }
+  return false;
+}
+
+/**
+ * Paid annual Piano Pro or Studio & Gym.
+ * Trial, monthly, Athlete Pro and an unknown product get nothing.
+ * The highest active plan wins: a monthly Studio does not fall through to Pro.
+ */
 export function planFromSubscriber(subscriber, nowMs = Date.now()) {
   const ents = subscriber?.entitlements || {};
   for (const [key, plan] of [['studio', 'studio'], ['proTrainer', 'pro']]) {
     const ent = ents[key];
     if (!isEntitlementActive(ent, nowMs)) continue;
     if (periodBlocksDownload(ent)) return null;
+    if (!isAnnualPortalProduct(portalProductId(ent))) return null;
     return plan;
   }
   return null;
 }
 
-export async function issueToken(secret, plan, nowSec = Math.floor(Date.now() / 1000)) {
+/** Why a subscriber does not get a portal code: monthly, or anything else. */
+export function portalDenial(subscriber, nowMs = Date.now()) {
+  if (planFromSubscriber(subscriber, nowMs)) return null;
+  const ents = subscriber?.entitlements || {};
+  for (const key of ['studio', 'proTrainer']) {
+    const ent = ents[key];
+    if (!isEntitlementActive(ent, nowMs)) continue;
+    if (!isAnnualPortalProduct(portalProductId(ent))) return 'monthly';
+  }
+  return 'forbidden';
+}
+
+/** Pilates is a separate pack. A paid Pro or Studio plan does not include it. */
+export function pilatesFromSubscriber(subscriber, nowMs = Date.now()) {
+  const ent = subscriber?.entitlements?.pilates;
+  if (!isEntitlementActive(ent, nowMs)) return false;
+  if (periodBlocksDownload(ent)) return false;
+  return true;
+}
+
+export async function issueToken(secret, plan, nowSec = Math.floor(Date.now() / 1000), pilates = false) {
   const payload = {
     v: 1,
     p: plan,
+    m: 1,
+    y: pilates ? 1 : 0,
     e: nowSec + TTL_SEC,
     n: bytesToB64Url(crypto.getRandomValues(new Uint8Array(9))),
   };
@@ -99,6 +147,18 @@ export async function verifyToken(secret, token, nowSec = Math.floor(Date.now() 
     return { ok: false, reason: 'expired' };
   }
   return { ok: true, payload };
+}
+
+/** Flags the desk reads. Older codes omit m and y: Mobility stays on, Pilates stays off. */
+export function licenseFromPayload(payload) {
+  const mobility = payload?.m == null ? true : payload.m === 1 || payload.m === true;
+  const pilates = payload?.y === 1 || payload?.y === true;
+  return {
+    plan: payload?.p || '',
+    mobility,
+    pilates,
+    expiresAt: payload?.e,
+  };
 }
 
 export const STUDIO_CODE_TTL_SEC = TTL_SEC;
