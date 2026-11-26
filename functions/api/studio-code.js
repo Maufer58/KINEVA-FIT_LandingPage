@@ -1,4 +1,4 @@
-import { planFromSubscriber, issueToken, STUDIO_CODE_TTL_SEC } from '../_studio_token.js';
+import { planFromSubscriber, portalDenial, pilatesFromSubscriber, issueToken, STUDIO_CODE_TTL_SEC } from '../_studio_token.js';
 
 const RC_API = 'https://api.revenuecat.com/v1';
 const APP_USER_ID = /^[A-Za-z0-9_$.:@-]{1,200}$/;
@@ -48,9 +48,14 @@ export async function onRequestPost(context) {
   }
   if (!subscriber) return json(403, 'forbidden');
   const plan = planFromSubscriber(subscriber);
-  if (!plan) return json(403, 'forbidden');
+  if (!plan) return json(403, portalDenial(subscriber));
 
-  const code = await issueToken(signingKey, plan);
+  const code = await issueToken(
+    signingKey,
+    plan,
+    Math.floor(Date.now() / 1000),
+    pilatesFromSubscriber(subscriber),
+  );
   return new Response(JSON.stringify({
     code,
     expiresInDays: STUDIO_CODE_TTL_SEC / 86400,

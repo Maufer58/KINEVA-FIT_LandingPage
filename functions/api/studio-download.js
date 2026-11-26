@@ -1,15 +1,5 @@
 import { verifyToken } from '../_studio_token.js';
 
-function sameSecret(given, expected) {
-  const enc = new TextEncoder();
-  const a = enc.encode(given);
-  const b = enc.encode(expected);
-  if (a.length !== b.length || a.length === 0) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i += 1) diff |= a[i] ^ b[i];
-  return diff === 0;
-}
-
 function json(status, error) {
   return new Response(JSON.stringify({ error }), {
     status,
@@ -32,7 +22,8 @@ export async function onRequestPost(context) {
     code = '';
   }
   const token = await verifyToken(expected, code);
-  if (!token.ok && !sameSecret(code, expected)) {
+  const plan = token.ok ? token.payload.p : '';
+  if (!token.ok || (plan !== 'pro' && plan !== 'studio')) {
     return json(401, token.reason === 'expired' ? 'expired' : 'invalid');
   }
 
