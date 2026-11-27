@@ -21,7 +21,6 @@
     { id: "templates-bulk", kind: "single",   file_it: "IMG_6010.PNG", file_en: "IMG_6010.PNG", note: "[OK] iPhone/iPad: Gestione schede multi-select (archivia/elimina / per atleta)" },
     { id: "brand-pdf", kind: "single",   file_it: "IMG_5001.PNG", file_en: "IMG_5001.PNG", note: "[OK] iPhone: anteprima PDF brandizzato con logo studio in intestazione" },
     { id: "ai-catalog", kind: "single",   file_it: "IMG_3750.png", file_en: "IMG_3750.png", note: "[OK] iPhone: Seleziona esercizi con filtri (muscolo/categoria/attrezzo) e multi-check" },
-    { id: "ai-wizard", kind: "single",   file_it: "TODO_ai_wizard.png", file_en: "TODO_ai_wizard.png", note: "[DA_PRODURRE] iPhone: schermata AI Wizard — prompt obiettivo/livello + anteprima scheda generata (IT e EN)" },
     { id: "ai-photo-import", kind: "single",   file_it: "TODO_ai_photo_import.png", file_en: "TODO_ai_photo_import.png", note: "[DA_PRODURRE] iPhone: flusso Import da foto — camera/crop + risultato scheda da verificare" },
     { id: "circuit-iphone", kind: "single",   file_it: "IMG_4001.PNG", file_en: "IMG_4001.PNG", note: "[OK] iPhone: gestione/visualizzazione circuito o macro-blocco in editor/runner" },
     { id: "circuit-editor", kind: "single",   file_it: "TODO_circuit_macroblock.png", file_en: "TODO_circuit_macroblock.png", note: "[DA_PRODURRE] iPhone: editor Macro-Blocco/Circuito con giri, lista esercizi nel blocco e macro-recupero" },

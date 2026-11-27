@@ -64,7 +64,7 @@ Foglio Excel operativo: [`SNAPSHOT_LANDING.xlsx`](SNAPSHOT_LANDING.xlsx) (foglio
 | **07** | `07-settings.png` | `#screens` tab 07 · `#features` settings | iPhone | **Promemoria allenamento** (avviso + checklist) | Tab **Altro** → **Base** → scroll *Promemoria allenamento* | 🔄 modificare |
 | **09** | `09-gps-map.png` | `#screens` tab 09 · `#features` GPS | iPhone | Corsa con mappa GPS | Runner con **GPS ON** → completa → **Storico** → tap sessione GPS → mappa *(Athlete Pro+)* | ✅ |
 | **10** | `10-trainer.png` | `#screens` tab 10 | iPhone | Area clienti / trainer su telefono | **Home** → ☰ → **Anagrafica clienti** *(Piano Pro+)* | ✅ |
-| **13** | `13-ai-import.png` | `#ai-import` | iPhone | Import scheda da foto / AI | **Home** → **Nuova Routine** → **Importa Scheda da Foto** (o Genera con AI) | ✅ |
+| **13** | `13-ai-import.png` | `#ai-import` | iPhone | Import scheda da foto | **Home** → **Nuova Routine** → **Importa Scheda da Foto** | ✅ |
 
 ---
 
