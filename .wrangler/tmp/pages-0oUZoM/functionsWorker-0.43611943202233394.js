@@ -979,21 +979,61 @@ function periodBlocksDownload(ent) {
   return period === "trial" || period === "intro";
 }
 __name(periodBlocksDownload, "periodBlocksDownload");
+var ANNUAL_PORTAL_PRODUCTS = /* @__PURE__ */ new Set([
+  "com.mauroferrari.FITPlus.pro_trainer.annual",
+  "com.mauroferrari.FITPlus.studio.yearly",
+  // Retired Connect id. Existing annual subscribers may still carry it.
+  "com.mauroferrari.FITPlus.studio.annual"
+]);
+function portalProductId(ent) {
+  return String(ent?.product_identifier || ent?.productIdentifier || "").trim();
+}
+__name(portalProductId, "portalProductId");
+function isAnnualPortalProduct(productId) {
+  const base = String(productId || "").trim().toLowerCase().split(":")[0];
+  if (!base) return false;
+  for (const id of ANNUAL_PORTAL_PRODUCTS) {
+    if (base === id.toLowerCase()) return true;
+  }
+  return false;
+}
+__name(isAnnualPortalProduct, "isAnnualPortalProduct");
 function planFromSubscriber(subscriber, nowMs = Date.now()) {
   const ents = subscriber?.entitlements || {};
   for (const [key, plan] of [["studio", "studio"], ["proTrainer", "pro"]]) {
     const ent = ents[key];
     if (!isEntitlementActive(ent, nowMs)) continue;
     if (periodBlocksDownload(ent)) return null;
+    if (!isAnnualPortalProduct(portalProductId(ent))) return null;
     return plan;
   }
   return null;
 }
 __name(planFromSubscriber, "planFromSubscriber");
-async function issueToken(secret, plan, nowSec = Math.floor(Date.now() / 1e3)) {
+function portalDenial(subscriber, nowMs = Date.now()) {
+  if (planFromSubscriber(subscriber, nowMs)) return null;
+  const ents = subscriber?.entitlements || {};
+  for (const key of ["studio", "proTrainer"]) {
+    const ent = ents[key];
+    if (!isEntitlementActive(ent, nowMs)) continue;
+    if (!isAnnualPortalProduct(portalProductId(ent))) return "monthly";
+  }
+  return "forbidden";
+}
+__name(portalDenial, "portalDenial");
+function pilatesFromSubscriber(subscriber, nowMs = Date.now()) {
+  const ent = subscriber?.entitlements?.pilates;
+  if (!isEntitlementActive(ent, nowMs)) return false;
+  if (periodBlocksDownload(ent)) return false;
+  return true;
+}
+__name(pilatesFromSubscriber, "pilatesFromSubscriber");
+async function issueToken(secret, plan, nowSec = Math.floor(Date.now() / 1e3), pilates = false) {
   const payload = {
     v: 1,
     p: plan,
+    m: 1,
+    y: pilates ? 1 : 0,
     e: nowSec + TTL_SEC,
     n: bytesToB64Url(crypto.getRandomValues(new Uint8Array(9)))
   };
@@ -1030,6 +1070,17 @@ async function verifyToken(secret, token, nowSec = Math.floor(Date.now() / 1e3))
   return { ok: true, payload };
 }
 __name(verifyToken, "verifyToken");
+function licenseFromPayload(payload) {
+  const mobility = payload?.m == null ? true : payload.m === 1 || payload.m === true;
+  const pilates = payload?.y === 1 || payload?.y === true;
+  return {
+    plan: payload?.p || "",
+    mobility,
+    pilates,
+    expiresAt: payload?.e
+  };
+}
+__name(licenseFromPayload, "licenseFromPayload");
 var STUDIO_CODE_TTL_SEC = TTL_SEC;
 
 // api/studio-code.js
@@ -1078,8 +1129,13 @@ async function onRequestPost(context2) {
   }
   if (!subscriber) return json(403, "forbidden");
   const plan = planFromSubscriber(subscriber);
-  if (!plan) return json(403, "forbidden");
-  const code = await issueToken(signingKey, plan);
+  if (!plan) return json(403, portalDenial(subscriber));
+  const code = await issueToken(
+    signingKey,
+    plan,
+    Math.floor(Date.now() / 1e3),
+    pilatesFromSubscriber(subscriber)
+  );
   return new Response(JSON.stringify({
     code,
     expiresInDays: STUDIO_CODE_TTL_SEC / 86400
@@ -1094,16 +1150,6 @@ async function onRequestPost(context2) {
 __name(onRequestPost, "onRequestPost");
 
 // api/studio-download.js
-function sameSecret(given, expected) {
-  const enc = new TextEncoder();
-  const a = enc.encode(given);
-  const b = enc.encode(expected);
-  if (a.length !== b.length || a.length === 0) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i += 1) diff |= a[i] ^ b[i];
-  return diff === 0;
-}
-__name(sameSecret, "sameSecret");
 function json2(status, error3) {
   return new Response(JSON.stringify({ error: error3 }), {
     status,
@@ -1125,7 +1171,8 @@ async function onRequestPost2(context2) {
     code = "";
   }
   const token = await verifyToken(expected, code);
-  if (!token.ok && !sameSecret(code, expected)) {
+  const plan = token.ok ? token.payload.p : "";
+  if (!token.ok || plan !== "pro" && plan !== "studio") {
     return json2(401, token.reason === "expired" ? "expired" : "invalid");
   }
   const assetUrl = new URL("/downloads/kineva-fit-studio.zip", context2.request.url);
@@ -1140,6 +1187,35 @@ async function onRequestPost2(context2) {
   return new Response(asset.body, { status: 200, headers });
 }
 __name(onRequestPost2, "onRequestPost");
+
+// api/studio-license.js
+function json3(status, body) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store"
+    }
+  });
+}
+__name(json3, "json");
+async function onRequestPost3(context2) {
+  const expected = String(context2.env.KINEVA_STUDIO_DOWNLOAD_CODE || "").trim();
+  if (!expected) return json3(503, { error: "unavailable" });
+  let code = "";
+  try {
+    const body = await context2.request.json();
+    code = String(body?.code || "").trim();
+  } catch {
+    code = "";
+  }
+  const token = await verifyToken(expected, code);
+  if (!token.ok || token.payload.p !== "pro" && token.payload.p !== "studio") {
+    return json3(401, { error: token.reason === "expired" ? "expired" : "invalid" });
+  }
+  return json3(200, licenseFromPayload(token.payload));
+}
+__name(onRequestPost3, "onRequestPost");
 
 // downloads/kineva-fit-studio.zip.js
 function onRequest() {
@@ -1156,7 +1232,7 @@ function onRequest() {
 }
 __name(onRequest, "onRequest");
 
-// ../.wrangler/tmp/pages-6mA3sK/functionsRoutes-0.05015193931177875.mjs
+// ../.wrangler/tmp/pages-0oUZoM/functionsRoutes-0.27148433281358675.mjs
 var routes = [
   {
     routePath: "/api/studio-code",
@@ -1171,6 +1247,13 @@ var routes = [
     method: "POST",
     middlewares: [],
     modules: [onRequestPost2]
+  },
+  {
+    routePath: "/api/studio-license",
+    mountPath: "/api",
+    method: "POST",
+    middlewares: [],
+    modules: [onRequestPost3]
   },
   {
     routePath: "/downloads/kineva-fit-studio.zip",
