@@ -10,7 +10,6 @@ assign-bulk,single,,IMG_5010.PNG,IMG_5010.PNG,OK,"iPhone/iPad: modal Assegna a�
 templates-bulk,single,,IMG_6010.PNG,IMG_6010.PNG,OK,"iPhone/iPad: Gestione schede multi-select (archivia/elimina / per atleta)"
 brand-pdf,single,,IMG_5001.PNG,IMG_5001.PNG,OK,"iPhone: anteprima PDF brandizzato con logo studio in intestazione"
 ai-catalog,single,,IMG_3750.png,IMG_3750.png,OK,"iPhone: Seleziona esercizi con filtri (muscolo/categoria/attrezzo) e multi-check"
-ai-photo-import,single,,TODO_ai_photo_import.png,TODO_ai_photo_import.png,DA_PRODURRE,"iPhone: import scheda da foto — camera/crop e bozza da verificare, senza generazione dal profilo"
 ai-photo-import,single,,TODO_ai_photo_import.png,TODO_ai_photo_import.png,DA_PRODURRE,"iPhone: flusso Import da foto — camera/crop + risultato scheda da verificare"
 circuit-iphone,single,,IMG_4001.PNG,IMG_4001.PNG,OK,"iPhone: gestione/visualizzazione circuito o macro-blocco in editor/runner"
 circuit-editor,single,,TODO_circuit_macroblock.png,TODO_circuit_macroblock.png,DA_PRODURRE,"iPhone: editor Macro-Blocco/Circuito con giri, lista esercizi nel blocco e macro-recupero"
