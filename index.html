@@ -18,6 +18,7 @@
         <img class="brand-logo" src="assets/logo-horizontal.png" alt="KINEVA FIT" width="150" height="58">
       </a>
       <nav class="nav-desktop" aria-label="Principale">
+        <a href="#schede-cliente" data-i18n="nav.handoff">Schede</a>
         <a href="#story" data-i18n="nav.story">Perché</a>
         <a href="#tipologie" data-i18n="nav.types">Tipologie</a>
         <a href="#features" data-i18n="nav.features">Funzionalità</a>
@@ -45,6 +46,7 @@
       </button>
     </div>
     <nav class="nav-mobile" id="navMobile" hidden>
+      <a href="#schede-cliente" data-i18n="nav.handoff">Schede</a>
       <a href="#story" data-i18n="nav.story">Perché</a>
       <a href="#tipologie" data-i18n="nav.types">Tipologie</a>
       <a href="#features" data-i18n="nav.features">Funzionalità</a>
@@ -90,7 +92,7 @@
           </div>
           <p class="hero-eyebrow" data-i18n="hero.eyebrow">Per atleti, trainer e studio</p>
           <p class="hero-line" data-i18n="hero.line">Fine dei pezzi sparsi: allenati, misura e gestisci i clienti in un solo flusso</p>
-          <p class="lead" data-i18n="hero.lead">KINEVA FIT unisce palestra, outdoor e strumenti trainer — così chi si allena e chi allena restano sullo stesso ritmo, da Android e Apple.</p>
+          <p class="lead" data-i18n="hero.lead">KINEVA FIT unisce palestra, outdoor e strumenti trainer. Il trainer invia la scheda, il cliente la importa e si allena — su Android e Apple.</p>
           <ul class="hero-diff" aria-label="Cosa distingue KINEVA FIT">
             <li>
               <span class="hero-diff__n" aria-hidden="true">01</span>
@@ -109,15 +111,15 @@
             <li>
               <span class="hero-diff__n" aria-hidden="true">03</span>
               <span class="hero-diff__text">
-                <strong data-i18n="hero.diff3.title">Studio trainer</strong>
-                <span data-i18n="hero.diff3.body">Clienti, iPad e consegna schede — anche multi-trainer.</span>
+                <strong data-i18n="hero.diff3.title">Schede dal trainer</strong>
+                <span data-i18n="hero.diff3.body">Il trainer le invia. Il cliente le importa sul proprio profilo e si allena.</span>
               </span>
             </li>
           </ul>
           <p class="hero-types-strip" data-i18n="hero.typesStrip">Serie · Timer · Crono · Piramide · Drop · Rest-pause · Super set · Circuiti · T21 · GPS · Nuoto</p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="#download" data-i18n="hero.ctaPrimary">Inizia con KINEVA FIT</a>
-            <a class="btn btn-ghost" href="#tipologie" data-i18n="hero.ctaSecondary">Vedi le tipologie</a>
+            <a class="btn btn-ghost" href="#schede-cliente" data-i18n="hero.ctaSecondary">Come arrivano le schede</a>
           </div>
         </div>
         <div class="hero-visual" aria-label="KINEVA FIT su iPhone, Apple Watch e iPad">
@@ -162,6 +164,43 @@
         </div>
       </div>
       <p class="hero-platforms" data-i18n="platforms.strip">Android · iPhone · iPad · Apple Watch</p>
+    </section>
+
+    <section class="handoff section" id="schede-cliente" aria-labelledby="handoff-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="handoff-kicker" data-i18n="handoff.kicker">Dal trainer al cliente</p>
+          <h2 id="handoff-title" data-i18n="handoff.title">Il trainer invia la scheda. Il cliente la importa e si allena.</h2>
+          <p class="handoff-lead" data-i18n="handoff.lead">Il cliente non entra nello studio del trainer. Riceve un file, lo apre in KINEVA FIT e trova la scheda sul proprio profilo. Poi si allena in palestra, all’aperto o con l’Apple Watch.</p>
+        </div>
+        <ol class="handoff-steps reveal">
+          <li class="handoff-step">
+            <span class="handoff-step__n">01</span>
+            <h3 data-i18n="handoff.s1.title">Il trainer prepara e invia</h3>
+            <p data-i18n="handoff.s1.body">Scrive la scheda in app o in KINEVA FIT Studio, poi usa Esporta / Invia Schede. Esce un file JSON con gli esercizi, non il backup dell’app.</p>
+            <p class="handoff-step__plan" data-i18n="handoff.s1.plan">Piano Pro o Studio &amp; Gym, a pagamento</p>
+          </li>
+          <li class="handoff-step">
+            <span class="handoff-step__n">02</span>
+            <h3 data-i18n="handoff.s2.title">Il file arriva al cliente</h3>
+            <p data-i18n="handoff.s2.body">File, Email, WhatsApp o cloud. Lo stesso file può andare a un collega, che sceglie i clienti destinazione. Per il cliente è la sua scheda.</p>
+            <p class="handoff-step__plan" data-i18n="handoff.s2.plan">Non è lo storico e non è il backup completo</p>
+          </li>
+          <li class="handoff-step">
+            <span class="handoff-step__n">03</span>
+            <h3 data-i18n="handoff.s3.title">Il cliente importa</h3>
+            <p data-i18n="handoff.s3.body">Impostazioni → Base → Importa schede dal trainer. Le schede finiscono sul suo profilo. Non crea altri clienti e non diventa trainer.</p>
+            <p class="handoff-step__plan" data-i18n="handoff.s3.plan">Athlete Pro a pagamento, non in prova</p>
+          </li>
+        </ol>
+        <div class="handoff-foot reveal">
+          <p class="handoff-note" data-i18n="handoff.note">Sul piano Free e in prova l’import è chiuso. Il PDF della scheda resta una consegna da leggere o stampare: in app si reimporta solo il JSON.</p>
+          <div class="handoff-actions">
+            <a class="btn btn-primary" href="#plans" data-i18n="handoff.ctaPlans">Vedi i piani</a>
+            <a class="btn btn-ghost" href="#backup-export" data-i18n="handoff.ctaFiles">Quale file usare</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="story section" id="story">
@@ -1491,8 +1530,8 @@
           </article>
 
           <article class="backup-flow backup-flow-routines">
-            <p class="backup-flow-label" data-i18n="backup.routines.label">2 · Schede tra trainer / dispositivi (JSON)</p>
-            <h3 data-i18n="backup.routines.title">Trainer A → Trainer B (o A → altro device di A)</h3>
+            <p class="backup-flow-label" data-i18n="backup.routines.label">2 · Schede dal trainer al cliente (JSON)</p>
+            <h3 data-i18n="backup.routines.title">Trainer → cliente</h3>
             <dl class="backup-dl">
               <div>
                 <dt data-i18n="backup.who">Chi</dt>
@@ -1500,7 +1539,7 @@
               </div>
               <div>
                 <dt data-i18n="backup.to">A chi</dt>
-                <dd data-i18n="backup.routines.to">Ricevente: un collega con KINEVA FIT, oppure tu su un secondo iPhone/iPad. Condivide il file JSON (o PDF batch) via File, Email o WhatsApp.</dd>
+                <dd data-i18n="backup.routines.to">Prima il cliente, con Athlete Pro a pagamento: importa sul proprio profilo. Lo stesso JSON può andare a un collega con Piano Pro o Studio, che sceglie i clienti. Canale: File, Email, WhatsApp o cloud.</dd>
               </div>
               <div>
                 <dt data-i18n="backup.how">Come</dt>
